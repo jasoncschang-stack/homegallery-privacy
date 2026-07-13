@@ -10,6 +10,8 @@
 - **Contact:** jasoncs311@gmail.com  
 - **Package:** `com.jasoncs.homegallery`  
 - **Effective:** 2026-07-13  
+- **Live URL:** https://jasoncschang-stack.github.io/homegallery-privacy/  
+- **Crashlytics:** Not enabled for current shipping builds (方案 A)  
 
 ## Deploy (about 5 minutes)
 
@@ -31,11 +33,11 @@ git init
 git add .
 git commit -m "Publish Home Gallery privacy policy"
 git branch -M main
-git remote add origin https://github.com/YOUR_GITHUB_USERNAME/homegallery-privacy.git
+git remote add origin https://github.com/jasoncschang-stack/homegallery-privacy.git
 git push -u origin main
 ```
 
-Replace `YOUR_GITHUB_USERNAME` with your GitHub username. Sign in when Git prompts you.
+Sign in when Git prompts you.
 
 ### 3. Enable GitHub Pages
 
@@ -44,10 +46,10 @@ Replace `YOUR_GITHUB_USERNAME` with your GitHub username. Sign in when Git promp
 3. **Branch:** `main` / `/ (root)`
 4. Save — wait 1–2 minutes
 
-### 4. Your public URL
+### 4. Public URL (live)
 
 ```text
-https://YOUR_GITHUB_USERNAME.github.io/homegallery-privacy/
+https://jasoncschang-stack.github.io/homegallery-privacy/
 ```
 
 Open it in a browser (no login). Then paste the same URL into:

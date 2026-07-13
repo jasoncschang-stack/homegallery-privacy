@@ -132,7 +132,7 @@
 
       <h3>Information sent to third parties</h3>
       <p><strong>Google Play Billing.</strong> When you purchase Pro, payment and purchase verification are handled by Google. We do not receive your payment card details.</p>
-      <p><strong>Firebase Crashlytics (Google).</strong> If Firebase is configured for a release build, the app <em>may</em> send crash reports and non-fatal diagnostics (device model, OS version, app version, stack traces). This does <strong>not</strong> include your photos or SMB passwords. Debug builds do not collect Crashlytics data. If Firebase is not configured, no Crashlytics reports are sent.</p>
+      <p><strong>Firebase Crashlytics (Google).</strong> The app includes optional Crashlytics support. <strong>Current shipping builds do not enable Crashlytics</strong> (Firebase is not configured), so no crash reports are sent. If Firebase is configured in a future release, the app may send crash reports and non-fatal diagnostics (device model, OS version, app version, stack traces). This does <strong>not</strong> include your photos or SMB passwords. Debug builds do not collect Crashlytics data.</p>
       <p><strong>Google ML Kit (on-device).</strong> Face detection for the portrait edit feature runs on your device. Photos are not uploaded to our servers for this feature.</p>
       <p><strong>Google Cast.</strong> If you cast a local video, the Cast framework communicates with devices on your network under Google’s policies.</p>
       <p><strong>Your home storage / NAS.</strong> SMB browse, upload, backup, and streaming talk only to servers <strong>you configure</strong>.</p>
@@ -203,7 +203,7 @@
 
       <h3>可能傳送給第三方的資訊</h3>
       <p><strong>Google Play 帳單。</strong>購買 Pro 時由 Google 處理付款與驗證，我們不會收到您的信用卡資料。</p>
-      <p><strong>Firebase Crashlytics（Google）。</strong>若正式版已設定 Firebase，App <em>可能</em>傳送當機與錯誤診斷（裝置型號、系統版本、App 版本、堆疊追蹤等），<strong>不包含</strong>相片或網路儲存密碼。Debug 建置不收集。若未設定 Firebase，則不會送出 Crashlytics 報告。</p>
+      <p><strong>Firebase Crashlytics（Google）。</strong>App 內建可選的 Crashlytics 支援。<strong>目前上架建置未啟用 Crashlytics</strong>（未設定 Firebase），因此<strong>不會</strong>傳送當機報告。若日後設定 Firebase，正式版可能傳送當機與錯誤診斷（裝置型號、系統版本、App 版本、堆疊追蹤等），<strong>不包含</strong>相片或網路儲存密碼。Debug 建置不收集。</p>
       <p><strong>Google ML Kit（裝置端）。</strong>肖像編輯的人臉偵測在本機執行，不會為此上傳相片至我們的伺服器。</p>
       <p><strong>Google Cast。</strong>投影本機影片時，依 Google 規範與區網裝置通訊。</p>
       <p><strong>您的家中儲存／NAS。</strong>SMB 相關功能只與<strong>您設定的</strong>伺服器通訊。</p>
@@ -249,9 +249,8 @@
     </section>
 
     <p class="note">
-      Play Console: paste this page’s HTTPS URL into <strong>App content → Privacy policy</strong>.
-      Example after GitHub Pages is enabled:
-      <code>https://&lt;your-github-username&gt;.github.io/homegallery-privacy/</code>
+      Play Console: paste this page’s HTTPS URL into <strong>App content → Privacy policy</strong>:
+      <code>https://jasoncschang-stack.github.io/homegallery-privacy/</code>
     </p>
 
     <footer>
