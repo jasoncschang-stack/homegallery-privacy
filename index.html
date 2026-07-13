@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Gallery — Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for Home Gallery (家相簿), Android package com.jasoncs.homegallery." />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1a1f2e;
+      --muted: #5b6578;
+      --accent: #1b6ef3;
+      --line: #e3e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #eaf2ff 0%, var(--bg) 28%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+    header {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem 1.35rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 24px rgba(27, 110, 243, 0.06);
+    }
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.65rem;
+      letter-spacing: -0.02em;
+    }
+    .meta { color: var(--muted); font-size: 0.95rem; margin: 0.2rem 0; }
+    .langs { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .langs a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .langs a:hover { text-decoration: underline; }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.35rem 1.35rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    h2 {
+      margin: 0 0 0.85rem;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+    h3 { margin: 1.25rem 0 0.45rem; font-size: 1.05rem; }
+    p, li { color: var(--text); }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin: 0.75rem 0 0.25rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 0.55rem 0.6rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #f0f5ff; }
+    .note {
+      background: #f3f7ff;
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 0.9rem;
+      margin: 0.85rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Home Gallery Privacy Policy</h1>
+      <p class="meta">家相簿／Home Gallery · Package <code>com.jasoncs.homegallery</code></p>
+      <p class="meta"><strong>Effective / Last updated:</strong> 2026-07-13</p>
+      <p class="meta"><strong>Contact:</strong> <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
+      <div class="langs">
+        <a href="#en">English</a>
+        <a href="#zh-tw">繁體中文</a>
+      </div>
+    </header>
+
+    <section id="en">
+      <h2>English</h2>
+
+      <h3>Introduction</h3>
+      <p>Home Gallery ("we", "the app") is a photo and video gallery app for Android. It helps you browse, organize, edit, and back up media on your device and on SMB network shares (home NAS or PC storage). This policy explains what information the app processes, where it stays, and what limited data may be sent to third-party services.</p>
+      <p>We do <strong>not</strong> operate a user account system or a cloud gallery hosting service. We do <strong>not</strong> sell your personal data.</p>
+
+      <h3>Information the app accesses on your device</h3>
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Purpose</th><th>Leaves your device?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Photos and videos (MediaStore)</td><td>Browse, edit, share, trash, backup, upload</td><td>Only when <strong>you</strong> upload/backup to home storage or share via the system share sheet</td></tr>
+          <tr><td>File paths and media metadata</td><td>Sorting, timeline, properties</td><td>Stays on device unless included in an optional diagnostic export</td></tr>
+          <tr><td>SMB connection settings (host, share, username, password)</td><td>Connect to your home storage</td><td>Stored <strong>locally</strong>; sent only to <strong>your</strong> SMB server when you connect</td></tr>
+          <tr><td>Bookmarks, playback position</td><td>Navigation and resume</td><td>Local only</td></tr>
+          <tr><td>App settings</td><td>Personalization</td><td>Local only</td></tr>
+          <tr><td>Backup state</td><td>Album backup and restore</td><td>Local metadata; backup files go to <strong>your</strong> <code>.HomeGallery/backup/</code> folder</td></tr>
+          <tr><td>Pro purchase status</td><td>Unlock Pro features</td><td>Verified via <strong>Google Play</strong>; a local cache flag is stored on device</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Information sent to third parties</h3>
+      <p><strong>Google Play Billing.</strong> When you purchase Pro, payment and purchase verification are handled by Google. We do not receive your payment card details.</p>
+      <p><strong>Firebase Crashlytics (Google).</strong> If Firebase is configured for a release build, the app <em>may</em> send crash reports and non-fatal diagnostics (device model, OS version, app version, stack traces). This does <strong>not</strong> include your photos or SMB passwords. Debug builds do not collect Crashlytics data. If Firebase is not configured, no Crashlytics reports are sent.</p>
+      <p><strong>Google ML Kit (on-device).</strong> Face detection for the portrait edit feature runs on your device. Photos are not uploaded to our servers for this feature.</p>
+      <p><strong>Google Cast.</strong> If you cast a local video, the Cast framework communicates with devices on your network under Google’s policies.</p>
+      <p><strong>Your home storage / NAS.</strong> SMB browse, upload, backup, and streaming talk only to servers <strong>you configure</strong>.</p>
+
+      <h3>Information we do not collect</h3>
+      <ul>
+        <li>No cloud accounts for gallery content operated by us</li>
+        <li>We do not upload your photo library to our servers</li>
+        <li>No advertising SDKs</li>
+        <li>No cross-app ad tracking</li>
+      </ul>
+
+      <h3>Optional user-initiated sharing</h3>
+      <ul>
+        <li><strong>Report an issue:</strong> Opens your email app with optional diagnostic text; you choose whether to send.</li>
+        <li><strong>Export diagnostics / settings backup:</strong> Creates files you control. Settings backups may include SMB usernames and passwords in plain text so you can restore connections—keep those files private and do not upload them to a public cloud folder.</li>
+        <li><strong>System share:</strong> Shares selected media through Android’s share sheet to apps you choose.</li>
+      </ul>
+
+      <h3>Permissions (summary)</h3>
+      <ul>
+        <li>Photos / videos: read; modify when you delete, move, edit, or trash</li>
+        <li>Internet &amp; network state: SMB, backup, Cast, Play Billing</li>
+        <li>Notifications: backup progress (Android 13+)</li>
+        <li>Foreground service: long-running backup and media playback</li>
+      </ul>
+
+      <h3>Data retention and deletion</h3>
+      <ul>
+        <li>Uninstalling removes app-private storage. Cache can be cleared in Settings.</li>
+        <li>Recycle bin (Pro) follows Android MediaStore / OEM rules.</li>
+        <li>SMB backup copies remain on your home storage until you delete them.</li>
+        <li>Crashlytics retention follows Google/Firebase policies when enabled.</li>
+      </ul>
+
+      <h3>Children</h3>
+      <p>The app is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+
+      <h3>Changes</h3>
+      <p>We may update this policy. The effective date at the top will change. Continued use after changes means you accept the updated policy.</p>
+
+      <h3>Contact</h3>
+      <p><a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
+    </section>
+
+    <section id="zh-tw">
+      <h2>繁體中文</h2>
+
+      <h3>簡介</h3>
+      <p>Home Gallery（家相簿）是 Android 上的相片／影片相簿工具，供您瀏覽、整理、編輯本機媒體，以及透過 SMB 連線家中儲存（NAS／PC）。本政策說明 App 處理哪些資訊、資料存放位置，以及可能傳送給第三方的有限資料。</p>
+      <p>本 App <strong>沒有</strong>使用者帳號系統，<strong>不提供</strong>雲端相簿代管服務，<strong>不會</strong>出售您的個人資料。</p>
+
+      <h3>App 在本機存取的資訊</h3>
+      <table>
+        <thead>
+          <tr><th>資料</th><th>用途</th><th>是否離開裝置</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>相片與影片（MediaStore）</td><td>瀏覽、編輯、分享、回收桶、備份、上傳</td><td>僅在您<strong>主動</strong>上傳／備份至家中儲存或透過系統分享時</td></tr>
+          <tr><td>檔案路徑與中繼資料</td><td>排序、時間軸、屬性</td><td>預設留在本機；可選診斷匯出時由您決定</td></tr>
+          <tr><td>網路儲存連線設定（主機、共用、帳密）</td><td>連線至您的 NAS／PC</td><td><strong>僅存本機</strong>；連線時只傳至<strong>您指定的</strong> SMB 伺服器</td></tr>
+          <tr><td>書籤、播放進度</td><td>導覽與續播</td><td>僅本機</td></tr>
+          <tr><td>App 設定</td><td>個人化</td><td>僅本機</td></tr>
+          <tr><td>備份狀態</td><td>備份與還原</td><td>中繼資料在本機；備份檔在您的 <code>.HomeGallery/backup/</code></td></tr>
+          <tr><td>Pro 購買狀態</td><td>解鎖 Pro</td><td>由 <strong>Google Play</strong> 驗證；本機快取解鎖狀態</td></tr>
+        </tbody>
+      </table>
+
+      <h3>可能傳送給第三方的資訊</h3>
+      <p><strong>Google Play 帳單。</strong>購買 Pro 時由 Google 處理付款與驗證，我們不會收到您的信用卡資料。</p>
+      <p><strong>Firebase Crashlytics（Google）。</strong>若正式版已設定 Firebase，App <em>可能</em>傳送當機與錯誤診斷（裝置型號、系統版本、App 版本、堆疊追蹤等），<strong>不包含</strong>相片或網路儲存密碼。Debug 建置不收集。若未設定 Firebase，則不會送出 Crashlytics 報告。</p>
+      <p><strong>Google ML Kit（裝置端）。</strong>肖像編輯的人臉偵測在本機執行，不會為此上傳相片至我們的伺服器。</p>
+      <p><strong>Google Cast。</strong>投影本機影片時，依 Google 規範與區網裝置通訊。</p>
+      <p><strong>您的家中儲存／NAS。</strong>SMB 相關功能只與<strong>您設定的</strong>伺服器通訊。</p>
+
+      <h3>我們不收集的項目</h3>
+      <ul>
+        <li>不將相簿上傳至自有雲端</li>
+        <li>不使用廣告 SDK</li>
+        <li>不進行跨 App 廣告追蹤</li>
+      </ul>
+
+      <h3>使用者主動觸發的分享</h3>
+      <ul>
+        <li><strong>回報問題：</strong>開啟 Email，可附診斷文字，由您決定是否寄出。</li>
+        <li><strong>匯出診斷／設定備份：</strong>檔案由您掌控。設定備份可能以明文包含網路儲存帳密以便還原連線——請妥善保管，勿上傳至公開雲端。</li>
+        <li><strong>系統分享：</strong>透過 Android 分享至您選擇的 App。</li>
+      </ul>
+
+      <h3>權限（摘要）</h3>
+      <ul>
+        <li>相片／影片：讀取；在您刪除、移動、編輯、移至回收桶時修改</li>
+        <li>網路：SMB、備份、Cast、Play 帳單</li>
+        <li>通知：備份進度（Android 13+）</li>
+        <li>前景服務：長時間備份與媒體播放</li>
+      </ul>
+
+      <h3>資料保存與刪除</h3>
+      <ul>
+        <li>解除安裝可移除 App 私有資料；快取可在設定中清除。</li>
+        <li>Pro 回收桶依 Android MediaStore 與裝置規則。</li>
+        <li>家中儲存備份檔由您自行管理。</li>
+        <li>若啟用 Crashlytics，保存依 Google／Firebase 政策。</li>
+      </ul>
+
+      <h3>兒童</h3>
+      <p>本 App 並非以 13 歲以下兒童為對象。</p>
+
+      <h3>政策變更</h3>
+      <p>我們可能更新本政策，並修訂上方生效日期。</p>
+
+      <h3>聯絡方式</h3>
+      <p><a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
+    </section>
+
+    <p class="note">
+      Play Console: paste this page’s HTTPS URL into <strong>App content → Privacy policy</strong>.
+      Example after GitHub Pages is enabled:
+      <code>https://&lt;your-github-username&gt;.github.io/homegallery-privacy/</code>
+    </p>
+
+    <footer>
+      © 2026 Jason C.S. Chang · Home Gallery（家相簿）
+    </footer>
+  </main>
+</body>
+</html>
