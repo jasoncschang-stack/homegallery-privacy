@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Gallery — User Guide</title>
+  <meta name="description" content="User guide for Home Gallery (家相簿): local gallery, home albums, SMB, backup &amp; restore." />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1a1f2e;
+      --muted: #5b6578;
+      --accent: #1b6ef3;
+      --line: #e3e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #eaf2ff 0%, var(--bg) 28%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+    header {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem 1.35rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 24px rgba(27, 110, 243, 0.06);
+    }
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.65rem;
+      letter-spacing: -0.02em;
+    }
+    .meta { color: var(--muted); font-size: 0.95rem; margin: 0.2rem 0; }
+    .langs { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .langs a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .langs a:hover { text-decoration: underline; }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.35rem 1.35rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    h2 {
+      margin: 0 0 0.85rem;
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+    h3 { margin: 1.25rem 0 0.45rem; font-size: 1.05rem; }
+    p, li { color: var(--text); }
+    ul { padding-left: 1.2rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin: 0.75rem 0 0.25rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 0.55rem 0.6rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #f0f5ff; }
+    .note {
+      background: #f3f7ff;
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 0.9rem;
+      margin: 0.85rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    a { color: var(--accent); }
+    nav.toc ul { margin: 0.35rem 0 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Home Gallery User Guide</h1>
+      <p class="meta">家相簿／Home Gallery · Package <code>com.jasoncs.homegallery</code></p>
+      <p class="meta"><strong>Updated:</strong> 2026-07-16 · App reference 0.6.x</p>
+      <p class="meta"><strong>Contact:</strong> <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
+      <div class="langs">
+        <a href="#en">English</a>
+        <a href="#zh-tw">繁體中文</a>
+        <a href="../">Privacy policy</a>
+      </div>
+    </header>
+
+    <section id="en">
+      <h2>English</h2>
+      <nav class="toc" aria-label="Contents">
+        <ul>
+          <li><a href="#en-start">Getting started</a></li>
+          <li><a href="#en-local">Local gallery</a></li>
+          <li><a href="#en-home">Home albums &amp; SMB</a></li>
+          <li><a href="#en-backup">Album backup &amp; restore</a></li>
+          <li><a href="#en-trash">Recycle bin vs permanent delete</a></li>
+          <li><a href="#en-pro">Basic vs Pro</a></li>
+          <li><a href="#en-support">Support</a></li>
+        </ul>
+      </nav>
+
+      <h3 id="en-start">Getting started</h3>
+      <ul>
+        <li>Requires <strong>Android 11</strong> or later.</li>
+        <li>On first launch, allow <strong>Photos and videos</strong> access.</li>
+        <li>Open the side drawer for Local gallery, Home albums, network storage, bookmarks, Album backup, Settings, and About.</li>
+        <li>We do <strong>not</strong> host a cloud gallery. SMB passwords stay on your device.</li>
+      </ul>
+
+      <h3 id="en-local">Local gallery</h3>
+      <ul>
+        <li><strong>Folders</strong> or <strong>Timeline</strong> browse modes at the gallery root.</li>
+        <li><strong>Long-press</strong> to multi-select; in folder mode, long-press a folder to select all media inside.</li>
+        <li>While selecting, long-press another item for an <strong>inclusive range</strong> select.</li>
+        <li>Toolbar actions: copy, move, delete, share, upload to network storage.</li>
+      </ul>
+
+      <h3 id="en-home">Home albums &amp; SMB</h3>
+      <ul>
+        <li><strong>Network storage:</strong> add an SMB host in Settings, then browse shares from the drawer.</li>
+        <li><strong>Home albums:</strong> pick one or more share folders as a unified entry for everyday browsing.</li>
+        <li>Opening a subfolder loads from the server; going back uses a cached listing when available so the parent appears quickly.</li>
+      </ul>
+
+      <h3 id="en-backup">Album backup &amp; restore</h3>
+      <p>One-way backup from the phone to a private folder on home storage: <code>.HomeGallery/backup/{device}/</code>. Not two-way sync.</p>
+      <table>
+        <thead>
+          <tr><th>Topic</th><th>What happens</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Basic</td><td>Manual backup only, up to <strong>1000</strong> photos total</td></tr>
+          <tr><td>Pro</td><td>Unlimited + optional automatic backup on Wi‑Fi</td></tr>
+          <tr><td>Move to recycle bin</td><td>NAS copy kept; <strong>not</strong> listed as “Missing on device” — restore from the recycle bin</td></tr>
+          <tr><td>Permanent delete in this app</td><td><strong>Not</strong> “Missing on device”; next backup removes the matching NAS copy</td></tr>
+          <tr><td>Deleted outside the app</td><td>Listed as “Missing on device”; you can restore manually from the backup zone</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Restore:</strong> Drawer → Album backup → View backup / restore → filter Missing on device → restore selected or all missing.</p>
+      <p class="note">Parallel folders (e.g. Documents) without SAF may restore under <code>Pictures/…</code>. See in-app prompts for path mapping.</p>
+
+      <h3 id="en-trash">Recycle bin vs permanent delete</h3>
+      <ul>
+        <li><strong>Recycle bin (Pro):</strong> deleted items can be restored on the phone; home backup copies stay until you permanently delete.</li>
+        <li><strong>Permanent delete:</strong> removes from the phone and schedules cleanup of the matching backup file on the next backup run.</li>
+      </ul>
+
+      <h3 id="en-pro">Basic vs Pro</h3>
+      <ul>
+        <li><strong>Basic (free):</strong> full local &amp; SMB photo management, edit, upload, local video, manual backup (1000 cap). No ads.</li>
+        <li><strong>Pro (one-time):</strong> SMB video streaming, unlimited + auto album backup, recycle bin, parallel folders (SAF).</li>
+      </ul>
+
+      <h3 id="en-support">Support</h3>
+      <ul>
+        <li>In the app: <strong>About → User guide</strong>, or <strong>Settings → Support</strong>.</li>
+        <li>Report issues from Settings / About (email). Optional diagnostic ZIP — no passwords or photo contents.</li>
+        <li>Email: <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></li>
+        <li><a href="../">Privacy policy</a></li>
+      </ul>
+    </section>
+
+    <section id="zh-tw">
+      <h2>繁體中文</h2>
+      <nav class="toc" aria-label="目錄">
+        <ul>
+          <li><a href="#zh-start">開始使用</a></li>
+          <li><a href="#zh-local">本機相簿</a></li>
+          <li><a href="#zh-home">家中相簿與網路儲存</a></li>
+          <li><a href="#zh-backup">相簿備份與還原</a></li>
+          <li><a href="#zh-trash">回收桶與永久刪除</a></li>
+          <li><a href="#zh-pro">Basic 與 Pro</a></li>
+          <li><a href="#zh-support">說明與支援</a></li>
+        </ul>
+      </nav>
+
+      <h3 id="zh-start">開始使用</h3>
+      <ul>
+        <li>需 <strong>Android 11</strong> 或以上。</li>
+        <li>首次啟動請允許<strong>相片和影片</strong>存取。</li>
+        <li>側邊欄可進入本機相簿、家中相簿、網路儲存、書籤、相簿備份、設定、關於。</li>
+        <li>本 App <strong>不提供</strong>雲端相簿代管；網路儲存帳密僅保存在您的裝置上。</li>
+      </ul>
+
+      <h3 id="zh-local">本機相簿</h3>
+      <ul>
+        <li>根目錄可切換<strong>資料夾</strong>或<strong>時間軸</strong>瀏覽。</li>
+        <li><strong>長按</strong>進入多選；資料夾模式下長按資料夾可選取該夾全部媒體。</li>
+        <li>多選中再長按另一項可<strong>區間多選</strong>（含兩端）。</li>
+        <li>可複製、移動、刪除、分享、上傳至網路儲存。</li>
+      </ul>
+
+      <h3 id="zh-home">家中相簿與網路儲存</h3>
+      <ul>
+        <li><strong>網路儲存：</strong>在設定新增 SMB 主機後，由側邊欄瀏覽共用資料夾。</li>
+        <li><strong>家中相簿：</strong>將一或多個共用資料夾設為統一入口，方便日常瀏覽。</li>
+        <li>進入子目錄需向伺服器載入；返回上層會盡量使用已快取列表，讓上層較快出現。</li>
+      </ul>
+
+      <h3 id="zh-backup">相簿備份與還原</h3>
+      <p>將本機相簿<strong>單向</strong>備份到家中儲存私有區：<code>.HomeGallery/backup/{裝置}/</code>。不是雙向同步。</p>
+      <table>
+        <thead>
+          <tr><th>情境</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Basic</td><td>僅手動備份，累計最多 <strong>1000</strong> 張</td></tr>
+          <tr><td>Pro</td><td>無張數上限；Wi‑Fi 下可自動備份</td></tr>
+          <tr><td>移至回收桶</td><td>家中備份保留；<strong>不算「本機缺失」</strong>——請從回收桶還原本機</td></tr>
+          <tr><td>本 App 永久刪除</td><td><strong>不算「本機缺失」</strong>；下次備份會清除對應的家中備份檔</td></tr>
+          <tr><td>外部／未知消失</td><td>列為「本機缺失」，可手動從備份區還原</td></tr>
+        </tbody>
+      </table>
+      <p><strong>還原：</strong>側邊欄 → 相簿備份 → 檢視備份／還原 → 篩選「本機缺失」→ 還原已選或全部缺失。</p>
+      <p class="note">平行目錄（如 Documents）若尚未 SAF 授權，還原可能寫入 <code>Pictures/…</code>；請依對話框的路徑映射提示確認。</p>
+
+      <h3 id="zh-trash">回收桶與永久刪除</h3>
+      <ul>
+        <li><strong>回收桶（Pro）：</strong>可還原本機項目；在回收桶期間家中備份仍保留。</li>
+        <li><strong>永久刪除：</strong>自手機刪除，並在下次備份時清除對應的備份檔。</li>
+      </ul>
+
+      <h3 id="zh-pro">Basic 與 Pro</h3>
+      <ul>
+        <li><strong>Basic（免費）：</strong>本機與網路儲存相片管理、編輯、上傳、本機影片、手動備份（1000 張上限）。無廣告。</li>
+        <li><strong>Pro（一次性）：</strong>網路影片串流、備份無上限與自動備份、回收桶、平行目錄（SAF）。</li>
+      </ul>
+
+      <h3 id="zh-support">說明與支援</h3>
+      <ul>
+        <li>App 內：<strong>關於 → 使用說明</strong>，或<strong>設定 → 支援</strong>。</li>
+        <li>可從設定／關於回報問題（Email）；可選匯出診斷 ZIP（不含密碼與相片內容）。</li>
+        <li>信箱：<a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></li>
+        <li><a href="../">隱私權政策</a></li>
+      </ul>
+    </section>
+
+    <p class="note">
+      Play Console support / website URL (optional):
+      <code>https://jasoncschang-stack.github.io/homegallery-privacy/help/</code>
+    </p>
+
+    <footer>
+      © 2026 Jason C.S. Chang · Home Gallery（家相簿）
+    </footer>
+  </main>
+</body>
+</html>
