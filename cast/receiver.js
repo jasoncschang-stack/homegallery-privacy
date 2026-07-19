@@ -2,7 +2,7 @@
   "use strict";
 
   var NAMESPACE = "urn:x-cast:com.jasoncs.homegallery.photo";
-  var DEFAULT_VIEWPORT = Object.freeze({ left: 0, top: 0, right: 1, bottom: 1 });
+  var DEFAULT_VIEWPORT = Object.freeze({ zoom: 1, centerX: 0.5, centerY: 0.5 });
   var MAX_QUEUE_SIZE = 200;
   var demoMode = new URLSearchParams(window.location.search).get("demo") === "1";
 
@@ -117,6 +117,17 @@
 
   function normalizeViewport(message) {
     var value = message.viewport || message.visibleRect || message;
+    var zoom = finiteNumber(value.zoom);
+    var centerX = finiteNumber(value.centerX);
+    var centerY = finiteNumber(value.centerY);
+    if (zoom !== null || centerX !== null || centerY !== null) {
+      if (zoom === null || centerX === null || centerY === null ||
+          zoom < 1 || zoom > 8 ||
+          centerX < 0 || centerX > 1 || centerY < 0 || centerY > 1) {
+        throw new Error("Viewport transform requires zoom >= 1 and normalized centerX/centerY");
+      }
+      return { zoom: zoom, centerX: centerX, centerY: centerY };
+    }
     var left = finiteNumber(value.left);
     var top = finiteNumber(value.top);
     var right = finiteNumber(value.right);
@@ -140,6 +151,18 @@
     );
     var imageWidth = layer.naturalWidth * containScale;
     var imageHeight = layer.naturalHeight * containScale;
+    if (viewport.zoom !== undefined) {
+      var focalX = imageWidth * viewport.centerX;
+      var focalY = imageHeight * viewport.centerY;
+      var focalTranslateX = stageWidth / 2 - viewport.zoom * focalX;
+      var focalTranslateY = stageHeight / 2 - viewport.zoom * focalY;
+      layer.style.width = imageWidth + "px";
+      layer.style.height = imageHeight + "px";
+      layer.style.clipPath = "none";
+      layer.style.transform = "matrix(" + viewport.zoom + ",0,0," + viewport.zoom + "," +
+        focalTranslateX + "," + focalTranslateY + ")";
+      return;
+    }
     var visibleWidth = imageWidth * (viewport.right - viewport.left);
     var visibleHeight = imageHeight * (viewport.bottom - viewport.top);
     var zoom = Math.min(stageWidth / visibleWidth, stageHeight / visibleHeight);
@@ -386,10 +409,9 @@
       type: "VIEWPORT",
       sequence: 3,
       photoId: "demo",
-      left: 0.18,
-      top: 0.12,
-      right: 0.82,
-      bottom: 0.88
+      zoom: 2,
+      centerX: 0.6,
+      centerY: 0.45
     }, null);
   }
 
