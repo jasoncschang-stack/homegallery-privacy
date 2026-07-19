@@ -21,6 +21,7 @@
   var queue = new Map();
   var prefetched = new Map();
   var receiverContext = null;
+  var activeSenderId = null;
 
   function finiteNumber(value) {
     var number = Number(value);
@@ -192,13 +193,22 @@
     }
 
     queue.clear();
+    var acceptedUrls = new Set();
     var accepted = 0;
     items.forEach(function (item, index) {
       var photo = parseQueueItem(item, index);
       if (!photo) return;
       queue.set(photo.photoId, photo.url);
+      acceptedUrls.add(photo.url);
       prefetch(photo.url);
       accepted += 1;
+    });
+    prefetched.forEach(function (image, url) {
+      if (acceptedUrls.has(url) || url === currentUrl) return;
+      image.onload = null;
+      image.onerror = null;
+      image.removeAttribute("src");
+      prefetched.delete(url);
     });
     sendReady(senderId, { queueSize: accepted, sequence: readSequence(message) });
   }
@@ -281,6 +291,11 @@
 
   function routeMessage(message, senderId) {
     switch (message.type) {
+      case "HELLO":
+        lastSequence = -1;
+        lastShowSequence = -1;
+        sendReady(senderId);
+        break;
       case "PHOTO_QUEUE":
         handleQueue(message, senderId);
         break;
@@ -304,6 +319,11 @@
   function onCustomMessage(event) {
     var message = null;
     try {
+      if (activeSenderId !== event.senderId) {
+        activeSenderId = event.senderId;
+        lastSequence = -1;
+        lastShowSequence = -1;
+      }
       message = parseMessage(event.data);
       routeMessage(message, event.senderId);
     } catch (error) {
