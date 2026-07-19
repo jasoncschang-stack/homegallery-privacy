@@ -210,7 +210,11 @@
       image.removeAttribute("src");
       prefetched.delete(url);
     });
-    sendReady(senderId, { queueSize: accepted, sequence: readSequence(message) });
+    send(senderId, {
+      type: "QUEUE_READY",
+      queueSize: accepted,
+      sequence: readSequence(message)
+    });
   }
 
   function resolvePhoto(message) {
