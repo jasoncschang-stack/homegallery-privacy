@@ -289,6 +289,41 @@
     nextLayer.src = photo.url;
   }
 
+  function upgradePhoto(message, senderId) {
+    var photo = resolvePhoto(message);
+    if (currentPhotoId === null || photo.photoId !== currentPhotoId || photo.url === currentUrl) {
+      return;
+    }
+    var sequence = readSequence(message);
+    if (sequence !== null && sequence < lastSequence) return;
+    if (sequence !== null) lastSequence = Math.max(lastSequence, sequence);
+
+    var generation = ++loadGeneration;
+    var nextIndex = activeLayerIndex === 0 ? 1 : 0;
+    var nextLayer = layers[nextIndex];
+    nextLayer.classList.remove("is-visible");
+    nextLayer.onload = function () {
+      if (generation !== loadGeneration || currentPhotoId !== photo.photoId) return;
+      layoutLayer(nextLayer);
+      nextLayer.classList.add("is-visible");
+      if (activeLayerIndex >= 0) layers[activeLayerIndex].classList.remove("is-visible");
+      activeLayerIndex = nextIndex;
+      currentUrl = photo.url;
+      queue.set(photo.photoId, photo.url);
+      send(senderId, {
+        type: "PHOTO_UPGRADED",
+        photoId: photo.photoId,
+        sequence: sequence,
+        url: photo.url
+      });
+    };
+    nextLayer.onerror = function () {
+      if (generation !== loadGeneration) return;
+      console.warn("High-resolution photo upgrade could not be loaded");
+    };
+    nextLayer.src = photo.url;
+  }
+
   function handleViewport(message) {
     if (isStale(message, false)) return;
     var targetPhotoId = readPhotoId(message);
@@ -333,6 +368,9 @@
         break;
       case "SHOW_PHOTO":
         showPhoto(message, senderId);
+        break;
+      case "UPGRADE_PHOTO":
+        upgradePhoto(message, senderId);
         break;
       case "VIEWPORT":
         handleViewport(message);
