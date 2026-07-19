@@ -62,8 +62,28 @@ body.photo-mode cast-media-player {
   opacity: 1;
 }
 
+.photo-detail-layer {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  max-width: none;
+  max-height: none;
+  opacity: 0;
+  object-fit: fill;
+  pointer-events: none;
+  transition: opacity 100ms ease-out;
+  will-change: left, top, width, height, opacity;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.photo-detail-layer.is-visible {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .photo-layer {
+  .photo-layer,
+  .photo-detail-layer {
     transition-duration: 0ms;
   }
 }

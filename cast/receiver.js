@@ -11,8 +11,14 @@
     document.getElementById("photo-layer-a"),
     document.getElementById("photo-layer-b")
   ];
+  var detailLayer = document.getElementById("photo-detail-layer");
   var activeLayerIndex = -1;
   var loadGeneration = 0;
+  var detailLoadGeneration = 0;
+  var detailRequestTimer = null;
+  var detailRequestCounter = 0;
+  var latestDetailRequestId = null;
+  var detailRegion = null;
   var lastSequence = -1;
   var lastShowSequence = -1;
   var currentPhotoId = null;
@@ -140,9 +146,8 @@
     return { left: left, top: top, right: right, bottom: bottom };
   }
 
-  function layoutLayer(layer) {
-    if (!layer || !layer.naturalWidth || !layer.naturalHeight) return;
-
+  function imageGeometry(layer) {
+    if (!layer || !layer.naturalWidth || !layer.naturalHeight) return null;
     var stageWidth = stage.clientWidth || window.innerWidth;
     var stageHeight = stage.clientHeight || window.innerHeight;
     var containScale = Math.min(
@@ -151,16 +156,33 @@
     );
     var imageWidth = layer.naturalWidth * containScale;
     var imageHeight = layer.naturalHeight * containScale;
+    var zoom = viewport.zoom === undefined ? 1 : viewport.zoom;
+    var centerX = viewport.centerX === undefined ? 0.5 : viewport.centerX;
+    var centerY = viewport.centerY === undefined ? 0.5 : viewport.centerY;
+    return {
+      stageWidth: stageWidth,
+      stageHeight: stageHeight,
+      imageWidth: imageWidth,
+      imageHeight: imageHeight,
+      zoom: zoom,
+      translateX: stageWidth / 2 - zoom * imageWidth * centerX,
+      translateY: stageHeight / 2 - zoom * imageHeight * centerY
+    };
+  }
+
+  function layoutLayer(layer) {
+    var geometry = imageGeometry(layer);
+    if (!geometry) return;
+    var stageWidth = geometry.stageWidth;
+    var stageHeight = geometry.stageHeight;
+    var imageWidth = geometry.imageWidth;
+    var imageHeight = geometry.imageHeight;
     if (viewport.zoom !== undefined) {
-      var focalX = imageWidth * viewport.centerX;
-      var focalY = imageHeight * viewport.centerY;
-      var focalTranslateX = stageWidth / 2 - viewport.zoom * focalX;
-      var focalTranslateY = stageHeight / 2 - viewport.zoom * focalY;
       layer.style.width = imageWidth + "px";
       layer.style.height = imageHeight + "px";
       layer.style.clipPath = "none";
       layer.style.transform = "matrix(" + viewport.zoom + ",0,0," + viewport.zoom + "," +
-        focalTranslateX + "," + focalTranslateY + ")";
+        geometry.translateX + "," + geometry.translateY + ")";
       return;
     }
     var visibleWidth = imageWidth * (viewport.right - viewport.left);
@@ -182,8 +204,117 @@
       translateX + "," + translateY + ")";
   }
 
+  function clamp01(value) {
+    return Math.max(0, Math.min(1, value));
+  }
+
+  function currentVisibleRect() {
+    if (activeLayerIndex < 0 || viewport.zoom === undefined) return null;
+    var geometry = imageGeometry(layers[activeLayerIndex]);
+    if (!geometry || geometry.zoom <= 1) return null;
+    var scaledWidth = geometry.zoom * geometry.imageWidth;
+    var scaledHeight = geometry.zoom * geometry.imageHeight;
+    return {
+      left: clamp01(-geometry.translateX / scaledWidth),
+      top: clamp01(-geometry.translateY / scaledHeight),
+      right: clamp01((geometry.stageWidth - geometry.translateX) / scaledWidth),
+      bottom: clamp01((geometry.stageHeight - geometry.translateY) / scaledHeight)
+    };
+  }
+
+  function regionContains(outer, inner) {
+    return outer && inner &&
+      outer.left <= inner.left + 0.002 &&
+      outer.top <= inner.top + 0.002 &&
+      outer.right >= inner.right - 0.002 &&
+      outer.bottom >= inner.bottom - 0.002;
+  }
+
+  function layoutDetailLayer() {
+    if (!detailRegion || activeLayerIndex < 0 || currentPhotoId !== detailRegion.photoId) {
+      detailLayer.classList.remove("is-visible");
+      return;
+    }
+    var visible = currentVisibleRect();
+    if (!regionContains(detailRegion, visible)) {
+      detailLayer.classList.remove("is-visible");
+      return;
+    }
+    var geometry = imageGeometry(layers[activeLayerIndex]);
+    if (!geometry) return;
+    var left = geometry.translateX +
+      geometry.zoom * geometry.imageWidth * detailRegion.left;
+    var top = geometry.translateY +
+      geometry.zoom * geometry.imageHeight * detailRegion.top;
+    var width = geometry.zoom * geometry.imageWidth *
+      (detailRegion.right - detailRegion.left);
+    var height = geometry.zoom * geometry.imageHeight *
+      (detailRegion.bottom - detailRegion.top);
+    detailLayer.style.left = left + "px";
+    detailLayer.style.top = top + "px";
+    detailLayer.style.width = width + "px";
+    detailLayer.style.height = height + "px";
+    detailLayer.classList.add("is-visible");
+  }
+
   function applyViewport() {
     layers.forEach(layoutLayer);
+    layoutDetailLayer();
+  }
+
+  function clearDetail() {
+    if (detailRequestTimer !== null) {
+      clearTimeout(detailRequestTimer);
+      detailRequestTimer = null;
+    }
+    detailLoadGeneration += 1;
+    latestDetailRequestId = null;
+    detailRegion = null;
+    detailLayer.classList.remove("is-visible");
+    detailLayer.onload = null;
+    detailLayer.onerror = null;
+    detailLayer.removeAttribute("src");
+  }
+
+  function scheduleDetailRequest() {
+    if (detailRequestTimer !== null) clearTimeout(detailRequestTimer);
+    detailRequestTimer = null;
+    if (viewport.zoom === undefined || viewport.zoom < 1.35 || !currentPhotoId) {
+      detailLayer.classList.remove("is-visible");
+      return;
+    }
+    var visible = currentVisibleRect();
+    if (!visible || regionContains(detailRegion, visible)) return;
+
+    detailRequestTimer = setTimeout(function () {
+      detailRequestTimer = null;
+      var latestVisible = currentVisibleRect();
+      if (!latestVisible || !currentPhotoId || viewport.zoom < 1.35) return;
+      if (regionContains(detailRegion, latestVisible)) return;
+      var horizontalPadding = (latestVisible.right - latestVisible.left) * 0.18;
+      var verticalPadding = (latestVisible.bottom - latestVisible.top) * 0.18;
+      var requested = {
+        left: clamp01(latestVisible.left - horizontalPadding),
+        top: clamp01(latestVisible.top - verticalPadding),
+        right: clamp01(latestVisible.right + horizontalPadding),
+        bottom: clamp01(latestVisible.bottom + verticalPadding)
+      };
+      var requestId = currentPhotoId + "-" + (++detailRequestCounter);
+      latestDetailRequestId = requestId;
+      var stageWidth = stage.clientWidth || window.innerWidth;
+      var stageHeight = stage.clientHeight || window.innerHeight;
+      send(activeSenderId, {
+        type: "DETAIL_REQUEST",
+        photoId: currentPhotoId,
+        requestId: requestId,
+        left: requested.left,
+        top: requested.top,
+        right: requested.right,
+        bottom: requested.bottom,
+        targetWidth: Math.min(4096, Math.max(1920, Math.round(stageWidth * 2))),
+        targetHeight: Math.min(4096, Math.max(1080, Math.round(stageHeight * 2)))
+      });
+    }, 350);
   }
 
   function prefetch(url) {
@@ -258,6 +389,7 @@
     var photo = resolvePhoto(message);
     var sequence = readSequence(message);
     if (sequence !== null) lastShowSequence = Math.max(lastShowSequence, sequence);
+    clearDetail();
 
     var generation = ++loadGeneration;
     var nextIndex = activeLayerIndex === 0 ? 1 : 0;
@@ -275,6 +407,7 @@
       activeLayerIndex = nextIndex;
       currentPhotoId = photo.photoId;
       currentUrl = photo.url;
+      scheduleDetailRequest();
       send(senderId, {
         type: "PHOTO_READY",
         photoId: photo.photoId,
@@ -310,6 +443,7 @@
       activeLayerIndex = nextIndex;
       currentUrl = photo.url;
       queue.set(photo.photoId, photo.url);
+      layoutDetailLayer();
       send(senderId, {
         type: "PHOTO_UPGRADED",
         photoId: photo.photoId,
@@ -324,12 +458,55 @@
     nextLayer.src = photo.url;
   }
 
+  function showDetailPhoto(message) {
+    var photoId = readPhotoId(message);
+    var requestId = message.requestId === undefined ? null : String(message.requestId);
+    var url = safeImageUrl(message.url || message.imageUrl || message.src);
+    var left = finiteNumber(message.left);
+    var top = finiteNumber(message.top);
+    var right = finiteNumber(message.right);
+    var bottom = finiteNumber(message.bottom);
+    if (!photoId || photoId !== currentPhotoId ||
+        !requestId || requestId !== latestDetailRequestId || !url ||
+        left === null || top === null || right === null || bottom === null ||
+        left < 0 || top < 0 || right > 1 || bottom > 1 ||
+        right <= left || bottom <= top) {
+      return;
+    }
+
+    var generation = ++detailLoadGeneration;
+    detailLayer.classList.remove("is-visible");
+    detailLayer.onload = function () {
+      if (generation !== detailLoadGeneration ||
+          photoId !== currentPhotoId ||
+          requestId !== latestDetailRequestId) {
+        return;
+      }
+      detailRegion = {
+        photoId: photoId,
+        requestId: requestId,
+        left: left,
+        top: top,
+        right: right,
+        bottom: bottom
+      };
+      layoutDetailLayer();
+    };
+    detailLayer.onerror = function () {
+      if (generation !== detailLoadGeneration) return;
+      detailRegion = null;
+      detailLayer.classList.remove("is-visible");
+    };
+    detailLayer.src = url;
+  }
+
   function handleViewport(message) {
     if (isStale(message, false)) return;
     var targetPhotoId = readPhotoId(message);
     if (targetPhotoId !== null && currentPhotoId !== null && targetPhotoId !== currentPhotoId) return;
     viewport = normalizeViewport(message);
     applyViewport();
+    scheduleDetailRequest();
   }
 
   function resetViewport(message) {
@@ -337,11 +514,13 @@
     var targetPhotoId = readPhotoId(message);
     if (targetPhotoId !== null && currentPhotoId !== null && targetPhotoId !== currentPhotoId) return;
     viewport = DEFAULT_VIEWPORT;
+    clearDetail();
     applyViewport();
   }
 
   function stopPhotoMode() {
     loadGeneration += 1;
+    clearDetail();
     layers.forEach(function (layer) {
       layer.classList.remove("is-visible");
       layer.onload = null;
@@ -371,6 +550,9 @@
         break;
       case "UPGRADE_PHOTO":
         upgradePhoto(message, senderId);
+        break;
+      case "DETAIL_PHOTO":
+        showDetailPhoto(message);
         break;
       case "VIEWPORT":
         handleViewport(message);
@@ -453,7 +635,10 @@
     }, null);
   }
 
-  window.addEventListener("resize", applyViewport);
+  window.addEventListener("resize", function () {
+    applyViewport();
+    scheduleDetailRequest();
+  });
   window.addEventListener("error", function (event) {
     console.error("Home Gallery receiver error", event.error || event.message);
   });
