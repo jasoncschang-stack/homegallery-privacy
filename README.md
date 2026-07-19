@@ -6,12 +6,14 @@
 |------|---------|
 | [index.html](./index.html) | Public privacy policy (EN + 繁中) |
 | [help/index.html](./help/index.html) | Public user guide (EN + 繁中) |
+| [cast/receiver.html](./cast/receiver.html) | Google Cast custom web receiver |
 | [README.md](./README.md) | Deploy steps |
 
 - **Contact:** jasoncs311@gmail.com  
 - **Package:** `com.jasoncs.homegallery`  
 - **Privacy URL:** https://jasoncschang-stack.github.io/homegallery-privacy/  
 - **User guide URL:** https://jasoncschang-stack.github.io/homegallery-privacy/help/  
+- **Cast receiver URL:** https://jasoncschang-stack.github.io/homegallery-privacy/cast/receiver.html
 - **Crashlytics:** Not enabled for current shipping builds (方案 A)  
 
 ## Deploy (about 5 minutes)
@@ -61,6 +63,7 @@ Sign in when Git prompts you.
 ```text
 https://jasoncschang-stack.github.io/homegallery-privacy/
 https://jasoncschang-stack.github.io/homegallery-privacy/help/
+https://jasoncschang-stack.github.io/homegallery-privacy/cast/receiver.html
 ```
 
 Open them in a browser (no login). Then paste into Play Console:
@@ -72,6 +75,15 @@ Open them in a browser (no login). Then paste into Play Console:
 | **Store settings → Support URL** (if available) | same help URL |
 
 App entry points (after deploy): **About → User guide**, **Settings → Support → User guide**.
+
+### Cast receiver deployment
+
+The Cast receiver is deployed with the same GitHub Pages site at
+`/cast/receiver.html`. After every receiver update, push the files and wait for
+GitHub Pages to finish deploying before testing on a Cast device. Register the
+full HTTPS receiver URL in the Google Cast SDK Developer Console as a **Custom
+Receiver**, then use its application ID in Home Gallery. For a desktop-only
+visual check, open `/cast/receiver.html?demo=1`; demo mode does not require CAF.
 
 ## Optional: custom domain
 

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Gallery Cast Receiver</title>
+    <link rel="stylesheet" href="./receiver.css">
+  </head>
+  <body>
+    <cast-media-player id="media-player"></cast-media-player>
+
+    <main id="photo-stage" aria-label="Home Gallery photo" aria-hidden="true">
+      <img id="photo-layer-a" class="photo-layer" alt="">
+      <img id="photo-layer-b" class="photo-layer" alt="">
+    </main>
+
+    <script src="https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+    <script src="./receiver.js"></script>
+  </body>
+</html>
