@@ -150,6 +150,11 @@
 
     layer.style.width = imageWidth + "px";
     layer.style.height = imageHeight + "px";
+    layer.style.clipPath = "inset(" +
+      (viewport.top * 100) + "% " +
+      ((1 - viewport.right) * 100) + "% " +
+      ((1 - viewport.bottom) * 100) + "% " +
+      (viewport.left * 100) + "%)";
     layer.style.transform = "matrix(" + zoom + ",0,0," + zoom + "," +
       translateX + "," + translateY + ")";
   }
@@ -238,7 +243,7 @@
 
     nextLayer.onload = function () {
       if (generation !== loadGeneration ||
-          (sequence !== null && sequence < lastSequence)) return;
+          (sequence !== null && sequence < lastShowSequence)) return;
       layoutLayer(nextLayer);
       document.body.classList.add("photo-mode");
       stage.setAttribute("aria-hidden", "false");
@@ -377,6 +382,15 @@
       photos: [{ photoId: "demo", url: demoUrl }]
     }, null);
     routeMessage({ type: "SHOW_PHOTO", sequence: 2, photoId: "demo" }, null);
+    routeMessage({
+      type: "VIEWPORT",
+      sequence: 3,
+      photoId: "demo",
+      left: 0.18,
+      top: 0.12,
+      right: 0.82,
+      bottom: 0.88
+    }, null);
   }
 
   window.addEventListener("resize", applyViewport);

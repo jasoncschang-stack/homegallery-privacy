@@ -52,7 +52,7 @@ body.photo-mode cast-media-player {
   opacity: 0;
   transform-origin: 0 0;
   transition: opacity 140ms ease-out;
-  will-change: opacity, transform;
+  will-change: opacity, transform, clip-path;
   background: #000;
   user-select: none;
   -webkit-user-drag: none;
