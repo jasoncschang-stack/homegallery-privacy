@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windows 11 開通家中共用 — Home Gallery</title>
+  <meta name="description" content="在 Windows 11 開通 SMB 共用資料夾，供 Home Gallery（家相簿）連線。" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs" aria-label="麵包屑">
+      <a href="../../index.html">使用說明</a>
+      <span>/</span>
+      <a href="../index.html">家中儲存建置</a>
+      <span>/</span>
+      <span>Windows 11</span>
+    </nav>
+
+    <header>
+      <h1>在 Windows 11 開通家中共用</h1>
+      <p class="meta">約 10～20 分鐘 · 給 Home Gallery（家相簿）使用</p>
+      <p class="meta">技術名稱：SMB（與「網路芳鄰／檔案共用」相同）。照步驟即可。</p>
+      <div class="langs">
+        <a href="index.html">繁體中文</a>
+        <a href="en.html">English</a>
+        <a href="../troubleshooting/index.html">連線排查</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>開始前請確認</h2>
+      <ul>
+        <li>電腦已安裝 <strong>Windows 11</strong>，並連上家中網路</li>
+        <li>手機與電腦在<strong>同一個家中 Wi‑Fi</strong>（不要用 5G／客人網路）</li>
+        <li>知道 Windows <strong>使用者名稱與密碼</strong>（若只有 PIN，請先在設定 → 帳戶 → 登入選項設定密碼）</li>
+        <li>建議先建專門資料夾，例如 <code>D:\FamilyPhotos</code>（不要共用整個系統碟）</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>步驟 1：把網路設成「私人」</h2>
+      <p>在「公用」網路上，Windows 常會封鎖檔案共用。</p>
+      <ol>
+        <li>開啟 <strong>設定</strong> → <strong>網路和網際網路</strong></li>
+        <li>點目前連線的 <strong>Wi‑Fi</strong>（或乙太網路）</li>
+        <li>點連線名稱 → <strong>網路設定檔類型</strong> 選 <strong>私人</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11/01-network-private.png" alt="網路設定檔選私人" width="1280" height="720" loading="lazy" />
+        <figcaption>網路設定檔類型＝私人</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>步驟 2：開啟檔案與印表機共用</h2>
+      <ol>
+        <li>開啟 <strong>設定</strong> → <strong>網路和網際網路</strong> → <strong>進階網路設定</strong></li>
+        <li>點 <strong>進階共用設定</strong></li>
+        <li>展開 <strong>私人</strong>：開啟<strong>網路探索</strong>、<strong>檔案和印表機共用</strong></li>
+        <li>展開 <strong>所有網路</strong>：建議開啟<strong>密碼保護的共用</strong>；不要依賴 Guest</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11/02-advanced-sharing.png" alt="進階共用設定" width="1280" height="720" loading="lazy" />
+        <figcaption>私人網路上開啟探索與檔案共用</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>步驟 3：建立要共用的資料夾</h2>
+      <ol>
+        <li>建立資料夾，例如 <code>D:\FamilyPhotos</code>，放入相片／影片</li>
+        <li>在資料夾空白處按右鍵 → <strong>內容</strong> → <strong>共用</strong></li>
+        <li>點 <strong>進階共用…</strong> → 勾選 <strong>共用這個資料夾</strong></li>
+        <li>記住<strong>共用名稱</strong>（App 會顯示此名稱）→ 點 <strong>權限</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11/03-share-folder.png" alt="進階共用勾選" width="1280" height="720" loading="lazy" />
+        <figcaption>勾選「共用這個資料夾」</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>步驟 4：設定誰可以讀／寫</h2>
+      <ol>
+        <li>建議移除 <strong>Everyone</strong>（若有）</li>
+        <li><strong>新增…</strong> 你的 Windows 使用者 → <strong>檢查名稱</strong> → 確定</li>
+        <li>建議勾選該使用者的<strong>讀取</strong>與<strong>變更</strong>（讀寫）。上傳、移動／複製、編輯存檔、相簿備份都需要寫入；只開「讀取」之後容易操作失敗。若確定手機絕不寫入，才可只勾「讀取」。</li>
+        <li>套用 → 確定</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11/04-share-permissions.png" alt="共用權限" width="1280" height="720" loading="lazy" />
+        <figcaption>建議為本機使用者勾選讀取與變更（讀寫）</figcaption>
+      </figure>
+      <p class="warning">不要把整個 <code>C:\</code> 或家目錄設成可寫入共用。只共用放照片的那一層。</p>
+    </section>
+
+    <section>
+      <h2>步驟 5：確認防火牆允許共用</h2>
+      <p>多數情況開啟「檔案和印表機共用」後會自動放行。若 App 找不到電腦：</p>
+      <ol>
+        <li><strong>設定</strong> → <strong>隱私權與安全性</strong> → <strong>Windows 安全性</strong> → <strong>防火牆與網路保護</strong></li>
+        <li><strong>允許應用程式通過防火牆</strong></li>
+        <li>確認 <strong>檔案和印表機共用</strong> 在<strong>私人</strong>網路上有勾選（與 SMB 相關；細項可見 SMB-In）</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11/05-firewall.png" alt="防火牆允許清單" width="1280" height="720" loading="lazy" />
+        <figcaption>私人網路上允許「檔案和印表機共用」</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>步驟 6：記下主機名稱與帳密</h2>
+      <ol>
+        <li>查看<strong>裝置名稱</strong>：設定搜尋「關於」／「裝置名稱」；或設定 → 系統捲到底 → 關於；或 <code>Win+R</code> → <code>sysdm.cpl</code></li>
+        <li>帳號：本機帳戶名稱，或 Microsoft 帳戶（有時需 <code>MicrosoftAccount\信箱</code>）</li>
+        <li>密碼：Windows 登入密碼（不是 PIN）</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11/06-device-name.png" alt="裝置名稱" width="1280" height="720" loading="lazy" />
+        <figcaption>記下裝置名稱；掃描不到時可用 ipconfig 的 IPv4</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>步驟 7：在 Home Gallery 連線</h2>
+      <ol>
+        <li>手機連上同一組家中 Wi‑Fi</li>
+        <li>Home Gallery → <strong>家中</strong> → <strong>連線家中儲存</strong>（或 更多 → 設定 → 主機連線管理 → 新增 SMB 主機）</li>
+        <li>掃描選取電腦（或手動輸入 IP）</li>
+      </ol>
+      <figure>
+        <img src="../images/app/01-discover-host.png" alt="掃描到主機" width="1080" height="1920" loading="lazy" />
+        <figcaption>掃描列表出現電腦名稱／IP</figcaption>
+      </figure>
+      <ol start="4">
+        <li>輸入帳密 → <strong>測試連線</strong> → <strong>儲存</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/app/02-sign-in.png" alt="登入與測試連線" width="1080" height="1920" loading="lazy" />
+        <figcaption>輸入帳密並測試連線</figcaption>
+      </figure>
+      <ol start="5">
+        <li>選擇共用資料夾 → 再選相片資料夾 → <strong>完成</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/app/03-pick-share.png" alt="選擇共用資料夾" width="1080" height="1920" loading="lazy" />
+        <figcaption>選擇共用與相簿資料夾</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>完成檢查</h2>
+      <ul>
+        <li>網路設定檔為私人</li>
+        <li>私人網路上已開網路探索與檔案和印表機共用</li>
+        <li>資料夾已進階共用，帳號有<strong>讀取＋變更</strong>（讀寫）</li>
+        <li>手機與電腦同一 Wi‑Fi；App 可開啟資料夾</li>
+      </ul>
+      <p class="note">失敗時請看 <a href="../troubleshooting/index.html">連線排查</a>。其他路徑：<a href="../synology/index.html">Synology</a> · <a href="../qnap/index.html">QNAP</a>。</p>
+    </section>
+
+    <footer>
+      <a href="../index.html">建置指南首頁</a> ·
+      <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a>
+    </footer>
+  </main>
+</body>
+</html>

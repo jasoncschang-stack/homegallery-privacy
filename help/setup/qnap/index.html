@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QNAP NAS 開通共用 — Home Gallery</title>
+  <meta name="description" content="在 QNAP QTS 啟用 Microsoft 網路（SMB）與共用權限，供 Home Gallery 連線。" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs"><a href="../../index.html">使用說明</a><span>/</span><a href="../index.html">家中儲存建置</a><span>/</span><span>QNAP</span></nav>
+    <header>
+      <h1>QNAP NAS 開通共用</h1>
+      <p class="meta">QTS 5.x／QuTS · 約 15～25 分鐘 · <span class="badge soon">截圖待補</span></p>
+      <div class="langs"><a href="index.html">繁體中文</a><a href="en.html">English</a><a href="../troubleshooting/index.html">排查</a></div>
+    </header>
+    <section>
+      <h2>步驟摘要</h2>
+      <ol>
+        <li><strong>控制台 → 網路與檔案服務 → Win/Mac/NFS/WebDAV → Microsoft 網路</strong>：啟用 Microsoft 網路檔案服務 → 套用（勿開 SMB1）</li>
+        <li><strong>控制台 → 權限設定 → 共用資料夾</strong>：新增或選取共用</li>
+        <li><strong>資料夾權限</strong>：建議手機帳號 <strong>RW</strong>（上傳／移動／編輯／備份需要）；訪客建議 Deny</li>
+        <li>File Station 放入相片（可選）</li>
+        <li>記下名稱／IP／帳密</li>
+        <li>同一 Wi‑Fi → Home Gallery 連線 → 選共用 → 完成</li>
+      </ol>
+      <p class="note">完整文字稿：<code>docs/setup-home-storage/qnap.md</code>。第一次連線通常不必開「進階權限／Windows ACL」。</p>
+      <p><a href="../windows-11/index.html">改看 Windows 11 圖文指南</a> · <a href="../index.html">返回選路徑</a></p>
+    </section>
+    <footer><a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></footer>
+  </main>
+</body>
+</html>

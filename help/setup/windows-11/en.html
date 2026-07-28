@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Share a folder on Windows 11 — Home Gallery</title>
+  <meta name="description" content="Share a folder on Windows 11 over SMB for Home Gallery." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../../index.html">User guide</a>
+      <span>/</span>
+      <a href="../index.html">Set up home storage</a>
+      <span>/</span>
+      <span>Windows 11</span>
+    </nav>
+
+    <header>
+      <h1>Share a folder on Windows 11</h1>
+      <p class="meta">About 10–20 minutes · for Home Gallery</p>
+      <p class="meta">Uses <strong>SMB</strong> (Windows File sharing). Follow the steps—you do not need to learn the protocol.</p>
+      <div class="langs">
+        <a href="index.html">繁體中文</a>
+        <a href="en.html">English</a>
+        <a href="../troubleshooting/index.html#en">Troubleshooting</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Before you start</h2>
+      <ul>
+        <li>PC runs <strong>Windows 11</strong> on your home network</li>
+        <li>Phone and PC on the <strong>same home Wi‑Fi</strong> (not mobile data / guest Wi‑Fi)</li>
+        <li>You know your Windows <strong>username and password</strong> (set a password under Settings → Accounts → Sign-in options if you only use PIN)</li>
+        <li>Create a dedicated folder first, e.g. <code>D:\FamilyPhotos</code> (do not share the whole system drive)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Step 1: Set the network to Private</h2>
+      <p>On a Public network, Windows often blocks file sharing.</p>
+      <ol>
+        <li>Open <strong>Settings → Network &amp; internet</strong></li>
+        <li>Open <strong>Wi‑Fi</strong> (or Ethernet) → your connection</li>
+        <li>Under <strong>Network profile type</strong>, choose <strong>Private</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11-en/01-network-private.png" alt="Network profile set to Private" width="1280" height="720" loading="lazy" />
+        <figcaption>Network profile type = Private</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Step 2: Turn on File and printer sharing</h2>
+      <ol>
+        <li><strong>Settings → Network &amp; internet → Advanced network settings</strong></li>
+        <li>Open <strong>Advanced sharing settings</strong></li>
+        <li>Under <strong>Private</strong>: turn on <strong>Network discovery</strong> and <strong>File and printer sharing</strong></li>
+        <li>Under <strong>All networks</strong>: turn on <strong>Password protected sharing</strong> (recommended); do not rely on Guest</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11-en/02-advanced-sharing.png" alt="Advanced sharing settings" width="1280" height="720" loading="lazy" />
+        <figcaption>Enable discovery and sharing on Private</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Step 3: Share the folder</h2>
+      <ol>
+        <li>Create e.g. <code>D:\FamilyPhotos</code> and put photos/videos there</li>
+        <li>Right-click the folder → <strong>Properties → Sharing</strong></li>
+        <li><strong>Advanced Sharing…</strong> → check <strong>Share this folder</strong></li>
+        <li>Note the <strong>Share name</strong> → <strong>Permissions</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11-en/03-share-folder.png" alt="Advanced Sharing checked" width="1280" height="720" loading="lazy" />
+        <figcaption>Check “Share this folder”</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Step 4: Who can read / write</h2>
+      <ol>
+        <li>Remove <strong>Everyone</strong> if present (recommended)</li>
+        <li><strong>Add…</strong> your Windows username → <strong>Check Names → OK</strong></li>
+        <li>Grant that user <strong>Read</strong> and <strong>Change</strong> (read/write). Upload, move/copy, saving edits, and album backup all need write access; <strong>Read</strong> alone often causes failures later. Use Read only if the phone will never write.</li>
+        <li>Apply → OK</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11-en/04-share-permissions.png" alt="Share permissions" width="1280" height="720" loading="lazy" />
+        <figcaption>Recommended: allow Read and Change (read/write) for your user</figcaption>
+      </figure>
+      <p class="warning">Do not share all of <code>C:\</code> or your entire user profile as writable.</p>
+    </section>
+
+    <section>
+      <h2>Step 5: Firewall</h2>
+      <p>Usually fine after enabling File and printer sharing. If the app never finds the PC:</p>
+      <ol>
+        <li><strong>Settings → Privacy &amp; security → Windows Security → Firewall &amp; network protection</strong></li>
+        <li><strong>Allow an app through firewall</strong></li>
+        <li>Ensure <strong>File and Printer Sharing</strong> is allowed on <strong>Private</strong> (SMB-related; look for SMB-In in advanced rules)</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11-en/05-firewall.png" alt="Firewall allow list" width="1280" height="720" loading="lazy" />
+        <figcaption>Allow File and Printer Sharing on Private</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Step 6: Note the name and credentials</h2>
+      <ol>
+        <li>Find <strong>Device name</strong>: search Settings for About; or Settings → System → scroll to About; or <code>Win+R</code> → <code>sysdm.cpl</code></li>
+        <li>Username: local account name, or sometimes <code>MicrosoftAccount\you@email.com</code></li>
+        <li>Password: Windows sign-in password (not the PIN)</li>
+      </ol>
+      <figure>
+        <img src="../images/windows-11-en/06-device-name.png" alt="Device name" width="1280" height="720" loading="lazy" />
+        <figcaption>Note the device name; use IPv4 from ipconfig if discovery fails</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Step 7: Connect in Home Gallery</h2>
+      <ol>
+        <li>Phone on the same home Wi‑Fi</li>
+        <li><strong>Home → Connect home storage</strong> (or More → Settings → Host connections → Add SMB host)</li>
+        <li>Pick your PC from the scan (or enter IP)</li>
+      </ol>
+      <figure>
+        <img src="../images/app-en/01-discover-host.png" alt="Host discovered" width="1080" height="1920" loading="lazy" />
+        <figcaption>PC appears in the scan list</figcaption>
+      </figure>
+      <ol start="4">
+        <li>Enter username/password → <strong>Test connection → Save</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/app-en/02-sign-in.png" alt="Sign in and test connection" width="1080" height="1920" loading="lazy" />
+        <figcaption>Sign in and test the connection</figcaption>
+      </figure>
+      <ol start="5">
+        <li>Choose the shared folder → album folder → <strong>Finish</strong></li>
+      </ol>
+      <figure>
+        <img src="../images/app-en/03-pick-share.png" alt="Pick shared folder" width="1080" height="1920" loading="lazy" />
+        <figcaption>Pick the share and photo folder</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Done checklist</h2>
+      <ul>
+        <li>Network profile is Private</li>
+        <li>Discovery + File and printer sharing On for Private</li>
+        <li>Folder shared; account has <strong>Read + Change</strong> (read/write)</li>
+        <li>Same Wi‑Fi; app opens the folder</li>
+      </ul>
+      <p class="note">If it fails: <a href="../troubleshooting/index.html#en">Troubleshooting</a>. Also: <a href="../synology/en.html">Synology</a> · <a href="../qnap/en.html">QNAP</a>.</p>
+    </section>
+
+    <footer>
+      <a href="../index.html">Setup home</a> ·
+      <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a>
+    </footer>
+  </main>
+</body>
+</html>

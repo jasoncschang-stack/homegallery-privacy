@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QNAP NAS sharing — Home Gallery</title>
+  <meta name="description" content="Enable Microsoft Networking (SMB) on QNAP for Home Gallery." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs"><a href="../../index.html">User guide</a><span>/</span><a href="../index.html">Set up home storage</a><span>/</span><span>QNAP</span></nav>
+    <header>
+      <h1>QNAP NAS sharing</h1>
+      <p class="meta">QTS 5.x / QuTS · about 15–25 minutes · <span class="badge soon">Screenshots pending</span></p>
+      <div class="langs"><a href="index.html">繁體中文</a><a href="en.html">English</a><a href="../troubleshooting/index.html#en">Troubleshooting</a></div>
+    </header>
+    <section>
+      <h2>Steps (summary)</h2>
+      <ol>
+        <li><strong>Control Panel → Network &amp; File Services → Win/Mac/NFS/WebDAV → Microsoft Networking</strong>: Enable file service → Apply (no SMB1)</li>
+        <li><strong>Privilege → Shared Folders</strong>: create or pick a share</li>
+        <li><strong>Folder Permissions</strong>: prefer <strong>RW</strong> for the phone user (needed for upload/move/edit/backup); Guest = Deny recommended</li>
+        <li>Optional: add photos in File Station</li>
+        <li>Note name / IP / credentials</li>
+        <li>Same Wi‑Fi → Home Gallery → pick share → Finish</li>
+      </ol>
+      <p class="note">Full draft: <code>docs/setup-home-storage/qnap.en.md</code>. Skip Advanced Permissions / Windows ACL for a first connection.</p>
+      <p><a href="../windows-11/en.html">Windows 11 guide (with screenshots)</a> · <a href="../index.html">Back to paths</a></p>
+    </section>
+    <footer><a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></footer>
+  </main>
+</body>
+</html>

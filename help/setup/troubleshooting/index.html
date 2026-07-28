@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>家中儲存連線排查 — Home Gallery</title>
+  <meta name="description" content="Home Gallery 找不到主機、帳密失敗、只讀、外網無法連線時的排查步驟。" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs"><a href="../../index.html">使用說明</a><span>/</span><a href="../index.html">家中儲存建置</a><span>/</span><span>排查</span></nav>
+    <header>
+      <h1>家中儲存連線排查</h1>
+      <p class="meta">已開過共用，但 App 連不上時使用</p>
+      <div class="langs"><a href="#zh-tw">繁體中文</a><a href="#en">English</a></div>
+    </header>
+
+    <section id="zh-tw">
+      <h2>繁體中文</h2>
+      <p>建置指南：<a href="../windows-11/index.html">Windows 11</a> · <a href="../synology/index.html">Synology</a> · <a href="../qnap/index.html">QNAP</a></p>
+
+      <h3>A. 完全找不到主機</h3>
+      <ol>
+        <li>手機是否在<strong>家中 Wi‑Fi</strong>？（行動數據通常掃不到僅 IPv4 的家用電腦）</li>
+        <li>是否同一網路？（訪客 Wi‑Fi／VPN 可能隔離裝置）</li>
+        <li>Windows 網路是否為<strong>私人</strong>？</li>
+        <li>電腦／NAS 是否睡眠或關機？</li>
+        <li>改用手打 <strong>IPv4</strong>（電腦執行 <code>ipconfig</code>）</li>
+        <li>防火牆：私人網路上允許「檔案和印表機共用」</li>
+      </ol>
+
+      <h3>B. 看得到主機，但帳密失敗</h3>
+      <ol>
+        <li>使用 Windows／NAS <strong>登入密碼</strong>，不是 PIN</li>
+        <li>Microsoft 帳戶可試 <code>MicrosoftAccount\信箱</code>；或改用本機／NAS 專用帳</li>
+        <li>確認該使用者在共用權限清單中</li>
+      </ol>
+
+      <h3>C. 能登入，但看不到資料夾</h3>
+      <ol>
+        <li>選對<strong>共用名稱</strong></li>
+        <li>再往下一層選到實際放照片的資料夾</li>
+        <li>檔案是否已放進該共用</li>
+      </ol>
+
+      <h3>D. 能瀏覽，但上傳／備份失敗（只讀）</h3>
+      <ol>
+        <li>共用權限需含<strong>變更／讀寫</strong></li>
+        <li>Windows 亦檢查 NTFS「安全性」是否允許寫入</li>
+        <li>磁碟空間是否已滿</li>
+      </ol>
+
+      <h3>E. 在家可以、出門用 5G 不行</h3>
+      <p>多數家用裝置只有區網 IPv4 時，外出無法連入屬正常。需主機有可用全球 IPv6 才有機會；請先在家中 Wi‑Fi 成功探索並儲存主機。</p>
+    </section>
+
+    <section id="en">
+      <h2>English</h2>
+      <p>Setup guides: <a href="../windows-11/en.html">Windows 11</a> · <a href="../synology/en.html">Synology</a> · <a href="../qnap/en.html">QNAP</a></p>
+
+      <h3>A. Host not found</h3>
+      <ol>
+        <li>Phone on <strong>home Wi‑Fi</strong>? (Cellular usually cannot reach IPv4-only home PCs)</li>
+        <li>Same network? (Guest Wi‑Fi / VPN may isolate devices)</li>
+        <li>Windows network profile <strong>Private</strong>?</li>
+        <li>PC/NAS asleep or off?</li>
+        <li>Enter <strong>IPv4</strong> manually (<code>ipconfig</code>)</li>
+        <li>Firewall: allow File and Printer Sharing on Private</li>
+      </ol>
+
+      <h3>B. Host found, login fails</h3>
+      <ol>
+        <li>Use the account <strong>password</strong>, not PIN</li>
+        <li>Try <code>MicrosoftAccount\email</code> or a dedicated local/NAS user</li>
+        <li>Confirm the user is on the share permissions list</li>
+      </ol>
+
+      <h3>C. Logged in, folder missing</h3>
+      <ol>
+        <li>Correct <strong>share name</strong>?</li>
+        <li>Drill into the folder that actually holds photos</li>
+        <li>Files copied into that share?</li>
+      </ol>
+
+      <h3>D. Browse works, upload/backup fails (read-only)</h3>
+      <ol>
+        <li>Share needs <strong>Change / Read-Write</strong></li>
+        <li>On Windows, also check NTFS Security ACLs</li>
+        <li>Disk full?</li>
+      </ol>
+
+      <h3>E. Works at home, fails on mobile data</h3>
+      <p>Normal for IPv4-only home storage. Global IPv6 may help; discover and save the host on home Wi‑Fi first.</p>
+    </section>
+
+    <footer><a href="../index.html">建置指南首頁</a> · <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></footer>
+  </main>
+</body>
+</html>

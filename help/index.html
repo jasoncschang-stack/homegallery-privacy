@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home Gallery — User Guide</title>
-  <meta name="description" content="User guide for Home Gallery (家相簿): local gallery, home albums, SMB, backup &amp; restore." />
+  <meta name="description" content="User guide for Home Gallery (家相簿): local gallery, home albums, SMB hosts, backup &amp; restore." />
   <style>
     :root {
       --bg: #f6f8fb;
@@ -100,7 +100,7 @@
     <header>
       <h1>Home Gallery User Guide</h1>
       <p class="meta">家相簿／Home Gallery · Package <code>com.jasoncs.homegallery</code></p>
-      <p class="meta"><strong>Updated:</strong> 2026-07-16 · App reference 0.6.x</p>
+      <p class="meta"><strong>Updated:</strong> 2026-07-23 · App reference 0.6.x+</p>
       <p class="meta"><strong>Contact:</strong> <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
       <div class="langs">
         <a href="#en">English</a>
@@ -114,8 +114,10 @@
       <nav class="toc" aria-label="Contents">
         <ul>
           <li><a href="#en-start">Getting started</a></li>
+          <li><a href="#en-nav">Bottom navigation</a></li>
           <li><a href="#en-local">Local gallery</a></li>
-          <li><a href="#en-home">Home albums &amp; SMB</a></li>
+          <li><a href="#en-home">Home albums &amp; SMB hosts</a></li>
+          <li><a href="setup/index.html">Set up home storage</a> (Windows / NAS)</li>
           <li><a href="#en-backup">Album backup &amp; restore</a></li>
           <li><a href="#en-trash">Recycle bin vs permanent delete</a></li>
           <li><a href="#en-pro">Basic vs Pro</a></li>
@@ -127,27 +129,47 @@
       <ul>
         <li>Requires <strong>Android 11</strong> or later.</li>
         <li>On first launch, allow <strong>Photos and videos</strong> access.</li>
-        <li>Open the side drawer for Local gallery, Home albums, network storage, bookmarks, Album backup, Settings, and About.</li>
+        <li>Main screens use a <strong>bottom navigation bar</strong> (a side rail in landscape)—there is <strong>no sidebar drawer</strong>.</li>
         <li>We do <strong>not</strong> host a cloud gallery. SMB passwords stay on your device.</li>
+        <li>If you used an older test build before the host/album refactor, <strong>clear app data or reinstall</strong>, then set up hosts and home albums again. Do not import old-format settings files.</li>
       </ul>
+
+      <h3 id="en-nav">Bottom navigation</h3>
+      <table>
+        <thead>
+          <tr><th>Tab</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Local</strong></td><td>On-device gallery (folders / timeline). With Pro + recycle bin enabled, open the bin from the local gallery title bar.</td></tr>
+          <tr><td><strong>Home</strong></td><td>Opens your last home album. Tap again to open/close the album picker (switch albums / manage).</td></tr>
+          <tr><td><strong>Bookmarks</strong></td><td>Folder bookmarks and video bookmarks (resume playback).</td></tr>
+          <tr><td><strong>More</strong></td><td><strong>Album backup</strong> (when enabled; may show a badge) and <strong>Settings</strong>. About / user guide live under Settings.</td></tr>
+        </tbody>
+      </table>
+      <p class="note">There is no separate “network storage” list. Browse NAS/PC files only via <strong>Home</strong>.</p>
 
       <h3 id="en-local">Local gallery</h3>
       <ul>
         <li><strong>Folders</strong> or <strong>Timeline</strong> browse modes at the gallery root.</li>
         <li><strong>Long-press</strong> to multi-select; in folder mode, long-press a folder to select all media inside.</li>
         <li>While selecting, long-press another item for an <strong>inclusive range</strong> select.</li>
-        <li>Toolbar actions: copy, move, delete, share, upload to network storage.</li>
+        <li>Toolbar actions: <strong>slideshow</strong>, copy, move, delete, share, upload to a home album.</li>
+        <li><strong>Slideshow:</strong> multi-select photos → Slideshow, or start/pause from the photo viewer. About <strong>5 seconds</strong> per photo, loops; tap to pause, swipe to change photo. Photos only (videos are skipped). Works with photo Cast when projecting.</li>
       </ul>
 
-      <h3 id="en-home">Home albums &amp; SMB</h3>
+      <h3 id="en-home">Home albums &amp; SMB hosts</h3>
       <ul>
-        <li><strong>Network storage:</strong> add an SMB host in Settings, then browse shares from the drawer.</li>
-        <li><strong>Home albums:</strong> pick one or more share folders as a unified entry for everyday browsing.</li>
+        <li><strong>SMB host:</strong> one NAS/PC plus credentials. Manage under <strong>More → Settings → Host connections</strong>. Add a host via the discovery dialog (or manual address), test, then save.</li>
+        <li><strong>Home album:</strong> one card = one host + one share + one folder. Add multiple albums separately if you need more sources—setup creates <strong>one</strong> album at a time.</li>
+        <li><strong>Typical setup:</strong> add a host in Settings (or from the home-album flow) → pick a share → pick a folder → done. Open from the <strong>Home</strong> tab.</li>
         <li>Opening a subfolder loads from the server; going back uses a cached listing when available so the parent appears quickly.</li>
+        <li><strong>Slideshow</strong> for photos works the same as in the local gallery (multi-select or from the viewer).</li>
+        <li><strong>Video streaming (Pro):</strong> toggle under <strong>Settings → Home albums</strong>.</li>
       </ul>
+      <p class="note">Haven’t shared a folder on your PC/NAS yet? See <a href="setup/index.html"><strong>Set up home storage</strong></a> (Windows 11 walkthrough with screenshots; Synology / QNAP summaries).</p>
 
       <h3 id="en-backup">Album backup &amp; restore</h3>
-      <p>One-way backup from the phone to a private folder on home storage: <code>.HomeGallery/backup/{device}/</code>. Not two-way sync.</p>
+      <p>One-way backup from the phone to a private folder on home storage: <code>.HomeGallery/backup/{device}/</code>. Not two-way sync. Open via <strong>More → Album backup</strong> (or Settings).</p>
       <table>
         <thead>
           <tr><th>Topic</th><th>What happens</th></tr>
@@ -160,25 +182,26 @@
           <tr><td>Deleted outside the app</td><td>Listed as “Missing on device”; you can restore manually from the backup zone</td></tr>
         </tbody>
       </table>
-      <p><strong>Restore:</strong> Drawer → Album backup → View backup / restore → filter Missing on device → restore selected or all missing.</p>
+      <p><strong>Restore:</strong> More → Album backup → View backup / restore → filter Missing on device → restore selected or all missing.</p>
       <p class="note">Parallel folders (e.g. Documents) without SAF may restore under <code>Pictures/…</code>. See in-app prompts for path mapping.</p>
 
       <h3 id="en-trash">Recycle bin vs permanent delete</h3>
       <ul>
-        <li><strong>Recycle bin (Pro):</strong> deleted items can be restored on the phone; home backup copies stay until you permanently delete.</li>
+        <li><strong>Recycle bin (Pro):</strong> deleted items can be restored on the phone; home backup copies stay until you permanently delete. Open from the <strong>Local</strong> gallery title bar when Pro and enabled (hidden on Basic or when disabled).</li>
         <li><strong>Permanent delete:</strong> removes from the phone and schedules cleanup of the matching backup file on the next backup run.</li>
       </ul>
 
       <h3 id="en-pro">Basic vs Pro</h3>
       <ul>
-        <li><strong>Basic (free):</strong> full local &amp; SMB photo management, edit, upload, local video, manual backup (1000 cap). No ads.</li>
-        <li><strong>Pro (one-time):</strong> SMB video streaming, unlimited + auto album backup, recycle bin, parallel folders (SAF).</li>
+        <li><strong>Basic (free):</strong> full local &amp; home-album photo management, edit, upload, local video, slideshow, manual backup (1000 cap). No ads.</li>
+        <li><strong>Pro (one-time):</strong> home-album video streaming, unlimited + auto album backup, recycle bin, parallel folders (SAF).</li>
       </ul>
 
       <h3 id="en-support">Support</h3>
       <ul>
-        <li>In the app: <strong>About → User guide</strong>, or <strong>Settings → Support</strong>.</li>
+        <li>In the app: <strong>More → Settings → About → User guide</strong>, or <strong>Settings → Support</strong>.</li>
         <li>Report issues from Settings / About (email). Optional diagnostic ZIP — no passwords or photo contents.</li>
+        <li>Settings export may include SMB credentials in an <strong>encoded</strong> form (not immediately readable, not strong encryption)—keep export files private.</li>
         <li>Email: <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></li>
         <li><a href="../">Privacy policy</a></li>
       </ul>
@@ -189,8 +212,10 @@
       <nav class="toc" aria-label="目錄">
         <ul>
           <li><a href="#zh-start">開始使用</a></li>
+          <li><a href="#zh-nav">底部導航</a></li>
           <li><a href="#zh-local">本機相簿</a></li>
-          <li><a href="#zh-home">家中相簿與網路儲存</a></li>
+          <li><a href="#zh-home">家中相簿與主機連線</a></li>
+          <li><a href="setup/index.html">家中儲存建置</a>（Windows／NAS）</li>
           <li><a href="#zh-backup">相簿備份與還原</a></li>
           <li><a href="#zh-trash">回收桶與永久刪除</a></li>
           <li><a href="#zh-pro">Basic 與 Pro</a></li>
@@ -202,27 +227,47 @@
       <ul>
         <li>需 <strong>Android 11</strong> 或以上。</li>
         <li>首次啟動請允許<strong>相片和影片</strong>存取。</li>
-        <li>側邊欄可進入本機相簿、家中相簿、網路儲存、書籤、相簿備份、設定、關於。</li>
+        <li>主畫面使用<strong>底部導航</strong>（橫向為側邊導覽列），<strong>沒有側邊欄抽屜</strong>。</li>
         <li>本 App <strong>不提供</strong>雲端相簿代管；網路儲存帳密僅保存在您的裝置上。</li>
+        <li>若曾使用重構前的舊測試版，請先<strong>清除 App 資料或重裝</strong>，再重新設定主機與家中相簿；勿匯入舊格式設定檔。</li>
       </ul>
+
+      <h3 id="zh-nav">底部導航</h3>
+      <table>
+        <thead>
+          <tr><th>分頁</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>本機</strong></td><td>本機相簿（資料夾／時間軸）。Pro 且啟用回收桶時，可從本機標題列進入回收桶。</td></tr>
+          <tr><td><strong>家中</strong></td><td>進入上次使用的家中相簿；再點一次開啟／關閉相簿選擇器（切換或管理相簿）。</td></tr>
+          <tr><td><strong>書籤</strong></td><td>資料夾書籤與影片書籤（可續播）。</td></tr>
+          <tr><td><strong>更多</strong></td><td><strong>相簿備份</strong>（啟用時顯示，可能有徽章）與<strong>設定</strong>。關於／使用說明在設定內。</td></tr>
+        </tbody>
+      </table>
+      <p class="note">沒有「網路儲存」連線列表；家中檔案一律由<strong>家中</strong>進入。</p>
 
       <h3 id="zh-local">本機相簿</h3>
       <ul>
         <li>根目錄可切換<strong>資料夾</strong>或<strong>時間軸</strong>瀏覽。</li>
         <li><strong>長按</strong>進入多選；資料夾模式下長按資料夾可選取該夾全部媒體。</li>
         <li>多選中再長按另一項可<strong>區間多選</strong>（含兩端）。</li>
-        <li>可複製、移動、刪除、分享、上傳至網路儲存。</li>
+        <li>可<strong>投影片</strong>、複製、移動、刪除、分享、上傳至<strong>家中相簿</strong>。</li>
+        <li><strong>投影片：</strong>多選相片後點「投影片」，或在瀏覽頁開始／暫停。約每張 <strong>5 秒</strong>、循環播放；輕觸暫停、左右滑切換。僅相片（略過影片）。相片 Cast 投影時亦可同步換頁。</li>
       </ul>
 
-      <h3 id="zh-home">家中相簿與網路儲存</h3>
+      <h3 id="zh-home">家中相簿與主機連線</h3>
       <ul>
-        <li><strong>網路儲存：</strong>在設定新增 SMB 主機後，由側邊欄瀏覽共用資料夾。</li>
-        <li><strong>家中相簿：</strong>將一或多個共用資料夾設為統一入口，方便日常瀏覽。</li>
+        <li><strong>SMB 主機：</strong>一台 NAS／PC 加上帳密。在<strong>更多 → 設定 → 主機連線管理</strong>登記。透過探索對話框（或手動輸入）新增、測試連線後儲存。</li>
+        <li><strong>家中相簿：</strong>一張卡片＝一台主機＋一個共用＋一個資料夾。需要多個來源就<strong>分別新增</strong>——一次流程只建<strong>一筆</strong>。</li>
+        <li><strong>建議流程：</strong>先新增主機 → 選共用 → 選資料夾 → 完成。再到底部導航「家中」瀏覽。</li>
         <li>進入子目錄需向伺服器載入；返回上層會盡量使用已快取列表，讓上層較快出現。</li>
+        <li><strong>投影片</strong>與本機相簿相同（多選或瀏覽頁啟動）。</li>
+        <li><strong>網路影片串流（Pro）：</strong>開關在<strong>設定 → 家中相簿</strong>區塊。</li>
       </ul>
+      <p class="note">還沒在電腦／NAS 開過共用？請先看 <a href="setup/index.html"><strong>家中儲存建置指南</strong></a>（Windows 11 含截圖；Synology／QNAP 為步驟摘要）。</p>
 
       <h3 id="zh-backup">相簿備份與還原</h3>
-      <p>將本機相簿<strong>單向</strong>備份到家中儲存私有區：<code>.HomeGallery/backup/{裝置}/</code>。不是雙向同步。</p>
+      <p>將本機相簿<strong>單向</strong>備份到家中儲存私有區：<code>.HomeGallery/backup/{裝置}/</code>。不是雙向同步。入口：<strong>更多 → 相簿備份</strong>（或設定）。</p>
       <table>
         <thead>
           <tr><th>情境</th><th>說明</th></tr>
@@ -235,25 +280,26 @@
           <tr><td>外部／未知消失</td><td>列為「本機缺失」，可手動從備份區還原</td></tr>
         </tbody>
       </table>
-      <p><strong>還原：</strong>側邊欄 → 相簿備份 → 檢視備份／還原 → 篩選「本機缺失」→ 還原已選或全部缺失。</p>
+      <p><strong>還原：</strong>更多 → 相簿備份 → 檢視備份／還原 → 篩選「本機缺失」→ 還原已選或全部缺失。</p>
       <p class="note">平行目錄（如 Documents）若尚未 SAF 授權，還原可能寫入 <code>Pictures/…</code>；請依對話框的路徑映射提示確認。</p>
 
       <h3 id="zh-trash">回收桶與永久刪除</h3>
       <ul>
-        <li><strong>回收桶（Pro）：</strong>可還原本機項目；在回收桶期間家中備份仍保留。</li>
+        <li><strong>回收桶（Pro）：</strong>可還原本機項目；在回收桶期間家中備份仍保留。於<strong>本機</strong>相簿標題列進入（僅 Pro 且已啟用；Basic 或關閉時隱藏）。</li>
         <li><strong>永久刪除：</strong>自手機刪除，並在下次備份時清除對應的備份檔。</li>
       </ul>
 
       <h3 id="zh-pro">Basic 與 Pro</h3>
       <ul>
-        <li><strong>Basic（免費）：</strong>本機與網路儲存相片管理、編輯、上傳、本機影片、手動備份（1000 張上限）。無廣告。</li>
-        <li><strong>Pro（一次性）：</strong>網路影片串流、備份無上限與自動備份、回收桶、平行目錄（SAF）。</li>
+        <li><strong>Basic（免費）：</strong>本機與家中相簿相片管理、編輯、上傳、本機影片、投影片、手動備份（1000 張上限）。無廣告。</li>
+        <li><strong>Pro（一次性）：</strong>家中相簿影片串流、備份無上限與自動備份、回收桶、平行目錄（SAF）。</li>
       </ul>
 
       <h3 id="zh-support">說明與支援</h3>
       <ul>
-        <li>App 內：<strong>關於 → 使用說明</strong>，或<strong>設定 → 支援</strong>。</li>
+        <li>App 內：<strong>更多 → 設定 → 關於 → 使用說明</strong>，或<strong>設定 → 支援</strong>。</li>
         <li>可從設定／關於回報問題（Email）；可選匯出診斷 ZIP（不含密碼與相片內容）。</li>
+        <li>匯出設定可能以<strong>編碼</strong>形式包含 SMB 帳密（非一目了然的明文，但非強加密）——請妥善保管匯出檔。</li>
         <li>信箱：<a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></li>
         <li><a href="../">隱私權政策</a></li>
       </ul>

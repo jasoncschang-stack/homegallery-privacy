@@ -6,6 +6,7 @@
 |------|---------|
 | [index.html](./index.html) | Public privacy policy (EN + 繁中) |
 | [help/index.html](./help/index.html) | Public user guide (EN + 繁中) |
+| [help/setup/](./help/setup/) | **Home storage setup** (Windows 11 with screenshots; Synology/QNAP/troubleshooting skeletons) |
 | [cast/receiver.html](./cast/receiver.html) | Google Cast custom web receiver |
 | [README.md](./README.md) | Deploy steps |
 
@@ -63,9 +64,16 @@ Sign in when Git prompts you.
 ```text
 https://jasoncschang-stack.github.io/homegallery-privacy/
 https://jasoncschang-stack.github.io/homegallery-privacy/help/
+https://jasoncschang-stack.github.io/homegallery-privacy/help/setup/
 https://jasoncschang-stack.github.io/homegallery-privacy/cast/receiver.html
 ```
 
+| Setup page | URL (after deploy) |
+|------------|-------------------|
+| Path picker | `…/help/setup/` |
+| Windows 11 (zh) | `…/help/setup/windows-11/` |
+| Windows 11 (en) | `…/help/setup/windows-11/en.html` |
+| Troubleshooting | `…/help/setup/troubleshooting/` |
 Open them in a browser (no login). Then paste into Play Console:
 
 | Console field | URL |
@@ -75,6 +83,12 @@ Open them in a browser (no login). Then paste into Play Console:
 | **Store settings → Support URL** (if available) | same help URL |
 
 App entry points (after deploy): **About → User guide**, **Settings → Support → User guide**.
+
+### When to update the public user guide
+
+Do **not** push a new `/help/` during closed testing or while a store review build is pending, if the in-repo manual has moved ahead of the shipping APK.
+
+**Policy (2026/07/25):** closed testing ~day 6; ~7 more days then store review. Deploy `help/` from `docs/user-manual.md` **only after** Play review approval **and** the corresponding release/merge to production. Keep revising `docs/user-manual.md` in the app repo as the draft source of truth.
 
 ### Cast receiver deployment
 
