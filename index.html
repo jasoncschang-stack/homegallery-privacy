@@ -99,7 +99,7 @@
     <header>
       <h1>Home Gallery Privacy Policy</h1>
       <p class="meta">家相簿／Home Gallery · Package <code>com.jasoncs.homegallery</code></p>
-      <p class="meta"><strong>Effective / Last updated:</strong> 2026-07-13</p>
+      <p class="meta"><strong>Effective / Last updated:</strong> 2026-07-16</p>
       <p class="meta"><strong>Contact:</strong> <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
       <div class="langs">
         <a href="#en">English</a>
@@ -123,7 +123,7 @@
         <tbody>
           <tr><td>Photos and videos (MediaStore)</td><td>Browse, edit, share, trash, backup, upload</td><td>Only when <strong>you</strong> upload/backup to home storage or share via the system share sheet</td></tr>
           <tr><td>File paths and media metadata</td><td>Sorting, timeline, properties</td><td>Stays on device unless included in an optional diagnostic export</td></tr>
-          <tr><td>SMB connection settings (host, share, username, password)</td><td>Connect to your home storage</td><td>Stored <strong>locally</strong>; sent only to <strong>your</strong> SMB server when you connect</td></tr>
+          <tr><td>SMB connection settings (host, share, username, password) and home album mappings</td><td>Connect to your home storage; each home album is one host + one share + one folder</td><td>Stored <strong>locally</strong>; sent only to <strong>your</strong> SMB server when you connect</td></tr>
           <tr><td>Bookmarks, playback position</td><td>Navigation and resume</td><td>Local only</td></tr>
           <tr><td>App settings</td><td>Personalization</td><td>Local only</td></tr>
           <tr><td>Backup state</td><td>Album backup and restore</td><td>Local metadata; backup files go to <strong>your</strong> <code>.HomeGallery/backup/</code> folder</td></tr>
@@ -149,7 +149,7 @@
       <h3>Optional user-initiated sharing</h3>
       <ul>
         <li><strong>Report an issue:</strong> Opens your email app with optional diagnostic text; you choose whether to send.</li>
-        <li><strong>Export diagnostics / settings backup:</strong> Creates files you control. Settings backups may include SMB usernames and passwords in plain text so you can restore connections—keep those files private and do not upload them to a public cloud folder.</li>
+        <li><strong>Export diagnostics / settings backup:</strong> Creates files you control. Settings backups may include SMB usernames and passwords in an <strong>encoded</strong> form (not immediately readable plain text, but not strong encryption)—keep those files private and do not upload them to a public cloud folder.</li>
         <li><strong>System share:</strong> Shares selected media through Android’s share sheet to apps you choose.</li>
       </ul>
 
@@ -194,7 +194,7 @@
         <tbody>
           <tr><td>相片與影片（MediaStore）</td><td>瀏覽、編輯、分享、回收桶、備份、上傳</td><td>僅在您<strong>主動</strong>上傳／備份至家中儲存或透過系統分享時</td></tr>
           <tr><td>檔案路徑與中繼資料</td><td>排序、時間軸、屬性</td><td>預設留在本機；可選診斷匯出時由您決定</td></tr>
-          <tr><td>網路儲存連線設定（主機、共用、帳密）</td><td>連線至您的 NAS／PC</td><td><strong>僅存本機</strong>；連線時只傳至<strong>您指定的</strong> SMB 伺服器</td></tr>
+          <tr><td>SMB 主機連線（主機、帳密）與家中相簿對應</td><td>連線至您的 NAS／PC；每一家中相簿＝一台主機＋一個共用＋一個資料夾</td><td><strong>僅存本機</strong>；連線時只傳至<strong>您指定的</strong> SMB 伺服器</td></tr>
           <tr><td>書籤、播放進度</td><td>導覽與續播</td><td>僅本機</td></tr>
           <tr><td>App 設定</td><td>個人化</td><td>僅本機</td></tr>
           <tr><td>備份狀態</td><td>備份與還原</td><td>中繼資料在本機；備份檔在您的 <code>.HomeGallery/backup/</code></td></tr>
@@ -219,7 +219,7 @@
       <h3>使用者主動觸發的分享</h3>
       <ul>
         <li><strong>回報問題：</strong>開啟 Email，可附診斷文字，由您決定是否寄出。</li>
-        <li><strong>匯出診斷／設定備份：</strong>檔案由您掌控。設定備份可能以明文包含網路儲存帳密以便還原連線——請妥善保管，勿上傳至公開雲端。</li>
+        <li><strong>匯出診斷／設定備份：</strong>檔案由您掌控。設定備份可能以<strong>編碼</strong>形式包含網路儲存帳密以便還原連線（非一目了然的明文，但非強加密）——請妥善保管，勿上傳至公開雲端。</li>
         <li><strong>系統分享：</strong>透過 Android 分享至您選擇的 App。</li>
       </ul>
 

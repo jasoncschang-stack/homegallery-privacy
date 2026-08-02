@@ -432,24 +432,50 @@
     if (sequence !== null) lastSequence = Math.max(lastSequence, sequence);
 
     var generation = ++loadGeneration;
+    var previousIndex = activeLayerIndex;
     var nextIndex = activeLayerIndex === 0 ? 1 : 0;
     var nextLayer = layers[nextIndex];
     nextLayer.classList.remove("is-visible");
-    nextLayer.onload = function () {
+    var swapUpgradedLayer = function () {
       if (generation !== loadGeneration || currentPhotoId !== photo.photoId) return;
       layoutLayer(nextLayer);
+      // Instant swap — simultaneous opacity fade makes TVs briefly flash ~1–2s after SHOW_PHOTO
+      // when the high-resolution upgrade arrives.
+      nextLayer.style.transition = "none";
+      if (previousIndex >= 0) {
+        layers[previousIndex].style.transition = "none";
+      }
+      void nextLayer.offsetWidth;
       nextLayer.classList.add("is-visible");
-      if (activeLayerIndex >= 0) layers[activeLayerIndex].classList.remove("is-visible");
+      if (previousIndex >= 0) {
+        layers[previousIndex].classList.remove("is-visible");
+      }
       activeLayerIndex = nextIndex;
       currentUrl = photo.url;
       queue.set(photo.photoId, photo.url);
       layoutDetailLayer();
+      requestAnimationFrame(function () {
+        nextLayer.style.transition = "";
+        if (previousIndex >= 0) {
+          layers[previousIndex].style.transition = "";
+        }
+      });
       send(senderId, {
         type: "PHOTO_UPGRADED",
         photoId: photo.photoId,
         sequence: sequence,
         url: photo.url
       });
+    };
+    nextLayer.onload = function () {
+      if (generation !== loadGeneration || currentPhotoId !== photo.photoId) return;
+      // `load` can fire before the TV holds a paintable bitmap, so the swapped-in layer shows an
+      // empty frame first. Waiting for decode keeps the exchange invisible.
+      if (typeof nextLayer.decode === "function") {
+        nextLayer.decode().then(swapUpgradedLayer, swapUpgradedLayer);
+      } else {
+        swapUpgradedLayer();
+      }
     };
     nextLayer.onerror = function () {
       if (generation !== loadGeneration) return;
