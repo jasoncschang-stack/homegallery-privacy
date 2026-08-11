@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>外出用 Tailscale — Home Gallery</title>
+  <meta name="description" content="Home Gallery：在 PC／NAS 與手機安裝 Tailscale，外出以 100.x 連線僅 IPv4 的家中 SMB 主機。" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../../index.html">使用說明</a>
+      <span>/</span>
+      <a href="../index.html">家中儲存建置</a>
+      <span>/</span>
+      <span>Tailscale</span>
+    </nav>
+
+    <header>
+      <h1>外出用 Tailscale 連回家中相簿</h1>
+      <p class="meta">Home Gallery 1.0.5+ · PC／NAS + 手機 + App</p>
+      <p class="meta">適用：在家 Wi‑Fi 已可連 SMB，但外出時主機只有 IPv4（常見 Windows PC）。</p>
+      <div class="langs">
+        <a href="#zh-tw">繁體中文</a>
+        <a href="#en">English</a>
+        <a href="../index.html">建置首頁</a>
+        <a href="../../index.html">使用說明</a>
+      </div>
+    </header>
+
+    <section id="zh-tw">
+      <h2>繁體中文</h2>
+
+      <h3>什麼時候需要？</h3>
+      <ul>
+        <li>人在家、連家中 Wi‑Fi → <strong>不需要</strong> Tailscale</li>
+        <li>外出、主機只有 IPv4（多數 Windows SMB）→ <strong>需要</strong> Tailscale</li>
+        <li>已用 OpenVPN 等連進家中區網 → <strong>不必</strong>再開 Tailscale</li>
+      </ul>
+      <p class="note">請在 App 填 <strong>100.x IP</strong>，不要只靠 MagicDNS 名稱。</p>
+
+      <h3>1. PC／NAS（家中）</h3>
+      <ol>
+        <li>開啟 <a href="https://tailscale.com/download" rel="noopener">tailscale.com/download</a>，安裝並登入</li>
+        <li>確認狀態為 <strong>Connected</strong></li>
+        <li>複製這台電腦／NAS 的 Tailscale <strong>IPv4（100.x）</strong></li>
+      </ol>
+
+      <h3>2. 手機</h3>
+      <ol>
+        <li>Google Play 安裝 <strong>Tailscale</strong></li>
+        <li>用與 PC <strong>相同帳號</strong>登入，允許 VPN</li>
+        <li>確認 Connected，列表中看得到家中那台裝置</li>
+      </ol>
+
+      <h3>3. Home Gallery（首次外出設定）</h3>
+      <ol>
+        <li>先在<strong>家中 Wi‑Fi</strong>把主機與家中相簿設好</li>
+        <li>外出開啟該相簿 → 若提示需要 Tailscale，點<strong>開啟 Tailscale</strong></li>
+        <li>在 Tailscale 複製 PC 的 <code>100.x</code></li>
+        <li>返回 App（畫面會停著讓你貼上，不會立刻狂重連）</li>
+        <li>點<strong>貼上</strong> → <strong>儲存 Tailscale IP 並重試</strong></li>
+      </ol>
+      <p>也可到<strong>設定 → 主機連線管理 → 編輯</strong>，在 <strong>Tailscale</strong> 欄填入 <code>100.x</code>（區網 IPv4 欄請維持 <code>192.168.x</code>）。</p>
+
+      <h3>日常與耗電</h3>
+      <ul>
+        <li>要看相簿再開 Tailscale；看完可離開 App（約數十秒後會請 Tailscale 斷線）</li>
+        <li>回到家中 Wi‑Fi 時，App 也可能請 Tailscale 斷線</li>
+      </ul>
+
+      <h3>常見問題</h3>
+      <p><strong>貼上後仍連不上？</strong> 確認 PC／手機同一 Tailscale 帳號且皆 Connected；複製的是<strong>家中那台</strong>的 100.x；在家 Wi‑Fi 用同一組 SMB 帳密仍可連；PC 未睡眠。</p>
+      <p><strong>OpenVPN？</strong> 已進區網則維持區網 IPv4 即可，不必再開 Tailscale。</p>
+
+      <p class="note">完整倉庫文稿：<code>docs/setup-home-storage/tailscale.md</code></p>
+    </section>
+
+    <section id="en">
+      <h2>English</h2>
+
+      <h3>When do you need Tailscale?</h3>
+      <ul>
+        <li>At home on Wi‑Fi → <strong>not needed</strong></li>
+        <li>Away, IPv4-only host (typical Windows SMB) → <strong>use Tailscale</strong></li>
+        <li>Already on a home-LAN VPN (e.g. OpenVPN) → <strong>Tailscale not required</strong></li>
+      </ul>
+      <p class="note">Save the <strong>100.x IP</strong> in the app — do not rely on MagicDNS alone.</p>
+
+      <h3>1. PC / NAS</h3>
+      <ol>
+        <li>Install from <a href="https://tailscale.com/download" rel="noopener">tailscale.com/download</a> and sign in</li>
+        <li>Confirm <strong>Connected</strong></li>
+        <li>Copy this machine’s Tailscale <strong>IPv4 (100.x)</strong></li>
+      </ol>
+
+      <h3>2. Phone</h3>
+      <ol>
+        <li>Install <strong>Tailscale</strong> from Play Store</li>
+        <li>Sign in with the <strong>same account</strong>; allow VPN</li>
+        <li>Confirm Connected and that the home PC/NAS appears</li>
+      </ol>
+
+      <h3>3. Home Gallery (first away setup)</h3>
+      <ol>
+        <li>On home Wi‑Fi, finish the SMB host and home album first</li>
+        <li>Away: open the album → if prompted, tap <strong>Open Tailscale</strong></li>
+        <li>Copy the PC’s <code>100.x</code> in Tailscale</li>
+        <li>Return to the app (it stays on the paste screen — no auto thrash)</li>
+        <li><strong>Paste</strong> → <strong>Save Tailscale IP and retry</strong></li>
+      </ol>
+      <p>Or edit the host under <strong>Settings → Host connections</strong> and fill the <strong>Tailscale</strong> field (keep LAN IPv4 separate).</p>
+
+      <h3>Daily use</h3>
+      <ul>
+        <li>Turn Tailscale on when you need the album; leaving the app asks Tailscale to disconnect after a short delay</li>
+        <li>Back on matching home Wi‑Fi, the app may also disconnect Tailscale</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p><a href="../index.html">← Set up home storage</a> · <a href="../../index.html">User guide</a></p>
+      <p>Home Gallery · Tailscale guide · 2026/08/11</p>
+    </footer>
+  </main>
+</body>
+</html>

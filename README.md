@@ -73,6 +73,7 @@ https://jasoncschang-stack.github.io/homegallery-privacy/cast/receiver.html
 | Path picker | `…/help/setup/` |
 | Windows 11 (zh) | `…/help/setup/windows-11/` |
 | Windows 11 (en) | `…/help/setup/windows-11/en.html` |
+| Tailscale (away / IPv4) | `…/help/setup/tailscale/` |
 | Troubleshooting | `…/help/setup/troubleshooting/` |
 Open them in a browser (no login). Then paste into Play Console:
 

@@ -163,11 +163,12 @@
         <li><strong>SMB host:</strong> one NAS/PC plus credentials. Manage under <strong>More → Settings → Host connections</strong>. Add a host via the discovery dialog (or manual address), test, then save.</li>
         <li><strong>Home album:</strong> one card = one host + one share + one folder. Add multiple albums separately if you need more sources—setup creates <strong>one</strong> album at a time.</li>
         <li><strong>Typical setup:</strong> add a host in Settings (or from the home-album flow) → pick a share → pick a folder → done. Open from the <strong>Home</strong> tab.</li>
+        <li><strong>Away / Tailscale (1.0.5+):</strong> on cellular, IPv4-only hosts need Tailscale assist—paste the PC’s <strong>100.x</strong> address. See <a href="setup/tailscale/index.html#en">Tailscale setup</a>.</li>
         <li>Opening a subfolder loads from the server; going back uses a cached listing when available so the parent appears quickly.</li>
         <li><strong>Slideshow</strong> for photos works the same as in the local gallery (multi-select or from the viewer; on-phone only in 1.0.x).</li>
         <li><strong>Video streaming (Pro):</strong> toggle under <strong>Settings → Home albums</strong>. Stream on the phone; Cast to TV when the clip is TV-friendly.</li>
       </ul>
-      <p class="note">Haven’t shared a folder on your PC/NAS yet? See <a href="setup/index.html#en"><strong>Set up home storage</strong></a> (Windows 11 walkthrough with screenshots; Synology / QNAP summaries).</p>
+      <p class="note">Haven’t shared a folder on your PC/NAS yet? See <a href="setup/index.html#en"><strong>Set up home storage</strong></a> (Windows 11 walkthrough with screenshots; Synology / QNAP summaries). Away on IPv4-only: <a href="setup/tailscale/index.html#en">Tailscale</a>.</p>
 
       <h3 id="en-backup">Album backup &amp; restore</h3>
       <p>One-way backup from the phone to a private folder on home storage: <code>.HomeGallery/backup/{device}/</code>. Not two-way sync. Open via <strong>More → Album backup</strong> (or Settings).</p>
@@ -176,7 +177,7 @@
           <tr><th>Topic</th><th>What happens</th></tr>
         </thead>
         <tbody>
-          <tr><td>Basic</td><td>Manual backup only, up to <strong>1000</strong> photos total</td></tr>
+          <tr><td>Basic</td><td>Manual backup only (no photo-count cap)</td></tr>
           <tr><td>Pro</td><td>Unlimited + optional automatic backup on Wi‑Fi</td></tr>
           <tr><td>Move to recycle bin</td><td>NAS copy kept; <strong>not</strong> listed as “Missing on device” — restore from the recycle bin</td></tr>
           <tr><td>Permanent delete in this app</td><td><strong>Not</strong> “Missing on device”; next backup removes the matching NAS copy</td></tr>
@@ -194,7 +195,7 @@
 
       <h3 id="en-pro">Basic vs Pro</h3>
       <ul>
-        <li><strong>Basic (free):</strong> full local &amp; home-album photo management, edit, upload, local video (incl. Cast when supported), slideshow on the phone, manual backup (1000 cap). No ads.</li>
+        <li><strong>Basic (free):</strong> full local &amp; home-album photo management, edit, upload, local video (incl. Cast when supported), slideshow on the phone, manual backup (no count cap). No ads.</li>
         <li><strong>Pro (one-time):</strong> home-album video streaming, unlimited + auto album backup, recycle bin, parallel folders (SAF). Photo Cast and home-album timeline are not in 1.0.x.</li>
       </ul>
 
@@ -262,11 +263,12 @@
         <li><strong>SMB 主機：</strong>一台 NAS／PC 加上帳密。在<strong>更多 → 設定 → 主機連線管理</strong>登記。透過探索對話框（或手動輸入）新增、測試連線後儲存。</li>
         <li><strong>家中相簿：</strong>一張卡片＝一台主機＋一個共用＋一個資料夾。需要多個來源就<strong>分別新增</strong>——一次流程只建<strong>一筆</strong>。</li>
         <li><strong>建議流程：</strong>先新增主機 → 選共用 → 選資料夾 → 完成。再到底部導航「家中」瀏覽。</li>
+        <li><strong>外出／Tailscale（1.0.5+）：</strong>行動數據下、僅 IPv4 的主機需用 Tailscale 輔助——在 App 貼上 PC 的 <strong>100.x</strong>。見 <a href="setup/tailscale/index.html">Tailscale 建置</a>。</li>
         <li>進入子目錄需向伺服器載入；返回上層會盡量使用已快取列表，讓上層較快出現。</li>
         <li><strong>投影片</strong>與本機相簿相同（多選或瀏覽頁啟動；1.0.x 僅手機播放）。</li>
         <li><strong>網路影片串流（Pro）：</strong>開關在<strong>設定 → 家中相簿</strong>。以手機串流為主；適合電視的影片可再嘗試投影。</li>
       </ul>
-      <p class="note">還沒在電腦／NAS 開過共用？請先看 <a href="setup/index.html#zh-tw"><strong>家中儲存建置指南</strong></a>（Windows 11 含截圖；Synology／QNAP 為步驟摘要）。</p>
+      <p class="note">還沒在電腦／NAS 開過共用？請先看 <a href="setup/index.html#zh-tw"><strong>家中儲存建置指南</strong></a>（Windows 11 含截圖；Synology／QNAP 為步驟摘要）。僅 IPv4 外出見 <a href="setup/tailscale/index.html">Tailscale</a>。</p>
 
       <h3 id="zh-backup">相簿備份與還原</h3>
       <p>將本機相簿<strong>單向</strong>備份到家中儲存私有區：<code>.HomeGallery/backup/{裝置}/</code>。不是雙向同步。入口：<strong>更多 → 相簿備份</strong>（或設定）。</p>
@@ -275,7 +277,7 @@
           <tr><th>情境</th><th>說明</th></tr>
         </thead>
         <tbody>
-          <tr><td>Basic</td><td>僅手動備份，累計最多 <strong>1000</strong> 張</td></tr>
+          <tr><td>Basic</td><td>僅手動備份（無張數上限）</td></tr>
           <tr><td>Pro</td><td>無張數上限；Wi‑Fi 下可自動備份</td></tr>
           <tr><td>移至回收桶</td><td>家中備份保留；<strong>不算「本機缺失」</strong>——請從回收桶還原本機</td></tr>
           <tr><td>本 App 永久刪除</td><td><strong>不算「本機缺失」</strong>；下次備份會清除對應的家中備份檔</td></tr>
@@ -293,7 +295,7 @@
 
       <h3 id="zh-pro">Basic 與 Pro</h3>
       <ul>
-        <li><strong>Basic（免費）：</strong>本機與家中相簿相片管理、編輯、上傳、本機影片（支援時可 Cast）、手機投影片、手動備份（1000 張上限）。無廣告。</li>
+        <li><strong>Basic（免費）：</strong>本機與家中相簿相片管理、編輯、上傳、本機影片（支援時可 Cast）、手機投影片、手動備份（無張數上限）。無廣告。</li>
         <li><strong>Pro（一次性）：</strong>家中相簿影片串流、備份無上限與自動備份、回收桶、平行目錄（SAF）。1.0.x 不含相片 Cast、不含家中時間軸。</li>
       </ul>
 
