@@ -74,6 +74,7 @@ https://jasoncschang-stack.github.io/homegallery-privacy/cast/receiver.html
 | Windows 11 (zh) | `…/help/setup/windows-11/` |
 | Windows 11 (en) | `…/help/setup/windows-11/en.html` |
 | Tailscale (away / IPv4) | `…/help/setup/tailscale/` |
+| WebDAV (away / NAS) | `…/help/setup/webdav/` |
 | Troubleshooting | `…/help/setup/troubleshooting/` |
 Open them in a browser (no login). Then paste into Play Console:
 

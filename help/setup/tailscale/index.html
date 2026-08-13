@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>外出用 Tailscale — Home Gallery</title>
-  <meta name="description" content="Home Gallery：在 PC／NAS 與手機安裝 Tailscale，外出以 100.x 連線僅 IPv4 的家中 SMB 主機。" />
+  <meta name="description" content="Home Gallery：在 PC／NAS 與手機安裝 Tailscale，外出以 100.x 連線 Windows 或無法開 WebDAV 的 SMB 主機。" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
@@ -20,7 +20,7 @@
     <header>
       <h1>外出用 Tailscale 連回家中相簿</h1>
       <p class="meta">Home Gallery 1.0.5+ · PC／NAS + 手機 + App</p>
-      <p class="meta">適用：在家 Wi‑Fi 已可連 SMB，但外出時主機只有 IPv4（常見 Windows PC）。</p>
+      <p class="meta">適用：在家 Wi‑Fi 已可連 SMB，外出要用 Tailscale（常見 Windows PC）。NAS 建議改用 <a href="../webdav/index.html">WebDAV</a>。</p>
       <div class="langs">
         <a href="#zh-tw">繁體中文</a>
         <a href="#en">English</a>
@@ -35,7 +35,8 @@
       <h3>什麼時候需要？</h3>
       <ul>
         <li>人在家、連家中 Wi‑Fi → <strong>不需要</strong> Tailscale</li>
-        <li>外出、主機只有 IPv4（多數 Windows SMB）→ <strong>需要</strong> Tailscale</li>
+        <li>外出、NAS 可開 HTTPS WebDAV → 優先用 <a href="../webdav/index.html">WebDAV</a></li>
+        <li>外出、Windows PC（或無法開 WebDAV）→ <strong>需要</strong> Tailscale</li>
         <li>已用 OpenVPN 等連進家中區網 → <strong>不必</strong>再開 Tailscale</li>
       </ul>
       <p class="note">請在 App 填 <strong>100.x IP</strong>，不要只靠 MagicDNS 名稱。</p>
@@ -83,7 +84,8 @@
       <h3>When do you need Tailscale?</h3>
       <ul>
         <li>At home on Wi‑Fi → <strong>not needed</strong></li>
-        <li>Away, IPv4-only host (typical Windows SMB) → <strong>use Tailscale</strong></li>
+        <li>Away, NAS with HTTPS WebDAV → prefer <a href="../webdav/index.html#en">WebDAV</a></li>
+        <li>Away, Windows PC (or no WebDAV) → <strong>use Tailscale</strong></li>
         <li>Already on a home-LAN VPN (e.g. OpenVPN) → <strong>Tailscale not required</strong></li>
       </ul>
       <p class="note">Save the <strong>100.x IP</strong> in the app — do not rely on MagicDNS alone.</p>

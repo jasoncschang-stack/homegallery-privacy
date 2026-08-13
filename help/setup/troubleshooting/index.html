@@ -51,12 +51,12 @@
         <li>磁碟空間是否已滿</li>
       </ol>
 
-      <h3>E. 在家可以、出門用 5G 不行</h3>
-      <p>多數僅 IPv4 的家用 PC／NAS 在行動數據下本來就連不到——這是預期行為。若要外出瀏覽：</p>
+      <h3>E. 外出（行動數據）連不上</h3>
+      <p>若尚未設定遠端方式，多數家用 PC／NAS 在行動數據下本來就連不到 SMB——這是預期行為。若要外出瀏覽：</p>
       <ol>
-        <li>依 <a href="../tailscale/index.html">Tailscale 手冊</a> 在 PC 與手機安裝並登入同一帳號</li>
-        <li>在 App 填入／貼上 PC 的 <strong>100.x</strong>，再重試</li>
-        <li>若已用 OpenVPN 等連進區網，維持區網 IPv4 即可，不必再開 Tailscale</li>
+        <li><strong>NAS：</strong>依 <a href="../webdav/index.html">WebDAV 手冊</a> 啟用 HTTPS WebDAV，在 App 遠端存取選 WebDAV，填 DDNS／公網 IP 與埠</li>
+        <li><strong>Windows PC：</strong>依 <a href="../tailscale/index.html">Tailscale 手冊</a> 安裝並登入同一帳號，在 App 貼上 <strong>100.x</strong></li>
+        <li>若已用 OpenVPN 等連進區網，維持區網 IPv4 即可，不必再開 WebDAV／Tailscale</li>
       </ol>
     </section>
 
@@ -96,11 +96,11 @@
       </ol>
 
       <h3>E. Works at home, fails on mobile data</h3>
-      <p>Most IPv4-only home PCs/NAS are unreachable on cellular—that is expected. To browse away from home:</p>
+      <p>Without a remote-access method, most home PCs/NAS are unreachable on cellular via SMB—that is expected. To browse away from home:</p>
       <ol>
-        <li>Follow the <a href="../tailscale/index.html#en">Tailscale guide</a>: install on PC and phone, same account</li>
-        <li>Enter / paste the PC’s <strong>100.x</strong> address in the app, then retry</li>
-        <li>If you already use OpenVPN (or similar) into the LAN, keep the LAN IPv4—no Tailscale needed</li>
+        <li><strong>NAS:</strong> follow the <a href="../webdav/index.html#en">WebDAV guide</a> (HTTPS WebDAV + DDNS/public IP + port in the app)</li>
+        <li><strong>Windows PC:</strong> follow the <a href="../tailscale/index.html#en">Tailscale guide</a>, then paste <strong>100.x</strong> in the app</li>
+        <li>If you already use OpenVPN (or similar) into the LAN, keep the LAN IPv4—no WebDAV/Tailscale needed</li>
       </ol>
     </section>
 
