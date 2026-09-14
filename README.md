@@ -88,9 +88,11 @@ App entry points (after deploy): **About → User guide**, **Settings → Suppor
 
 ### When to update the public user guide
 
-Do **not** push a new `/help/` during closed testing or while a store review build is pending, if the in-repo manual has moved ahead of the shipping APK.
+`help/index.html` is generated from the app-repo `docs/user-manual.md` (Traditional Chinese) plus `_user_manual_en.md` (English) via `_build_help.py`. Keep those sources aligned with the **shipping** app version.
 
-**Policy (2026/07/25):** closed testing ~day 6; ~7 more days then store review. Deploy `help/` from `docs/user-manual.md` **only after** Play review approval **and** the corresponding release/merge to production. Keep revising `docs/user-manual.md` in the app repo as the draft source of truth.
+**Current public guide:** App **1.2.0** · manual **1.45** (2026-09-14), including the home-album timeline (Basic), time align / time correction, and scan depth.
+
+Do **not** push `/help/` while a store-review build is pending if the in-repo manual already describes features that build does not ship. After a production release, regenerate and push so Pages matches the store APK.
 
 ### Cast receiver deployment
 
