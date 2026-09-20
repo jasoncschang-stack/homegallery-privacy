@@ -2,9 +2,9 @@
 
 | Item | Value |
 |------|------|
-| Manual version | 1.45 |
-| App version | 1.2.0 |
-| Written | 2026/09/14 |
+| Manual version | 1.48 |
+| App version | 1.2.3 |
+| Written | 2026/09/20 |
 
 ---
 
@@ -20,8 +20,9 @@
 - Bookmark frequently used folders
 - Browse a local **timeline**; browse home media by date with the **home-album timeline**
 - **Home videos** can stream on the phone (no full-file download first)
+- **UI languages:** English, Traditional Chinese, Simplified Chinese, Japanese, Korean (follows system language)
 
-This app does **not** host a cloud gallery. SMB passwords stay on your device. **Basic** is a full, ad-free photo manager (slideshow, home video streaming, timelines, recycle bin, parallel folders, **manual** album backup, and more). **Pro** (optional, one-time purchase) additionally unlocks **automatic** album backup and **photo / slideshow casting** to a TV.
+This app does **not** host a cloud gallery. SMB passwords stay on your device. **Basic** is a full, ad-free photo manager (slideshow, home video streaming, timelines, recycle bin, parallel folders, **manual** album backup, **browse backup zone**, and more). **Pro** (optional, one-time purchase) additionally unlocks **automatic** album backup and **photo / slideshow casting** to a TV.
 
 **Requirements:** Android 11 (API 30) or later.
 
@@ -163,9 +164,9 @@ Home files use two layers:
 
 1. Bottom navigation → **Home** → open an album (or tap **Home** again and switch in the picker)
 2. Browse that source folder (grid / list)
-3. The title bar switches **Folders** / **Timeline**. Timeline shows photos and videos by date across folders (**Basic**). The first open builds an index; later visits prefer the cache. If the index is older than about 24 hours it refreshes silently after connect; you can also refresh manually
+3. The title bar switches **Folders** / **Timeline**. Timeline shows photos and videos by date across folders (**Basic**). The first open builds an index; later visits prefer the cache. If the index is older than about 24 hours it refreshes silently after connect; you can also refresh manually. On the timeline, **pull down** to refresh folders near the current view (segment refresh) without a full-library rescan
 4. Switching to timeline inside a subfolder shows **only that folder’s scope**
-5. Tap a photo to view; the toolbar can **Refresh**
+5. Tap a photo to view; the toolbar can **Refresh**. After a **rename** on the timeline, the index follows the new name; a later **move** uses the new path
 6. Timeline multi-select can **align times** (match a reference photo) or **correct time** on a single photo (date and time)
 7. On the home-album **manage** screen, each album has a **timeline scan depth** (1–8 levels, default 4; the album root is level 0)
 
@@ -193,7 +194,8 @@ After you leave home Wi‑Fi, pick one remote method for the host type:
 1. On home Wi‑Fi, set up the host and home album first (§4.1–4.2)
 2. Enable **WebDAV HTTPS** on the NAS and prepare **DDNS** or a public IP
 3. Edit the host → **Remote access = WebDAV** → enter external host and port → **Test connection** → **Save**
-4. Open the home album while away (turn off home Wi‑Fi to verify)
+4. (Most home NAS use a self-signed certificate) You may enable **Allow untrusted HTTPS certificates**: the app tries **system trust** first; if that fails it **pins the certificate for that host (TOFU)**—the first successful connection stores the fingerprint. If the NAS certificate changes later and connection fails, turn this option off and on again to re-pin
+5. Open the home album while away (turn off home Wi‑Fi to verify)
 
 Full steps and security notes: [setup-home-storage/webdav.md](./setup-home-storage/webdav.md).
 
@@ -555,10 +557,10 @@ While playing a video, tap the **star** to add a **video bookmark** (including r
 
 - If the destination already has the name, the upload is **renamed** to `name (1).ext`, `name (2).ext`, … and does **not overwrite**
 
-**Delete local after a successful upload (Pro)**
+**Delete local after a successful upload**
 
-- Only when **every item uploaded successfully** and **Pro + recycle bin** are enabled, the app asks whether to **move local copies to the recycle bin**
-- Choose **Move to recycle bin** or **Keep on device**; Basic or recycle bin off only shows a success message
+- Only when **every item uploaded successfully** and the **recycle bin** is enabled, the app asks whether to **move local copies to the recycle bin**
+- Choose **Move to recycle bin** or **Keep on device**; recycle bin off only shows a success message
 - Album backup **does not** offer this; after moving to the recycle bin, a remote backup copy is still kept if that file was already in album backup
 
 ---
@@ -645,6 +647,14 @@ If you **switch to another share**, **change host**, or **change the backup anch
 
 Unlike Basic “upload to a public folder”, the backup zone is app-managed, hidden from normal network browsing by default, and keeps the local copy by default.
 
+**Browse backup zone (large folder grid)**
+
+1. **More → Album backup** → **Browse backup zone**
+2. Open the private backup root in home-album folder mode (large grid); drill into folders as needed
+3. **Backup-only** items have a red border; long-press to select and purge them from the backup zone (and drop tracking)
+4. Files that exist on the backup disk but have **no local index row** are labeled **Not tracked** (often copied in manually, or after an index reset); run a scan / remote index before they appear as Backup-only
+5. List-style restore / filters still use **View backup / restore** below
+
 **Restore (R1.1)**
 
 1. **More → Album backup** (or Album backup in Settings) → **View backup / restore**
@@ -659,12 +669,14 @@ If the backup contains parallel paths such as `Documents/…`:
 
 | Condition | Where restore writes |
 |------|------|
-| **Basic**, or **Pro without SAF** for that path | Mapped to **`Pictures/{original relative path}`** (for example `Documents/Office Lens/a.jpg` → `Pictures/Documents/Office Lens/a.jpg`; videos may map under `Movies/…`) |
-| **Pro** with **Select and authorize** on that parallel folder | Writes back to the **original relative path** (not mapped into Pictures) |
+| **Without SAF** for that parallel path | Mapped to **`Pictures/{original relative path}`** (for example `Documents/Office Lens/a.jpg` → `Pictures/Documents/Office Lens/a.jpg`; videos may map under `Movies/…`) |
+| **With Select and authorize** on that parallel folder | Writes back to the **original relative path** (not mapped into Pictures) |
+
+Basic and Pro can both authorize parallel folders (see Settings → Local gallery folders).
 
 If the confirm dialog shows path mapping, some files will land under `Pictures`. Device-to-device restore (R2) uses the same rule.
 
-**New phone (R2)** (**Pro:** link existing backup / full restore library)
+**New phone (R2)** (link existing backup / full restore library; **Basic and Pro**)
 
 1. **More → Album backup** → **View backup / restore**
 2. Tap **Link existing backup** → pick the old phone’s `backup/{deviceId}/` on the NAS (**restore source only**)
@@ -867,7 +879,7 @@ This is an **Android 11+ system limit**. The app cannot get a tree grant for the
 
 Under **More → About** (or **More → Settings → About**) you can see:
 
-- Version (currently **1.2.0**; trust **About** in the app)
+- Version (currently **1.2.3**; trust **About** in the app)
 - Build date
 - **User guide** (this online manual: https://jasoncschang-stack.github.io/homegallery-privacy/help/)
 - Report a problem
@@ -875,4 +887,4 @@ Under **More → About** (or **More → Settings → About**) you can see:
 
 Settings → **Support** opens the same guide.
 
-This public guide matches App **1.2.0** and manual **1.45**.
+This public guide matches App **1.2.3** and manual **1.48**.

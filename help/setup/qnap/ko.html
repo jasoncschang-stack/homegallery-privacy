@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Gallery에 대한 QNAP NAS 공유 활성화 — Home Gallery</title>
+  <meta name="description" content="Home Gallery에 대한 QNAP NAS 공유 활성화" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../../index.html">사용자 가이드</a>
+      <span>/</span>
+      <a href="../index.html">홈 저장소 설정</a>
+      <span>/</span>
+      <span>qnap</span>
+    </nav>
+
+    <header>
+      <h1>Home Gallery에 대한 QNAP NAS 공유 활성화</h1>
+      <p class="meta">Home Gallery</p>
+      <p class="note">한국어 전용 화면이 없으면 영어 스크린샷을 사용합니다.</p>
+      <div class="langs">
+        <a href="index.html">繁體中文</a>
+        <a href="en.html">English</a>
+        <a href="ja.html">日本語</a>
+        <a href="ko.html">한국어</a>
+        <a href="../troubleshooting/index.html#ko">문제 해결</a>
+      </div>
+    </header>
+
+<p>브라우저로 로그인할 수 있고 QTS/QuTS가 이미 설치되어 있는 경우 <strong>약 15~25분</strong> 소요됩니다. 이후 Home Gallery은 NAS를 <strong>홈 스토리지</strong>로 사용할 수 있습니다.</p>
+<p class="note">일반적인 <strong>QTS 5.x / QuTS hero</strong> 제어판 경로에 대해 작성됨(많은 QuTScloud 홈 유닛에서도 일반적임). 레이블이 다를 경우, <strong>Microsoft Networking</strong>, <strong>SMB</strong>, 또는 <strong>공유 폴더</strong>를 검색하세요.<br />휴대폰은 <strong>SMB</strong>을 통해 폴더를 읽습니다 (QNAP에서는 종종 이를 <strong>Microsoft 네트워킹 / SMB</strong>라고 표시합니다).</p>
+<section>
+<h2>시작하기 전에</h2>
+<ul><li>NAS 관리 UI가 브라우저에서 열립니다(예: <code>http://NAS-IP:8080</code> 또는 myQNAPcloud / Qfinder를 통해)</li><li>당신은 <strong>관리자</strong> 계정을 가지고 있습니다</li><li>전화기와 NAS가 <strong>같은 홈 Wi‑Fi / LAN</strong>에 있습니다</li><li>사진이 저장될 위치 결정: 새 공유(예: <code>FamilyPhotos</code>) 또는 기존 공유의 하위 폴더</li></ul>
+</section>
+<section>
+<h2>단계 1: Microsoft 네트워킹 활성화 (SMB)</h2>
+<ol><li>QTS / QuTS에 로그인하세요</li><li><strong>제어판</strong>을 엽니다</li><li><strong>네트워크 및 파일 서비스</strong>를 엽니다</li><li><strong>Win/Mac/NFS/WebDAV</strong> 열기 (탭 이름은 약간 다를 수 있음)</li><li><strong>마이크로소프트 네트워킹</strong> 선택</li><li><strong>Microsoft 네트워킹을 위한 파일 서비스 사용</strong> 확인</li><li><strong>적용</strong>을 클릭하세요</li></ol>
+<p>(스크린샷: 윈도우/맥/NFS → 마이크로소프트 네트워킹 → 활성화)</p>
+<h3>권장 고급 옵션</h3>
+<p>같은 페이지에서 또는 고급 설정에서:</p>
+<ul><li>최대 SMB 버전은 기본값으로 두기 (SMB 2/3)</li><li><strong>호환성을 위해 SMB1을 활성화하지 마십시오</strong> (보안 위험; Home Gallery에는 필요하지 않음)</li><li><strong>SMB 암호화</strong>: 처음 설정할 때는 기본값을 그대로 두세요; 강제 암호화가 휴대폰을 차단하면 문제 해결 중에는 완화하세요</li><li>서버 설명 / 작업 그룹: 가정에서는 기본값으로 괜찮습니다</li></ul>
+</section>
+<section>
+<h2>2단계: 공유 폴더 생성 또는 확인</h2>
+<ol><li><strong>제어판 → 권한 → 공유 폴더</strong></li><li>적절한 공유가 이미 존재하는 경우, 해당 <strong>이름</strong>을 기록하고 3단계로 이동합니다</li><li>그렇지 않으면 <strong>만들기 → 공유 폴더</strong>를 선택하고 다음을 설정합니다:</li><li><strong>폴더 이름</strong>: 예: <code>FamilyPhotos</code> (앱에서 공유 폴더로 표시됨)</li><li>빈 공간이 있는 볼륨/스토리지 풀</li><li>“네트워크 드라이브 숨기기”: 초기 디버깅을 쉽게 하려면 선택하지 않은 상태로 두세요</li><li>공유가 목록에 나타나는지 확인하십시오</li></ol>
+<p>(스크린샷: 공유 폴더 목록 / 생성 마법사)</p>
+<p class="note">권한이 올바르고 사진이 존재하거나 존재할 예정이라면 <code>Multimedia</code> 또는 <code>homes</code>과 같은 내장 공유도 괜찮습니다.</p>
+</section>
+<section>
+<h2>단계 3: 폴더 권한</h2>
+<ol><li>목록에서 주식을 찾으세요</li><li><strong>폴더 권한</strong> 열기 (또는 편집 → 권한)</li><li>전화기가 사용할 계정의 경우, <strong>RW(읽기/쓰기)</strong>를 선호하세요</li><li>업로드, 이동/복사, 편집 및 앨범 백업은 쓰기 권한이 필요합니다; 읽기 전용 권한만 있으면 나중에 종종 실패가 발생합니다</li><li>전화기가 절대 쓰지 않을 경우에만 <strong>RO(읽기 전용)</strong>를 사용하세요</li><li><strong>Guest</strong>를 <strong>거부</strong>로 설정합니다 (권장)</li><li><strong>적용하기</strong></li></ol>
+<p>(스크린샷: 폴더 권한)</p>
+<h3>추천: 휴대폰 전용 사용자</h3>
+<ol><li><strong>제어판 → 권한 → 사용자</strong></li><li><strong>사용자</strong>를 생성합니다, 예: <code>homegallery</code></li><li>비밀번호 설정</li><li>정상 사용자 그룹을 사용하세요—<strong>관리자</strong>가 아닌</li><li>사진 공유에 대해 사용자 <strong>RW</strong> 또는 <strong>RO</strong> 권한을 부여합니다</li><li>관리자 비밀번호를 휴대폰에 저장하는 대신 이 계정으로 앱에 로그인하세요</li></ol>
+<p class="note">게스트/익명 접근에 의존하지 마세요.</p>
+<h3>고급 권한 (보통 건너뜀)</h3>
+<p>공유 폴더 → <strong>고급 권한</strong>에서 고급 폴더 권한 및 Windows ACL과 같은 옵션이 있습니다.</p>
+<p><strong>첫 홈 갤러리 연결에서는 건너뛰세요</strong>; 먼저 공유 수준의 읽기/쓰기·읽기 전용을 작동시키세요.</p>
+</section>
+<section>
+<h2>4단계: 사진을 공유에 올리기 (선택 사항이지만 권장)</h2>
+<ol><li><strong>파일 스테이션</strong>을 엽니다</li><li>공유 폴더(또는 하위 폴더)를 엽니다</li><li>사진/동영상을 업로드하거나 이동하기</li></ol>
+<p>앱에서 홈 앨범을 추가할 때, 이 공유를 선택한 다음 실제로 사진이 들어 있는 폴더를 선택하세요.</p>
+</section>
+<section>
+<h2>5단계: 연결 세부 정보 기록</h2>
+<p>| 항목 | 어디서 찾을 수 있나요 |</p>
+<p>|------|------------------|</p>
+<p>| NAS 이름 | 데스크탑 / 제어판 → 시스템 → 시스템 상태; 또는 Qfinder |</p>
+<p>| IP 주소 | 네트워크 및 가상 스위치; 라우터 DHCP; 또는 Qfinder |</p>
+<p>| 사용자 이름 / 비밀번호 | 3단계에서 생성된 계정 |</p>
+<p>만약 탐지가 실패하면, Home Gallery에 <strong>IP</strong>를 수동으로 입력하세요.</p>
+</section>
+<section>
+<h2>6단계: Home Gallery에 연결하기</h2>
+<ol><li>전화가 같은 집에 Wi‑Fi</li><li><strong>홈 → 홈 스토리지 연결</strong> (또는 <strong>더보기 → 설정 → 호스트 연결 → SMB 호스트 추가</strong>)</li><li>스캔에서 NAS을 선택하거나 IP를 입력하세요</li><li>자격 증명 → <strong>연결 테스트 → 저장</strong></li><li>공유 폴더 → 앨범 폴더 → <strong>완료</strong> 선택</li></ol>
+<p>앱 세부 정보: <a href="../user-manual.md#4-家中相簿與-smb-主機">user manual §4</a> (번체 중국어 출처).</p>
+</section>
+<section>
+<h2>완료 체크리스트</h2>
+<ul><li>Microsoft Networking (SMB) 활성화 및 적용됨</li><li>공유가 존재함; 계정은 RO 또는 RW; 게스트는 가능하면 거부</li><li>전화기와 NAS가 같은 LAN에 있음</li><li>앱 연결 테스트 정상; 폴더 열림</li><li>(백업) 계정은 <strong>읽기/쓰기(RW)</strong> 입니다</li></ul>
+<p>실패할 경우: <a href="../troubleshooting/index.html#ko">Troubleshooting</a>.</p>
+</section>
+<section>
+<h2>짧은 FAQ</h2>
+<p><strong>myQNAPcloud가 필요하신가요?</strong> 가정용 LAN에서는 필요하지 않습니다SMB. LAN IP/호스트 이름을 사용하세요.</p>
+<p><strong>방화벽 / 보안 센터?</strong> 방화벽이 켜져 있는 경우 LAN에서 <strong>SMB (TCP 445)</strong>에 대한 액세스를 허용하십시오.</p>
+<p><strong>QuTS hero vs QTS?</strong> 전체적인 흐름은 동일함 (SMB 활성화 → 공유 → 권한 → 앱); 저장소 용어는 다를 수 있음.</p>
+<p><strong>5G에서 나갔나요?</strong> 집에서는 Wi‑Fi 앱이 여전히 SMB을 사용합니다. 집을 떠나 있을 때는 원격 액세스를 <strong>WebDAV</strong> (DDNS / 공용 IP + HTTPS 포트)로 설정하세요—<a href="../webdav/index.html#ko">webdav.md</a>를 참조하십시오. Windows PC의 경우 <a href="../tailscale/index.html#ko">Tailscale</a>를 사용하세요.</p>
+</section>
+<section>
+<h2>추가할 스크린샷</h2>
+<ol><li>Microsoft 네트워킹 사용</li><li>공유 폴더 목록 / 생성</li><li>폴더 권한 (사용자 읽기/쓰기, 게스트 거부)</li><li>사용자 생성 (선택 사항)</li><li>시스템 / 네트워크 IP</li><li>앱 연결 → 공유 선택</li></ol>
+<p>개정: 2026-07-27</p>
+</section>
+
+    <footer>
+      <a href="../index.html">홈 저장소 설정</a> ·
+      <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a>
+    </footer>
+  </main>
+</body>
+</html>

@@ -73,6 +73,8 @@ https://jasoncschang-stack.github.io/homegallery-privacy/cast/receiver.html
 | Path picker | `…/help/setup/` |
 | Windows 11 (zh) | `…/help/setup/windows-11/` |
 | Windows 11 (en) | `…/help/setup/windows-11/en.html` |
+| Windows 11 (ja) | `…/help/setup/windows-11/ja.html` |
+| Windows 11 (ko) | `…/help/setup/windows-11/ko.html` |
 | Tailscale (away / IPv4) | `…/help/setup/tailscale/` |
 | WebDAV (away / NAS) | `…/help/setup/webdav/` |
 | Troubleshooting | `…/help/setup/troubleshooting/` |
@@ -88,9 +90,11 @@ App entry points (after deploy): **About → User guide**, **Settings → Suppor
 
 ### When to update the public user guide
 
-`help/index.html` is generated from the app-repo `docs/user-manual.md` (Traditional Chinese) plus `_user_manual_en.md` (English) via `_build_help.py`. Keep those sources aligned with the **shipping** app version.
+`help/index.html` is generated from the app-repo `docs/user-manual.md` (Traditional Chinese), `_user_manual_en.md` (English), `_user_manual_ja.md` (Japanese), and `_user_manual_ko.md` (Korean) via `_build_help.py`. Keep those sources aligned with the **shipping** app version. JA/KO manuals are machine-translated from English (`tools/translate_docs_ja_ko.py`).
 
-**Current public guide:** App **1.2.0** · manual **1.45** (2026-09-14), including the home-album timeline (Basic), time align / time correction, and scan depth.
+Setup pages under `help/setup/` add `ja.html` / `ko.html` (and `#ja` / `#ko` sections) via `_build_setup_locales.py`; screenshots reuse the English folders (`windows-11-en/`, `app-en/`).
+
+**Current public guide:** App **1.2.3** · manual **1.48** (2026-09-20), including backup-zone browse, JA/KO, and WebDAV system-trust + TOFU pinning. Deploy Pages after merging this revision.
 
 Do **not** push `/help/` while a store-review build is pending if the in-repo manual already describes features that build does not ship. After a production release, regenerate and push so Pages matches the store APK.
 

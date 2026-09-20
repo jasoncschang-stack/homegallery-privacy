@@ -108,11 +108,13 @@
     <header>
       <h1>Home Gallery User Guide</h1>
       <p class="meta">家相簿／Home Gallery · Package <code>com.jasoncs.homegallery</code></p>
-      <p class="meta"><strong>Updated:</strong> 2026-09-14 · App <strong>1.2.0</strong> · Manual <strong>1.45</strong></p>
+      <p class="meta"><strong>Updated:</strong> 2026-09-20 · App <strong>1.2.3</strong> · Manual <strong>1.48</strong></p>
       <p class="meta"><strong>Contact:</strong> <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
       <div class="langs">
         <a href="#en">English</a>
         <a href="#zh-tw">繁體中文</a>
+        <a href="#ja">日本語</a>
+        <a href="#ko">한국어</a>
         <a href="../">Privacy policy</a>
       </div>
     </header>
@@ -121,14 +123,14 @@
       <h2>English</h2>
       <nav class="toc" aria-label="Contents"><ul><li><a href="#en-1-Introduction">1. Introduction</a></li><li><a href="#en-2-Getting-started">2. Getting started</a></li><li><a href="#en-3-Local-gallery">3. Local gallery</a></li><li><a href="#en-4-Home-albums-and-SMB-hosts">4. Home albums and SMB hosts</a></li><li><a href="#en-5-Photo-viewer">5. Photo viewer</a></li><li><a href="#en-6-Photo-editor">6. Photo editor</a></li><li><a href="#en-7-Bookmarks">7. Bookmarks</a></li><li><a href="#en-8-Upload-to-a-home-album">8. Upload to a home album</a></li><li><a href="#en-9-Settings">9. Settings</a></li><li><a href="#en-10-FAQ">10. FAQ</a></li><li><a href="#en-11-Permissions">11. Permissions</a></li><li><a href="#en-12-Basic-and-Pro">12. Basic and Pro</a></li><li><a href="#en-13-Version-info">13. Version info</a></li><li><a href="setup/index.html#en">Set up home storage</a> (Windows / NAS)</li></ul></nav>
       <table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
-<tr><td>Manual version</td><td>1.45</td></tr>
-<tr><td>App version</td><td>1.2.0</td></tr>
-<tr><td>Written</td><td>2026/09/14</td></tr>
+<tr><td>Manual version</td><td>1.48</td></tr>
+<tr><td>App version</td><td>1.2.3</td></tr>
+<tr><td>Written</td><td>2026/09/20</td></tr>
 </tbody></table>
 <h3 id="en-1-Introduction">1. Introduction</h3>
 <p><strong>Home Gallery</strong> (家相簿) is an Android photo and video manager for <strong>on-device</strong> media and <strong>home storage</strong> (NAS / PC over SMB). <strong>You choose the space—no extra cloud capacity to buy.</strong> Use the disks you already have; photos stay in storage you control.</p>
-<ul><li>Browse and manage photos and videos in the <strong>local gallery</strong></li><li>Connect <strong>home albums</strong> to shared folders on a NAS / PC (each card is one host + one share + one folder)</li><li>Register SMB credentials once under <strong>Host connections</strong> in Settings (scan once, sign in once, reuse later)</li><li>View, edit, share, copy, move, rename, and delete photos</li><li><strong>Slideshow</strong> auto-plays selected photos (local / home albums; <strong>Pro</strong> can also cast the slideshow to a TV)</li><li>Bookmark frequently used folders</li><li>Browse a local <strong>timeline</strong>; browse home media by date with the <strong>home-album timeline</strong></li><li><strong>Home videos</strong> can stream on the phone (no full-file download first)</li></ul>
-<p>This app does <strong>not</strong> host a cloud gallery. SMB passwords stay on your device. <strong>Basic</strong> is a full, ad-free photo manager (slideshow, home video streaming, timelines, recycle bin, parallel folders, <strong>manual</strong> album backup, and more). <strong>Pro</strong> (optional, one-time purchase) additionally unlocks <strong>automatic</strong> album backup and <strong>photo / slideshow casting</strong> to a TV.</p>
+<ul><li>Browse and manage photos and videos in the <strong>local gallery</strong></li><li>Connect <strong>home albums</strong> to shared folders on a NAS / PC (each card is one host + one share + one folder)</li><li>Register SMB credentials once under <strong>Host connections</strong> in Settings (scan once, sign in once, reuse later)</li><li>View, edit, share, copy, move, rename, and delete photos</li><li><strong>Slideshow</strong> auto-plays selected photos (local / home albums; <strong>Pro</strong> can also cast the slideshow to a TV)</li><li>Bookmark frequently used folders</li><li>Browse a local <strong>timeline</strong>; browse home media by date with the <strong>home-album timeline</strong></li><li><strong>Home videos</strong> can stream on the phone (no full-file download first)</li><li><strong>UI languages:</strong> English, Traditional Chinese, Simplified Chinese, Japanese, Korean (follows system language)</li></ul>
+<p>This app does <strong>not</strong> host a cloud gallery. SMB passwords stay on your device. <strong>Basic</strong> is a full, ad-free photo manager (slideshow, home video streaming, timelines, recycle bin, parallel folders, <strong>manual</strong> album backup, <strong>browse backup zone</strong>, and more). <strong>Pro</strong> (optional, one-time purchase) additionally unlocks <strong>automatic</strong> album backup and <strong>photo / slideshow casting</strong> to a TV.</p>
 <p><strong>Requirements:</strong> Android 11 (API 30) or later.</p>
 <h3 id="en-2-Getting-started">2. Getting started</h3>
 <h3 id="en-21-Opening-the-app">2.1 Opening the app</h3>
@@ -182,7 +184,7 @@
 <ol><li>Bottom navigation → <strong>Home</strong> (if you have no albums yet, setup is offered; or tap <strong>Home</strong> again → <strong>Manage home albums</strong>)</li><li>If there is no album yet, tap <strong>Connect home storage</strong> (or the <strong>Add</strong> FAB)</li><li><strong>If there is no host yet:</strong> the Add SMB host dialog opens; after you save, setup continues</li><li><strong>If hosts already exist:</strong><ul><li>One host: go straight to <strong>Choose a share</strong></li><li>Several hosts: pick a host, then a share</li><li><strong>Find a new SMB host</strong> is available when you need a scan</li></ul></li><li><strong>Choose the album folder:</strong> browse subfolders in the share; you can stop at any level as the album root</li><li><strong>Display name (optional)</strong> defaults to the folder name → tap <strong>Done</strong> (this creates <strong>one</strong> album)</li><li>Open it from the <strong>Home</strong> tab; tap <strong>Home</strong> again to switch albums</li></ol>
 <p class="note">Setup <strong>no longer</strong> re-runs a full host scan or lets you multi-select several shares to create many albums in one go.</p>
 <h3 id="en-43-Browse-and-manage">4.3 Browse and manage</h3>
-<ol><li>Bottom navigation → <strong>Home</strong> → open an album (or tap <strong>Home</strong> again and switch in the picker)</li><li>Browse that source folder (grid / list)</li><li>The title bar switches <strong>Folders</strong> / <strong>Timeline</strong>. Timeline shows photos and videos by date across folders (<strong>Basic</strong>). The first open builds an index; later visits prefer the cache. If the index is older than about 24 hours it refreshes silently after connect; you can also refresh manually</li><li>Switching to timeline inside a subfolder shows <strong>only that folder’s scope</strong></li><li>Tap a photo to view; the toolbar can <strong>Refresh</strong></li><li>Timeline multi-select can <strong>align times</strong> (match a reference photo) or <strong>correct time</strong> on a single photo (date and time)</li><li>On the home-album <strong>manage</strong> screen, each album has a <strong>timeline scan depth</strong> (1–8 levels, default 4; the album root is level 0)</li></ol>
+<ol><li>Bottom navigation → <strong>Home</strong> → open an album (or tap <strong>Home</strong> again and switch in the picker)</li><li>Browse that source folder (grid / list)</li><li>The title bar switches <strong>Folders</strong> / <strong>Timeline</strong>. Timeline shows photos and videos by date across folders (<strong>Basic</strong>). The first open builds an index; later visits prefer the cache. If the index is older than about 24 hours it refreshes silently after connect; you can also refresh manually. On the timeline, <strong>pull down</strong> to refresh folders near the current view (segment refresh) without a full-library rescan</li><li>Switching to timeline inside a subfolder shows <strong>only that folder’s scope</strong></li><li>Tap a photo to view; the toolbar can <strong>Refresh</strong>. After a <strong>rename</strong> on the timeline, the index follows the new name; a later <strong>move</strong> uses the new path</li><li>Timeline multi-select can <strong>align times</strong> (match a reference photo) or <strong>correct time</strong> on a single photo (date and time)</li><li>On the home-album <strong>manage</strong> screen, each album has a <strong>timeline scan depth</strong> (1–8 levels, default 4; the album root is level 0)</li></ol>
 <p><strong>Remove an album link</strong></p>
 <ul><li>On the home-album <strong>manage</strong> screen: long-press a card or tap ⋮ → <strong>Remove album link</strong></li><li>This only removes the link in the app; it does <strong>not delete</strong> files on the storage device</li></ul>
 <p><strong>Multi-select move / copy</strong></p>
@@ -195,7 +197,7 @@
 <tr><td>Already on the LAN via OpenVPN etc.</td><td><strong>None</strong> (or keep the LAN address)</td><td>Usually no extra WebDAV / Tailscale</td></tr>
 </tbody></table>
 <h4>WebDAV (recommended for NAS)</h4>
-<ol><li>On home Wi‑Fi, set up the host and home album first (§4.1–4.2)</li><li>Enable <strong>WebDAV HTTPS</strong> on the NAS and prepare <strong>DDNS</strong> or a public IP</li><li>Edit the host → <strong>Remote access = WebDAV</strong> → enter external host and port → <strong>Test connection</strong> → <strong>Save</strong></li><li>Open the home album while away (turn off home Wi‑Fi to verify)</li></ol>
+<ol><li>On home Wi‑Fi, set up the host and home album first (§4.1–4.2)</li><li>Enable <strong>WebDAV HTTPS</strong> on the NAS and prepare <strong>DDNS</strong> or a public IP</li><li>Edit the host → <strong>Remote access = WebDAV</strong> → enter external host and port → <strong>Test connection</strong> → <strong>Save</strong></li><li>(Most home NAS use a self-signed certificate) You may enable <strong>Allow untrusted HTTPS certificates</strong>: the app tries <strong>system trust</strong> first; if that fails it <strong>pins the certificate for that host (TOFU)</strong>—the first successful connection stores the fingerprint. If the NAS certificate changes later and connection fails, turn this option off and on again to re-pin</li><li>Open the home album while away (turn off home Wi‑Fi to verify)</li></ol>
 <p>Full steps and security notes: <a href="setup/webdav/index.html#en">WebDAV guide</a>.</p>
 <h4>Tailscale (Windows / no WebDAV)</h4>
 <p>Use <strong>Tailscale</strong> as a secure tunnel so the phone can reach home SMB at <strong><code>100.x</code></strong>.</p>
@@ -402,8 +404,8 @@
 <ul><li>Shows progress (<code>N / M</code>), file name, and a byte bar</li><li><strong>Stop</strong> cancels remaining files; finished files are kept; the result distinguishes success / partial success / cancelled</li></ul>
 <p><strong>Same name</strong></p>
 <ul><li>If the destination already has the name, the upload is <strong>renamed</strong> to <code>name (1).ext</code>, <code>name (2).ext</code>, … and does <strong>not overwrite</strong></li></ul>
-<p><strong>Delete local after a successful upload (Pro)</strong></p>
-<ul><li>Only when <strong>every item uploaded successfully</strong> and <strong>Pro + recycle bin</strong> are enabled, the app asks whether to <strong>move local copies to the recycle bin</strong></li><li>Choose <strong>Move to recycle bin</strong> or <strong>Keep on device</strong>; Basic or recycle bin off only shows a success message</li><li>Album backup <strong>does not</strong> offer this; after moving to the recycle bin, a remote backup copy is still kept if that file was already in album backup</li></ul>
+<p><strong>Delete local after a successful upload</strong></p>
+<ul><li>Only when <strong>every item uploaded successfully</strong> and the <strong>recycle bin</strong> is enabled, the app asks whether to <strong>move local copies to the recycle bin</strong></li><li>Choose <strong>Move to recycle bin</strong> or <strong>Keep on device</strong>; recycle bin off only shows a success message</li><li>Album backup <strong>does not</strong> offer this; after moving to the recycle bin, a remote backup copy is still kept if that file was already in album backup</li></ul>
 <h3 id="en-9-Settings">9. Settings</h3>
 <p>Open <strong>More → Settings</strong>.</p>
 <h3 id="en-91-Host-connections">9.1 Host connections</h3>
@@ -452,16 +454,19 @@
 </tbody></table>
 <p>If you <strong>switch to another share</strong>, <strong>change host</strong>, or <strong>change the backup anchor folder</strong>, local tracking starts over: synced / failed / backup-only counts clear. Tap <strong>Check pending backup</strong> to scan again (if the new destination already has a backup for this device, items can align as synced without a full re-upload).</p>
 <p>Unlike Basic “upload to a public folder”, the backup zone is app-managed, hidden from normal network browsing by default, and keeps the local copy by default.</p>
+<p><strong>Browse backup zone (large folder grid)</strong></p>
+<ol><li><strong>More → Album backup</strong> → <strong>Browse backup zone</strong></li><li>Open the private backup root in home-album folder mode (large grid); drill into folders as needed</li><li><strong>Backup-only</strong> items have a red border; long-press to select and purge them from the backup zone (and drop tracking)</li><li>Files that exist on the backup disk but have <strong>no local index row</strong> are labeled <strong>Not tracked</strong> (often copied in manually, or after an index reset); run a scan / remote index before they appear as Backup-only</li><li>List-style restore / filters still use <strong>View backup / restore</strong> below</li></ol>
 <p><strong>Restore (R1.1)</strong></p>
 <ol><li><strong>More → Album backup</strong> (or Album backup in Settings) → <strong>View backup / restore</strong></li><li>Default filter <strong>Missing on device</strong> (backed up before, gone locally; not items in the recycle bin, and not permanent deletes from this app)</li><li>Tap <strong>Restore all missing</strong>, or multi-select then <strong>Restore selected</strong> → confirm (file count, size, <strong>path-mapping count</strong>) → restore (Items after linking an old phone are usually “Backup only”; the Missing-on-device filter also shows those pending files)</li><li>Restored files appear in the local gallery</li></ol>
 <p><strong>Parallel-folder restore paths (important)</strong></p>
 <p>If the backup contains parallel paths such as <code>Documents/…</code>:</p>
 <table><thead><tr><th>Condition</th><th>Where restore writes</th></tr></thead><tbody>
-<tr><td><strong>Basic</strong>, or <strong>Pro without SAF</strong> for that path</td><td>Mapped to <strong><code>Pictures/{original relative path}</code></strong> (for example <code>Documents/Office Lens/a.jpg</code> → <code>Pictures/Documents/Office Lens/a.jpg</code>; videos may map under <code>Movies/…</code>)</td></tr>
-<tr><td><strong>Pro</strong> with <strong>Select and authorize</strong> on that parallel folder</td><td>Writes back to the <strong>original relative path</strong> (not mapped into Pictures)</td></tr>
+<tr><td><strong>Without SAF</strong> for that parallel path</td><td>Mapped to <strong><code>Pictures/{original relative path}</code></strong> (for example <code>Documents/Office Lens/a.jpg</code> → <code>Pictures/Documents/Office Lens/a.jpg</code>; videos may map under <code>Movies/…</code>)</td></tr>
+<tr><td><strong>With Select and authorize</strong> on that parallel folder</td><td>Writes back to the <strong>original relative path</strong> (not mapped into Pictures)</td></tr>
 </tbody></table>
+<p>Basic and Pro can both authorize parallel folders (see Settings → Local gallery folders).</p>
 <p>If the confirm dialog shows path mapping, some files will land under <code>Pictures</code>. Device-to-device restore (R2) uses the same rule.</p>
-<p><strong>New phone (R2)</strong> (<strong>Pro:</strong> link existing backup / full restore library)</p>
+<p><strong>New phone (R2)</strong> (link existing backup / full restore library; <strong>Basic and Pro</strong>)</p>
 <ol><li><strong>More → Album backup</strong> → <strong>View backup / restore</strong></li><li>Tap <strong>Link existing backup</strong> → pick the old phone’s <code>backup/{deviceId}/</code> on the NAS (<strong>restore source only</strong>)</li><li>After indexing, use the <strong>Backup only</strong> filter for files not on this phone</li><li>Multi-select or <strong>Restore all missing</strong> (same parallel-folder rule: without SAF they go to <strong><code>Pictures/…</code></strong>)</li><li>Later backups from this phone still write to <strong>its own</strong> folder; the old phone can keep backing up separately</li></ol>
 <p><strong>After clearing app storage (same phone)</strong></p>
 <ol><li>After a backup, <strong>Export settings</strong> first (this also remembers the backup <code>deviceId</code>)</li><li>Clear app storage (or reinstall) → grant permissions again → <strong>Restore settings as soon as possible</strong> (do not enable album backup first, or a new device identity may be created)</li><li>Open album backup → <strong>Check pending backup</strong>: the app connects to the home backup zone and marks local files that still match the NAS as synced—<strong>no full re-upload</strong></li><li>If you restore settings on <strong>another phone</strong> that already has a different identity: the write identity stays; the imported old <code>deviceId</code> is treated as a linked restore source (use “Link existing backup” to index / restore)</li><li>If the export is old (no <code>deviceId</code>), export again after a backup, or pick the old folder with “Link existing backup”</li></ol>
@@ -568,23 +573,23 @@
 <p>This is an <strong>Android 11+ system limit</strong>. The app cannot get a tree grant for the Download <strong>root</strong>. Choose <code>Documents</code>, or authorize a <strong>subfolder</strong> under Downloads. The app does not offer a “read-only include Download” path (it would disagree with copy / restore writes and be more awkward).</p>
 <h3 id="en-13-Version-info">13. Version info</h3>
 <p>Under <strong>More → About</strong> (or <strong>More → Settings → About</strong>) you can see:</p>
-<ul><li>Version (currently <strong>1.2.0</strong>; trust <strong>About</strong> in the app)</li><li>Build date</li><li><strong>User guide</strong> (this online manual: <a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a>)</li><li>Report a problem</li><li>Copyright</li></ul>
+<ul><li>Version (currently <strong>1.2.3</strong>; trust <strong>About</strong> in the app)</li><li>Build date</li><li><strong>User guide</strong> (this online manual: <a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a>)</li><li>Report a problem</li><li>Copyright</li></ul>
 <p>Settings → <strong>Support</strong> opens the same guide.</p>
-<p>This public guide matches App <strong>1.2.0</strong> and manual <strong>1.45</strong>.</p>
+<p>This public guide matches App <strong>1.2.3</strong> and manual <strong>1.48</strong>.</p>
     </section>
 
     <section id="zh-tw">
       <h2>繁體中文</h2>
       <nav class="toc" aria-label="Contents"><ul><li><a href="#zh-1-簡介">1. 簡介</a></li><li><a href="#zh-2-首次使用">2. 首次使用</a></li><li><a href="#zh-3-本機相簿">3. 本機相簿</a></li><li><a href="#zh-4-家中相簿與-SMB-主機">4. 家中相簿與 SMB 主機</a></li><li><a href="#zh-5-圖片瀏覽">5. 圖片瀏覽</a></li><li><a href="#zh-6-圖片編輯">6. 圖片編輯</a></li><li><a href="#zh-7-書籤">7. 書籤</a></li><li><a href="#zh-8-上傳至家中相簿">8. 上傳至家中相簿</a></li><li><a href="#zh-9-設定">9. 設定</a></li><li><a href="#zh-10-常見問題FAQ">10. 常見問題（FAQ）</a></li><li><a href="#zh-11-權限說明">11. 權限說明</a></li><li><a href="#zh-12-Basic-與-Pro-版本">12. Basic 與 Pro 版本</a></li><li><a href="#zh-13-版本資訊">13. 版本資訊</a></li><li><a href="setup/index.html#zh-tw">家中儲存建置</a>（Windows／NAS）</li></ul></nav>
       <table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody>
-<tr><td>文件版本</td><td>1.45</td></tr>
-<tr><td>應用程式版本</td><td>1.2.0</td></tr>
-<tr><td>撰寫日期</td><td>2026/09/14</td></tr>
+<tr><td>文件版本</td><td>1.48</td></tr>
+<tr><td>應用程式版本</td><td>1.2.3</td></tr>
+<tr><td>撰寫日期</td><td>2026/09/20</td></tr>
 </tbody></table>
 <h3 id="zh-1-簡介">1. 簡介</h3>
 <p><strong>Home Gallery</strong>（家相簿）是一款 Android 相片與影片管理應用程式，讓您同時管理<strong>手機本機</strong>與<strong>家中儲存</strong>（NAS／PC，透過 SMB 連線）上的相片與影片。<strong>空間自己決定，不必為雲端加購容量</strong>——用家裡已有的硬碟擴充，照片留在您掌控的空間。</p>
-<ul><li>瀏覽與管理<strong>本機相簿</strong>中的相片與影片</li><li>以 <strong>家中相簿</strong> 連線家中 NAS／PC 的共用資料夾（每張卡片對應「一台主機 + 一個 share + 一個資料夾」）</li><li>在設定中以 <strong>主機連線管理</strong> 統一登記 SMB 主機帳密（掃一次、登入一次，之後沿用）</li><li>檢視、編輯、分享、複製、移動、重新命名與刪除相片</li><li><strong>投影片</strong>自動播放選取的相片（本機／家中相簿；<strong>Pro</strong> 可同時投影到電視）</li><li>將常用目錄加入<strong>書籤</strong>快速存取</li><li>本機<strong>時間軸</strong>瀏覽；<strong>家中相簿時間軸</strong>依日期瀏覽家中媒體</li><li><strong>家中影片</strong>可在手機串流播放（無需先整檔下載）</li></ul>
-<p>本 App <strong>不提供</strong>雲端相簿代管服務；SMB 帳密僅保存在您的裝置上。<strong>Basic</strong> 為無廣告的完整相片管理器（含投影片、家中影片串流、時間軸、回收桶、平行目錄、<strong>手動</strong>相簿備份等）；<strong>Pro</strong>（選購、一次性購買）額外解鎖相簿備份<strong>自動同步</strong>，以及將相片／投影片<strong>投影到電視</strong>。</p>
+<ul><li>瀏覽與管理<strong>本機相簿</strong>中的相片與影片</li><li>以 <strong>家中相簿</strong> 連線家中 NAS／PC 的共用資料夾（每張卡片對應「一台主機 + 一個 share + 一個資料夾」）</li><li>在設定中以 <strong>主機連線管理</strong> 統一登記 SMB 主機帳密（掃一次、登入一次，之後沿用）</li><li>檢視、編輯、分享、複製、移動、重新命名與刪除相片</li><li><strong>投影片</strong>自動播放選取的相片（本機／家中相簿；<strong>Pro</strong> 可同時投影到電視）</li><li>將常用目錄加入<strong>書籤</strong>快速存取</li><li>本機<strong>時間軸</strong>瀏覽；<strong>家中相簿時間軸</strong>依日期瀏覽家中媒體</li><li><strong>家中影片</strong>可在手機串流播放（無需先整檔下載）</li><li><strong>介面語言</strong>：英文、繁體中文、简体中文、日本語、한국어（隨系統語言）</li></ul>
+<p>本 App <strong>不提供</strong>雲端相簿代管服務；SMB 帳密僅保存在您的裝置上。<strong>Basic</strong> 為無廣告的完整相片管理器（含投影片、家中影片串流、時間軸、回收桶、平行目錄、<strong>手動</strong>相簿備份與<strong>瀏覽備份區</strong>等）；<strong>Pro</strong>（選購、一次性購買）額外解鎖相簿備份<strong>自動同步</strong>，以及將相片／投影片<strong>投影到電視</strong>。</p>
 <p><strong>系統需求</strong>：Android 11（API 30）或以上。</p>
 <h3 id="zh-2-首次使用">2. 首次使用</h3>
 <h3 id="zh-21-開啟應用程式">2.1 開啟應用程式</h3>
@@ -638,7 +643,7 @@
 <ol><li>底部導航 → <strong>家中</strong>（若尚無相簿會引導新增；或再開一次 <strong>家中</strong> 開啟相簿選擇器 → <strong>管理家中相簿</strong>）</li><li>若尚無相簿，點 <strong>連線家中儲存</strong>（或 FAB <strong>新增</strong>）</li><li><strong>若尚無主機</strong>：自動開啟「新增 SMB 主機」對話框；儲存後進入後續步驟</li><li><strong>若已有主機</strong>：<ul><li>僅一台：直接進入 <strong>選擇共用資料夾（share）</strong></li><li>多台：先選主機，再選 share</li><li>畫面提供 <strong>尋找新的 SMB 主機</strong> 按鈕（需要時才掃描）</li></ul></li><li><strong>選擇相簿資料夾</strong>：瀏覽 share 內子資料夾；可停留在任意層級作為相簿根</li><li><strong>顯示名稱（選填）</strong> 預設為資料夾名稱 → 點 <strong>完成</strong>（一次新增<strong>一筆</strong>）</li><li>完成後由 <strong>家中</strong> 分頁進入瀏覽；再點 <strong>家中</strong> 可切換其他相簿</li></ol>
 <p class="note"><strong>不再</strong>於新增相簿流程中重跑完整主機掃描／多選多個 share 一次建多筆。</p>
 <h3 id="zh-43-瀏覽與管理">4.3 瀏覽與管理</h3>
-<ol><li>底部導航 → <strong>家中</strong> → 進入相簿（或再開一次 <strong>家中</strong> 從選擇器切換）</li><li>進入該來源資料夾瀏覽（格狀／列表）</li><li>標題列可切換<strong>資料夾</strong>／<strong>時間軸</strong>：時間軸依日期跨資料夾顯示相片與影片（Basic）。首次開啟會建立索引，之後優先顯示快取；索引超過約 24 小時會在連線後靜默更新，也可手動重新整理</li><li>子資料夾內切到時間軸時，只顯示該資料夾範圍</li><li>點選相片進入瀏覽；工具列可<strong>重新整理</strong></li><li>時間軸多選可做<strong>時間回歸</strong>（對齊參考張）或單張相片<strong>時間修正</strong>（日期與時間）</li><li>家中相簿<strong>管理</strong>畫面可為各相簿設定<strong>時間軸掃描深度</strong>（1～8 層，預設 4；相簿根為第 0 層）</li></ol>
+<ol><li>底部導航 → <strong>家中</strong> → 進入相簿（或再開一次 <strong>家中</strong> 從選擇器切換）</li><li>進入該來源資料夾瀏覽（格狀／列表）</li><li>標題列可切換<strong>資料夾</strong>／<strong>時間軸</strong>：時間軸依日期跨資料夾顯示相片與影片（Basic）。首次開啟會建立索引，之後優先顯示快取；索引超過約 24 小時會在連線後靜默更新，也可手動重新整理。時間軸畫面<strong>單指下拉</strong>可重整目前畫面附近的資料夾（區段重整），不必整庫重掃</li><li>子資料夾內切到時間軸時，只顯示該資料夾範圍</li><li>點選相片進入瀏覽；工具列可<strong>重新整理</strong>。時間軸上<strong>重新命名</strong>後索引會立刻跟著新檔名；再<strong>移動</strong>時以新路徑為準</li><li>時間軸多選可做<strong>時間回歸</strong>（對齊參考張）或單張相片<strong>時間修正</strong>（日期與時間）</li><li>家中相簿<strong>管理</strong>畫面可為各相簿設定<strong>時間軸掃描深度</strong>（1～8 層，預設 4；相簿根為第 0 層）</li></ol>
 <p><strong>移除相簿連結</strong></p>
 <ul><li>於家中相簿<strong>管理</strong>畫面：長按卡片或點 ⋮ → <strong>移除相簿連結</strong></li><li>僅從 App 列表移除連結，<strong>不會刪除</strong>儲存裝置上的檔案</li></ul>
 <p><strong>多選移動／複製</strong></p>
@@ -651,7 +656,7 @@
 <tr><td>已有 OpenVPN 等進區網</td><td><strong>無</strong>（或維持區網位址）</td><td>通常不必再開 WebDAV／Tailscale</td></tr>
 </tbody></table>
 <h4>WebDAV（NAS 建議）</h4>
-<ol><li>家中 Wi‑Fi 先把主機與家中相簿設好（§4.1～4.2）  </li><li>NAS 啟用 <strong>WebDAV HTTPS</strong>，並準備 <strong>DDNS</strong> 或公網 IP  </li><li>編輯主機 → <strong>遠端存取 = WebDAV</strong> → 填外網主機與埠 → <strong>測試連線</strong> → <strong>儲存</strong>  </li><li>外出開啟家中相簿即可（關家中 Wi‑Fi 驗證）</li></ol>
+<ol><li>家中 Wi‑Fi 先把主機與家中相簿設好（§4.1～4.2）  </li><li>NAS 啟用 <strong>WebDAV HTTPS</strong>，並準備 <strong>DDNS</strong> 或公網 IP  </li><li>編輯主機 → <strong>遠端存取 = WebDAV</strong> → 填外網主機與埠 → <strong>測試連線</strong> → <strong>儲存</strong>  </li><li>（多數家用 NAS 為自簽憑證）可勾選 <strong>允許不受信任的 HTTPS 憑證</strong>：App 會先套用<strong>系統信任</strong>；失敗時才對該主機做<strong>憑證釘選（TOFU）</strong>——第一次成功連線會記住憑證指紋。若 NAS 之後換憑證而無法連線，請關閉再開此開關以重新釘選  </li><li>外出開啟家中相簿即可（關家中 Wi‑Fi 驗證）</li></ol>
 <p>完整步驟與安全提醒：<a href="setup/webdav/index.html">WebDAV 使用手冊</a>。</p>
 <h4>Tailscale（Windows／無 WebDAV）</h4>
 <p>可用 <strong>Tailscale</strong> 當安全隧道，讓手機以 <strong><code>100.x</code></strong> 連回家中 SMB。</p>
@@ -859,8 +864,8 @@
 <ul><li>顯示目前進度（例如 <code>N / M</code>）、檔名與位元組進度條</li><li>可隨時按<strong>停止</strong>中止剩餘檔案；已完成者保留，結果會區分成功／部分成功／已取消</li></ul>
 <p><strong>同名檔案</strong></p>
 <ul><li>目標目錄若已有同名檔，會<strong>自動改名</strong>為 <code>檔名 (1).ext</code>、<code>檔名 (2).ext</code>…，<strong>不會覆寫</strong>既有檔</li></ul>
-<p><strong>上傳成功後刪除本機（Pro）</strong></p>
-<ul><li>僅在<strong>全部項目上傳成功</strong>，且已啟用 <strong>Pro + 回收桶</strong> 時，會詢問是否將本機副本<strong>移至回收桶</strong></li><li>可選 <strong>移至回收桶</strong> 或 <strong>保留本機</strong>；Basic 或未開回收桶時只顯示上傳成功提示，不詢問刪除</li><li>備份流程<strong>不會</strong>提供此選項；移至回收桶後，若該檔已納入相簿備份，遠端備份副本仍保留</li></ul>
+<p><strong>上傳成功後刪除本機</strong></p>
+<ul><li>僅在<strong>全部項目上傳成功</strong>，且已啟用<strong>回收桶</strong>時，會詢問是否將本機副本<strong>移至回收桶</strong></li><li>可選 <strong>移至回收桶</strong> 或 <strong>保留本機</strong>；未開回收桶時只顯示上傳成功提示，不詢問刪除</li><li>備份流程<strong>不會</strong>提供此選項；移至回收桶後，若該檔已納入相簿備份，遠端備份副本仍保留</li></ul>
 <h3 id="zh-9-設定">9. 設定</h3>
 <p>開啟 <strong>更多 → 設定</strong>。</p>
 <h3 id="zh-91-主機連線管理">9.1 主機連線管理</h3>
@@ -909,16 +914,19 @@
 </tbody></table>
 <p>若<strong>改選另一個共用資料夾（share）</strong>、<strong>換主機</strong>，或<strong>改備份錨點資料夾</strong>，本機追蹤會重來：已同步／失敗／僅備份區等計數清空；請再按<strong>檢查待備份</strong>重新掃描（新目的地上若已有同裝置備份，仍可對齊為已同步，不必整批重傳）。</p>
 <p>與 Basic「上傳至公共目錄」不同：備份區由 App 管理、網路瀏覽預設隱藏，且預設保留本機副本。</p>
+<p><strong>瀏覽備份區（資料夾大畫面）</strong></p>
+<ol><li><strong>更多 → 相簿備份</strong> → <strong>瀏覽備份區</strong></li><li>以家中相簿資料夾模式（格狀大圖）進入私有備份根目錄，可逐層開啟資料夾</li><li><strong>僅備份區</strong>項目有紅色邊框；長按選取後可自備份區清除（並移出追蹤）</li><li>若檔案在備份區磁碟上、但本機索引沒有對應紀錄，會標 <strong>未追蹤</strong>（常見於手動放到備份資料夾、或索引曾重設）；需重新掃描／遠端索引後才會納入「僅備份區」管理</li><li>清單式還原／篩選仍走下方的 <strong>檢視備份／還原</strong></li></ol>
 <p><strong>還原流程（R1.1）</strong></p>
 <ol><li><strong>更多 → 相簿備份</strong>（或設定內相簿備份）→ <strong>檢視備份／還原</strong></li><li>預設篩選 <strong>本機缺失</strong>（曾備份、本機已不存在；不含回收桶內項目、亦非本 App 永久刪除）</li><li>點 <strong>還原全部缺失</strong>，或先多選再 <strong>還原已選</strong> → 確認對話框（檔案數、大小、<strong>路徑映射數量</strong>）→ 還原   （連結舊機後的項目多半標為「僅備份區」；「本機缺失」篩選亦會一併顯示這些待還原檔）</li><li>還原完成後本機相簿可見</li></ol>
 <p><strong>平行目錄還原路徑（重要）</strong></p>
 <p>備份區若含 <code>Documents/…</code> 等<strong>平行目錄</strong>路徑：</p>
 <table><thead><tr><th>條件</th><th>還原寫入位置</th></tr></thead><tbody>
-<tr><td><strong>Basic</strong>，或 <strong>Pro 但尚未 SAF 授權</strong>該路徑</td><td>映射到 <strong><code>Pictures/{原相對路徑}</code></strong>（例如 <code>Documents/Office Lens/a.jpg</code> → <code>Pictures/Documents/Office Lens/a.jpg</code>；影片則可能對應 <code>Movies/…</code>）</td></tr>
-<tr><td><strong>Pro</strong> 且已在設定中 <strong>選取並授權</strong>該平行資料夾</td><td>寫回<strong>原相對路徑</strong>（不映射進 Pictures）</td></tr>
+<tr><td><strong>尚未 SAF 授權</strong>該平行路徑</td><td>映射到 <strong><code>Pictures/{原相對路徑}</code></strong>（例如 <code>Documents/Office Lens/a.jpg</code> → <code>Pictures/Documents/Office Lens/a.jpg</code>；影片則可能對應 <code>Movies/…</code>）</td></tr>
+<tr><td><strong>已在設定中選取並授權</strong>該平行資料夾</td><td>寫回<strong>原相對路徑</strong>（不映射進 Pictures）</td></tr>
 </tbody></table>
+<p>Basic／Pro 皆可授權平行目錄（見 §9.3）。</p>
 <p>確認還原前，對話框若顯示有檔案需路徑映射，即代表部分檔會改寫入 <code>Pictures</code> 下。換機還原（R2）同一規則。</p>
-<p><strong>換機（R2）</strong>（<strong>Pro</strong>：連結既有備份／完整還原庫）</p>
+<p><strong>換機（R2）</strong>（連結既有備份／完整還原庫；<strong>Basic／Pro</strong> 皆可）</p>
 <ol><li><strong>更多 → 相簿備份</strong> → <strong>檢視備份／還原</strong></li><li>點 <strong>連結既有備份</strong> → 選 NAS 上舊機的 <code>backup/{deviceId}/</code>（<strong>只當還原來處</strong>）</li><li>App 索引備份樹後，在 <strong>僅備份區</strong> 篩選檢視本機沒有的檔案</li><li>多選或 <strong>還原全部缺失</strong> 寫回本機（平行目錄路徑規則同上：無 SAF 時進 <strong><code>Pictures/…</code></strong>）</li><li>本機之後的新備份仍寫入<strong>自己的</strong>資料夾；舊機若繼續使用可照常備份，兩邊不會共用寫入根</li></ol>
 <p><strong>清除 App 儲存後復原設定（同機）</strong></p>
 <ol><li>備份完成後先 <strong>匯出設定</strong>（會一併記住備份用的 <code>deviceId</code>）</li><li>清除 App 儲存空間（或重裝）→ 重新授權 → <strong>儘早復原設定</strong>（勿先開啟相簿備份，以免先產生新的裝置身分）</li><li>開啟相簿備份 → <strong>檢查待備份</strong>：App 會連上家中備份區，把本機已有且與 NAS 相符的檔標為已同步，<strong>不必整批重傳</strong></li><li>若在<strong>另一台手機</strong>復原設定且該機已有不同裝置身分：寫入身分不變，匯入的舊 <code>deviceId</code> 會當成連結還原來處（請再用「連結既有備份」索引／還原）</li><li>若匯出檔是舊版（沒有 <code>deviceId</code>），請在備份後重新匯出，或改用「連結既有備份」選回舊目錄</li></ol>
@@ -1025,9 +1033,933 @@
 <p>這是 <strong>Android 11 以後的系統限制</strong>，App 無法對下載<strong>根目錄</strong>取得資料夾樹授權。請改選 <code>Documents</code>，或在下載底下對<strong>子資料夾</strong>授權。本 App 不另提供「只讀納入 Download」（與複製／還原等寫入行為不一致，操作更煩瑣）。</p>
 <h3 id="zh-13-版本資訊">13. 版本資訊</h3>
 <p>在 <strong>更多 → 關於</strong>（或 <strong>更多 → 設定 → 關於</strong>），可查看：</p>
-<ul><li>版本號（目前為 <strong>1.2.0</strong>，以 App「關於」為準）</li><li>建置日期</li><li><strong>使用說明</strong>（開啟線上手冊：<a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a>）</li><li>回報問題</li><li>版權資訊</li></ul>
+<ul><li>版本號（目前為 <strong>1.2.3</strong>，以 App「關於」為準）</li><li>建置日期</li><li><strong>使用說明</strong>（開啟線上手冊：<a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a>）</li><li>回報問題</li><li>版權資訊</li></ul>
 <p>設定 → <strong>支援</strong> 亦可開啟同一份使用說明。</p>
-<p>公開使用說明已與本手冊對齊（App <strong>1.2.0</strong>／手冊 <strong>1.45</strong>）：<a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a></p>
+<p>公開使用說明已與本手冊對齊（App <strong>1.2.3</strong>／手冊 <strong>1.48</strong>）：<a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a></p>
+    </section>
+
+    <section id="ja">
+      <h2>日本語</h2>
+      <nav class="toc" aria-label="Contents"><ul><li><a href="#ja-1-はじめに">1. はじめに</a></li><li><a href="#ja-2-はじめに">2. はじめに</a></li><li><a href="#ja-3-地元のギャラリー">3. 地元のギャラリー</a></li><li><a href="#ja-4-ホームアルバムとSMBホスト">4. ホームアルバムとSMBホスト</a></li><li><a href="#ja-5-写真ビューア">5. 写真ビューア</a></li><li><a href="#ja-6-写真編集者">6. 写真編集者</a></li><li><a href="#ja-7-ブックマーク">7. ブックマーク</a></li><li><a href="#ja-8-ホームアルバムにアップロード">8. ホームアルバムにアップロード</a></li><li><a href="#ja-9-設定">9. 設定</a></li><li><a href="#ja-10-よくある質問">10. よくある質問</a></li><li><a href="#ja-11-権限">11. 権限</a></li><li><a href="#ja-12-Basic-と-Pro">12. Basic と Pro</a></li><li><a href="#ja-13-バージョン情報">13. バージョン情報</a></li><li><a href="setup/index.html#ja">ホームストレージ設定</a>（Windows / NAS）</li></ul></nav>
+      <p>&lt;!-- Source: English user manual 1.48 / App 1.2.3; machine-translated to Japanese --&gt;</p>
+<table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody>
+<tr><td>マニュアルバージョン</td><td>1.48</td></tr>
+<tr><td>アプリのバージョン</td><td>1.2.3</td></tr>
+<tr><td>作成日</td><td>2026/09/20</td></tr>
+</tbody></table>
+<h3 id="ja-1-はじめに">1. はじめに</h3>
+<p><strong>ホームギャラリー</strong>（家相簿）は、Android用の写真・動画管理アプリで、<strong>デバイス内</strong>のメディアや<strong>家庭内ストレージ</strong>（NAS / SMB経由でPC）に対応しています。<strong>スペースは自分で選べます—追加のクラウド容量を購入する必要はありません。</strong> 既に持っているディスクを使い、写真は自分が管理するストレージに保存されます。</p>
+<ul><li><strong>ローカルギャラリー</strong>で写真や動画を閲覧・管理</li><li><strong>ホームアルバム</strong>を共有フォルダーに接続する（各カードは1つのホスト＋1つの共有＋1つのフォルダー）</li><li>設定の <strong>Host connections</strong> で SMB の資格情報を一度登録する（一度スキャンして、一度サインインし、後で再利用）</li><li>写真を表示、編集、共有、コピー、移動、名前変更、削除する</li><li><strong>スライドショー</strong> は選択した写真（ローカル / ホームアルバム）を自動再生します；<strong>Pro</strong> はスライドショーをテレビにキャストすることもできます</li><li>よく使うフォルダーをブックマークする</li><li>ローカルの<strong>タイムライン</strong>を閲覧する；<strong>ホームアルバムタイムライン</strong>で日付ごとにホームメディアを閲覧する</li><li><strong>ホームビデオ</strong>は電話でストリーミングできます（最初にファイル全体をダウンロードする必要はありません）</li><li><strong>UI言語:</strong> 英語、繁体字中国語、簡体字中国語、日本語、韓国語（システム言語に従う）</li></ul>
+<p>このアプリはクラウドギャラリーを<strong>ホストしません</strong>。SMB のパスワードはデバイスに保存されます。<strong>Basic</strong> は完全で広告のない写真管理アプリです（スライドショー、ホームビデオストリーミング、タイムライン、ごみ箱、並行フォルダ、<strong>手動</strong>アルバムバックアップ、<strong>バックアップゾーンの閲覧</strong>など）。<strong>Pro</strong>（任意、一度きりの購入）では、さらに<strong>自動</strong>アルバムバックアップおよびTVへの<strong>写真／スライドショーキャスト</strong>が解除されます。</p>
+<p><strong>要件:</strong> Android 11 (API 30) 以上。</p>
+<h3 id="ja-2-はじめに">2. はじめに</h3>
+<h3 id="ja-21-アプリを開く">2.1 アプリを開く</h3>
+<p>アプリは<strong>ローカルギャラリー</strong>で開きます。まだ写真へのアクセスが許可されていない場合は、<strong>写真と動画</strong>を許可してください。</p>
+<h3 id="ja-22-メインナビゲーション下部バー">2.2 メインナビゲーション（下部バー）</h3>
+<p><strong>ボトムナビゲーションバー</strong>は主要な領域を切り替えます（<strong>横向き</strong>では同じ項目でサイドレールになります）。タブは4つあります：</p>
+<table><thead><tr><th>タブ</th><th>その機能</th></tr></thead><tbody>
+<tr><td><strong>ローカル</strong></td><td>デバイス内ギャラリー（フォルダ / タイムライン）。<strong>ごみ箱</strong>が有効になっている場合、ローカルギャラリーのタイトルバーから開きます</td></tr>
+<tr><td><strong>ホーム</strong></td><td>最後に開いたホームアルバムを開きます；もう一度タップすると <strong>アルバムピッカー</strong> を開く／閉じる（アルバムの切り替え、ホームアルバムの管理）</td></tr>
+<tr><td><strong>ブックマーク</strong></td><td>ブックマークパネルを開く／閉じる：フォルダブックマークおよび<strong>ビデオブックマーク</strong>；タップしてジャンプまたは再開</td></tr>
+<tr><td><strong>その他</strong></td><td>メニュー: <strong>アルバムのバックアップ</strong>（無効の場合は設定の切り替えに移動；有効の場合はバックアップを開き、保留中／失敗のバッジが表示される可能性あり）、<strong>設定</strong>、<strong>情報</strong></td></tr>
+</tbody></table>
+<p class="note">サイドバーは<strong>ありません</strong>。また、「ネットワークストレージ」の接続リストもなく、ホームのファイルは常に<strong>ホーム</strong>タブから開きます。<br /><strong>「について」</strong>（評価 / 共有 / バージョン）は <strong>その他 → について</strong> にあります。設定 → サポート でも開けます。Pro にアップグレードと問題の報告も設定にあります。</p>
+<p><strong>ホーム / ブックマークを2回目にタップ：</strong> すでにそのタブにいる場合、同じアイコンをタップすると、閲覧中のページを離れずにピッカーパネルを切り替えることができます。</p>
+<p>マルチセレクト中やビューア／プレーヤーで、下部バーが隠れ、ブラウジングに戻ると再表示される場合があります。</p>
+<h3 id="ja-23-アプリを終了する">2.3 アプリを終了する</h3>
+<p>ローカルギャラリー、ホームアルバム、または設定などのメイン画面では、最初の <strong>戻る</strong> ボタンの押下時に「もう一度戻るを押すと終了します」と表示されます。2秒以内にもう一度押すとアプリが閉じます。</p>
+<h3 id="ja-3-地元のギャラリー">3. 地元のギャラリー</h3>
+<h3 id="ja-31-写真の閲覧">3.1 写真の閲覧</h3>
+<ul><li><strong>ルート</strong>はフォルダー（例えば DCIM、Pictures）を表示します</li><li>フォルダーを開いて写真のグリッドを表示する</li><li>写真をタップして<strong>全画面表示</strong></li><li><strong>ごみ箱</strong>が有効になっている場合: タイトルバーを開くと<strong>ごみ箱</strong>が開きます（アイテムがあるとカウントバッジが表示されます; Basic と Pro は設定でこれを有効化できます）</li></ul>
+<h3 id="ja-32-検索と並べ替え">3.2 検索と並べ替え</h3>
+<ul><li>上の検索フィールドを使って<strong>ファイル名</strong>で検索します；右側の<strong>X</strong>はテキストがある場合はクリアし、空の場合は検索を閉じます</li><li>並べ替えをタップして、フィールド（名前、変更日、撮影日、サイズ、フォルダ）および昇順／降順を変更します</li></ul>
+<h3 id="ja-33-複数選択">3.3 複数選択</h3>
+<ol><li>写真や動画を<strong>長押し</strong>して選択モードに入ります。<strong>フォルダ</strong>のルートでは、フォルダを長押しすると内部のすべてのメディアを選択できます。</li><li>他のアイテムをタップして追加します（フォルダモードでは、フォルダ全体を選択するかどうかを切り替えるためにフォルダをタップすることもできます）</li><li><strong>範囲選択:</strong> すでに選択している状態で、別の項目（またはフォルダ）を<strong>長押し</strong>すると、現在の閲覧順でその間の<strong>すべて</strong>の項目（含む）が選択されます。アンカーは、選択を開始した最後のタップまたは長押しです。</li><li>下部ツールバーには以下が表示されます：<strong>スライドショー</strong>、<strong>コピー</strong>、<strong>移動</strong>、<strong>削除</strong>、<strong>共有</strong>、<strong>ホームアルバムにアップロード</strong></li><li>フォルダモードでフォルダ内のメディアをすべて削除した後、パスにファイルが残っていない場合、アプリは<strong>空のフォルダを削除しようとします</strong>（<code>DCIM</code> / <code>Pictures</code> のようなシステムルートは削除されません。メディア以外のファイルを含むフォルダは保持されます）</li></ol>
+<p class="note"><strong>スライドショー:</strong> 複数選択の後、選択した<strong>写真</strong>を自動再生するには<strong>スライドショー</strong>をタップします（動画はスキップされます）。§5.8を参照してください。</p>
+<h3 id="ja-34-ブックマーク">3.4 ブックマーク</h3>
+<p>ギャラリーツールバーの<strong>ブックマーク</strong>アイコンをタップして、現在のフォルダーをブックマークします。後で<strong>ブックマーク</strong>タブから開くことができます。</p>
+<h3 id="ja-35-ブラウズモード">3.5 ブラウズモード</h3>
+<p>地元のギャラリー <strong>root</strong> では、ツールバーで表示を切り替えます:</p>
+<table><thead><tr><th>モード</th><th>表示される内容</th></tr></thead><tbody>
+<tr><td><strong>フォルダー</strong></td><td>フォルダーごとに閲覧（デフォルト）；ルートはまずフォルダーを表示し、その後に写真/ビデオのグリッドを表示</td></tr>
+<tr><td><strong>タイムライン</strong></td><td>すべてのメディアを <strong>撮影日</strong> 順（最新が先）で、日ごとにグリッド表示</td></tr>
+</tbody></table>
+<p><strong>タイムライン：</strong></p>
+<ul><li>下の<strong>日付軸:</strong> 年／月／日単位；ピンチして変更するか、ヒントの「年／月／日」をタップしてください</li><li>日単位の粒度では、軸にはサムネイルが表示されます；ラベルは日付（中国語のロケールでは <code>M月d日</code>）と年です</li><li>右側の<strong>高速スクロールバー</strong>（コンテンツが十分にある場合）は素早くジャンプします</li><li>検索、複数選択、ビューア、およびビデオ再生がサポートされています</li></ul>
+<p><strong>共有:</strong></p>
+<ul><li>ブックマークはまだフォルダのパスを指しています；ブックマークを開くとフォルダモードに戻ります</li></ul>
+<p><strong>設定 → ローカルギャラリー → グリッド表示</strong> は、デフォルトの閲覧モード（フォルダー / タイムライン）とデフォルトの並べ替えを設定します。アプリは最後に使用したモードも記憶します。</p>
+<h3 id="ja-4-ホームアルバムとSMBホスト">4. ホームアルバムとSMBホスト</h3>
+<p class="note"><strong>PCやNASでフォルダーをまだ共有していませんか？</strong> スタンドアロンのセットアップガイドから始めましょう:<br /><a href="setup/index.html#ja">Set up home storage</a> (<a href="setup/windows-11/ja.html">Windows 11</a> · <a href="setup/synology/ja.html">Synology</a> · <a href="setup/qnap/ja.html">QNAP</a>; 接続できない場合は <a href="setup/troubleshooting/index.html#ja">Troubleshooting</a> を参照; <strong>離れて NAS</strong> は <a href="setup/webdav/index.html#ja">WebDAV</a> を参照; <strong>離れて Windows / WebDAV がない場合</strong> は <a href="setup/tailscale/index.html#ja">Tailscale</a> を参照).</p>
+<p>ホームファイルは2つの層を使用します:</p>
+<table><thead><tr><th>コンセプト</th><th>意味</th></tr></thead><tbody>
+<tr><td><strong>SMB ホスト</strong></td><td>1 NAS / PC と資格情報（設定 → <strong>ホスト接続</strong> に登録済み）</td></tr>
+<tr><td><strong>ホームアルバム</strong></td><td>1枚のカード = そのホスト上の<strong>1</strong>つのシェア + その中の1つのフォルダパス</td></tr>
+</tbody></table>
+<h3 id="ja-41-SMB-ホストを追加">4.1 SMB ホストを追加</h3>
+<ol><li><strong>その他 → 設定 → ホスト接続 → ホスト接続の管理</strong> を開きます</li><li><strong>SMBホストを追加</strong>をタップ（またはホームアルバムのフローでは「新しいSMBホストを探す」）</li><li>ダイアログはLANをスキャンし、あなたに<strong>Wi‑Fiがオンであり、ストレージと同じネットワーク上にあること</strong>を確認するよう求めます</li><li>ホストを選択（すでに保存されているホストは薄く表示されます）→ 資格情報を入力；ホスト名は利用可能な場合、表示名として使用されます → <strong>接続をテスト</strong> → <strong>保存</strong></li><li><strong>LAN IPv4:</strong> 家庭用 Wi‑Fi（例えば <code>192.168.x.x</code>）</li><li><strong>リモートアクセス</strong>（任意、§4.4参照）：</li><li><strong>WebDAV:</strong> NAS の間離れている場合；<strong>外部ホスト (DDNS / 公開IP)</strong> と <strong>HTTPS ポート</strong> を入力（多くの場合 <code>5006</code>）</li><li><strong>Tailscale:</strong> Windows用、またはWebDAVが利用できない場合; <code>100.x</code>を入力してください</li><li><strong>なし:</strong> ホームLANのみ、外部ヘルパーなし</li><li>ホストアドレスを手動で入力することもできます</li></ol>
+<p><strong>接続のメモ（設定内）</strong></p>
+<ul><li>ホームアルバムは <strong>同じホーム Wi‑Fi（LAN）</strong> 用です；自宅ではアプリは <strong>SMB</strong> を使用します</li><li>外出先でモバイルデータを使用する場合:</li><li><strong>NAS:</strong> <strong>WebDAV</strong> を好む (DDNS / 公共IP); <a href="setup/webdav/index.html#ja">WebDAV guide</a> を参照</li><li><strong>Windows PC</strong> またはなし WebDAV: <strong>Tailscale</strong> または既存の LAN VPN を使用; <a href="setup/tailscale/index.html#ja">Tailscale guide</a> を参照</li><li>UIには「ホームLAN」や「外出中」と表示されることがあります。外出中モードでも、WebDAV、Tailscale、またはVPNが正しく設定されている必要があります。</li><li>「接続ノート」カードは、ホスト接続の管理でオンラインの <strong>WebDAV / Tailscale</strong> 設定ページを開きます</li><li><strong>Enable IPv6</strong>(同じページ、<strong>デフォルトでオフ</strong>):オフ時はDiscovery and ConnectがIPv4のみを使用し、IPv6フィールドは非表示;保存されたIPv6は保持されます。オンにしてスキャン/IPv6を使用します。AwayはWebDAV / Tailscale(§4.4参照)を使用。</li></ul>
+<h3 id="ja-42-ホームアルバムを追加する">4.2 ホームアルバムを追加する</h3>
+<ol><li>下部ナビゲーション → <strong>ホーム</strong>（アルバムがまだない場合、設定が提案されます；または再度 <strong>ホーム</strong> をタップ → <strong>ホームアルバムを管理</strong>）</li><li>まだアルバムがない場合は、<strong>ホームストレージに接続</strong>（または <strong>追加</strong> FAB）をタップします</li><li><strong>まだホストがいない場合:</strong> 「ホストを追加 SMB」ダイアログが開きます。保存後、セットアップが続行されます</li><li><strong>既にホストが存在する場合：</strong></li><li>1つのホスト：<strong>共有を選択</strong> に進む</li><li>複数のホスト：ホストを選択してから、共有を選択</li><li><strong>新しいSMBホストを見つける</strong> はスキャンが必要なときに利用可能です</li><li><strong>アルバムのフォルダーを選択:</strong> 共有内のサブフォルダーを参照します; アルバムのルートで任意のレベルで停止できます</li><li><strong>表示名（任意）</strong> はフォルダ名がデフォルト → <strong>完了</strong> をタップ（これで <strong>1つ</strong> のアルバムが作成されます）</li><li><strong>ホーム</strong>タブから開きます；アルバムを切り替えるには再度<strong>ホーム</strong>をタップします</li></ol>
+<p>＞ セットアップは <strong>もう</strong> フルホストスキャンを再実行したり、複数の共有を一度に選択して多くのアルバムを作成したりすることはできません。</p>
+<h3 id="ja-43-閲覧と管理">4.3 閲覧と管理</h3>
+<ol><li>下部ナビゲーション → <strong>ホーム</strong> → アルバムを開く（または <strong>ホーム</strong> を再度タップしてピッカーで切り替える）</li><li>そのソースフォルダーを閲覧する（グリッド / リスト）</li><li>タイトルバーは <strong>フォルダ</strong> / <strong>タイムライン</strong> を切り替えます。タイムラインはフォルダを横断して日付ごとに写真や動画を表示します（<strong>Basic</strong>）。初めて開くとインデックスが作成され、後の訪問ではキャッシュが優先されます。インデックスが約24時間以上古い場合、接続後に自動的に静かに更新されます。また、手動で更新することもできます。タイムライン上では、現在表示されている付近のフォルダを更新するために <strong>下に引き下げる</strong>（セグメント更新）ことができ、ライブラリ全体の再スキャンは不要です。</li><li>サブフォルダ内でタイムラインに切り替えると、<strong>そのフォルダの範囲のみ</strong>が表示されます</li><li>写真をタップして表示します。ツールバーで<strong>更新</strong>できます。タイムラインで<strong>名前を変更</strong>した後、インデックスは新しい名前に従います。その後の<strong>移動</strong>では新しいパスが使用されます</li><li>タイムラインのマルチセレクトは、<strong>時間を揃える</strong>（参照写真と一致させる）ことや、<strong>単一の写真の時間を修正する</strong>（日付と時刻）ことができます</li><li>ホームアルバムの<strong>管理</strong>画面では、各アルバムに<strong>タイムラインスキャン深度</strong>（1～8レベル、デフォルトは4；アルバムのルートはレベル0）があります</li></ol>
+<p><strong>アルバムのリンクを削除する</strong></p>
+<ul><li>ホームアルバムの<strong>管理</strong>画面で：カードを長押しするか ⋮ をタップ → <strong>アルバムリンクを削除</strong></li><li>これはアプリ内のリンクのみを削除します；ストレージデバイス上のファイルは<strong>削除されません</strong></li></ul>
+<p><strong>複数選択して移動／コピー</strong></p>
+<ul><li>宛先ピッカーはホームアルバムを表示名のみで一覧表示します（2行目のパスは表示されません）、その後サブフォルダを入力できます</li></ul>
+<h3 id="ja-44-離れた場所からのアクセスオプション">4.4 離れた場所からのアクセス（オプション）</h3>
+<p>家を出た後Wi‑Fi、ホストタイプのためのリモート方法を1つ選んでください:</p>
+<table><thead><tr><th>ホストタイプ</th><th>リモートアクセス</th><th>備考</th></tr></thead><tbody>
+<tr><td><strong>NAS</strong> (HTTPS WebDAV 有効)</td><td><strong>WebDAV</strong></td><td>DDNS / 公開IP + ポート; <a href="setup/webdav/index.html#ja">WebDAV guide</a> を参照</td></tr>
+<tr><td><strong>Windows PC</strong> / 該当なし WebDAV</td><td><strong>Tailscale</strong></td><td>Enter <code>100.x</code>; 下記および <a href="setup/tailscale/index.html#ja">Tailscale guide</a> を参照</td></tr>
+<tr><td>すでに OpenVPN などを介して LAN に接続済み</td><td><strong>なし</strong>（または LAN アドレスを保持）</td><td>通常は追加の WebDAV / Tailscale は不要</td></tr>
+</tbody></table>
+<h4>WebDAV（NASに推奨）</h4>
+<ol><li>ホームWi‑Fiで、まずホストとホームアルバムを設定する（§4.1–4.2）</li><li>NASで<strong>WebDAV HTTPS</strong>を有効にし、<strong>DDNS</strong>またはパブリックIPを準備します</li><li>ホストを編集 → <strong>リモートアクセス = WebDAV</strong> → 外部ホストとポートを入力 → <strong>接続をテスト</strong> → <strong>保存</strong></li><li>（ほとんどの家庭用NASは自己署名証明書を使用しています）<strong>信頼されていないHTTPS証明書を許可</strong>を有効にすることができます：アプリはまず<strong>システムの信頼</strong>を試みます；それが失敗した場合、<strong>そのホストの証明書をピン留めします（TOFU）</strong>—最初の接続に成功した時にフィンガープリントが保存されます。後でNAS証明書が変更されて接続に失敗した場合は、このオプションを一度オフにしてから再度オンにしてピンを再設定してください</li><li>不在時にホームアルバムを開く（確認のためホームWi‑Fiをオフにする）</li></ol>
+<p>完全な手順とセキュリティに関する注意事項: <a href="setup/webdav/index.html#ja">WebDAV guide</a>。</p>
+<h4>Tailscale（Windows / WebDAVなし）</h4>
+<p><strong>Tailscale</strong> を安全なトンネルとして使用し、携帯電話が <strong><code>100.x</code></strong> で自宅 SMB に接続できるようにします。</p>
+<p><strong>短いフロー:</strong></p>
+<ol><li>ホームWi‑Fiで、まずホストとホームアルバムを設定する（§4.1–4.2）</li><li><strong>PC / NAS:</strong> Tailscale をインストール → サインイン → 接続済み → <strong>そのマシンの Tailscale IPv4 (100.x) をコピー</strong></li><li><strong>電話:</strong> インストール Tailscale → <strong>同じアカウント</strong> → 接続済み</li><li>外出中にホームアルバムを開く → プロンプトが表示されたら <strong>開くTailscale</strong> → PCの<code>100.x</code>をコピー → アプリに戻る → <strong>貼り付け</strong> → <strong>Tailscale IPを保存して再試行</strong></li></ol>
+<p><strong>日常的な使い方:</strong> アルバムが必要なときにTailscaleを開きます。アプリを離れるかホームに戻るとWi‑Fi、アプリは電力を節約するためにTailscaleの切断を求めます。すでにLANにOpenVPN（または同様のもの）がある場合、通常はTailscaleは必要ありません。</p>
+<p>完全なウォークスルー、FAQ、ノート：<a href="setup/tailscale/index.html#ja">Tailscale guide</a>。</p>
+<h4>IPv6 を有効にする（オプション）</h4>
+<p><strong>ホスト接続</strong>の下で、<strong>有効化 IPv6</strong>（<strong>デフォルトではオフ</strong>）を切り替えることができます：</p>
+<ul><li><strong>オフ:</strong> 発見と接続はIPv4のみ; 編集時にIPv6フィールドは非表示; 保存されたIPv6は保持される</li><li><strong>オン:</strong> アプリはIPv6をスキャン/入力でき、接続候補間で使用できます</li><li>遠隔アクセスには §4.4 の <strong>WebDAV / Tailscale</strong> を使用してください</li></ul>
+<h3 id="ja-5-写真ビューア">5. 写真ビューア</h3>
+<p>ローカルまたはホームギャラリーの写真をタップして全画面表示します。他のアプリ（ファイル、Download、メッセージなど）でも<strong>Home Galleryで開く</strong>ことができます。</p>
+<h3 id="ja-51-ジェスチャー">5.1 ジェスチャー</h3>
+<table><thead><tr><th>アクション</th><th>それが行うこと</th></tr></thead><tbody>
+<tr><td>左にスワイプ / 右にスワイプ</td><td>前の写真 / 次の写真</td></tr>
+<tr><td>ピンチ</td><td>ズームイン / ズームアウト (約1×–5×)</td></tr>
+<tr><td>拖動</td><td>ズーム後にパン</td></tr>
+<tr><td>ダブルタップ</td><td>1×と2.5×の切り替え</td></tr>
+<tr><td>写真をタップ</td><td>フルスクリーン切り替え（ツールバーを表示 / 非表示）</td></tr>
+</tbody></table>
+<p>左下隅には写真の日付が表示されます: EXIF <strong>DateTimeOriginal / Digitized</strong> が存在する場合、<strong>日付 + 時刻</strong> が表示されます。存在しない場合は、修正日 / 作成日の<strong>より早い方</strong>が使用され、<strong>日付のみ</strong> が表示されます（通常の DateTime タグは無視されるため、誤って後のファイル時刻が使用されることはありません）。フルスクリーンまたはスライドショー時は非表示です。</p>
+<h3 id="ja-52-上部ツールバー">5.2 上部ツールバー</h3>
+<table><thead><tr><th>ボタン</th><th>機能</th></tr></thead><tbody>
+<tr><td>← 戻る</td><td>アルバムに戻る</td></tr>
+<tr><td>ファイル名</td><td>現在の写真名</td></tr>
+<tr><td>削除</td><td>現在の写真を削除する（確認）</td></tr>
+<tr><td>編集（鉛筆）</td><td>エディターを開く（<strong>一部の形式のみ</strong>、§5.6参照）</td></tr>
+</tbody></table>
+<p class="note">現在のフォーマットを編集できない場合、<strong>編集</strong>ボタンは表示されません。</p>
+<h3 id="ja-53-サイドボトムアクション">5.3 サイド／ボトムアクション</h3>
+<p>矢印をタップしてアクション行を展開します（自動折りたたみモードの場合）、または設定で<strong>常に表示</strong>に設定します。</p>
+<table><thead><tr><th>アクション</th><th>それが行うこと</th></tr></thead><tbody>
+<tr><td>移動</td><td>宛先フォルダーを選択した後に移動</td></tr>
+<tr><td>コピー</td><td>目的のフォルダーを選んだ後にコピー</td></tr>
+<tr><td>Proのプロパティ</td><td>ファイル情報とEXIF</td></tr>
+<tr><td>名前の変更</td><td>ファイル名を変更する</td></tr>
+<tr><td>共有</td><td>別のアプリで共有</td></tr>
+</tbody></table>
+<p class="note">縦向き：下部に操作。横向き：右側に操作。</p>
+<h3 id="ja-54-Proプロパティ">5.4 Proプロパティ</h3>
+<p>プロパティダイアログには次の内容が表示されます:</p>
+<ul><li><strong>ファイル情報:</strong> 名前、パス、サイズ、種類、作成日、最終更新時間</li><li><strong>EXIF</strong>（存在する場合）：解像度、撮影設定、GPS、など</li></ul>
+<p>EXIFのない写真でもファイル情報は表示されます；<strong>作成日</strong>は常に表示されます。</p>
+<h3 id="ja-55-コピー-移動">5.5 コピー / 移動</h3>
+<ol><li>コピーまたは移動をタップ</li><li><strong>フォルダブラウザ</strong>（全画面グリッド）で目的地を選択する</li><li>空のフォルダーはデフォルトで<strong>非表示</strong>になっています。ファイルがまだないフォルダーを選択するには、<strong>空のフォルダーを表示</strong>をオンにしてください</li><li>同じ行に <strong>新しいフォルダ</strong> と <strong>確認</strong> があります</li><li>「新しいフォルダー」の後、それが対象になります（空でも表示されるので、すぐに確認できます）</li><li>もし宛先に同じ名前が既にある場合:</li><li><strong>上書き:</strong> 新しいファイルで置き換える</li><li><strong>両方を保持する:</strong> 元のファイルを保持する; 新しいファイルには番号（<code>photo (1).jpg</code>）が付く</li><li><strong>キャンセル:</strong> 中止</li></ol>
+<p>ローカルマルチセレクト: <strong>移動</strong>は写真と動画で機能します; 選択に動画が含まれる場合、<strong>コピーは非表示</strong>です（動画のコピーはまだ実装されていません）。</p>
+<h3 id="ja-56-画像形式と制限">5.6 画像形式と制限</h3>
+<p>アプリは拡張子とMIMEタイプを使用して、ファイルが<strong>表示</strong>可能か<strong>編集</strong>可能かを判断します。この表は<strong>ローカルギャラリー</strong>および<strong>ホームアルバム</strong>に適用されます（ホームストレージ上のその他のファイルは通常のファイルとして表示され、ビューアで開くことはできません）。</p>
+<h4>表示可能な写真形式</h4>
+<p><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.gif</code>, <code>.webp</code>, <code>.bmp</code>, <code>.heic</code>, <code>.heif</code>, <code>.svg</code>, <code>.svgz</code></p>
+<h4>編集可能な写真形式</h4>
+<p>これらの形式のみがビューワーから<strong>編集</strong>に入ることができ、保存後も同じ形式のままです:</p>
+<table><thead><tr><th>フォーマット</th><th>注意</th></tr></thead><tbody>
+<tr><td><code>.jpg</code> / <code>.jpeg</code></td><td>完全にサポートされています</td></tr>
+<tr><td><code>.png</code></td><td>完全にサポートされています</td></tr>
+<tr><td><code>.webp</code></td><td>完全にサポートされています</td></tr>
+</tbody></table>
+<p>他の表示可能な形式（<code>.gif</code>、<code>.bmp</code>、<code>.heic</code>、<code>.heif</code>、<code>.svg</code>、<code>.svgz</code>など）には<strong>編集ボタンがありません</strong>ので、保存しても形式を変更したりファイルを損傷したりすることはできません。</p>
+<h4>SVG / SVGZ</h4>
+<table><thead><tr><th>トピック</th><th>ノート</th></tr></thead><tbody>
+<tr><td>表示</td><td>サポートされています。ベクトルはビットマップに<strong>ラスタライズ</strong>されます</td></tr>
+<tr><td>ズーム</td><td>極端なズームは、ネイティブのベクタービューアよりも鮮明でないように見えることがあります</td></tr>
+<tr><td>編集</td><td><strong>サポートされていません</strong>（編集ボタンなし）</td></tr>
+<tr><td>複雑なSVG</td><td>一部のエフェクト（フィルター、スクリプト）が完全に表示されない場合があります</td></tr>
+<tr><td>ローカルインデックス</td><td>デバイスはSVGをMediaStoreに登録する必要があります。システムが一度もインデックスを作成していない場合、Downloadのみにあるファイルは欠落している可能性があります</td></tr>
+</tbody></table>
+<h4>その他のフォーマットに関する注記</h4>
+<table><thead><tr><th>フォーマット</th><th>表示</th><th>編集</th><th>ノート</th></tr></thead><tbody>
+<tr><td><code>.gif</code></td><td>✓</td><td>✗</td><td>静止画のみ；アニメーションなし</td></tr>
+<tr><td><code>.heic</code> / <code>.heif</code></td><td>✓</td><td>✗</td><td>デバイスのデコードによる</td></tr>
+<tr><td><code>.bmp</code></td><td>✓</td><td>✗</td><td>閲覧可能、編集不可</td></tr>
+</tbody></table>
+<h4>ビデオフォーマット</h4>
+<p>アプリは、<strong>ローカルギャラリー</strong>および<strong>ホームアルバム</strong>の両方でこれらのビデオ拡張子を認識します。再生の詳細は§5.7に記載されています。</p>
+<p><code>.3gp</code>, <code>.avi</code>, <code>.flv</code>, <code>.m2ts</code>, <code>.m4v</code>, <code>.mkv</code>, <code>.mov</code>, <code>.mpeg</code>, <code>.mpg</code>, <code>.mp4</code>, <code>.qt</code>, <code>.rm</code>, <code>.rmvb</code>, <code>.swf</code>, <code>.ts</code>, <code>.vob</code>, <code>.webm</code>, <code>.wmv</code></p>
+<p class="note">設定 → <strong>メディアリストフィルター</strong> には、これらの動画拡張子も参照用として一覧表示されています。</p>
+<h3 id="ja-57-ビデオ再生">5.7 ビデオ再生</h3>
+<p><strong>ローカル</strong>および<strong>ホームアルバム</strong>のビデオはアプリでストリーミングできます（ホームファイルは最初に完全にダウンロードする必要はありません）。スライドショーは§5.8です。</p>
+<h4>認識されたビデオ拡張子</h4>
+<p><code>.3gp</code>, <code>.avi</code>, <code>.flv</code>, <code>.m2ts</code>, <code>.m4v</code>, <code>.mkv</code>, <code>.mov</code>, <code>.mpeg</code>, <code>.mpg</code>, <code>.mp4</code>, <code>.qt</code>, <code>.rm</code>, <code>.rmvb</code>, <code>.swf</code>, <code>.ts</code>, <code>.vob</code>, <code>.webm</code>, <code>.wmv</code></p>
+<p>リストに載っているということは、アプリが<strong>ファイルをビデオとして開く</strong>ことを意味します。デコードを保証するものではなく、それは依然として内部のコーデックとデバイスに依存します。</p>
+<h4>電話で</h4>
+<table><thead><tr><th>トピック</th><th>ノート</th></tr></thead><tbody>
+<tr><td>エンジン</td><td><strong>Local</strong> は <strong>ExoPlayer (Media3)</strong> を好む；一部のコンテナ／コーデックは <strong>libVLC</strong> を使用。<strong>Home (SMB)</strong> の一般的な <code>.mp4</code> / <code>.mkv</code> / <code>.webm</code> / <code>.m4v</code> / <code>.3gp</code> は Media3 を使用；<code>.mov</code> / <code>.ts</code> / <code>.avi</code> および類似のものは依然として <strong>libVLC</strong> を使用（コントロールバーの見た目は同じ）」</td></tr>
+<tr><td>よくある Media3</td><td>ローカルおよびホーム <code>.mp4</code>、<code>.mkv</code>、<code>.webm</code>、および類似; 再生前に短いコーデックプローブが実行される場合があります</td></tr>
+<tr><td>よく使われる libVLC</td><td><code>.mov</code>、<code>.qt</code>、<code>.avi</code>、<code>.wmv</code>、<code>.flv</code>、<code>.mpg</code>、<code>.vob</code>、<code>.rm</code> / <code>.rmvb</code>、<code>.swf</code>、<code>.ts</code>、<code>.m2ts</code>、またはハードウェアでデコードしにくいコーデック</td></tr>
+<tr><td>どちらも機能しない場合</td><td>別のシステムアプリで開く</td></tr>
+<tr><td>ローカルスワイプ</td><td>ローカルギャラリー／タイムラインから、リスト内の前の動画／次の動画に左スワイプ／右スワイプ (Media3 パス)</td></tr>
+<tr><td>クリップの終了</td><td>コントロールバーに <strong>リプレイ</strong> が表示される</td></tr>
+<tr><td>ネットワークバッファ</td><td>ホームストリームは最初の再生時にバッファリングする場合があります。一部のフォーマットや同じフォルダ内の字幕ファイルは、より安定したストリーム経路を使用する場合があります</td></tr>
+<tr><td>字幕 / レジューム / ブックマーク / ピクチャーインピクチャー</td><td>同じフォルダ <code>.srt</code> / <code>.vtt</code> はプレーヤーで選択可能。レジューム / ブックマークは <strong>ブックマーク</strong> の下にある。<strong>ピクチャーインピクチャーは主にまだローカルの Media3 を使用</strong></td></tr>
+</tbody></table>
+<p class="note"><strong>コーデックの制限:</strong> 同じ拡張子でも異なるコーデックを隠すことがあります。両方のエンジンが失敗した場合、音声のみ、黒いフレーム、または再生不可になることがあります。</p>
+<h4>形式の概要</h4>
+<table><thead><tr><th>拡張子</th><th>認識済み</th><th>電話再生</th></tr></thead><tbody>
+<tr><td><code>.mp4</code></td><td>✓</td><td>普通は演奏する</td></tr>
+<tr><td><code>.mkv</code></td><td>✓</td><td>普通は演奏する</td></tr>
+<tr><td><code>.mov</code>、<code>.qt</code>、<code>.m4v</code>、<code>.3gp</code></td><td>✓</td><td>コーデックによる（多くの場合は互換性エンジン）</td></tr>
+<tr><td><code>.avi</code>、<code>.wmv</code>、<code>.flv</code>、<code>.webm</code>、<code>.ts</code>、<code>.m2ts</code>、<code>.mpg</code>、<code>.mpeg</code>、<code>.vob</code>、<code>.rm</code>、<code>.rmvb</code>、<code>.swf</code></td><td>✓</td><td>コーデックに依存 (libVLC)</td></tr>
+</tbody></table>
+<h4>Cast ビデオをテレビに</h4>
+<p>ローカルまたはホームアルバムから<strong>ビデオ</strong>をCastすることは<strong>Basic</strong>です（フォトキャストは§5.9を参照）。電話とテレビは同じLANに接続されている必要があります。一部の拡張機能（例えば<code>.avi</code>、<code>.wmv</code>）はCastボタンを隠します。</p>
+<table><thead><tr><th>コーデック</th><th>キャスト方法</th></tr></thead><tbody>
+<tr><td><strong>H.264 / AVC</strong>（一般的な携帯電話MP4、縦向き含む）</td><td><strong>直接キャスト</strong>；ビットレートや縦向きのためだけにトランスコードはなし</td></tr>
+<tr><td><strong>HEVC / H.265</strong> およびその他のテレビ非対応コーデック</td><td>アプリはトランスコードします（「ビデオをキャストする準備中…」と表示されることがあります）</td></tr>
+</tbody></table>
+<p>「<strong>この動画のビットレートが高すぎます</strong>」は、<strong>トランスコードが必要だが、ホームファイルがダウンロードされていない／トランスコードキャッシュが存在しない</strong>場合にのみ表示されます。その理由でH.264がブロックされていないことを確認してください。電話で再生し、ローカルファイルまたはキャッシュが存在する状態で再度キャストを試みてください。</p>
+<h3 id="ja-58-スライドショー">5.8 スライドショー</h3>
+<p>ローカルまたはホームギャラリーの<strong>写真</strong>を<strong>電話画面</strong>で自動再生します。BasicおよびProで利用可能です。<strong>Pro</strong>はスライドショーをテレビに送信することもできます（§5.9参照）。ビデオにはビデオプレーヤーを使用してください（§5.7）。</p>
+<h4>始め方</h4>
+<table><thead><tr><th>方法</th><th>注意</th></tr></thead><tbody>
+<tr><td><strong>複数選択から</strong></td><td>長押しして選択 → 1枚以上の<strong>写真</strong>を選ぶ → <strong>スライドショー</strong>をタップ。全画面表示は<strong>すぐに始まります</strong></td></tr>
+<tr><td><strong>ビューアから</strong></td><td>写真を開き、次に <strong>スライドショーを開始</strong> / <strong>スライドショーを一時停止</strong> (スライドショーアイコン) をタップします</td></tr>
+</tbody></table>
+<p class="note">選択に<strong>写真が含まれていない</strong>場合（例えば、動画のみ）、「少なくとも1枚の写真を選択してください」と表示され、スライドショーは開始されません。</p>
+<h4>再生</h4>
+<table><thead><tr><th>トピック</th><th>ノート</th></tr></thead><tbody>
+<tr><td>間隔</td><td>写真ごとに <strong>約5秒</strong></td></tr>
+<tr><td>ループ</td><td>最後の写真の後、再生は最初に戻ります</td></tr>
+<tr><td>画面表示</td><td>左下にインデックス（<code>3 / 12</code>）を表示；右下にカウントダウンを表示；一時停止中は一時停止アイコンが表示される</td></tr>
+<tr><td>範囲</td><td>マルチセレクトからは <strong>選択された写真のみ</strong>（選択順）；ビューアからは、現在の閲覧リストの写真</td></tr>
+</tbody></table>
+<h4>プレイ中のジェスチャー</h4>
+<table><thead><tr><th>アクション</th><th>ノート</th></tr></thead><tbody>
+<tr><td><strong>タップ</strong></td><td>一時停止</td></tr>
+<tr><td><strong>左にスワイプ</strong></td><td>次の写真（カウントダウンがリセットされます）</td></tr>
+<tr><td><strong>右にスワイプ</strong></td><td>前の写真（カウントダウンがリセットされます）</td></tr>
+</tbody></table>
+<h4>一時停止後</h4>
+<table><thead><tr><th>アクション</th><th>注意</th></tr></thead><tbody>
+<tr><td><strong>写真をタップ</strong></td><td>再開（カウントダウンが再スタート）</td></tr>
+<tr><td><strong>つまむ / ドラッグ</strong></td><td>詳細表示のためにズーム（ピンチズームは一時停止中のみ有効）</td></tr>
+<tr><td>ツールバー <strong>スライドショーを一時停止</strong></td><td>スライドショーモードを終了して通常の表示に戻る</td></tr>
+</tbody></table>
+<p>システムバック：スライドショーが実行中の場合、最初の押下で終了し、もう一度押すとビューアを終了します（現在の画面によります）。</p>
+<h3 id="ja-59-Cast-の写真をテレビに">5.9 Cast の写真をテレビに</h3>
+<p><strong>Pro</strong> はローカルまたはホームアルバムの写真を Google Cast TV / Chromecast にキャストできます。Basic は写真ビューアに Cast アイコンを表示し続けます；それをタップするとアップグレードが促されます。</p>
+<table><thead><tr><th>トピック</th><th>ノート</th></tr></thead><tbody>
+<tr><td>エントリー</td><td>写真ビューアのタイトルバーの <strong>Cast</strong> アイコン</td></tr>
+<tr><td>接続後</td><td>テレビに現在の写真が表示され、スマートフォンでピンチ、パン、スライドショーをするとテレビと同期します</td></tr>
+<tr><td>スライドショー</td><td>携帯電話で開始/一時停止すると、テレビも切り替わります</td></tr>
+<tr><td>視聴者を離れる</td><td>テレビの写真撮影が終了する</td></tr>
+<tr><td>ビデオ</td><td>ローカル / 家庭用<strong>ビデオ</strong>Castの残りBasic（§5.7参照）、フォトキャストとは別</td></tr>
+</tbody></table>
+<p>電話とテレビは同じLANに接続されている必要があります。初回はローカルネットワークの許可を与えてください。</p>
+<h3 id="ja-6-写真編集者">6. 写真編集者</h3>
+<p>ビューアで <strong>編集</strong> をタップします（<strong><code>.jpg</code>、<code>.jpeg</code>、<code>.png</code>、<code>.webp</code> のみこのボタンが表示されます</strong>、§5.6 を参照）。</p>
+<p>編集は<strong>下書き</strong>です。層は二つあります：</p>
+<ol><li>ツール内で、下（縦向き）または右（横向き）を調整します；作業プレビューにそのステップを適用するには <strong>✓</strong> をタップし、ステップを破棄してツールピッカーに戻るには <strong>X</strong> をタップします。</li><li>ツールピッカーに戻ると、上部の <strong>保存</strong> はすべての適用されたステップをファイルに書き込みます。</li></ol>
+<p class="note"><strong>ランドスケープ:</strong> ポートレート / 調整 / トリミングに入ると、プレビュー用スペースのために上部のタイトルバーが隠れます；システムの「戻る」またはツールバーの <strong>X</strong> を押すと、そのツールを終了します。</p>
+<h3 id="ja-61-ツール">6.1 ツール</h3>
+<p>3つのツールが下部（縦向き）または右側（横向き）に表示されます：</p>
+<table><thead><tr><th>ツール</th><th>注意</th></tr></thead><tbody>
+<tr><td>ポートレート</td><td>顔の滑らかさと局所的なトーン（明るさ / コントラスト / 彩度）</td></tr>
+<tr><td>調整</td><td>明るさ、コントラスト、彩度、色温度</td></tr>
+<tr><td>トリミング</td><td>アスペクト比でトリミング、傾き、回転 / 反転</td></tr>
+</tbody></table>
+<h3 id="ja-62-作物">6.2 作物</h3>
+<p>ダークパネル；アイコン行からアスペクトを選択してください：</p>
+<table><thead><tr><th>項目</th><th>注意事項</th></tr></thead><tbody>
+<tr><td>自由</td><td>角や辺を自由にドラッグ</td></tr>
+<tr><td>元の</td><td>現在のアスペクト比を固定</td></tr>
+<tr><td>3:2、4:3、16:9</td><td>風景固定比率</td></tr>
+<tr><td>2:3、3:4、9:16</td><td>縦向き固定比率</td></tr>
+<tr><td>1:1</td><td>正方形</td></tr>
+</tbody></table>
+<ul><li><strong>傾き:</strong> −15°から+15°、スケールをドラッグ；<strong>リセット</strong>で0に戻ります</li><li><strong>オート:</strong> 推奨される傾きは、オートをタップしたときのみ計算されます（クロップに入るときではありません）</li><li><strong>反転 / 回転:</strong> 下部の確認行の中央にあります；作業中の画像にすぐ適用されます（このトリミングステップを確定するには、後で✓が必要です）</li><li>クロップボックスをドラッグして移動します；角をドラッグして拡大縮小します。三分割法のガイドはドラッグ中のみ表示されます</li><li>ステップを適用するには <strong>✓</strong> をタップしてください</li></ul>
+<h3 id="ja-63-調整">6.3 調整</h3>
+<p>ダークパネル；確認行の中央は4つのアイテムを切り替えます：</p>
+<table><thead><tr><th>項目</th><th>注記</th></tr></thead><tbody>
+<tr><td>明るさ / コントラスト / 彩度 / 色温度</td><td>−100から+100、中央は0；黄色いポインターが現在の値を示します</td></tr>
+</tbody></table>
+<ul><li>右側の<strong>リセット</strong>は現在の項目をリセットします</li><li>回転/反転には<strong>切り抜き</strong>を使用してください</li><li>ステップを適用するには <strong>✓</strong> をタップしてください</li></ul>
+<h3 id="ja-64-ポートレート">6.4 ポートレート</h3>
+<p>ダークパネル; ツールに入力すると<strong>顔を検出</strong>します（「再検出」も可能です）。確認行は切り替わります: 滑らかさ、明るさ、コントラスト、彩度。</p>
+<table><thead><tr><th>コントロール</th><th>ノート</th></tr></thead><tbody>
+<tr><td>スムーズ</td><td>強さ 0–100; 顔がある場合は、顔の大きさに基づいた動的な提案（約20%–70%）</td></tr>
+<tr><td>明るさ / コントラスト / 彩度</td><td>顔のみに適用（または手動のボックス）、約±50%</td></tr>
+</tbody></table>
+<p><strong>顔が見つからない場合:</strong></p>
+<ul><li>滑らかさの強さは<strong>0%</strong>で、提案は表示されません</li><li>円形の領域が表示されます: <strong>指1本でドラッグ</strong>して移動し、<strong>スライダー</strong>でサイズを変更してから、スムーズに持ち上げます</li></ul>
+<p><strong>顔が見つかったとき:</strong></p>
+<ul><li>推奨スムーズは、フレームの最大の顔の割合を使用します（クローズアップは高め、グループ／遠景は低め）および「推奨 N%」を表示します</li><li>顔が輪郭で描かれている</li></ul>
+<p>ステップを適用するには <strong>✓</strong> をタップしてください。</p>
+<h3 id="ja-65-保存とキャンセル">6.5 保存とキャンセル</h3>
+<table><thead><tr><th>ボタン</th><th>場所</th><th>注意事項</th></tr></thead><tbody>
+<tr><td><strong>X</strong></td><td>工具の底</td><td>この工具のステップを破棄し、ピッカーに戻る</td></tr>
+<tr><td><strong>✓</strong></td><td>ツールの下部</td><td>ツールの結果を作業用プレビューに統合する（まだ書き込まれていません）</td></tr>
+<tr><td><strong>保存</strong></td><td>ツールピッカーの上部</td><td>適用されたすべての編集内容をファイル（ローカルまたはホームアルバム）に書き込む</td></tr>
+<tr><td>戻る</td><td>システム / トップに戻る</td><td>保存されていない変更を破棄するかどうかを尋ねます</td></tr>
+</tbody></table>
+<p class="note">エディタープレビュー（ツールピッカー、ポートレート、調整）は<strong>ピンチズーム</strong>と<strong>ダブルタップズーム</strong>（約1×〜3×）をサポートし、その後パンが可能です。<strong>クロップ</strong>ではプレビューはズームされないため、ジェスチャーはクロップボックスにとどまります。</p>
+<h3 id="ja-7-ブックマーク">7. ブックマーク</h3>
+<h3 id="ja-71-ブックマークを追加する">7.1 ブックマークを追加する</h3>
+<p>ローカルまたは自宅のアルバムで、ツールバーの<strong>ブックマーク</strong>アイコンをタップします。「ブックマーク済み」というヒントが画面下部に表示されます。</p>
+<p>ビデオを再生している間に、<strong>星印</strong>をタップして<strong>ビデオブックマーク</strong>（再生位置を含む）を追加します。</p>
+<h3 id="ja-72-ブックマークを使用する">7.2 ブックマークを使用する</h3>
+<ol><li>下部バーの<strong>ブックマーク</strong>をタップします（そのタブをもう一度タップするとパネルを切り替えられます）</li><li>パネルで開くことができます:</li><li><strong>フォルダブックマーク:</strong> そのフォルダにジャンプ</li><li><strong>ビデオブックマーク:</strong> プレイヤーを開き、再開を試みてください</li></ol>
+<h3 id="ja-73-ブックマークを削除する">7.3 ブックマークを削除する</h3>
+<p>ブックマークパネルの項目を<strong>長押し</strong> → 確認（フォルダと動画のブックマークも同じ操作です）。</p>
+<h3 id="ja-8-ホームアルバムにアップロード">8. ホームアルバムにアップロード</h3>
+<ol><li>ローカルギャラリーで<strong>複数選択</strong>を入力し、写真や動画を選択します</li><li>下の <strong>アップロード</strong> アイコンをタップしてください</li><li><strong>ホームアルバム</strong>（名前のみ）とオプションのサブフォルダを選択します（プライベートバックアップゾーンは選択できません）</li><li>確認</li></ol>
+<p><strong>Proグレス</strong></p>
+<ul><li>進行状況（<code>N / M</code>）、ファイル名、およびバイトバーを表示します</li><li><strong>停止</strong> は残りのファイルをキャンセルします; 完了したファイルは保持されます; 結果は成功 / 部分成功 / キャンセル済みを区別します</li></ul>
+<p><strong>同じ名前</strong></p>
+<ul><li>もし宛先にすでに同じ名前が存在する場合、アップロードは<code>name (1).ext</code>、<code>name (2).ext</code>、…と<strong>名前が変更され</strong>、<strong>上書きされません</strong></li></ul>
+<p><strong>アップロードに成功した後、ローカルを削除する</strong></p>
+<ul><li>すべてのアイテムが正常にアップロードされ、かつごみ箱が有効になっている場合にのみ、アプリは「ローカルのコピーをゴミ箱に移動しますか」と尋ねます</li><li><strong>ゴミ箱に移動</strong> または <strong>デバイスに保持</strong> を選択します。ゴミ箱オフの場合は成功メッセージのみが表示されます</li><li>アルバムのバックアップ<strong>では</strong>これを提供していません；ファイルがすでにアルバムバックアップにある場合、ゴミ箱に移動した後でもリモートバックアップのコピーは保持されます</li></ul>
+<h3 id="ja-9-設定">9. 設定</h3>
+<p>「<strong>その他 → 設定</strong>」を開きます。</p>
+<h3 id="ja-91-ホスト接続">9.1 ホスト接続</h3>
+<ul><li>保存された<strong>SMBホスト</strong>を表示、編集、または削除</li><li>ホスト接続の管理からホストを追加する（LANスキャンまたは手動アドレス）</li><li>接続メモはオンラインの <strong>WebDAV / Tailscale</strong> 遠隔セットアップページを開きます。同じページで <strong>IPv6 を有効化</strong> を切り替えます（デフォルトではオフ、§4.1 / §4.4 を参照）。</li><li>設定のホーム画面では <strong>ホストSMBを追加</strong> は <strong>繰り返されません</strong>。管理ページを使用してください</li></ul>
+<h3 id="ja-92-ホームアルバム設定ブロック">9.2 ホームアルバム（設定ブロック）</h3>
+<ul><li>設定されているホームアルバムの数を表示します</li><li><strong>フォトキャスト（Pro）：</strong> ローカル／家庭の写真をテレビにキャストします。Basic スイッチをタップするとアップグレードを促されます；Pro は解除されています（ビューアーの Cast ボタンを使用）。自宅の <strong>ビデオ</strong> ストリーミングは Basic で、設定のスイッチはもう必要ありません</li><li><strong>ポートレート H.264 直接キャスト:</strong> ビデオCast互換オプション（Basic）；テレビの映像が回転している場合のみオフにしてください</li><li><strong>ホーム</strong>タブからアルバムを追加/削除する（ピッカー / 管理画面）</li></ul>
+<h3 id="ja-93-ローカルギャラリーフォルダー">9.3 ローカルギャラリーフォルダー</h3>
+<ul><li><strong>フォルダーを含める:</strong> 表示するルート（デフォルト <code>DCIM</code>、<code>Pictures</code>）</li><li><strong>フォルダーを除外:</strong> 特定のサブフォルダーをスキップ</li></ul>
+<p><strong>Basic 対 Pro（並行フォルダー）</strong></p>
+<table><thead><tr><th>エディション</th><th>含めることができるパス</th><th>SAF 権限</th></tr></thead><tbody>
+<tr><td><strong>Basic</strong></td><td>MediaStore ルート: <code>DCIM</code>、<code>Pictures</code>（動画も <code>Movies</code>）およびそのサブフォルダ; <strong>さらに</strong> 並列フォルダ</td><td><strong>フォルダの選択と許可（読み書き）</strong> が必要</td></tr>
+<tr><td><strong>Pro</strong></td><td>Basic と同じ</td><td>Basic と同じ</td></tr>
+</tbody></table>
+<p>設定でBasicおよびProは<code>Documents</code>のような並行パスを許可できます。その権限がない場合、復元は<code>Pictures/…</code>にマッピングされることがあります（§9.7参照）。</p>
+<p><strong>注意（Androidプラットフォームの制限）：</strong> Android 11から、システムはフォルダピッカーで <code>Download</code> ルート全体の認可を <strong>許可しません</strong>—「このフォルダを使用」はグレーのままです。これはアプリのバグではありません。<code>Documents</code>（または同様のもの）を認可するか、Download の下に <strong>サブフォルダー</strong> を作成してそのサブフォルダーを認可してください。</p>
+<p><strong>その二つの助成金を混同しないでください</strong></p>
+<table><thead><tr><th>助成金</th><th>使用用途</th></tr></thead><tbody>
+<tr><td><strong>フォルダを選択して認証 (SAF)</strong></td><td>並列フォルダ自体の読み書き（復元、コピー / 移動 <strong>に</strong>）</td></tr>
+<tr><td><strong>メディア管理（設定 → ローカルギャラリー）</strong></td><td><code>DCIM</code> / <code>Pictures</code> のような標準アルバム内のオリジナルを削除または変更できます。カメラフォルダーから並列フォルダーへ移動すると、元のファイルを削除するかどうか尋ねられる場合があります。メディア管理にアクセスした後は、そのプロンプトは通常繰り返されません</td></tr>
+</tbody></table>
+<h3 id="ja-94-ディスプレイ">9.4 ディスプレイ</h3>
+<table><thead><tr><th>設定</th><th>注意</th></tr></thead><tbody>
+<tr><td>ポートレートグリッドの列</td><td>ポートレートの1行あたりの写真</td></tr>
+<tr><td>横向きグリッドの列</td><td>横向きでの1行あたりの写真数</td></tr>
+<tr><td>フォルダ名のサイズ</td><td>ルートでのフォルダタイトルのサイズ</td></tr>
+<tr><td>ビューアーアクション行</td><td>自動折りたたみ / 常に表示</td></tr>
+</tbody></table>
+<h3 id="ja-95-キャッシュ">9.5 キャッシュ</h3>
+<p>キャッシュサイズを確認し、<strong>キャッシュをクリア</strong>（ネットワークのサムネイル、画像ディスクキャッシュ、ネットワーク動画ストリームキャッシュ、メモリキャッシュ）。オリジナルはそのままです。次回のホームアルバム閲覧時には、キャッシュを再度ダウンロードまたは再構築する必要があります。</p>
+<h3 id="ja-96-メディアリストフィルター">9.6 メディアリストフィルター</h3>
+<p>ローカルおよびホームアルバムリストでフォルダー名、ファイル名、または拡張子を非表示にします。組み込みの写真/ビデオ拡張子ルールは読み取り専用の参照です。</p>
+<p class="note">設定は次のようにグループ化されています: ローカルギャラリー、メディアフィルター、<strong>ホスト接続</strong>、ホームアルバム（ネットワークビデオストリーミングを含む）、アルバムのバックアップ、キャッシュ、<strong>問題の報告 / 診断のエクスポート</strong>、など。</p>
+<h3 id="ja-97-アルバムのバックアップ">9.7 アルバムのバックアップ</h3>
+<p>アルバムのバックアップは、ローカルギャラリーからホームストレージのプライベートゾーン（<code>.HomeGallery/backup/{device}/</code>）への<strong>一方向のアップロード</strong>で、電話が故障した後に復元できるようにします。</p>
+<p>各デバイスは、それぞれのフォルダに<code>device_info.json</code>を保持します（モデル、任意の表示名、最後のバックアップ時間）。複数の人が同じバックアップアンカーを共有する場合は、アルバムバックアップ設定で<strong>ローカルバックアップの識別 → 表示名</strong>を設定してください。「既存のバックアップをリンク」リストには、<code>android_xxxx</code>だけでなく、その名前／モデルが表示されます。</p>
+<table><thead><tr><th>トピック</th><th>ノート</th></tr></thead><tbody>
+<tr><td><strong>方向</strong></td><td><strong>電話 → 家のストレージ</strong>（一方通行）</td></tr>
+<tr><td><strong>Basic / Pro</strong></td><td><strong>Basic:</strong> 手動バックアップ、フォルダの除外、古い電話の復元 / 接続。 <strong>Pro:</strong> Wi‑Fiでの<strong>自動</strong>バックアップ（オプション）</td></tr>
+<tr><td><strong>自動バックアップ</strong></td><td><strong>Proのみ。</strong> Basic は手動でフォルダをバックアップおよび除外でき、バックグラウンド同期はありません。有効時（かつ「Wi‑Fiのみ」が満たされている場合）、自宅のWi‑Fi に接続すると <strong>スキャン/アップロードをすぐに予定</strong> します；アプリはまた約6時間ごとおよびギャラリーが変更されたときにも確認します。バッテリーセーバーや、まだ準備ができていないNAS はこれを遅延させる可能性があります—ベストエフォートであり、二次的なレベルではありません</td></tr>
+<tr><td><strong>フォルダを除外</strong></td><td><strong>Basic / Pro:</strong> ローカルのサブパスをスキップ（例えば <code>DCIM/Screenshots</code>）；すでにインデックス済みの項目はキューに残す</td></tr>
+<tr><td><strong>ごみ箱に移動</strong></td><td>ホームバックアップは<strong>削除されません</strong>；また、「デバイスで見つからない」状態にも<strong>なりません</strong>（ごみ箱からローカルファイルを復元します）</td></tr>
+<tr><td><strong>このアプリでの完全削除</strong></td><td><strong>“デバイス上で見つからない”ではない</strong>; 次のバックアップで一致する<code>.HomeGallery</code>ファイルを削除し、トラッキングを解除する</td></tr>
+<tr><td><strong>アプリの外に出た</strong></td><td>“デバイスに存在しない” と表示されます。ホームのコピーは手動での復元またはクリーンアップのために保持されます。<strong>保留中のバックアップを確認</strong> が NAS に接続した後、バックアップファイルがすでに存在しない項目はリストから削除されます（復元不可能なゴーストはありません）</td></tr>
+<tr><td><strong>復元</strong></td><td><strong>バックアップの表示 / 復元</strong> で、アイテムを <strong>手動で</strong> 選択し、ローカルに書き戻します</td></tr>
+<tr><td><strong>未提供</strong></td><td><strong>双方向同期</strong> — NASでバックアップファイルを直接変更/削除しても、電話のギャラリーは<strong>更新されません</strong></td></tr>
+</tbody></table>
+<p>別の共有に<strong>切り替える</strong>、<strong>ホストを変更する</strong>、または<strong>バックアップアンカーフォルダーを変更する</strong>と、ローカルトラッキングは最初から始まります：同期済み／失敗／バックアップのみのカウントはクリアされます。<strong>保留中のバックアップを確認</strong>をタップして再度スキャンしてください（新しい保存先に既にこのデバイスのバックアップがある場合、アイテムは再アップロードせずに同期済みとして揃うことがあります）。</p>
+<p>Basic「パブリックフォルダにアップロードする」とは異なり、バックアップゾーンはアプリ管理で、デフォルトでは通常のネットワーク閲覧から隠されており、ローカルコピーもデフォルトで保持します。</p>
+<p><strong>バックアップゾーンを閲覧（大きなフォルダグリッド）</strong></p>
+<ol><li><strong>もっと → アルバムのバックアップ</strong> → <strong>バックアップゾーンを閲覧</strong></li><li>ホームアルバムフォルダモード（大きなグリッド）でプライベートバックアップルートを開き、必要に応じてフォルダを掘り下げる</li><li><strong>バックアップ専用</strong> アイテムは赤い枠で表示されます。長押しして選択し、バックアップゾーンから削除（および追跡解除）できます</li><li>バックアップディスク上に存在するが、<strong>ローカルインデックス行がない</strong>ファイルは、<strong>未追跡</strong>とラベル付けされます（手動でコピーされたものや、インデックスリセット後のものが多いです）。バックアップ専用として表示される前に、スキャンまたはリモートインデックスを実行してください。</li><li>リスト形式の復元 / フィルターは、以下の <strong>バックアップ / 復元を表示</strong> をまだ使用します</li></ol>
+<p><strong>復元 (R1.1)</strong></p>
+<ol><li><strong>その他 → アルバムのバックアップ</strong>（または設定のアルバムのバックアップ）→ <strong>バックアップ / 復元の表示</strong></li><li>デフォルトフィルター <strong>デバイス上に存在しない</strong>（以前にバックアップ済みで、ローカルでは消滅；ごみ箱内のアイテムではなく、このアプリからの永久削除でもない）</li><li><strong>すべての不足を復元</strong> をタップするか、複数選択して <strong>選択を復元</strong> → 確認（ファイル数、サイズ、<strong>パスマッピング数</strong>）→ 復元</li></ol>
+<p>（古い電話をリンクした後のアイテムは通常「バックアップのみ」です。デバイスにないフィルターも保留中のファイルを表示します）</p>
+<ol><li>復元されたファイルがローカルギャラリーに表示されます</li></ol>
+<p><strong>並列フォルダーの復元パス（重要）</strong></p>
+<p>バックアップに <code>Documents/…</code>: のような並列パスが含まれている場合</p>
+<table><thead><tr><th>条件</th><th>復元が書き込む場所</th></tr></thead><tbody>
+<tr><td>その並列パスに対して <strong>SAF</strong> なし</td><td><strong><code>Pictures/{original relative path}</code></strong> にマッピング（例：<code>Documents/Office Lens/a.jpg</code> → <code>Pictures/Documents/Office Lens/a.jpg</code>; 動画は<code>Movies/…</code>の下にマッピングされる場合があります）</td></tr>
+<tr><td>その並列フォルダーで <strong>選択して認証</strong></td><td><strong>元の相対パス</strong> に書き戻す（Picturesにはマッピングされない）</td></tr>
+</tbody></table>
+<p>Basic と Pro は両方とも並列フォルダを認可できます（設定 → ローカルギャラリーフォルダを参照）。</p>
+<p>確認ダイアログにパスマッピングが表示される場合、一部のファイルは<code>Pictures</code>の下に配置されます。デバイス間復元（R2）も同じルールを使用します。</p>
+<p><strong>新しい電話 (R2)</strong>（既存のバックアップをリンク / ライブラリを完全復元; <strong>Basic と Pro</strong>）</p>
+<ol><li><strong>その他 → アルバムのバックアップ</strong> → <strong>バックアップを表示 / 復元</strong></li><li><strong>既存のバックアップをリンク</strong> をタップ → 古い電話の <code>backup/{deviceId}/</code> を NAS で選択（<strong>復元元のみ</strong>）</li><li>インデックス作成後、この電話にないファイルには <strong>バックアップのみ</strong> フィルターを使用します</li><li>複数選択または <strong>すべての欠落を復元</strong>（同じ並列フォルダルール: SAF がない場合、<strong><code>Pictures/…</code></strong> に移動）</li><li>この電話からの後のバックアップは依然として<strong>自分自身の</strong>フォルダに書き込まれます。古い電話は別々にバックアップを続けることができます</li></ol>
+<p><strong>アプリのストレージをクリアした後（同じ電話）</strong></p>
+<ol><li>バックアップの後、まず <strong>設定をエクスポート</strong> します（これによりバックアップ<code>deviceId</code>も記憶されます）</li><li>アプリのストレージをクリア（または再インストール）→ 再度権限を付与 → <strong>できるだけ早く設定を復元</strong>（最初にアルバムのバックアップを有効にしないこと、新しいデバイスIDが作成される可能性があります）</li><li>アルバムのバックアップを開く → <strong>保留中のバックアップを確認</strong>: アプリはホームバックアップゾーンに接続し、ローカルファイルでNASとまだ一致するものを同期済みとしてマークします—<strong>完全再アップロードは不要</strong></li><li>すでに異なる識別情報を持つ<strong>別の電話</strong>で設定を復元する場合：書き込み識別情報はそのまま残ります；インポートされた古い <code>deviceId</code> はリンクされた復元元として扱われます（インデックス化／復元するには「既存のバックアップをリンク」を使用してください）</li><li>エクスポートが古い場合（<code>deviceId</code>がない場合）、バックアップの後に再度エクスポートするか、「既存のバックアップをリンク」して古いフォルダを選択してください</li></ol>
+<h3 id="ja-98-設定のエクスポートと復元">9.8 設定のエクスポートと復元</h3>
+<table><thead><tr><th>トピック</th><th>ノート</th></tr></thead><tbody>
+<tr><td><strong>エクスポート設定</strong></td><td>ローカルギャラリー、SMBホスト、自宅アルバム、ブックマーク、およびバックアップ設定をDownload/Home Galleryにエクスポートします</td></tr>
+<tr><td><strong>認証情報</strong></td><td>ファイルにはSMB個のパスワードが<strong>エンコード</strong>形式で含まれています（プレーンテキストではなく、強力な暗号化でもありません）；非公開にしてください—公共のクラウドにアップロードしないでください</td></tr>
+<tr><td><strong>設定を復元</strong></td><td>最近のエクスポートまたはJSONファイルを選択します；これにより現在の設定と資格情報が<strong>上書き</strong>されます</td></tr>
+</tbody></table>
+<p class="note">リファクタリング前の古い（<code>SambaProfile</code>）テストビルドを使用していた場合は、<strong>アプリのデータを消去するか再インストール</strong>し、再度ホストとホームアルバムを設定してください。古い形式の設定ファイルはインポートしないでください。</p>
+<h3 id="ja-99-問題の報告と診断">9.9 問題の報告と診断</h3>
+<table><thead><tr><th>トピック</th><th>ノート</th></tr></thead><tbody>
+<tr><td><strong>問題を報告する</strong></td><td>メールを開き、オプションでバージョンと機能フラグの概要を含める</td></tr>
+<tr><td><strong>診断のエクスポート</strong></td><td>写真コンテンツやSMBパスワード<strong>なし</strong>で、<code>diagnostics-*.zip</code>（デバイス情報、最近のエラー、<code>last_crash.txt</code>など）を作成します</td></tr>
+<tr><td><strong>クラッシュ後</strong></td><td>ZIPに最新の致命的クラッシュスタックトレースが含まれるように、エクスポートする前に<strong>アプリを再度開いてください</strong></td></tr>
+</tbody></table>
+<h3 id="ja-10-よくある質問">10. よくある質問</h3>
+<h3 id="ja-Q1-ローカルの写真が見つかりませんか">Q1: ローカルの写真が見つかりませんか？</h3>
+<ul><li><strong>写真とビデオ</strong>へのアクセスが許可されていることを確認する</li><li>設定 → ローカルギャラリーフォルダー：フォルダーが <strong>フォルダーに含める</strong> にあることを確認してください</li></ul>
+<h3 id="ja-Q2-ホームストレージに接続できませんか">Q2: ホームストレージに接続できませんか？</h3>
+<ul><li>携帯電話とNAS/ PCは同じ家庭用Wi‑Fi/ LANに接続されている必要があります</li><li>設定 → <strong>ホスト接続</strong>：アドレス、アカウント、パスワードを確認</li><li>NAS / PC（ポート445）でSMBが有効になっていることを確認してください</li><li>スキャンで何も見つからない場合：Wi‑Fi をオンにし、ストレージと同じLANに接続したまま、再度スキャンしてください</li><li><strong>離れている間は接続できません:</strong></li><li>NAS: リモートアクセスは <strong>WebDAV</strong> である必要があり、正しい DDNS / ポート → <a href="setup/webdav/index.html#ja">WebDAV guide</a></li><li>Windows / なし WebDAV: <a href="setup/tailscale/index.html#ja">Tailscale guide</a> を参照</li><li>その他の場合: <a href="setup/troubleshooting/index.html#ja">Troubleshooting §E</a></li></ul>
+<h3 id="ja-Q3-ローカルの写真を削除または編集する際にシステムの権限確認が表示されますか">Q3: ローカルの写真を削除または編集する際にシステムの権限確認が表示されますか？</h3>
+<p>Android 11以上では、他のアプリによって作成された一部のメディアは変更や削除するために追加の権限が必要です。システムダイアログで許可してください。</p>
+<h3 id="ja-Q4-ポートレートスムーズは弱く見えますか">Q4: ポートレート／スムーズは弱く見えますか？</h3>
+<ul><li>顔が検出されたことを確認するか、円をドラッグしてスライダーでサイズを変更してください</li><li><strong>滑らかさ</strong>を上げる</li><li>適用 (✓) してから保存</li></ul>
+<h3 id="ja-Q5-編集後に品質は低下しますか">Q5: 編集後に品質は低下しますか？</h3>
+<p>ポートレート<strong>プレビュー</strong>は速度のために低解像度を使用します；<strong>保存</strong>は元の解像度で処理します。まだ強すぎる場合は、スムーズを下げてください。</p>
+<h3 id="ja-Q6-ホームアルバムへのコピーアップロードは遅いですか">Q6: ホームアルバムへのコピー／アップロードは遅いですか？</h3>
+<p>速度はネットワーク帯域幅とファイルサイズに依存します。安定したWi‑Fi接続を使用してください。</p>
+<h3 id="ja-Q7-なぜSVGは表示できるのに編集できないのですか">Q7: なぜSVGは表示できるのに編集できないのですか？</h3>
+<p>SVGはベクターです。このアプリはベクターを編集してSVGとして保存することはできず、ラスター化されたビットマップのみを<strong>表示</strong>できます。そのため、編集は非表示になっています。§5.6を参照してください。</p>
+<h3 id="ja-Q8-GIF-HEIC-に編集ボタンがないのはなぜですか">Q8: GIF / HEIC に編集ボタンがないのはなぜですか？</h3>
+<p>これらの形式は表示できますが、編集された保存では元の形式（GIFアニメーション、HEICエンコード）を保持できません。損傷を避けるため、編集は <code>.jpg</code>、<code>.jpeg</code>、<code>.png</code>、<code>.webp</code> のみに対応しています。</p>
+<h3 id="ja-Q9-ローカルギャラリーにSVGファイルが見つかりませんか">Q9: ローカルギャラリーにSVGファイルが見つかりませんか？</h3>
+<p>Androidが<strong>MediaStore</strong>をインデックスしたことを確認してください（Download秒は一般的なケースです）。システムがSVGをメディアとして登録していない場合、このアプリはそれを一覧表示できません。</p>
+<h3 id="ja-Q10-動画が表示されているが再生できませんか">Q10: 動画が表示されているが再生できませんか？</h3>
+<ul><li>拡張が§5.7にあることを確認してください</li><li>電話で: アプリは組み込みエンジン（Media3 または互換性エンジン）を試します; それが失敗した場合、<strong>別のアプリ</strong>で開きます。同じファイルを別のプレーヤーでテストすることもできます</li><li>ネットワークビデオ：ネットワークを確認してください。必要に応じて、設定でキャッシュをクリアして再試行してください</li></ul>
+<h3 id="ja-11-権限">11. 権限</h3>
+<table><thead><tr><th>許可</th><th>理由</th></tr></thead><tbody>
+<tr><td>写真と動画 (READ_MEDIA_IMAGES / READ_MEDIA_VIDEO)</td><td>ローカルの写真と動画を読み取る</td></tr>
+<tr><td>インターネット (INTERNET)</td><td>自宅SMBストレージに接続</td></tr>
+<tr><td>ネットワーク状態 (ACCESS_NETWORK_STATE)</td><td>接続を検出</td></tr>
+<tr><td>Wi‑Fi 状態 (ACCESS_WIFI_STATE)</td><td>LAN検出</td></tr>
+</tbody></table>
+<h3 id="ja-12-Basic-と-Pro">12. Basic と Pro</h3>
+<p>ホームギャラリー は <strong>Basic</strong> と <strong>Pro</strong> を提供します。Basic は <strong>広告なし</strong> で、すでにフルの写真・ビデオ管理（ローカルおよびホームアルバム、タイムライン、ホームビデオストリーミング、ごみ箱、並列フォルダ、手動アルバムバックアップとフォルダ除外、古い電話の復元/リンク、その他多数）を含んでいます。追加のスペースはクラウドの割り当てではなくホームストレージから提供されます。<strong>Pro</strong> は <strong>任意の一度きりの購入</strong> で、さらに <strong>自動アルバムバックアップ</strong>（Wi‑Fi でのバックグラウンドアップロード）と <strong>写真のテレビへのキャスト</strong> をアンロックします。</p>
+<table><thead><tr><th>エディション</th><th>役割</th></tr></thead><tbody>
+<tr><td><strong>Basic</strong></td><td>完全なローカルおよびホームメディア管理；手動バックアップ、フォルダの除外、および復元</td></tr>
+<tr><td><strong>Pro</strong></td><td>Basic のすべて + <strong>自動バックアップ</strong>（バックグラウンド Wi‑Fi 同期）+ <strong>フォトキャスト</strong>（テレビ）</td></tr>
+</tbody></table>
+<p class="note">Prouction ビルドでは、アプリ内購入で Pro を解除できます；デバッグビルドでは、テストのために設定で関連する機能を切り替えることができます。</p>
+<h3 id="ja-121-Basic-無料">12.1 Basic — 無料</h3>
+<table><thead><tr><th>特徴</th><th>注記</th></tr></thead><tbody>
+<tr><td>ローカルギャラリー</td><td>閲覧、タイムライン、検索、並べ替え；並列フォルダー（SAF）</td></tr>
+<tr><td>ホームアルバム</td><td>ホスト、写真、<strong>タイムライン</strong>、ブックマーク；<strong>ホームビデオ</strong>ストリーム</td></tr>
+<tr><td>写真管理</td><td>コピー、移動、名前変更、削除、共有</td></tr>
+<tr><td>写真編集</td><td>トリミング、調整、ポートレート、その他</td></tr>
+<tr><td>アップロード</td><td>ローカルの写真・動画を<strong>ホームアルバム</strong>フォルダにアップロード</td></tr>
+<tr><td><strong>アルバムバックアップ</strong></td><td><strong>手動</strong>の片方向バックアップ; <strong>フォルダを除外</strong>; <strong>復元</strong> / 古い電話にリンク; <strong>自動</strong>バックグラウンド同期なし</td></tr>
+<tr><td><strong>ごみ箱</strong></td><td>設定で有効にする; 削除したものはごみ箱に移動され、復元可能</td></tr>
+<tr><td>ローカル / ホームビデオ</td><td>再生およびCast（機器依存）</td></tr>
+<tr><td>スライドショー</td><td>携帯電話で写真を自動再生する（§5.8参照）</td></tr>
+<tr><td>写真キャスト（テレビ）</td><td><strong>Proが必要</strong>（§5.9参照）</td></tr>
+<tr><td>設定</td><td><strong>もっと見る → 設定</strong>: ホスト、ギャラリー範囲、キャッシュ、その他</td></tr>
+</tbody></table>
+<h3 id="ja-122-Pro-一回購入">12.2 Pro — 一回購入</h3>
+<p>Basicの上にあるすべてのものの上に：</p>
+<table><thead><tr><th>特徴</th><th>注記</th></tr></thead><tbody>
+<tr><td><strong>自動バックアップ</strong></td><td>Wi‑Fiでの<strong>自動</strong>一方向バックアップ（バックグラウンドスケジュール）；手動バックアップ、フォルダの除外、復元はBasicと同じまま</td></tr>
+<tr><td><strong>フォトキャスト</strong></td><td>Cast ローカル／家庭の写真やスライドショーをテレビに表示（ピンチ、パン； §5.9参照）</td></tr>
+</tbody></table>
+<h3 id="ja-123-関連設定スイッチ">12.3 関連設定スイッチ</h3>
+<table><thead><tr><th>どこ</th><th>注釈</th></tr></thead><tbody>
+<tr><td>設定 → <strong>ホームアルバム</strong> → フォトキャスト</td><td><strong>Pro:</strong> 写真 / スライドショーをテレビに。Basic スイッチをタップするとアップグレードの案内が表示されます</td></tr>
+<tr><td>設定 → <strong>ホームアルバム</strong> → ポートレート H.264 直接キャスト</td><td>ビデオ Cast 互換性 (Basic)</td></tr>
+<tr><td>設定 → <strong>アルバムのバックアップ</strong></td><td>バックアップを有効にする、フォルダを除外する、<strong>自動同期</strong>（自動同期は⦰0⦰のみ）</td></tr>
+<tr><td>設定 → <strong>ローカルギャラリー</strong> → ごみ箱</td><td>ごみ箱と削除デフォルト（BasicとPro）を有効にする</td></tr>
+</tbody></table>
+<p>Pro の購入/復元が成功した後、一度だけ「<strong>あなたは Pro にいます</strong>」というダイアログが表示されます。その後の起動（プロセスが終了した後も含む）では再度表示されません。</p>
+<p><strong>ごみ箱のオプション</strong>（設定 → ローカルギャラリー → ごみ箱のオプション）：デフォルトの削除は<strong>ごみ箱に移動</strong>または<strong>完全に削除</strong>; ごみ箱を空にする前に確認する; 有効期限のリマインダー（システムが約1日以内に完全に削除するアイテムの毎日の通知; Android 13+ は通知の許可が必要）。</p>
+<ul><li><strong>デフォルト = ごみ箱に移動:</strong> ローカルギャラリー / ビューアから削除してごみ箱に移動（復元可能）。</li><li><strong>デフォルト = 永久に削除:</strong> 確認後、ローカルギャラリー/ビューアーでの削除は実際に削除されるべきであり、<strong>その削除のために</strong>ゴミ箱に入るべきではありません。ゴミ箱には他の理由でアイテムが表示されることはまだあります:</li><li><strong>完全に成功したアップロード</strong>の後、ローカルコピーをゴミ箱に移動することを選択しました（削除デフォルトとは独立しています）</li><li><strong>写真編集</strong> は、上書きする前に編集前のバックアップをゴミ箱に保存します</li><li><strong>他のアプリ / システムギャラリー</strong> がアイテムを共有の MediaStore ゴミ箱に移動しました</li><li>ゴミ箱が<strong>オフ</strong>の場合、ローカルでの削除は常に永久的です。アップロードが成功しても、コピーをゴミ箱に移動するかどうかは尋ねられません。</li></ul>
+<h3 id="ja-124-アップグレードの方法">12.4 アップグレードの方法</h3>
+<ol><li><strong>さらに → 設定 → Pro にアップグレード</strong>（または、自動バックアップ、フォトキャストなどを試すと表示されるアップグレードのプロンプト）</li><li>Google Play の一度きりの購入を完了する</li><li>新しい電話や再インストール後は、設定で<strong>購入を復元</strong>を使用してください</li></ol>
+<h3 id="ja-125-Pro-よくある質問">12.5 Pro よくある質問</h3>
+<p><strong>Q: Basic は編集、削除、アップロードできますか？</strong></p>
+<p>はい。Basicは閲覧専用アプリではなく、完全な写真管理アプリです。</p>
+<p><strong>Q: ローカルまたはホームビデオにはProが必要ですか？</strong></p>
+<p>いいえ。ローカルおよびホームビデオの再生はBasicです。Proは<strong>自動</strong>アルバムバックアップと<strong>フォトキャスト</strong>のロックを解除します。</p>
+<p><strong>Q: 写真をテレビにキャストするにはProが必要ですか？</strong></p>
+<p>はい。Basicは電話でスライドショーを再生できます；テレビキャストにはProが必要です。ビデオCastはBasicのままです。</p>
+<p><strong>Q: ビデオキャストで「ビットレートが高すぎます」と表示されるのはなぜですか？</strong></p>
+<p>トランスコードが必要だが、ローカルファイルやトランスコードキャッシュがまだ存在しない場合のみ。典型的な電話の<strong>H.264</strong>は直接キャストされ、ビットレートによってブロックされることはありません。HEVCや他のテレビ非対応コーデックは先に準備されます。§5.7を参照してください。</p>
+<p><strong>Q: アップロードはバックアップとどう違いますか？</strong></p>
+<p>アップロードとは、あなたがファイルと<strong>ホームアルバム</strong>フォルダ（BasicとPro）を選ぶことです。<strong>ゴミ箱がオン</strong>の場合、完全に成功したアップロードはローカルのコピーをゴミ箱に移動してスペースを節約できます。バックアップはローカルギャラリーを<strong>一方向</strong>でアプリ管理の<strong>プライベートバックアップゾーン</strong>に書き込み、デフォルトでローカルコピーを保持します；必要なときにアプリで復元します。</p>
+<p><strong>Q: アルバムのバックアップはBasicとProでどのように異なりますか？</strong></p>
+<p>Basic は <strong>手動</strong> バックアップ、<strong>フォルダーの除外</strong>、旧端末の <strong>復元</strong> / リンクをサポートします。<strong>Pro</strong> はさらに Wi‑Fi で <strong>自動</strong> バックアップをバックグラウンドで有効にすることができます。</p>
+<p><strong>Q: バックアップは双方向ですか？</strong></p>
+<p>いいえ。バックアップは <strong>電話 → NAS</strong> です。NAS 上のバックアップファイルを編集しても、電話には書き戻されません。復元はアプリでの意図的な操作です。</p>
+<p><strong>Q: Office LensのファイルはDocumentsに保存されます。Basicはそれを見ることができますか？</strong></p>
+<p>はい。Basic と Pro は、設定 → ローカルギャラリーで <code>Documents</code> のような並列フォルダーを <strong>選択して承認</strong> できます。</p>
+<p><strong>Q: 復元する際、Documentsや他の並列フォルダーはどこに行きますか？</strong></p>
+<p><strong>そのフォルダーに対してSAFなし</strong>: <strong><code>Pictures/</code>以下のマップされたパス</strong>（<code>Documents/…</code>には戻らない）。<strong>その並列フォルダーが許可されている場合</strong>: 元の相対パス。復元確認ダイアログには、何本のパスがマップされているかが表示されます。§9.7を参照してください。</p>
+<p><strong>Q: Downloadを認証するときに「このフォルダーを使用」がグレー表示になるのはなぜですか？</strong></p>
+<p>これは<strong>Android 11+ システム制限</strong>です。アプリはDownloadの<strong>ルート</strong>に対してツリー権限を取得できません。<code>Documents</code>を選択するか、Downloadの下にある<strong>サブフォルダ</strong>を認可してください。アプリは「読み取り専用でDownloadを含める」パスを提供していません（コピー／復元の書き込みと矛盾し、より扱いにくくなるためです）。</p>
+<h3 id="ja-13-バージョン情報">13. バージョン情報</h3>
+<p>「その他 → バージョン情報」（または「その他 → 設定 → バージョン情報」）で以下を見ることができます:</p>
+<ul><li>バージョン（現在 <strong>1.2.3</strong>；アプリ内の <strong>About</strong> を確認してください）</li><li>製造日</li><li><strong>ユーザーガイド</strong>（このオンラインマニュアル: <a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a>）</li><li>問題を報告する</li><li>著作権</li></ul>
+<p>設定 → <strong>サポート</strong> を開くと、同じガイドが表示されます。</p>
+<p>この公開ガイドは、アプリ <strong>1.2.3</strong> およびマニュアル <strong>1.48</strong> に対応しています。</p>
+    </section>
+
+    <section id="ko">
+      <h2>한국어</h2>
+      <nav class="toc" aria-label="Contents"><ul><li><a href="#ko-1-소개">1. 소개</a></li><li><a href="#ko-2-시작하기">2. 시작하기</a></li><li><a href="#ko-3-지역-갤러리">3. 지역 갤러리</a></li><li><a href="#ko-4-홈-앨범과-SMB-호스트">4. 홈 앨범과 SMB 호스트</a></li><li><a href="#ko-5-사진-뷰어">5. 사진 뷰어</a></li><li><a href="#ko-6-사진-편집기">6. 사진 편집기</a></li><li><a href="#ko-7-즐겨찾기">7. 즐겨찾기</a></li><li><a href="#ko-8-홈-앨범에-업로드하기">8. 홈 앨범에 업로드하기</a></li><li><a href="#ko-9-설정">9. 설정</a></li><li><a href="#ko-10-자주-묻는-질문">10. 자주 묻는 질문</a></li><li><a href="#ko-11-권한">11. 권한</a></li><li><a href="#ko-12-Basic-그리고-Pro">12. Basic 그리고 Pro</a></li><li><a href="#ko-13-버전-정보">13. 버전 정보</a></li><li><a href="setup/index.html#ko">홈 저장소 설정</a>（Windows / NAS）</li></ul></nav>
+      <p>&lt;!-- Source: English user manual 1.48 / App 1.2.3; machine-translated to Korean --&gt;</p>
+<table><thead><tr><th>항목</th><th>값</th></tr></thead><tbody>
+<tr><td>매뉴얼 버전</td><td>1.48</td></tr>
+<tr><td>앱 버전</td><td>1.2.3</td></tr>
+<tr><td>작성일</td><td>2026/09/20</td></tr>
+</tbody></table>
+<h3 id="ko-1-소개">1. 소개</h3>
+<p><strong>홈 갤러리</strong> (家相簿)은 <strong>장치 내</strong> 미디어와 <strong>가정 저장소</strong>(NAS / SMB를 통한 PC)를 위한 안드로이드 사진 및 비디오 관리 앱입니다. <strong>원하는 공간을 선택하세요—추가 클라우드 용량을 구매할 필요가 없습니다.</strong> 이미 가지고 있는 디스크를 사용하세요; 사진은 사용자가 제어하는 저장소에 남습니다.</p>
+<ul><li><strong>로컬 갤러리</strong>에서 사진과 동영상을 탐색하고 관리하세요</li><li><strong>홈 앨범</strong>을 NAS / PC의 공유 폴더에 연결하기 (각 카드에는 하나의 호스트 + 하나의 공유 + 하나의 폴더가 있음)</li><li>설정의 <strong>호스트 연결</strong>에서 SMB 자격 증명을 한 번 등록하세요 (한 번 스캔하고, 한 번 로그인하면 나중에 재사용 가능)</li><li>사진을 보고, 편집하고, 공유하고, 복사하고, 이동하고, 이름을 바꾸고, 삭제하세요</li><li><strong>슬라이드쇼</strong>는 선택된 사진(로컬 / 홈 앨범)을 자동 재생합니다; <strong>Pro</strong>는 슬라이드쇼를 TV로도 전송할 수 있습니다</li><li>자주 사용하는 폴더를 즐겨찾기</li><li>로컬 <strong>타임라인</strong> 탐색; <strong>홈 앨범 타임라인</strong>으로 날짜별 홈 미디어 탐색</li><li><strong>가정용 비디오</strong>는 휴대폰에서 스트리밍할 수 있습니다 (전체 파일을 먼저 다운로드할 필요 없음)</li><li><strong>UI 언어:</strong> 영어, 번체 중국어, 간체 중국어, 일본어, 한국어 (시스템 언어에 따름)</li></ul>
+<p>이 앱은 <strong>클라우드 갤러리</strong>를 호스팅하지 않습니다. SMB 비밀번호는 사용자의 기기에만 저장됩니다. <strong>Basic</strong>는 광고 없는 완전한 사진 관리 앱으로, 슬라이드쇼, 홈 비디오 스트리밍, 타임라인, 휴지통, 병렬 폴더, <strong>수동</strong> 앨범 백업, <strong>백업 영역 탐색</strong>, 그 외 기능들을 제공합니다. <strong>Pro</strong> (선택 사항, 일회성 구매)는 추가로 <strong>자동</strong> 앨범 백업과 <strong>사진/슬라이드쇼 TV 전송</strong> 기능을 잠금 해제합니다.</p>
+<p><strong>요구 사항:</strong> Android 11 (API 30) 이상.</p>
+<h3 id="ko-2-시작하기">2. 시작하기</h3>
+<h3 id="ko-21-앱-열기">2.1 앱 열기</h3>
+<p>앱이 <strong>로컬 갤러리</strong>에서 열립니다. 아직 사진 접근 권한이 허용되지 않았다면 <strong>사진 및 동영상</strong>을 허용하세요.</p>
+<h3 id="ko-22-주요-내비게이션-하단-바">2.2 주요 내비게이션 (하단 바)</h3>
+<p><strong>하단 내비게이션 바</strong>는 주요 영역을 전환합니다(<strong>가로 모드</strong>에서는 동일한 항목으로 측면 레일이 됩니다). 네 개의 탭이 있습니다:</p>
+<table><thead><tr><th>탭</th><th>기능</th></tr></thead><tbody>
+<tr><td><strong>로컬</strong></td><td>기기 내 갤러리 (폴더 / 타임라인). <strong>휴지통</strong>이 활성화된 경우, 로컬 갤러리 제목 표시줄에서 열기</td></tr>
+<tr><td><strong>홈</strong></td><td>마지막 홈 앨범을 엽니다; 다시 탭하면 <strong>앨범 선택기</strong>를 열거나 닫습니다 (앨범 전환, 홈 앨범 관리)</td></tr>
+<tr><td><strong>북마크</strong></td><td>북마크 패널 열기/닫기: 폴더 북마크 및 <strong>동영상 북마크</strong>; 탭하여 이동하거나 계속 재생</td></tr>
+<tr><td><strong>더보기</strong></td><td>메뉴: <strong>앨범 백업</strong> (비활성화된 경우 설정 토글로 이동; 활성화된 경우 백업을 열고 보류 중/실패 배지가 표시될 수 있음), <strong>설정</strong>, <strong>정보</strong></td></tr>
+</tbody></table>
+<p class="note"><strong>사이드바</strong>가 없습니다. 또한 '네트워크 저장소' 연결 목록도 없으며, 홈 파일은 항상 <strong>홈</strong> 탭에서 열립니다.<br /><strong>정보</strong>(평가 / 공유 / 버전)는 <strong>더보기 → 정보</strong>에서 확인할 수 있으며; 설정 → 지원에서도 열 수 있습니다. Pro로 업그레이드하고 문제를 신고하는 것도 설정에 있습니다.</p>
+<p><strong>홈/북마크 두 번째 탭:</strong> 이미 해당 탭에 있는 경우, 같은 아이콘을 탭하면 현재 탐색 중인 내용을 벗어나지 않고 선택 패널이 토글됩니다.</p>
+<p>멀티 선택 중이거나 뷰어/플레이어에서, 하단 바가 숨겨졌다가 탐색으로 돌아가면 다시 나타날 수 있습니다.</p>
+<h3 id="ko-23-앱-종료">2.3 앱 종료</h3>
+<p>로컬 갤러리, 홈 앨범 또는 설정과 같은 주요 화면에서 처음 <strong>뒤로</strong> 버튼을 누르면 '다시 누르면 종료됩니다'가 표시됩니다. 2초 이내에 다시 누르면 앱이 종료됩니다.</p>
+<h3 id="ko-3-지역-갤러리">3. 지역 갤러리</h3>
+<h3 id="ko-31-사진-탐색">3.1 사진 탐색</h3>
+<ul><li><strong>루트</strong>는 폴더(예: DCIM, Pictures)를 보여줍니다</li><li>폴더를 열어 사진 그리드를 확인하세요</li><li>사진을 <strong>전체 화면</strong>으로 보려면 탭하세요</li><li><strong>휴지통</strong>이 활성화된 경우: 제목 표시줄이 <strong>휴지통</strong>을 엽니다 (항목이 있을 때 카운트 배지가 나타납니다; Basic과 Pro은 설정에서 이를 활성화할 수 있습니다)</li></ul>
+<h3 id="ko-32-검색-및-정렬">3.2 검색 및 정렬</h3>
+<ul><li>상단 검색 필드를 사용하여 <strong>파일 이름</strong>으로 검색합니다; 오른쪽의 <strong>X</strong>는 텍스트가 있을 때 지우거나, 비어 있을 때 검색을 종료합니다</li><li>필드(이름, 수정 날짜, 캡처 날짜, 크기, 폴더) 및 오름차순/내림차순을 변경하려면 정렬을 탭하세요</li></ul>
+<h3 id="ko-33-다중-선택">3.3 다중 선택</h3>
+<ol><li>사진/동영상을 <strong>길게 누르면</strong> 선택 모드로 들어갑니다; <strong>폴더</strong> 루트에서는 폴더를 길게 눌러 안의 모든 미디어를 선택할 수 있습니다</li><li>다른 항목을 추가하려면 탭하세요 (폴더 모드에서는 폴더 전체를 선택하거나 해제하려면 폴더를 탭할 수도 있습니다)</li><li><strong>범위 선택:</strong> 이미 선택 중인 상태에서, 다른 항목(또는 폴더)을 <strong>길게 누르면</strong> 현재 탐색 순서에서 그 사이의 모든 항목(포함)을 선택할 수 있습니다; 기준점은 선택에 들어간 마지막 탭이나 길게 누른 것입니다</li><li>하단 도구 모음에는 다음이 표시됩니다: <strong>슬라이드쇼</strong>, <strong>복사</strong>, <strong>이동</strong>, <strong>삭제</strong>, <strong>공유</strong>, <strong>홈 앨범에 업로드</strong></li><li>폴더 모드에서 전체 폴더의 미디어를 삭제한 후, 경로에 파일이 남아 있지 않으면 앱이 <strong>빈 폴더를 제거하려고 시도</strong>합니다 (<code>DCIM</code> / <code>Pictures</code>과 같은 시스템 루트는 삭제되지 않으며; 미디어가 아닌 파일이 남아 있는 폴더는 유지됩니다)</li></ol>
+<p class="note"><strong>슬라이드쇼:</strong> 다중 선택 후, 선택한 <strong>사진</strong>을 자동 재생하려면 <strong>슬라이드쇼</strong>를 탭하세요(비디오는 건너뜁니다). §5.8 참조.</p>
+<h3 id="ko-34-즐겨찾기">3.4 즐겨찾기</h3>
+<p>갤러리 도구 모음에서 <strong>북마크</strong> 아이콘을 눌러 현재 폴더를 북마크하세요; 나중에 <strong>북마크</strong> 탭에서 열 수 있습니다.</p>
+<h3 id="ko-35-탐색-모드">3.5 탐색 모드</h3>
+<p>지역 갤러리 <strong>root</strong>에서 도구 모음의 보기를 전환하세요:</p>
+<table><thead><tr><th>모드</th><th>보이는 것</th></tr></thead><tbody>
+<tr><td><strong>폴더</strong></td><td>폴더별 탐색(기본값); 루트는 먼저 폴더를 표시하고, 그 다음 사진/비디오 그리드를 표시</td></tr>
+<tr><td><strong>타임라인</strong></td><td>모든 미디어를 <strong>촬영 날짜</strong> 기준 최신순으로, 하루 단위로 그리드에 그룹화</td></tr>
+</tbody></table>
+<p><strong>타임라인:</strong></p>
+<ul><li>하단 <strong>날짜 축:</strong> 연도 / 월 / 일 단위; 확대/축소로 변경하거나 힌트에서 ‘연도 / 월 / 일’을 탭하세요</li><li>일 단위 세분화에서는 축에 미리보기 이미지가 표시됩니다. 레이블은 날짜(중국어 로케일 <code>M月d日</code>에서)와 연도입니다.</li><li>오른쪽에 <strong>빠른 스크롤러</strong>(콘텐츠가 충분할 때)가 빠르게 이동합니다</li><li>검색, 다중 선택, 뷰어 및 동영상 재생이 지원됩니다</li></ul>
+<p><strong>공유됨:</strong></p>
+<ul><li>즐겨찾기는 여전히 폴더 경로를 가리킵니다; 즐겨찾기를 열면 폴더 모드로 돌아갑니다</li></ul>
+<p><strong>설정 → 로컬 갤러리 → 그리드 표시</strong>는 기본 탐색 모드(폴더 / 타임라인)와 기본 정렬을 설정하며, 앱은 마지막으로 사용한 모드도 기억합니다.</p>
+<h3 id="ko-4-홈-앨범과-SMB-호스트">4. 홈 앨범과 SMB 호스트</h3>
+<p class="note"><strong>PC / NAS에서 아직 폴더를 공유하지 않았나요?</strong> 독립 실행형 설정 가이드부터 시작하세요:<br /><a href="setup/index.html#ko">Set up home storage</a> (<a href="setup/windows-11/ko.html">Windows 11</a> · <a href="setup/synology/ko.html">Synology</a> · <a href="setup/qnap/ko.html">QNAP</a>; 연결할 수 없으면 <a href="setup/troubleshooting/index.html#ko">Troubleshooting</a> 참조; <strong>원격 NAS</strong> 참고 <a href="setup/webdav/index.html#ko">WebDAV</a>; <strong>원격 Windows / WebDAV 없음</strong> 참조 <a href="setup/tailscale/index.html#ko">Tailscale</a>).</p>
+<p>홈 파일은 두 개의 레이어를 사용합니다:</p>
+<table><thead><tr><th>개념</th><th>의미</th></tr></thead><tbody>
+<tr><td><strong>SMB 호스트</strong></td><td>하나의 NAS / PC 및 자격 증명 (설정 → <strong>호스트 연결</strong>에 등록됨)</td></tr>
+<tr><td><strong>홈 앨범</strong></td><td>한 카드 = 해당 호스트의 <strong>한</strong> 개 공유 + 그 안의 한 폴더 경로</td></tr>
+</tbody></table>
+<h3 id="ko-41-SMB-호스트-추가">4.1 SMB 호스트 추가</h3>
+<ol><li><strong>더보기 → 설정 → 호스트 연결 → 호스트 연결 관리</strong>를 엽니다</li><li><strong>SMB 호스트 추가</strong>를 탭하세요(또는 홈 앨범 흐름에서는 “새 SMB 호스트 찾기”를 탭하세요)</li><li>대화 상자가 LAN을 스캔하고 <strong>Wi‑Fi이 켜져 있으며 스토리지와 동일한 네트워크에 있는지 확인</strong>하도록 요청합니다</li><li>호스트 선택(이미 저장된 호스트는 흐리게 표시됨) → 자격 증명 입력; 호스트 이름이 사용 가능할 때 표시 이름으로 사용됨 → <strong>연결 테스트</strong> → <strong>저장</strong></li><li><strong>LAN IPv4:</strong> 가정용 Wi‑Fi (예를 들어 <code>192.168.x.x</code>)</li><li><strong>원격 접근</strong> (선택 사항, §4.4 참조):</li><li><strong>WebDAV:</strong> 잠시 NAS 동안; <strong>외부 호스트(DDNS / 공용 IP)</strong> 와 <strong>HTTPS 포트</strong> 입력 (보통 <code>5006</code>)</li><li><strong>Tailscale:</strong> Windows용 또는 WebDAV를 사용할 수 없을 때; <code>100.x</code>를 입력하세요</li><li><strong>없음:</strong> 집 LAN 전용, 외부 도움 없음</li><li>호스트 주소를 수동으로 입력할 수도 있습니다</li></ol>
+<p><strong>연결 메모(설정에서)</strong></p>
+<ul><li>홈 앨범은 <strong>같은 집 Wi‑Fi (LAN)</strong>용입니다; 집에서는 앱이 <strong>SMB</strong>를 사용합니다</li><li>집을 떠나 있을 때 모바일 데이터 사용:</li><li><strong>NAS:</strong> <strong>WebDAV</strong> (DDNS / 공인 IP) 선호; <a href="setup/webdav/index.html#ko">WebDAV guide</a> 참조</li><li><strong>Windows PC</strong> 또는 없음 WebDAV: <strong>Tailscale</strong> 또는 기존 LAN VPN 사용; <a href="setup/tailscale/index.html#ko">Tailscale guide</a> 참조</li><li>UI는 '홈 LAN' 또는 '외출'을 표시할 수 있습니다; 외출 모드에서도 WebDAV, Tailscale 또는 올바르게 구성된 VPN이 필요합니다</li><li>호스트 연결 관리에서 <strong>연결 메모</strong> 카드가 온라인 <strong>WebDAV / Tailscale</strong> 설정 페이지를 엽니다</li><li><strong>IPv6 활성화</strong> (같은 페이지, 기본값 <strong>끔</strong>): 끄면, 검색 및 연결은 IPv4만 사용하고 IPv6 필드는 숨겨집니다; 저장된 IPv6는 유지됩니다. 켜면 IPv6를 스캔 / 사용할 수 있습니다. 자리 비움 시, WebDAV / Tailscale를 사용하세요 (§4.4 참조)</li></ul>
+<h3 id="ko-42-홈-앨범-추가">4.2 홈 앨범 추가</h3>
+<ol><li>하단 내비게이션 → <strong>홈</strong> (아직 앨범이 없으면 설정이 제공됩니다; 또는 <strong>홈</strong>을 다시 탭 → <strong>홈 앨범 관리</strong>)</li><li>아직 앨범이 없다면, <strong>홈 스토리지 연결</strong>(또는 <strong>추가</strong> FAB)을 탭하세요</li><li><strong>호스트가 아직 없는 경우:</strong> Add SMB 호스트 대화 상자가 열립니다; 저장 후 설정이 계속 진행됩니다</li><li><strong>이미 호스트가 존재하는 경우:</strong></li><li>한 호스트: <strong>공유 선택</strong>으로 바로 이동</li><li>여러 호스트: 호스트를 선택한 다음 공유를 선택</li><li>스캔이 필요할 때 <strong>새 SMB 호스트 찾기</strong> 가능</li><li><strong>앨범 폴더 선택:</strong> 공유 폴더 내의 하위 폴더를 탐색합니다; 앨범 루트에서 어느 수준에서든 멈출 수 있습니다</li><li><strong>표시 이름(선택 사항)</strong>은 폴더 이름으로 기본 설정 → <strong>완료</strong>를 탭합니다 (이렇게 하면 <strong>하나의</strong> 앨범이 생성됩니다)</li><li><strong>홈</strong> 탭에서 열고; 앨범을 전환하려면 다시 <strong>홈</strong>을 탭하세요</li></ol>
+<p class="note">설정은 더 이상 전체 호스트 검사를 다시 실행하지 않으며, 여러 공유를 다중 선택하여 한 번에 여러 앨범을 만들 수 없습니다.</p>
+<h3 id="ko-43-찾아보고-관리하기">4.3 찾아보고 관리하기</h3>
+<ol><li>하단 내비게이션 → <strong>홈</strong> → 앨범 열기 (또는 <strong>홈</strong>을 다시 탭하고 선택기에서 전환)</li><li>해당 소스 폴더를 찾아보기(그리드 / 목록)</li><li>제목 표시줄은 <strong>폴더</strong> / <strong>타임라인</strong>을 전환합니다. 타임라인은 폴더별로 날짜별 사진과 동영상을 보여줍니다 (<strong>Basic</strong>). 첫 번째 열 때는 인덱스를 생성하며, 이후 방문에서는 캐시를 선호합니다. 인덱스가 약 24시간 이상 오래된 경우, 연결 후 조용히 새로 고침되며, 수동으로 새로 고침할 수도 있습니다. 타임라인에서 현재 보기에 가까운 폴더를 새로 고치려면 <strong>끌어당기기</strong>로 새로 고침(부분 새로 고침)을 할 수 있으며 전체 라이브러리 재스캔은 필요 없습니다.</li><li>하위 폴더 안에서 타임라인으로 전환하면 <strong>해당 폴더의 범위만</strong> 표시됩니다</li><li>사진을 탭하여 보기; 도구 모음에서 <strong>새로 고침</strong>할 수 있습니다. 타임라인에서 <strong>이름 변경</strong> 후, 인덱스는 새 이름을 따릅니다; 이후의 <strong>이동</strong>은 새 경로를 사용합니다</li><li>타임라인 다중 선택은 <strong>시간을 맞추거나</strong> (참조 사진과 일치) 또는 단일 사진의 <strong>시간을 수정</strong>할 수 있습니다 (날짜와 시간)</li><li>홈 앨범 <strong>관리</strong> 화면에서 각 앨범은 <strong>타임라인 스캔 깊이</strong>(1–8 단계, 기본값 4; 앨범 루트는 0 단계)를 가집니다</li></ol>
+<p><strong>앨범 링크 제거</strong></p>
+<ul><li>홈 앨범 <strong>관리</strong> 화면에서: 카드를 길게 누르거나 ⋮ 을 탭 → <strong>앨범 링크 제거</strong></li><li>이것은 앱에서의 링크만 제거하며, 저장 장치의 파일을 <strong>삭제하지는 않습니다</strong></li></ul>
+<p><strong>다중 선택 이동 / 복사</strong></p>
+<ul><li>대상 선택기에서는 홈 앨범을 표시 이름으로만 나열합니다(두 번째 줄 경로 없음). 그런 다음 하위 폴더를 입력할 수 있습니다.</li></ul>
+<h3 id="ko-44-원격-접근선택-사항">4.4 원격 접근(선택 사항)</h3>
+<p>집을 떠난 후 Wi‑Fi, 호스트 유형에 맞는 원격 방법 하나를 선택하세요:</p>
+<table><thead><tr><th>호스트 유형</th><th>원격 접속</th><th>비고</th></tr></thead><tbody>
+<tr><td><strong>NAS</strong> (HTTPS WebDAV 활성화됨)</td><td><strong>WebDAV</strong></td><td>DDNS / 공용 IP + 포트; <a href="setup/webdav/index.html#ko">WebDAV guide</a> 참조</td></tr>
+<tr><td><strong>윈도우 PC</strong> / 아니오 WebDAV</td><td><strong>Tailscale</strong></td><td><code>100.x</code> 입력; 아래와 <a href="setup/tailscale/index.html#ko">Tailscale guide</a> 참조</td></tr>
+<tr><td>이미 OpenVPN 등을 통해 LAN에 연결됨</td><td><strong>없음</strong> (또는 LAN 주소 유지)</td><td>보통 추가 WebDAV / Tailscale 없음</td></tr>
+</tbody></table>
+<h4>WebDAV (NAS에게 추천됨)</h4>
+<ol><li>홈 Wi‑Fi에서 먼저 호스트와 홈 앨범을 설정합니다 (§4.1–4.2)</li><li>NAS에서 <strong>WebDAV HTTPS</strong>를 활성화하고 <strong>DDNS</strong> 또는 공인 IP를 준비합니다</li><li>호스트 편집 → <strong>원격 액세스 = WebDAV</strong> → 외부 호스트와 포트 입력 → <strong>연결 테스트</strong> → <strong>저장</strong></li><li>(대부분의 가정용 NAS은 자체 서명 인증서를 사용합니다) <strong>신뢰할 수 없는 HTTPS 인증서 허용</strong>을 활성화할 수 있습니다: 앱은 먼저 <strong>시스템 신뢰</strong>를 시도합니다; 실패하면 해당 호스트에 대해 <strong>인증서를 고정(TOFU)</strong>합니다—첫 번째 성공적인 연결이 지문을 저장합니다. 나중에 NAS 인증서가 변경되어 연결이 실패하면, 이 옵션을 껐다가 다시 켜서 인증서를 다시 고정하십시오</li><li>집에 없을 때 홈 앨범 열기 (확인을 위해 홈 Wi‑Fi 끄기)</li></ol>
+<p>전체 단계 및 보안 참고 사항: <a href="setup/webdav/index.html#ko">WebDAV guide</a>.</p>
+<h4>Tailscale (윈도우 / WebDAV 없음)</h4>
+<p>휴대폰이 <strong><code>100.x</code></strong>에서 집 SMB에 도달할 수 있도록 <strong>Tailscale</strong>을 안전한 터널로 사용하세요.</p>
+<p><strong>짧은 흐름:</strong></p>
+<ol><li>홈 Wi‑Fi에서 먼저 호스트와 홈 앨범을 설정합니다 (§4.1–4.2)</li><li><strong>PC / NAS:</strong> Tailscale 설치 → 로그인 → 연결됨 → <strong>그 컴퓨터의 Tailscale IPv4 (100.x) 복사</strong></li><li><strong>전화:</strong> 설치 Tailscale → <strong>같은 계정</strong> → 연결됨</li><li>집 앨범을 외출 중에 열기 → 메시지가 표시되면 <strong>Tailscale 열기</strong> → PC <code>100.x</code> 복사 → 앱으로 돌아가기 → <strong>붙여넣기</strong> → <strong>Tailscale IP 저장 후 재시도</strong></li></ol>
+<p><strong>일상:</strong> 앨범이 필요할 때 Tailscale을 엽니다. 앱을 나가거나 홈 화면으로 돌아가면 Wi‑Fi, 앱이 전력을 절약하기 위해 Tailscale 연결을 끊을지 묻습니다. 이미 LAN에 OpenVPN(또는 유사한 것)이 설치되어 있는 경우, 일반적으로 Tailscale이 필요하지 않습니다.</p>
+<p>전체 안내, FAQ 및 노트: <a href="setup/tailscale/index.html#ko">Tailscale guide</a>.</p>
+<h4>IPv6 활성화 (선택 사항)</h4>
+<p><strong>호스트 연결</strong>에서 <strong>활성화 IPv6</strong>(<strong>기본값은 꺼짐</strong>)을 전환할 수 있습니다:</p>
+<ul><li><strong>꺼짐:</strong> 발견 및 연결은 IPv4 전용; IPv6 필드는 편집 시 숨겨짐; 저장된 IPv6는 유지됨</li><li><strong>켜짐:</strong> 앱이 IPv6을 스캔/작성하고 연결 후보들 사이에서 사용할 수 있음</li><li>원격 액세스를 위해 §4.4에서 <strong>WebDAV / Tailscale</strong>를 사용하십시오</li></ul>
+<h3 id="ko-5-사진-뷰어">5. 사진 뷰어</h3>
+<p>전체 화면으로 보려면 로컬 또는 홈 갤러리에서 사진을 탭하세요. 다른 앱(Files, Downloads, Messages 등)에서도 <strong>Home Gallery로 열기</strong>가 가능합니다.</p>
+<h3 id="ko-51-제스처">5.1 제스처</h3>
+<table><thead><tr><th>동작</th><th>수행 내용</th></tr></thead><tbody>
+<tr><td>왼쪽 / 오른쪽으로 스와이프</td><td>이전 / 다음 사진</td></tr>
+<tr><td>집게</td><td>확대 / 축소 (약 1×–5×)</td></tr>
+<tr><td>드래그</td><td>확대 후 팬</td></tr>
+<tr><td>더블 탭</td><td>1×와 2.5× 사이 전환</td></tr>
+<tr><td>사진을 탭하세요</td><td>전체 화면 전환 (도구 모음 숨기기 / 표시)</td></tr>
+</tbody></table>
+<p>왼쪽 하단 모서리는 사진 날짜를 표시합니다: EXIF <strong>DateTimeOriginal / Digitized</strong>가 존재하면 <strong>날짜 + 시간</strong>을 표시하고, 그렇지 않으면 수정된 날짜 / 생성된 날짜 중 <strong>더 이른 날짜</strong>를 사용하여 <strong>날짜만</strong> 표시합니다 (일반 DateTime 태그는 무시되므로 나중 파일 시간이 잘못 사용되지 않습니다). 전체 화면 또는 슬라이드쇼에서는 숨겨집니다.</p>
+<h3 id="ko-52-상단-도구-모음">5.2 상단 도구 모음</h3>
+<table><thead><tr><th>버튼</th><th>기능</th></tr></thead><tbody>
+<tr><td>← 뒤로</td><td>앨범으로 돌아가기</td></tr>
+<tr><td>파일 이름</td><td>현재 사진 이름</td></tr>
+<tr><td>삭제</td><td>현재 사진 삭제 (확인)</td></tr>
+<tr><td>편집(연필)</td><td>편집기 열기 (<strong>일부 형식만</strong>, §5.6 참고)</td></tr>
+</tbody></table>
+<p class="note">현재 형식을 편집할 수 없는 경우, <strong>편집</strong> 버튼은 표시되지 않습니다.</p>
+<h3 id="ko-53-측면-하단-작업">5.3 측면 / 하단 작업</h3>
+<p>화살표를 눌러 작업 행을 확장하세요(자동 축소 모드에서), 또는 설정에서 <strong>항상 표시</strong>로 설정할 수 있습니다.</p>
+<table><thead><tr><th>동작</th><th>수행 내용</th></tr></thead><tbody>
+<tr><td>이동</td><td>대상 폴더를 선택한 후 이동</td></tr>
+<tr><td>복사</td><td>대상 폴더를 선택한 후 복사</td></tr>
+<tr><td>Pro속성</td><td>파일 정보 및 EXIF</td></tr>
+<tr><td>이름 바꾸기</td><td>파일 이름 변경</td></tr>
+<tr><td>공유</td><td>다른 앱을 통해 공유</td></tr>
+</tbody></table>
+<p class="note">세로: 아래쪽에 동작. 가로: 오른쪽에 동작.</p>
+<h3 id="ko-54-Pro속성">5.4 Pro속성</h3>
+<p>속성 대화 상자가 표시됩니다:</p>
+<ul><li><strong>파일 정보:</strong> 이름, 경로, 크기, 유형, 생성 날짜, 수정 시간</li><li><strong>EXIF</strong> (존재할 경우): 해상도, 캡처 설정, GPS 등</li></ul>
+<p>EXIF 없는 사진도 파일 정보가 표시됩니다; <strong>생성 날짜</strong>는 항상 표시됩니다.</p>
+<h3 id="ko-55-복사-이동">5.5 복사 / 이동</h3>
+<ol><li>복사 또는 이동을 누르세요</li><li><strong>폴더 브라우저</strong>(전체 화면 그리드)에서 목적지를 선택하세요</li><li>빈 폴더는 기본적으로 <strong>숨김</strong> 상태입니다; 아직 파일이 없는 폴더를 선택하려면 <strong>빈 폴더 표시</strong>를 켜세요</li><li>같은 행에는 <strong>새 폴더</strong>와 <strong>확인</strong>이 있습니다</li><li><strong>새 폴더</strong> 생성 후에는 목적지가 되며(비어 있어도 표시됨) 즉시 확인할 수 있습니다</li><li>목적지에 이미 같은 이름이 있는 경우:</li><li><strong>덮어쓰기:</strong> 새 파일로 교체</li><li><strong>둘 다 유지:</strong> 원본을 유지; 새 파일에는 번호(<code>photo (1).jpg</code>)가 부여됩니다</li><li><strong>취소:</strong> 중단</li></ol>
+<p>로컬 다중 선택: <strong>이동</strong>은 사진과 동영상에서 작동합니다; 선택에 동영상이 포함되면 <strong>복사 숨김</strong>(동영상 복사는 아직 구현되지 않음).</p>
+<h3 id="ko-56-이미지-형식-및-제한">5.6 이미지 형식 및 제한</h3>
+<p>이 앱은 파일을 <strong>보기</strong> 또는 <strong>편집</strong>할 수 있는지 결정하기 위해 확장자와 MIME 유형을 사용합니다. 이 표는 <strong>로컬 갤러리</strong>와 <strong>홈 앨범</strong>에 적용됩니다(홈 저장소의 다른 파일은 일반 파일로 표시되며 뷰어에서 열 수 없습니다).</p>
+<h4>볼 수 있는 사진 형식</h4>
+<p><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.gif</code>, <code>.webp</code>, <code>.bmp</code>, <code>.heic</code>, <code>.heif</code>, <code>.svg</code>, <code>.svgz</code></p>
+<h4>편집 가능한 사진 형식</h4>
+<p>뷰어에서 <strong>편집</strong>으로 들어갈 수 있는 형식은 다음과 같으며, 저장 후에도 동일한 형식을 유지합니다:</p>
+<table><thead><tr><th>형식</th><th>참고</th></tr></thead><tbody>
+<tr><td><code>.jpg</code> / <code>.jpeg</code></td><td>완전히 지원됨</td></tr>
+<tr><td><code>.png</code></td><td>완전히 지원됨</td></tr>
+<tr><td><code>.webp</code></td><td>완전히 지원됨</td></tr>
+</tbody></table>
+<p>다른 보기 가능한 형식(<code>.gif</code>, <code>.bmp</code>, <code>.heic</code>, <code>.heif</code>, <code>.svg</code>, <code>.svgz</code> 등)에는 <strong>편집 버튼이 없으므로</strong>, 저장해도 형식을 변경하거나 파일을 손상시킬 수 없습니다.</p>
+<h4>SVG / SVGZ</h4>
+<table><thead><tr><th>주제</th><th>메모</th></tr></thead><tbody>
+<tr><td>보기</td><td>지원됨. 벡터는 <strong>래스터화</strong>되어 비트맵으로 변환됨</td></tr>
+<tr><td>줌</td><td>극단적인 줌은 네이티브 벡터 뷰어보다 덜 선명하게 보일 수 있습니다</td></tr>
+<tr><td>편집</td><td><strong>지원되지 않음</strong> (편집 버튼 없음)</td></tr>
+<tr><td>복잡한 SVG</td><td>일부 효과(필터, 스크립트)가 완전히 렌더링되지 않을 수 있습니다</td></tr>
+<tr><td>로컬 인덱스</td><td>장치는 SVG를 MediaStore에 등록해야 합니다; 시스템이 해당 파일을 인덱싱한 적이 없다면 Download에만 있는 파일은 누락될 수 있습니다</td></tr>
+</tbody></table>
+<h4>기타 형식 참고 사항</h4>
+<table><thead><tr><th>형식</th><th>보기</th><th>편집</th><th>메모</th></tr></thead><tbody>
+<tr><td><code>.gif</code></td><td>✓</td><td>✗</td><td>정지 화면만; 애니메이션 없음</td></tr>
+<tr><td><code>.heic</code> / <code>.heif</code></td><td>✓</td><td>✗</td><td>장치 디코딩에 따라 다름</td></tr>
+<tr><td><code>.bmp</code></td><td>✓</td><td>✗</td><td>볼 수만 있고, 편집할 수 없음</td></tr>
+</tbody></table>
+<h4>비디오 형식</h4>
+<p>이 앱은 <strong>로컬 갤러리</strong>와 <strong>홈 앨범</strong> 모두에서 이러한 비디오 확장자를 인식합니다. 재생 세부 사항은 §5.7에 나와 있습니다.</p>
+<p><code>.3gp</code>, <code>.avi</code>, <code>.flv</code>, <code>.m2ts</code>, <code>.m4v</code>, <code>.mkv</code>, <code>.mov</code>, <code>.mpeg</code>, <code>.mpg</code>, <code>.mp4</code>, <code>.qt</code>, <code>.rm</code>, <code>.rmvb</code>, <code>.swf</code>, <code>.ts</code>, <code>.vob</code>, <code>.webm</code>, <code>.wmv</code></p>
+<p class="note">설정 → <strong>미디어 목록 필터</strong>에서는 참고용으로 이러한 비디오 확장자들도 나열됩니다.</p>
+<h3 id="ko-57-동영상-재생">5.7 동영상 재생</h3>
+<p><strong>로컬</strong> 및 <strong>홈 앨범</strong> 비디오는 앱에서 스트리밍할 수 있습니다(홈 파일은 먼저 전체 다운로드할 필요가 없습니다). 슬라이드쇼는 §5.8입니다.</p>
+<h4>인식된 비디오 확장자</h4>
+<p><code>.3gp</code>, <code>.avi</code>, <code>.flv</code>, <code>.m2ts</code>, <code>.m4v</code>, <code>.mkv</code>, <code>.mov</code>, <code>.mpeg</code>, <code>.mpg</code>, <code>.mp4</code>, <code>.qt</code>, <code>.rm</code>, <code>.rmvb</code>, <code>.swf</code>, <code>.ts</code>, <code>.vob</code>, <code>.webm</code>, <code>.wmv</code></p>
+<p>목록에 있다는 것은 앱이 <strong>파일을 비디오로 연다</strong>는 것을 의미합니다. 이것이 디코딩을 보장하는 것은 아니며; 이는 여전히 내부 코덱과 장치에 달려 있습니다.</p>
+<h4>전화 통화 중</h4>
+<table><thead><tr><th>주제</th><th>메모</th></tr></thead><tbody>
+<tr><td>엔진</td><td><strong>로컬</strong>은 <strong>ExoPlayer (Media3)</strong>를 선호합니다; 일부 컨테이너 / 코덱은 <strong>libVLC</strong>를 사용합니다. <strong>홈 (SMB)</strong> 일반 <code>.mp4</code> / <code>.mkv</code> / <code>.webm</code> / <code>.m4v</code> / <code>.3gp</code>는 Media3를 사용합니다; <code>.mov</code> / <code>.ts</code> / <code>.avi</code> 및 유사한 것들은 여전히 <strong>libVLC</strong>를 사용합니다 (컨트롤 바는 동일하게 보입니다)</td></tr>
+<tr><td>종종 Media3</td><td>로컬 및 홈 <code>.mp4</code>, <code>.mkv</code>, <code>.webm</code> 및 유사 항목; 재생 전에 짧은 코덱 프로브가 실행될 수 있음</td></tr>
+<tr><td>자주 사용하는 libVLC</td><td><code>.mov</code>, <code>.qt</code>, <code>.avi</code>, <code>.wmv</code>, <code>.flv</code>, <code>.mpg</code>, <code>.vob</code>, <code>.rm</code> / <code>.rmvb</code>, <code>.swf</code>, <code>.ts</code>, <code>.m2ts</code> 또는 하드웨어로 디코딩하기 어려운 코덱</td></tr>
+<tr><td>둘 다 작동하지 않으면</td><td>다른 시스템 앱으로 열어</td></tr>
+<tr><td>로컬 스와이프</td><td>로컬 갤러리/타임라인에서, 목록의 이전/다음 비디오로 왼쪽/오른쪽으로 스와이프 (Media3 경로)</td></tr>
+<tr><td>클립 끝</td><td><strong>재생</strong>이 제어 막대에 표시됩니다</td></tr>
+<tr><td>네트워크 버퍼</td><td>홈 스트림은 처음 재생할 때 버퍼링될 수 있습니다; 일부 형식이나 같은 폴더에 있는 자막 파일이 더 안정적인 스트림 경로를 사용할 수 있습니다</td></tr>
+<tr><td>자막 / 이어보기 / 북마크 / PiP</td><td>동일 폴더 <code>.srt</code> / <code>.vtt</code> 는 플레이어에서 선택할 수 있습니다. 이어보기 / 북마크는 <strong>북마크</strong>에 있습니다. <strong>그림 속 그림(PiP)</strong> 은 여전히 주로 로컬 Media3를 사용합니다</td></tr>
+</tbody></table>
+<p class="note"><strong>코덱 제한:</strong> 동일한 확장자가 다른 코덱을 숨길 수 있습니다. 두 엔진이 모두 실패하면 오디오만 나오거나, 검은 화면이 표시되거나, 재생이 되지 않을 수 있습니다.</p>
+<h4>형식 요약</h4>
+<table><thead><tr><th>확장</th><th>인식됨</th><th>전화 재생</th></tr></thead><tbody>
+<tr><td><code>.mp4</code></td><td>✓</td><td>보통 플레이함</td></tr>
+<tr><td><code>.mkv</code></td><td>✓</td><td>보통 플레이함</td></tr>
+<tr><td><code>.mov</code>, <code>.qt</code>, <code>.m4v</code>, <code>.3gp</code></td><td>✓</td><td>코덱에 따라 다름(종종 호환성 엔진)</td></tr>
+<tr><td><code>.avi</code>, <code>.wmv</code>, <code>.flv</code>, <code>.webm</code>, <code>.ts</code>, <code>.m2ts</code>, <code>.mpg</code>, <code>.mpeg</code>, <code>.vob</code>, <code>.rm</code>, <code>.rmvb</code>, <code>.swf</code></td><td>✓</td><td>코덱에 따라 다름 (libVLC)</td></tr>
+</tbody></table>
+<h4>Cast 비디오를 TV에</h4>
+<p>로컬 또는 홈 앨범에서 <strong>비디오</strong>를 Cast하는 것은 <strong>Basic</strong>입니다 (사진 캐스트는 §5.9). 전화기와 TV는 동일한 LAN에 있어야 합니다. 일부 확장 기능(예: <code>.avi</code>, <code>.wmv</code>)은 Cast 버튼을 숨깁니다.</p>
+<table><thead><tr><th>코덱</th><th>캐스팅 방식</th></tr></thead><tbody>
+<tr><td><strong>H.264 / AVC</strong> (일반적인 휴대폰 MP4, 세로 모드 포함)</td><td><strong>직접 캐스트</strong>; 비트레이트나 세로 모드 때문에 트랜스코딩하지 않음</td></tr>
+<tr><td><strong>HEVC / H.265</strong> 및 기타 TV 비호환 코덱</td><td>앱이 트랜스코딩을 수행합니다 ("비디오 캐스트 준비 중…"가 표시될 수 있음)</td></tr>
+</tbody></table>
+<p>“<strong>이 비디오의 비트레이트가 너무 높습니다</strong>”라는 메시지는 <strong>트랜스코딩이 필요하지만 홈 파일이 다운로드되지 않았거나 트랜스코드 캐시가 없는 경우</strong>에만 나타납니다. 이로 인해 H.264가 차단되는 것은 아니라는 것이 확인되었습니다. 휴대폰에서 재생한 후, 로컬 파일이나 캐시가 존재하면 다시 캐스트를 시도하세요.</p>
+<h3 id="ko-58-슬라이드쇼">5.8 슬라이드쇼</h3>
+<p>로컬 또는 홈 갤러리에서 <strong>사진</strong>을 <strong>전화 화면</strong>에 자동 재생합니다. Basic 및 Pro에서 사용 가능합니다. <strong>Pro</strong>는 슬라이드쇼를 TV로 전송할 수도 있습니다(§5.9 참조). 비디오의 경우 비디오 플레이어를 사용하세요(§5.7).</p>
+<h4>시작하는 방법</h4>
+<table><thead><tr><th>방법</th><th>주석</th></tr></thead><tbody>
+<tr><td><strong>멀티 선택에서</strong></td><td>길게 눌러 선택 → 하나 이상의 <strong>사진</strong> 선택 → <strong>슬라이드쇼</strong> 탭. 전체 화면 보기 <strong>즉시 시작</strong></td></tr>
+<tr><td><strong>뷰어에서</strong></td><td>사진을 열고, <strong>슬라이드쇼 시작</strong> / <strong>슬라이드쇼 일시정지</strong>(슬라이드쇼 아이콘)을 탭하세요</td></tr>
+</tbody></table>
+<p class="note">선택한 항목에 <strong>사진이 없는 경우</strong>(예: 동영상만 있는 경우), '사진을 최소 하나 이상 선택하세요'라는 메시지가 표시되며 슬라이드쇼가 시작되지 않습니다.</p>
+<h4>재생</h4>
+<table><thead><tr><th>주제</th><th>메모</th></tr></thead><tbody>
+<tr><td>간격</td><td>사진당 <strong>약 5초</strong></td></tr>
+<tr><td>루프</td><td>마지막 사진 후 재생이 첫 번째 사진으로 돌아갑니다</td></tr>
+<tr><td>화면에 표시</td><td>왼쪽 아래에는 인덱스(<code>3 / 12</code>)가 표시되고, 오른쪽 아래에는 카운트다운이 표시됩니다; 일시 정지 시 일시 정지 아이콘이 나타납니다</td></tr>
+<tr><td>범위</td><td>다중 선택에서, <strong>선택된 사진</strong>만(선택 순서대로); 뷰어에서, 현재 탐색 목록에 있는 사진</td></tr>
+</tbody></table>
+<h4>연주 중 제스처</h4>
+<table><thead><tr><th>동작</th><th>참고</th></tr></thead><tbody>
+<tr><td><strong>탭</strong></td><td>일시 정지</td></tr>
+<tr><td><strong>왼쪽으로 스와이프</strong></td><td>다음 사진 (카운트다운 재설정)</td></tr>
+<tr><td><strong>오른쪽으로 스와이프</strong></td><td>이전 사진 (카운트다운 재설정)</td></tr>
+</tbody></table>
+<h4>일시 정지 후</h4>
+<table><thead><tr><th>동작</th><th>참고</th></tr></thead><tbody>
+<tr><td><strong>사진을 탭하세요</strong></td><td>다시 시작 (카운트다운 재시작)</td></tr>
+<tr><td><strong>집기 / 끌기</strong></td><td>세부 사항 확대(일시 정지 중에만 핀치 확대 가능)</td></tr>
+<tr><td>도구 모음 <strong>슬라이드쇼 일시정지</strong></td><td>슬라이드쇼 모드를 종료하고 일반 보기로 돌아가기</td></tr>
+</tbody></table>
+<p>시스템 뒤로가기: 슬라이드쇼가 실행 중일 경우, 첫 번째 누름은 슬라이드쇼를 종료하고; 두 번째 누름은 (현재 화면에 따라) 뷰어를 종료합니다.</p>
+<h3 id="ko-59-Cast-사진을-TV로">5.9 Cast 사진을 TV로</h3>
+<p><strong>Pro</strong>는 로컬 또는 홈 앨범 사진을 Google Cast TV / Chromecast로 전송할 수 있습니다. Basic는 여전히 사진 뷰어에 Cast 아이콘을 표시하며, 이를 탭하면 업그레이드 안내가 나타납니다.</p>
+<table><thead><tr><th>주제</th><th>메모</th></tr></thead><tbody>
+<tr><td>항목</td><td>사진 뷰어 제목 표시줄의 <strong>Cast</strong> 아이콘</td></tr>
+<tr><td>연결 후</td><td>TV가 현재 사진을 표시합니다; 휴대폰에서 핀치, 팬 및 슬라이드쇼가 TV와 동기화됩니다</td></tr>
+<tr><td>슬라이드쇼</td><td>전화에서 시작/일시정지는 TV도 전환됩니다</td></tr>
+<tr><td>시청자를 떠나다</td><td>TV 사진 촬영이 끝나다</td></tr>
+<tr><td>비디오</td><td>지역 / 가정 <strong>비디오</strong> Cast 잔여물 Basic (§5.7 참조), 사진 캐스트와 별도</td></tr>
+</tbody></table>
+<p class="note">전화기와 TV는 같은 LAN에 연결되어 있어야 합니다. 처음 사용할 때 지역 네트워크 권한을 허용하세요.</p>
+<h3 id="ko-6-사진-편집기">6. 사진 편집기</h3>
+<p>뷰어에서 <strong>편집</strong>을 탭하세요 (<strong><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.webp</code>만 이 버튼이 표시</strong>, §5.6 참고).</p>
+<p>편집은 <strong>초안</strong>입니다. 두 개의 층이 있습니다:</p>
+<ol><li>도구 안에서 아래쪽(세로) 또는 오른쪽(가로)을 조정합니다; <strong>✓</strong>를 눌러 해당 단계를 작업 미리보기에 적용하거나, <strong>X</strong>를 눌러 단계를 취소하고 도구 선택기로 돌아갑니다.</li><li>다시 도구 선택기로 돌아가서, 상단의 <strong>저장</strong>은 적용된 모든 단계를 파일에 기록합니다.</li></ol>
+<p class="note"><strong>화면 방향:</strong> 세로 / 조정 / 자르기 모드로 들어가면 미리보기 공간을 위해 상단 제목 표시줄이 숨겨집니다; 시스템 뒤로 가기 버튼이나 툴바의 <strong>X</strong>를 누르면 해당 도구에서 나갑니다.</p>
+<h3 id="ko-61-도구">6.1 도구</h3>
+<p>세 가지 도구가 하단(세로) 또는 오른쪽(가로)에 나타납니다:</p>
+<table><thead><tr><th>도구</th><th>참고 사항</th></tr></thead><tbody>
+<tr><td>인물</td><td>얼굴 매끄럽게 및 국소 색조 (밝기 / 대비 / 채도)</td></tr>
+<tr><td>조정</td><td>밝기, 대비, 채도, 색온도</td></tr>
+<tr><td>자르기</td><td>자르기, 기울이기, 회전 / 뒤집기</td></tr>
+</tbody></table>
+<h3 id="ko-62-자르기">6.2 자르기</h3>
+<p>어두운 패널; 아이콘 행에서 항목을 선택하세요:</p>
+<table><thead><tr><th>항목</th><th>참고 사항</th></tr></thead><tbody>
+<tr><td>무료</td><td>모서리와 가장자리를 자유롭게 끌기</td></tr>
+<tr><td>원본</td><td>현재 종횡비 잠금</td></tr>
+<tr><td>3:2, 4:3, 16:9</td><td>가로형 고정 비율</td></tr>
+<tr><td>2:3, 3:4, 9:16</td><td>세로 비율 고정</td></tr>
+<tr><td>1:1</td><td>사각형</td></tr>
+</tbody></table>
+<ul><li><strong>기울기:</strong> −15° ~ +15°, 눈금을 드래그; <strong>초기화</strong>를 누르면 0으로 돌아갑니다</li><li><strong>자동:</strong> 제안된 기울기는 자동을 탭할 때만 계산됩니다 (자르기를 입력할 때는 아님)</li><li><strong>뒤집기 / 회전:</strong> 하단 확인 행 중간에 위치; 작업 중인 이미지에 즉시 적용됩니다 (이 자르기 단계를 확정하려면 나중에 ✓가 여전히 필요합니다)</li><li>자르기 상자를 드래그하여 이동; 모서리를 드래그하여 크기 조절. 3등분 가이드선은 드래그하는 동안에만 나타납니다</li><li>단계 적용하려면 <strong>✓</strong>을(를) 탭하세요</li></ul>
+<h3 id="ko-63-조정">6.3 조정</h3>
+<p>어두운 패널; 확인 행의 가운데가 네 가지 항목으로 전환됩니다:</p>
+<table><thead><tr><th>항목</th><th>비고</th></tr></thead><tbody>
+<tr><td>밝기 / 대비 / 채도 / 온도</td><td>−100에서 +100까지, 중간은 0; 현재 값을 나타내는 노란색 포인터</td></tr>
+</tbody></table>
+<ul><li>오른쪽의 <strong>재설정</strong>은 현재 항목을 재설정합니다</li><li>회전/뒤집기에는 <strong>자르기(Crop)</strong>를 사용하세요</li><li>단계 적용하려면 <strong>✓</strong>을(를) 탭하세요</li></ul>
+<h3 id="ko-64-초상화">6.4 초상화</h3>
+<p>어두운 패널; 도구를 사용하면 <strong>얼굴을 감지</strong>합니다(‘다시 감지’할 수 있음). 확인 행이 전환됩니다: 부드럽게, 밝기, 대비, 채도.</p>
+<table><thead><tr><th>제어</th><th>참고</th></tr></thead><tbody>
+<tr><td>부드럽게</td><td>강도 0–100; 얼굴이 있는 경우, 얼굴 크기에 따라 동적으로 제안됨 (약 20%–70%)</td></tr>
+<tr><td>밝기 / 대비 / 채도</td><td>얼굴에만 적용 (또는 수동 박스), 약 ±50%</td></tr>
+</tbody></table>
+<p><strong>얼굴을 찾을 수 없을 때:</strong></p>
+<ul><li>매끄러운 강도는 <strong>0%</strong>이며 제안이 표시되지 않습니다</li><li>원형 영역이 나타납니다: <strong>한 손가락으로 드래그</strong>하여 이동하고, <strong>슬라이더</strong>로 크기를 조정한 후 부드럽게 올리세요</li></ul>
+<p><strong>얼굴이 발견되었을 때:</strong></p>
+<ul><li>제안된 스무스는 가장 큰 얼굴이 프레임에서 차지하는 비율을 사용합니다 (가까운 샷은 더 높게, 그룹/멀리 있는 샷은 더 낮게) 그리고 '제안된 N%'를 표시합니다</li><li>얼굴 윤곽이 그려져 있습니다</li></ul>
+<p>단계를 적용하려면 <strong>✓</strong>를 탭하세요.</p>
+<h3 id="ko-65-저장-및-취소">6.5 저장 및 취소</h3>
+<table><thead><tr><th>버튼</th><th>위치</th><th>비고</th></tr></thead><tbody>
+<tr><td><strong>X</strong></td><td>도구의 바닥</td><td>이 도구 단계를 버리고 선택자로 돌아가세요</td></tr>
+<tr><td><strong>✓</strong></td><td>도구의 하단</td><td>도구 결과를 작업 미리보기로 병합하기 (아직 작성되지 않음)</td></tr>
+<tr><td><strong>저장</strong></td><td>도구 선택기 상단</td><td>적용한 모든 편집 내용을 파일(로컬 또는 홈 앨범)에 저장</td></tr>
+<tr><td>뒤로</td><td>시스템 / 상단 뒤로</td><td>저장되지 않은 변경 사항을 버릴지 묻습니다</td></tr>
+</tbody></table>
+<p class="note">편집기 미리보기(도구 선택기, 세로 모드, 조정)는 <strong>핀치 줌</strong> 및 <strong>더블 탭 줌</strong>(약 1×–3×)을 지원한 후 이동할 수 있습니다; <strong>자르기</strong>는 미리보기를 확대하지 않으므로 제스처가 자르기 박스와 함께 유지됩니다.</p>
+<h3 id="ko-7-즐겨찾기">7. 즐겨찾기</h3>
+<h3 id="ko-71-즐겨찾기-추가">7.1 즐겨찾기 추가</h3>
+<p>로컬 또는 홈 앨범에서 도구 모음의 <strong>북마크</strong> 아이콘을 탭합니다. 하단에 ‘북마크됨’ 힌트가 표시됩니다.</p>
+<p>동영상을 재생하는 동안 <strong>별표</strong>를 눌러 <strong>동영상 북마크</strong>(재개 위치 포함)를 추가하세요.</p>
+<h3 id="ko-72-즐겨찾기-사용">7.2 즐겨찾기 사용</h3>
+<ol><li>하단 바에서 <strong>북마크</strong>를 탭하세요 (패널을 전환하려면 해당 탭을 다시 탭하세요)</li><li>패널에서 열 수 있습니다:</li><li><strong>폴더 즐겨찾기:</strong> 해당 폴더로 이동</li><li><strong>비디오 북마크:</strong> 플레이어를 열고 재개를 시도하세요</li></ol>
+<h3 id="ko-73-즐겨찾기-제거">7.3 즐겨찾기 제거</h3>
+<p>북마크 패널에서 항목을 <strong>길게 누르기</strong> → 확인 (폴더와 비디오 북마크도 동일하게 작동).</p>
+<h3 id="ko-8-홈-앨범에-업로드하기">8. 홈 앨범에 업로드하기</h3>
+<ol><li>로컬 갤러리에서 <strong>다중 선택</strong>을 입력하고 사진 / 비디오를 선택하세요</li><li>하단의 <strong>업로드</strong> 아이콘을 탭하세요</li><li><strong>홈 앨범</strong>(이름만)과 선택적 하위 폴더를 선택하세요(개인 백업 영역은 선택할 수 없습니다)</li><li>확인</li></ol>
+<p><strong>Pro그레스</strong></p>
+<ul><li>진행 상황(<code>N / M</code>), 파일 이름, 바이트 막대를 보여줌</li><li><strong>중지</strong>는 남은 파일을 취소합니다; 완료된 파일은 유지됩니다; 결과에는 성공 / 일부 성공 / 취소가 구분됩니다</li></ul>
+<p><strong>같은 이름</strong></p>
+<ul><li>목적지에 이미 동일한 이름이 있는 경우, 업로드는 <code>name (1).ext</code>, <code>name (2).ext</code>, …로 <strong>이름이 바뀌며</strong>, <strong>덮어쓰지 않습니다</strong></li></ul>
+<p><strong>성공적으로 업로드한 후 로컬 삭제</strong></p>
+<ul><li>모든 항목이 <strong>성공적으로 업로드</strong>되고 <strong>휴지통</strong>이 활성화된 경우에만, 앱이 <strong>로컬 사본을 휴지통으로 이동할지</strong> 묻습니다</li><li><strong>휴지통으로 이동</strong> 또는 <strong>장치에 유지</strong>를 선택하세요; 휴지통 끄기는 성공 메시지만 표시합니다</li><li>앨범 백업은 <strong>이 기능을 제공하지 않습니다</strong>; 휴지통으로 이동한 후에도 해당 파일이 이미 앨범 백업에 있었다면 원격 백업 사본은 여전히 유지됩니다</li></ul>
+<h3 id="ko-9-설정">9. 설정</h3>
+<p>더보기 → 설정을 엽니다.</p>
+<h3 id="ko-91-호스트-연결">9.1 호스트 연결</h3>
+<ul><li>저장된 <strong>SMB 호스트</strong> 보기, 편집 또는 삭제</li><li>호스트 연결 관리에서 호스트 추가 (LAN 스캔 또는 수동 주소)</li><li>연결 노트는 온라인 <strong>WebDAV / Tailscale</strong> 원격 설정 페이지를 엽니다; 동일한 페이지에서 <strong>IPv6 활성화</strong>를 전환할 수 있습니다(기본적으로 비활성화, §4.1 / §4.4 참고)</li><li>설정 홈 화면은 <strong>호스트 SMB 추가</strong>를 반복하지 않습니다; 관리 페이지를 사용하세요</li></ul>
+<h3 id="ko-92-홈-앨범-설정-블록">9.2 홈 앨범 (설정 블록)</h3>
+<ul><li>설정된 홈 앨범 수를 보여줌</li><li><strong>사진 캐스트 (Pro):</strong> 로컬/홈 사진을 TV로 캐스트합니다. Basic 스위치를 탭하면 업그레이드가 안내됩니다; Pro는 잠금 해제되어 있습니다 (뷰어 Cast 버튼 사용). 홈 <strong>비디오</strong> 스트리밍은 Basic이며 더 이상 설정 스위치가 필요하지 않습니다</li><li><strong>세로 H.264 직접 전송:</strong> 비디오 Cast 호환 옵션(Basic); TV 화면이 회전된 경우에만 끄세요</li><li><strong>홈</strong> 탭에서 앨범 추가/제거 (선택기/관리 화면)</li></ul>
+<h3 id="ko-93-로컬-갤러리-폴더">9.3 로컬 갤러리 폴더</h3>
+<ul><li><strong>폴더 포함:</strong> 어떤 루트를 표시할지 (기본값 <code>DCIM</code>, <code>Pictures</code>)</li><li><strong>폴더 제외:</strong> 특정 하위 폴더 건너뛰기</li></ul>
+<p><strong>Basic 대 Pro (병렬 폴더)</strong></p>
+<table><thead><tr><th>판</th><th>포함할 수 있는 경로</th><th>SAF 권한</th></tr></thead><tbody>
+<tr><td><strong>Basic</strong></td><td>MediaStore 루트: <code>DCIM</code>, <code>Pictures</code> (동영상도 <code>Movies</code>) 및 그 하위 폴더; <strong>추가로</strong> 병렬 폴더</td><td><strong>폴더 선택 및 권한 부여(읽기/쓰기)</strong> 필요</td></tr>
+<tr><td><strong>Pro</strong></td><td>Basic와 동일</td><td>Basic와 동일</td></tr>
+</tbody></table>
+<p>Basic와 Pro은 설정에서 <code>Documents</code>와 같은 병렬 경로를 허용할 수 있습니다; 그 권한이 없으면 복원은 <code>Pictures/…</code>로 매핑될 수 있습니다(§9.7 참조).</p>
+<p><strong>참고 (안드로이드 플랫폼 제한):</strong> Android 11에서 시스템은 폴더 선택기로 전체 <code>Download</code> 루트를 승인하는 것을 <strong>허용하지 않습니다</strong>—“이 폴더 사용” 버튼이 회색으로 표시됩니다. 이는 앱 버그가 아닙니다. <code>Documents</code>(또는 유사한 항목)을 승인하거나, Download 아래에 <strong>하위 폴더</strong>를 만들고 해당 하위 폴더를 승인하세요.</p>
+<p><strong>두 보조금을 혼동하지 마세요</strong></p>
+<table><thead><tr><th>보조금</th><th>사용 용도</th></tr></thead><tbody>
+<tr><td><strong>폴더 선택 및 권한 부여 (SAF)</strong></td><td>병렬 폴더 자체를 읽기/쓰기 (복원, 복사/이동 <strong>안으로</strong>)</td></tr>
+<tr><td><strong>미디어 관리 (설정 → 로컬 갤러리)</strong></td><td><code>DCIM</code> / <code>Pictures</code>과 같은 표준 앨범의 원본을 삭제하거나 수정할 수 있습니다. 카메라 폴더에서 병렬 폴더로 이동할 때 원본 삭제를 요청할 수 있으며, 미디어 관리 접근 후에는 보통 그 알림이 반복되지 않습니다</td></tr>
+</tbody></table>
+<h3 id="ko-94-디스플레이">9.4 디스플레이</h3>
+<table><thead><tr><th>설정</th><th>메모</th></tr></thead><tbody>
+<tr><td>세로 그리드 열</td><td>세로 사진 한 줄당 사진 수</td></tr>
+<tr><td>가로(grid) 열</td><td>가로 사진 행당 수</td></tr>
+<tr><td>폴더 이름 크기</td><td>루트에 있는 폴더 제목 크기</td></tr>
+<tr><td>뷰어 작업 행</td><td>자동 축소 / 항상 표시</td></tr>
+</tbody></table>
+<h3 id="ko-95-캐시">9.5 캐시</h3>
+<p>캐시 크기를 확인하고 <strong>캐시 지우기</strong> (네트워크 썸네일, 이미지 디스크 캐시, 네트워크 비디오 스트림 캐시, 메모리 캐시). 원본은 손대지 않습니다; 다음 홈-앨범 탐색 시 캐시를 다운로드하거나 재구성해야 합니다.</p>
+<h3 id="ko-96-미디어-목록-필터">9.6 미디어 목록 필터</h3>
+<p>로컬 및 홈 앨범 목록에서 폴더 이름, 파일 이름 또는 확장자를 숨깁니다. 내장된 사진/비디오 확장자 규칙은 읽기 전용 참조입니다.</p>
+<p class="note">설정은 다음과 같이 그룹화됩니다: 로컬 갤러리, 미디어 필터, <strong>호스트 연결</strong>, 홈 앨범(네트워크 비디오 스트리밍 포함), 앨범 백업, 캐시, <strong>문제 보고 / 진단 내보내기</strong> 등.</p>
+<h3 id="ko-97-앨범-백업">9.7 앨범 백업</h3>
+<p>앨범 백업은 로컬 갤러리에서 홈 저장소의 개인 영역(<code>.HomeGallery/backup/{device}/</code>)으로 <strong>한 방향으로</strong> 업로드되므로 전화기 실패 후 복원할 수 있습니다.</p>
+<p>각 장치는 자체 폴더(모델, 선택적 표시 이름, 마지막 백업 시간)에 <code>device_info.json</code>을 저장합니다. 여러 사람이 동일한 백업 앵커를 공유할 때는 앨범 백업 설정에서 <strong>로컬 백업 ID → 표시 이름</strong>을 설정하세요; “기존 백업 연결” 목록에는 <code>android_xxxx</code>만 표시되는 대신 해당 이름/모델이 나타납니다.</p>
+<table><thead><tr><th>주제</th><th>메모</th></tr></thead><tbody>
+<tr><td><strong>방향</strong></td><td><strong>전화 → 집 저장</strong> (일방향)</td></tr>
+<tr><td><strong>Basic / Pro</strong></td><td><strong>Basic:</strong> 수동 백업, 폴더 제외, 오래된 전화 복원 / 연결. <strong>Pro:</strong> 선택적 <strong>자동</strong> 백업 Wi‑Fi</td></tr>
+<tr><td><strong>자동 백업</strong></td><td><strong>Pro 전용.</strong> Basic은 수동으로 폴더를 백업하고 제외할 수 있으며, 백그라운드 동기화는 없음. 활성화된 경우(그리고 “Wi‑Fi 전용” 조건이 충족되면), 홈 Wi‑Fi에 연결하면 <strong>곧 스캔/업로드가 예약</strong>됨; 앱은 또한 약 6시간마다 그리고 갤러리가 변경될 때 확인함. 배터리 절약 모드/아직 준비되지 않은 NAS는 이를 지연시킬 수 있음—최선의 노력, 2차 수준 아님</td></tr>
+<tr><td><strong>폴더 제외</strong></td><td><strong>Basic / Pro:</strong> 로컬 하위 경로 건너뛰기(예: <code>DCIM/Screenshots</code>); 이미 인덱싱된 항목은 큐에서 제외</td></tr>
+<tr><td><strong>휴지통으로 이동</strong></td><td>홈 백업을 <strong>삭제하지 않음</strong>; 또한 <strong>기기에서 누락됨</strong>도 아님 (휴지통에서 로컬 파일 복원)</td></tr>
+<tr><td><strong>이 앱에서 영구 삭제</strong></td><td><strong>기기에서 누락됨</strong> 아님; 다음 백업에서 해당 <code>.HomeGallery</code> 파일을 삭제하고 추적을 중단함</td></tr>
+<tr><td><strong>앱 외부로 이동됨</strong></td><td>“기기에서 누락됨”으로 표시됨; 홈 사본은 수동 복원 또는 정리를 위해 보관됨. <strong>보류 중인 백업 확인</strong>이 NAS에 연결된 후, 백업 파일이 이미 사라진 항목은 목록에서 제거됨 (복원 불가한 유령 없음)</td></tr>
+<tr><td><strong>복원</strong></td><td><strong>백업/복원 보기</strong>에서 항목을 <strong>수동으로</strong> 선택하고 로컬에 다시 기록</td></tr>
+<tr><td><strong>제공되지 않음</strong></td><td><strong>양방향 동기화</strong> — NAS에서 백업 파일을 직접 변경/삭제해도 휴대폰 갤러리가 <strong>업데이트되지 않습니다</strong></td></tr>
+</tbody></table>
+<p>만약 <strong>다른 공유로 전환</strong>하거나, <strong>호스트를 변경</strong>하거나, <strong>백업 앵커 폴더를 변경</strong>하면, 로컬 추적이 다시 시작됩니다: 동기화됨 / 실패 / 백업 전용 개수가 초기화됩니다. <strong>보류 중인 백업 확인</strong>을 눌러 다시 스캔하세요 (새 대상에 이미 이 장치의 백업이 있는 경우, 항목이 전체 재업로드 없이 동기화된 것으로 맞춰질 수 있습니다).</p>
+<p>Basic '공용 폴더에 업로드'와 달리, 백업 존은 앱에서 관리하며 기본적으로 일반 네트워크 탐색에서는 숨겨져 있고, 기본적으로 로컬 사본을 유지합니다.</p>
+<p><strong>백업 영역 탐색(큰 폴더 격자)</strong></p>
+<ol><li><strong>더 보기 → 앨범 백업</strong> → <strong>백업 영역 탐색</strong></li><li>홈 앨범 폴더 모드(대형 그리드)에서 개인 백업 루트를 열고, 필요에 따라 폴더를 탐색합니다</li><li><strong>백업 전용</strong> 항목은 빨간 테두리가 있습니다. 길게 눌러 선택한 후 백업 구역에서 제거하고 추적도 삭제할 수 있습니다.</li><li>백업 디스크에 존재하지만 <strong>로컬 인덱스 행이 없는</strong> 파일은 <strong>추적되지 않음</strong>으로 표시됩니다(보통 수동으로 복사되었거나 인덱스 재설정 후); Backup-only로 표시되기 전에 스캔/원격 인덱스를 실행하세요</li><li>목록 스타일 복원 / 필터는 여전히 아래의 <strong>보기 백업 / 복원</strong>을 사용합니다</li></ol>
+<p><strong>복원 (R1.1)</strong></p>
+<ol><li><strong>더 보기 → 앨범 백업</strong> (또는 설정의 앨범 백업) → <strong>백업 / 복원 보기</strong></li><li>기본 필터 <strong>기기에서 누락됨</strong> (이전에 백업되었지만, 로컬에서는 사라짐; 휴지통의 항목이 아니며, 이 앱에서 영구 삭제된 항목도 아님)</li><li><strong>모든 누락 복원</strong>을 탭하거나, 여러 항목을 선택한 후 <strong>선택 항목 복원</strong> → 확인(파일 수, 크기, <strong>경로 매핑 수</strong>) → 복원</li></ol>
+<p>(오래된 전화기를 연결한 후의 아이템은 보통 “백업 전용”이며; 기기에서 누락된 필터는 대기 중인 파일도 표시합니다)</p>
+<ol><li>복원된 파일이 로컬 갤러리에 나타납니다</li></ol>
+<p><strong>병렬 폴더 복원 경로(중요)</strong></p>
+<p>백업에 <code>Documents/…</code>:과 같은 병렬 경로가 포함되어 있는 경우</p>
+<table><thead><tr><th>조건</th><th>복원이 쓰는 위치</th></tr></thead><tbody>
+<tr><td>그 평행 경로에 대한 SAF 없이</td><td><strong><code>Pictures/{original relative path}</code></strong>에 매핑됨 (예: <code>Documents/Office Lens/a.jpg</code> → <code>Pictures/Documents/Office Lens/a.jpg</code>; 비디오는 <code>Movies/…</code> 아래에 매핑될 수 있음)</td></tr>
+<tr><td>해당 병렬 폴더에서 <strong>선택 및 승인</strong></td><td><strong>원래 상대 경로</strong>로 다시 기록 (Pictures에 매핑되지 않음)</td></tr>
+</tbody></table>
+<p>Basic와 Pro 모두 병렬 폴더를 승인할 수 있습니다(설정 → 로컬 갤러리 폴더 참조).</p>
+<p>확인 대화 상자가 경로 매핑을 표시하면 일부 파일은 <code>Pictures</code> 아래에 저장됩니다. 장치 간 복원(R2)도 동일한 규칙을 사용합니다.</p>
+<p><strong>새 전화기 (R2)</strong> (기존 백업 연결 / 전체 복원 라이브러리; <strong>Basic 및 Pro</strong>)</p>
+<ol><li><strong>더보기 → 앨범 백업</strong> → <strong>백업 보기 / 복원</strong></li><li><strong>기존 백업 연결</strong>을 탭 → 이전 전화기의 <code>backup/{deviceId}/</code>를 NAS에서 선택 (<strong>복원 소스만</strong>)</li><li>인덱싱 후, 이 전화에 없는 파일에 대해 <strong>백업 전용</strong> 필터를 사용하세요</li><li>다중 선택 또는 <strong>누락된 모든 항목 복원</strong> (같은 병행 폴더 규칙: SAF 없이 <code>Pictures/…</code>으로 이동)</li><li>이 전화기의 나중 백업은 여전히 <strong>자신의</strong> 폴더에 기록됩니다; 이전 전화기는 별도로 백업을 계속할 수 있습니다</li></ol>
+<p><strong>앱 저장 공간을 지운 후(같은 전화기)</strong></p>
+<ol><li>백업 후, 먼저 <strong>설정 내보내기</strong> (이것은 백업 <code>deviceId</code>도 기억합니다)</li><li>앱 저장 공간을 지우기(또는 재설치) → 권한 다시 부여 → <strong>가능한 한 빨리 설정 복원</strong> (먼저 앨범 백업을 활성화하지 마세요, 그렇지 않으면 새로운 기기 아이덴티티가 생성될 수 있습니다)</li><li>앨범 백업 열기 → <strong>보류 중인 백업 확인</strong>: 앱이 홈 백업 존에 연결하고 NAS과 여전히 일치하는 로컬 파일을 동기화된 것으로 표시합니다—<strong>전체 재업로드 없음</strong></li><li>이미 다른 ID를 가진 <strong>다른 전화기</strong>에서 설정을 복원하면: 기록된 ID는 유지되며, 가져온 이전 <code>deviceId</code>는 연결된 복원 소스로 처리됩니다(색인/복원하려면 “기존 백업 연결” 사용).</li><li>내보내기가 오래된 경우(<code>deviceId</code>이 없음), 백업 후 다시 내보내거나 "기존 백업 연결"로 오래된 폴더를 선택하세요</li></ol>
+<h3 id="ko-98-내보내기-및-설정-복원">9.8 내보내기 및 설정 복원</h3>
+<table><thead><tr><th>주제</th><th>메모</th></tr></thead><tbody>
+<tr><td><strong>내보내기 설정</strong></td><td>로컬 갤러리, SMB 호스트, 홈 앨범, 즐겨찾기 및 백업 환경설정을 Download/Home Gallery로 내보냅니다</td></tr>
+<tr><td><strong>자격 증명</strong></td><td>이 파일에는 <strong>암호화된</strong> 형태(일반 텍스트가 아니며 강력한 암호화도 아님)로 SMB개의 비밀번호가 포함되어 있습니다; 비공개로 유지하십시오—공용 클라우드에 업로드하지 마십시오</td></tr>
+<tr><td><strong>설정 복원</strong></td><td>최근 내보내기 또는 JSON 파일을 선택하세요; 이렇게 하면 현재 설정과 자격 증명이 <strong>덮어쓰기</strong>됩니다</td></tr>
+</tbody></table>
+<p class="note">이전 리팩터링 전의 오래된 (<code>SambaProfile</code>) 테스트 빌드를 사용한 경우, <strong>앱 데이터를 지우거나 재설치</strong>한 후, 호스트와 홈 앨범을 다시 설정하세요. 이전 형식의 설정 파일은 가져오지 마세요.</p>
+<h3 id="ko-99-문제-및-진단-보고">9.9 문제 및 진단 보고</h3>
+<table><thead><tr><th>주제</th><th>메모</th></tr></thead><tbody>
+<tr><td><strong>문제 신고</strong></td><td>이메일을 열며 선택적으로 버전 및 기능 플래그 요약 포함</td></tr>
+<tr><td><strong>진단 내보내기</strong></td><td>사진 내용이나 SMB 비밀번호 없이 <code>diagnostics-*.zip</code>(장치 정보, 최근 오류, <code>last_crash.txt</code> 등)을 생성합니다</td></tr>
+<tr><td><strong>충돌 후</strong></td><td><strong>앱을 다시 열기</strong> 전에 내보내기 하여 ZIP에 최신 치명적 충돌 스택 트레이스가 포함되도록 합니다</td></tr>
+</tbody></table>
+<h3 id="ko-10-자주-묻는-질문">10. 자주 묻는 질문</h3>
+<h3 id="ko-Q1-로컬-사진이-없나요">Q1: 로컬 사진이 없나요?</h3>
+<ul><li><strong>사진 및 동영상</strong> 접근 권한이 허용되었는지 확인</li><li>설정 → 로컬 갤러리 폴더: 폴더가 <strong>포함된 폴더</strong>에 있는지 확인하세요</li></ul>
+<h3 id="ko-Q2-집-저장소에-연결할-수-없나요">Q2: 집 저장소에 연결할 수 없나요?</h3>
+<ul><li>전화기와 NAS / PC는 동일한 집 Wi‑Fi / LAN에 있어야 합니다</li><li>설정 → <strong>호스트 연결</strong>: 주소, 계정, 비밀번호 확인</li><li>NAS / PC(포트 445)에서 SMB가 활성화되어 있는지 확인</li><li>스캔에서 아무것도 발견되지 않으면: Wi‑Fi을 켜고 스토리지와 같은 LAN에 머문 후 다시 스캔하세요</li><li><strong>멀리 있을 때 연결할 수 없음:</strong></li><li>NAS: 원격 액세스는 <strong>WebDAV</strong> 이어야 하며, 올바른 DDNS / 포트 → <a href="setup/webdav/index.html#ko">WebDAV guide</a></li><li>Windows / 없음 WebDAV: <a href="setup/tailscale/index.html#ko">Tailscale guide</a>을(를) 참조하세요</li><li>기타 경우: <a href="setup/troubleshooting/index.html#ko">Troubleshooting §E</a></li></ul>
+<h3 id="ko-Q3-로컬-사진을-삭제하거나-편집할-때-시스템-권한-요청이-나타나나요">Q3: 로컬 사진을 삭제하거나 편집할 때 시스템 권한 요청이 나타나나요?</h3>
+<p>Android 11+에서, 다른 앱에서 생성된 일부 미디어는 수정/삭제하려면 추가 권한이 필요합니다. 시스템 대화상자에서 허용하세요.</p>
+<h3 id="ko-Q4-초상화-매끈한-모습이-약해-보이나요">Q4: 초상화 / 매끈한 모습이 약해 보이나요?</h3>
+<ul><li>얼굴이 감지되었는지 확인하거나, 원을 끌어다 놓고 슬라이더로 크기를 조절하세요</li><li><strong>스무스</strong> 올리기</li><li>적용 (✓) 후 저장</li></ul>
+<h3 id="ko-Q5-편집-후-품질이-떨어지나요">Q5: 편집 후 품질이 떨어지나요?</h3>
+<p>인물 <strong>미리보기</strong>는 속도를 위해 낮은 해상도를 사용합니다; <strong>저장</strong>은 원래 해상도로 처리합니다. 여전히 효과가 너무 강하면, 부드러움(Smooth)을 낮추세요.</p>
+<h3 id="ko-Q6-홈-앨범으로-복사업로드가-느린가요">Q6: 홈 앨범으로 복사/업로드가 느린가요?</h3>
+<p>속도는 네트워크 대역폭과 파일 크기에 따라 달라집니다. 안정적인 Wi‑Fi 연결을 사용하세요.</p>
+<h3 id="ko-Q7-왜-SVG는-볼-수-있지만-편집할-수-없는가">Q7: 왜 SVG는 볼 수 있지만 편집할 수 없는가?</h3>
+<p>SVG는 벡터입니다. 이 앱은 벡터를 편집하고 SVG로 저장할 수 없고, 래스터화된 비트맵만 <strong>볼</strong> 수 있으므로 편집은 숨겨져 있습니다. §5.6을 참조하세요.</p>
+<h3 id="ko-Q8-GIF-HEIC에-편집-버튼이-없는-이유는-무엇인가요">Q8: GIF / HEIC에 편집 버튼이 없는 이유는 무엇인가요?</h3>
+<p>이 형식들은 볼 수는 있지만, 편집된 저장본은 원래 형식(GIF 애니메이션, HEIC 인코딩)을 유지할 수 없습니다. 손상을 방지하기 위해, 편집은 <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.webp</code>에만 해당됩니다.</p>
+<h3 id="ko-Q9-로컬-갤러리에서-SVG-파일이-누락되었나요">Q9: 로컬 갤러리에서 SVG 파일이 누락되었나요?</h3>
+<p>Android <strong>MediaStore</strong>가 이를 인덱싱했는지 확인하세요 (Download초가 일반적인 경우입니다). 시스템이 SVG를 미디어로 등록하지 않았다면, 이 앱은 이를 목록에 표시할 수 없습니다.</p>
+<h3 id="ko-Q10-영상이-목록에-있지만-재생되지-않나요">Q10: 영상이 목록에 있지만 재생되지 않나요?</h3>
+<ul><li>확장이 §5.7에 있는지 확인하십시오</li><li>휴대폰에서: 앱이 내장 엔진(Media3 또는 호환성 엔진)을 시도합니다. 실패하면 <strong>다른 앱</strong>으로 엽니다. 동일한 파일을 다른 플레이어에서 테스트할 수도 있습니다.</li><li>네트워크 비디오: 네트워크를 확인하세요; 필요하면 설정에서 캐시를 지우고 다시 시도하세요</li></ul>
+<h3 id="ko-11-권한">11. 권한</h3>
+<table><thead><tr><th>권한</th><th>이유</th></tr></thead><tbody>
+<tr><td>사진 및 동영상 (READ_MEDIA_IMAGES / READ_MEDIA_VIDEO)</td><td>로컬 사진 및 동영상 읽기</td></tr>
+<tr><td>인터넷 (INTERNET)</td><td>홈 SMB 저장소에 연결</td></tr>
+<tr><td>네트워크 상태 (ACCESS_NETWORK_STATE)</td><td>연결 상태 감지</td></tr>
+<tr><td>Wi‑Fi 상태 (ACCESS_WIFI_STATE)</td><td>LAN 검색</td></tr>
+</tbody></table>
+<h3 id="ko-12-Basic-그리고-Pro">12. Basic 그리고 Pro</h3>
+<p>Home Gallery는 <strong>Basic</strong>와 <strong>Pro</strong>를 제공합니다. Basic는 <strong>광고가 없으며</strong> 이미 전체 사진/비디오 관리 기능을 포함하고 있습니다(로컬 및 홈 앨범, 타임라인, 홈 비디오 스트리밍, 휴지통, 병렬 폴더, 수동 앨범 백업 및 제외 폴더, 이전 전화 복원/연결 등). 추가 공간은 클라우드 할당량이 아닌 홈 스토리지에서 제공합니다. <strong>Pro</strong>는 <strong>선택적 일회성 구매</strong>로, 추가로 <strong>자동</strong> 앨범 백업(Wi‑Fi에서 백그라운드 업로드) 및 TV로의 <strong>사진 캐스팅</strong> 기능을 해제합니다.</p>
+<table><thead><tr><th>판</th><th>역할</th></tr></thead><tbody>
+<tr><td><strong>Basic</strong></td><td>전체 로컬 + 홈 미디어 관리; 수동 백업, 폴더 제외, 복원</td></tr>
+<tr><td><strong>Pro</strong></td><td>Basic의 모든 것 + <strong>자동 백업</strong> (백그라운드 Wi‑Fi 동기화) + <strong>포토 캐스트</strong> (TV)</td></tr>
+</tbody></table>
+<p class="note">Pro덕션 빌드는 인앱 구매를 통해 Pro를 잠금 해제합니다; 디버그 빌드는 테스트를 위해 설정에서 관련 기능을 전환할 수 있습니다.</p>
+<h3 id="ko-121-Basic-무료">12.1 Basic — 무료</h3>
+<table><thead><tr><th>기능</th><th>주석</th></tr></thead><tbody>
+<tr><td>로컬 갤러리</td><td>탐색, 타임라인, 검색, 정렬; 병렬 폴더 (SAF)</td></tr>
+<tr><td>홈 앨범</td><td>호스트, 사진 및 <strong>타임라인</strong>, 북마크; <strong>홈 비디오</strong> 스트림</td></tr>
+<tr><td>사진 관리</td><td>복사, 이동, 이름 바꾸기, 삭제, 공유</td></tr>
+<tr><td>사진 편집기</td><td>자르기, 조정, 초상화 등</td></tr>
+<tr><td>업로드</td><td>로컬 사진/동영상을 <strong>홈 앨범</strong> 폴더에 업로드</td></tr>
+<tr><td><strong>앨범 백업</strong></td><td><strong>수동</strong> 단방향 백업; <strong>폴더 제외</strong>; <strong>복원</strong> / 이전 전화 연결; <strong>자동</strong> 백그라운드 동기화 없음</td></tr>
+<tr><td><strong>휴지통</strong></td><td>설정에서 활성화; 삭제된 항목이 휴지통으로 이동하고 복원될 수 있음</td></tr>
+<tr><td>로컬 / 홈 비디오</td><td>재생 및 Cast (장치에 따라 다름)</td></tr>
+<tr><td>슬라이드쇼</td><td>휴대폰에서 사진 자동 재생 (§5.8 참조)</td></tr>
+<tr><td>사진 캐스트 (TV)</td><td><strong>Pro 필요</strong> (§5.9 참조)</td></tr>
+<tr><td>설정</td><td><strong>더 보기 → 설정</strong>: 호스트, 갤러리 범위, 캐시, 등등</td></tr>
+</tbody></table>
+<h3 id="ko-122-Pro-일회성-구매">12.2 Pro — 일회성 구매</h3>
+<p>Basic의 모든 것 위에:</p>
+<table><thead><tr><th>기능</th><th>주석</th></tr></thead><tbody>
+<tr><td><strong>자동 백업</strong></td><td>Wi‑Fi에서 <strong>자동</strong> 단방향 백업(백그라운드 일정); 수동 백업, 폴더 제외, 복원은 Basic과 동일</td></tr>
+<tr><td><strong>사진 캐스트</strong></td><td>Cast 로컬 / 가정 사진 및 슬라이드쇼를 TV로 (핀치, 팬; §5.9 참조)</td></tr>
+</tbody></table>
+<h3 id="ko-123-관련-설정-스위치">12.3 관련 설정 스위치</h3>
+<table><thead><tr><th>어디</th><th>노트</th></tr></thead><tbody>
+<tr><td>설정 → <strong>홈 앨범</strong> → 포토 캐스트</td><td><strong>Pro:</strong> 사진 / 슬라이드쇼를 TV로. Basic 스위치를 탭하면 업그레이드 안내</td></tr>
+<tr><td>설정 → <strong>홈 앨범</strong> → 초상화 H.264 직접 전송</td><td>비디오 Cast 호환성 (Basic)</td></tr>
+<tr><td>설정 → <strong>앨범 백업</strong></td><td>백업 활성화, 폴더 제외, <strong>자동 동기화</strong> (자동 동기화는 Pro만 해당)</td></tr>
+<tr><td>설정 → <strong>로컬 갤러리</strong> → 휴지통</td><td>휴지통 및 기본 삭제 활성화 (Basic 및 Pro)</td></tr>
+</tbody></table>
+<p>성공적인 Pro 구매/복원 후, 한 번만 “<strong>당신은 Pro에 있습니다</strong>” 대화 상자가 나타납니다; 이후 실행 시(프로세스가 종료된 후를 포함) 다시는 나타나지 않습니다.</p>
+<p><strong>휴지통 옵션</strong> (설정 → 로컬 갤러리 → 휴지통 옵션): 기본 삭제는 <strong>휴지통으로 이동</strong> 또는 <strong>영구 삭제</strong>; 휴지통 비우기 전에 확인; 만료 알림 (시스템이 약 하루 후 영구 삭제할 항목에 대한 일일 알림; Android 13+는 알림 권한 필요).</p>
+<ul><li><strong>기본값 = 휴지통으로 이동:</strong> 로컬 갤러리/뷰어에서 삭제하면 휴지통으로 이동(복원 가능).</li><li><strong>기본값 = 영구 삭제:</strong> 확인 후, 로컬 갤러리/뷰어에서 삭제하면 실제로 삭제되며, 그 삭제로 인해 <strong>휴지통에 들어가지 않아야 합니다</strong>. 휴지통에는 여전히 다른 이유로 항목이 표시될 수 있습니다:</li><li><strong>완전히 성공적으로 업로드</strong>한 후, 로컬 사본을 휴지통으로 이동하도록 선택했습니다(기본 삭제 설정과 무관하게)</li><li><strong>사진 편집</strong>은 덮어쓰기 전에 휴지통에 편집 전 백업을 보관합니다</li><li><strong>다른 앱 / 시스템 갤러리</strong>가 항목을 공유 MediaStore 휴지통으로 이동했습니다</li><li>휴지통이 <strong>꺼져</strong> 있으면, 로컬 삭제는 항상 영구적입니다; 업로드가 성공해도 복사본을 휴지통으로 옮길지 묻지 않습니다.</li></ul>
+<h3 id="ko-124-업그레이드-방법">12.4 업그레이드 방법</h3>
+<ol><li><strong>더보기 → 설정 → Pro로 업그레이드</strong> (또는 자동 백업, 사진 캐스트 등 시도할 때 나타나는 업그레이드 안내)</li><li>Google Play 일회성 구매를 완료하세요</li><li>새 전화기나 재설치 후에는 설정에서 <strong>구매 복원</strong>을 사용하세요</li></ol>
+<h3 id="ko-125-Pro-자주-묻는-질문">12.5 Pro 자주 묻는 질문</h3>
+<p><strong>Q: Basic가 편집, 삭제 및 업로드를 할 수 있나요?</strong></p>
+<p>네. Basic는 단순 보기용 앱이 아니라 완전한 사진 관리 프로그램입니다.</p>
+<p><strong>Q: 로컬 또는 홈 비디오에 Pro가 필요합니까?</strong></p>
+<p>아니요. 로컬 및 홈 비디오 재생은 Basic입니다. Pro은 <strong>자동</strong> 앨범 백업과 <strong>포토 캐스트</strong>를 잠금 해제합니다.</p>
+<p><strong>질문: 사진을 TV로 캐스팅하려면 Pro가 필요합니까?</strong></p>
+<p>네. Basic는 휴대폰에서 슬라이드쇼를 재생할 수 있습니다; TV 캐스트는 Pro가 필요합니다. 비디오 Cast는 Basic로 남아 있습니다.</p>
+<p><strong>Q: 비디오 캐스트에서 '비트레이트가 너무 높음'이라고 나오는 이유는 무엇인가요?</strong></p>
+<p>트랜스코드가 필요하지만 로컬 파일이나 트랜스코드 캐시가 아직 없는 경우에만. 일반적인 휴대폰 <strong>H.264</strong>는 직접 전송되며 비트레이트에 의해 차단되지 않습니다. HEVC 및 기타 TV 호환되지 않는 코덱은 먼저 준비됩니다. §5.7을 참조하십시오.</p>
+<p><strong>질문: 업로드는 백업과 어떻게 다른가요?</strong></p>
+<p>업로드는 파일과 <strong>홈 앨범</strong> 폴더(Basic 및 Pro)를 선택하는 것입니다. <strong>휴지통이 켜져 있는 경우</strong>, 완전히 성공한 업로드는 공간을 절약하기 위해 로컬 사본을 휴지통으로 이동할 수 있습니다. 백업은 로컬 갤러리를 앱 관리 <strong>개인 백업 영역</strong>에 <strong>단방향으로</strong> 기록하고 기본적으로 로컬 사본을 유지합니다; 필요할 때 앱에서 복원할 수 있습니다.</p>
+<p><strong>Q: 앨범 백업은 Basic과 Pro에서 어떻게 다릅니까?</strong></p>
+<p>Basic은 <strong>수동</strong> 백업, <strong>폴더 제외</strong>, 그리고 구형 전화 복원 / 연결을 지원합니다. <strong>Pro</strong>은 추가로 Wi‑Fi에서 <strong>자동</strong> 백그라운드 백업을 활성화할 수 있습니다.</p>
+<p><strong>Q: 백업은 양방향인가요?</strong></p>
+<p>아니요. 백업은 <strong>폰 → NAS</strong>입니다. NAS에서 백업 파일을 편집해도 폰에 다시 기록되지 않습니다. 복원은 앱에서 의도적으로 수행하는 동작입니다.</p>
+<p><strong>Q: Office Lens 파일은 Documents에 있습니다. Basic이 그것들을 볼 수 있나요?</strong></p>
+<p>예. Basic와 Pro은 설정 → 로컬 갤러리에서 <code>Documents</code>와 같은 병렬 폴더를 <strong>선택하고 승인할</strong> 수 있습니다.</p>
+<p><strong>Q: 복원할 때, Documents 및 다른 병렬 폴더들은 어디로 가나요?</strong></p>
+<p>그 폴더에 대해 SAF 없이: <code>Pictures/</code> 아래의 <strong>매핑된 경로</strong> (<code>Documents/…</code>로 돌아가지 않음). 해당 병렬 폴더가 허용된 경우: 원래의 상대 경로. 복원 확인 대화상자에는 매핑된 경로 수가 표시됩니다. §9.7을 참조하세요.</p>
+<p><strong>Q: Download 권한을 허용할 때 '이 폴더 사용'이 회색으로 표시되는 이유는 무엇인가요?</strong></p>
+<p>이것은 <strong>Android 11+ 시스템 제한</strong>입니다. 앱은 Download <strong>루트</strong>에 대한 트리 권한을 얻을 수 없습니다. <code>Documents</code>를 선택하거나 Download 아래의 <strong>하위 폴더</strong>를 승인하세요. 앱은 “읽기 전용으로 Download 포함” 경로를 제공하지 않습니다(복사/복원 쓰기와 충돌하고 더 불편하기 때문입니다).</p>
+<h3 id="ko-13-버전-정보">13. 버전 정보</h3>
+<p><strong>더보기 → 정보</strong> (또는 <strong>더보기 → 설정 → 정보</strong>)에서 다음을 볼 수 있습니다:</p>
+<ul><li>버전 (현재 <strong>1.2.3</strong>; 앱의 <strong>정보</strong>를 신뢰하세요)</li><li>제작일</li><li><strong>사용자 안내서</strong> (이 온라인 매뉴얼: <a href="https://jasoncschang-stack.github.io/homegallery-privacy/help/">https://jasoncschang-stack.github.io/homegallery-privacy/help/</a>)</li><li>문제 신고</li><li>저작권</li></ul>
+<p>설정 → <strong>지원</strong>을 선택하면 동일한 안내가 열립니다.</p>
+<p>이 공개 가이드는 앱 <strong>1.2.3</strong>과 매뉴얼 <strong>1.48</strong>에 맞습니다.</p>
     </section>
 
     <p class="note">

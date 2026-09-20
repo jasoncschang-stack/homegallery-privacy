@@ -24,6 +24,8 @@
       <div class="langs">
         <a href="#zh-tw">繁體中文</a>
         <a href="#en">English</a>
+        <a href="#ja">日本語</a>
+        <a href="#ko">한국어</a>
         <a href="../index.html">建置首頁</a>
         <a href="../../index.html">使用說明</a>
       </div>
@@ -95,6 +97,148 @@
         <li>If it fails: check DDNS, port, WebDAV service, credentials and share permissions</li>
       </ul>
       <p class="note">Exposing WebDAV to the internet requires a strong password. If you do not need away access, leave remote access on <strong>None</strong>.</p>
+    </section>
+
+
+    <section id="ja">
+      <h2>日本語 — 外出用 WebDAV 家に戻ったときのアルバム（取扱説明書）</h2>
+      <p class="note">日本語専用の画面がない場合は、英語版スクリーンショットを表示しています。</p>
+<p>適用：<strong>ホームギャラリー</strong> はすでに自宅で Wi‑Fi を使って <strong>NAS</strong>（Synology／QNAP など）に接続でき、外出時（モバイルデータ／外部ネットワーク Wi‑Fi）は <strong>HTTPS WebDAV</strong> で同じ自宅のアルバムを閲覧する必要があります。</p>
+<p class="note"><strong>和エリアネットワーク構築の違い：</strong> <a href="../index.html#ja">Synology／QNAP 建置</a> 家で開く方法を教える SMB 共有；<strong>このページでは、外出時に WebDAV（パブリックIP または DDNS）を使う方法を教える</strong>。<br /><strong>Windows PC？</strong> 多くの家庭用 Windows には HTTPS WebDAV が標準で入っていません；外出時は <a href="../tailscale/index.html#ja">Tailscale</a> を使用してください。</p>
+<p>約 <strong>10～20 分間</strong>（DSM／QTS がすでにログインでき、DDNS または公共ネットワークのアドレスを知っている場合を想定）。</p>
+<section>
+<h2>1. いつ WebDAV を使うのか？</h2>
+<p>| シチュエーション | 提案 |</p>
+<p>|------|------|</p>
+<p>| 人が家にいる時、携帯が家に接続 Wi‑Fi | <strong>開く必要は</strong>なし WebDAV 遠隔操作；LAN SMB に接続するだけ |</p>
+<p>| 外出、<strong>NAS</strong> 開けることができます HTTPS WebDAV + DDNS／公衆ネットワークアドレス | <strong>使用 WebDAV</strong>（このページ） |</p>
+<p>| 外出時、<strong>Windows PC</strong> を SMB ホスト として | <a href="../tailscale/index.html#ja">Tailscale</a> を使用 |</p>
+<p>| すでに OpenVPN／WireGuard などで自宅のネットワークに接続済み | 通常、再度 WebDAV／Tailscale を開く必要はなく、ネットワーク IPv4 を維持すればよい |</p>
+<p>家の中では Wi‑Fi は依然として <strong>SMB</strong> に接続されています；家の範囲のネットワークを離れたときにのみ、アプリはあなたが設定した <strong>WebDAV</strong> に切り替わります。</p>
+</section>
+<section>
+<h2>2. 開始前に確認してください</h2>
+<ul><li>家中Wi‑Fiで、アプリはすでにそのホストに接続でき、家中のアルバムを開くことができます</li><li>NAS 有効化済み <strong>WebDAV（HTTPS）</strong>（Synology 一般的なポート <strong>5006</strong>）</li><li>利用可能な <strong>DDNS ホスト名</strong>（例：<code>你的名稱.synology.me</code>）または<strong>固定／既知のパブリックIP</strong></li><li>ルーター／ファイアウォールが外部ネットワークから NAS の <strong>HTTPS WebDAV ポート</strong>（一般的な TCP <strong>5006</strong>; 詳細はお使いの機種と通信環境による）への接続を許可している</li><li>SMB <strong>と同じセットの</strong> NAS アカウント情報を使用する（またはそのアカウントが WebDAV と共有する権限を持っていることを確認する）</li></ul>
+<p class="note"><strong>App の WebDAV フィールドに完全な URL パス（例：<code>https://…/photo</code>）を貼らないでください。</strong> ホスト名または IP のみを入力し、ポートは別に入力してください。共有とフォルダは自宅のアルバムで決定されます。</p>
+</section>
+<section>
+<h2>3. NAS で WebDAV を有効にする（概要）</h2>
+<h3>Synology（DSM）</h3>
+<ol><li><strong>コンソール → ファイルサービス → WebDAV</strong>（または高度／アプリケーションの中の WebDAV）</li><li><strong>WebDAV</strong> を有効にし、<strong>HTTPS</strong> を有効にする</li><li><strong>HTTPS ポート</strong> を記入します（デフォルトは多くの場合 <strong>5006</strong> です）</li><li><strong>適用</strong></li></ol>
+<h3>QNAP（QTS／QuTS）</h3>
+<ol><li>コントロールパネル → ネットワークとファイルサービス → <strong>WebDAV</strong> に関連する項目を見つける</li><li>WebDAV／HTTPSを有効にして、ポート番号を記録する</li><li>適用</li></ol>
+<p>（メニュー名はバージョンによって若干異なる場合があります；コントロールパネルで「WebDAV」を検索してください。）</p>
+<h3>DDNS（提案）</h3>
+<p>もしグローバルIPが変わる場合は、NASまたはルーターで<strong>DDNS</strong>を有効にしてください（例えば Synology DDNS：<code>xxx.synology.me</code>）。その後、アプリにこのホスト名を入力するだけで済みます。</p>
+</section>
+<section>
+<h2>4. ホームギャラリー でリモートアクセスを設定する</h2>
+<ol><li>まず<strong>自宅で Wi‑Fi</strong>ルーターと自宅のアルバムが使用可能か確認する</li><li><strong>もっと見る → 設定 → ホスト接続管理</strong> → 該当のホストを編集</li><li><strong>リモートアクセス</strong>で <strong>WebDAV</strong> を選択</li><li><strong>WebDAV 外部ネットワークホスト</strong>：DDNS またはパブリックIPを入力（例：<code>jasoncsnas.synology.me</code>）</li><li><strong>WebDAV ポート</strong>：HTTPS ポートを入力（例：<code>5006</code>）</li><li>（ほとんどの家庭用 NAS）<strong>信頼されていない HTTPS 証明書を許可する</strong> にチェックを入れる</li><li>アプリは <strong>すべての証明書を無条件に信頼することはありません</strong>。まず <strong>システムの信頼</strong> を使用し、失敗した場合に初めて「そのホスト」に対して <strong>TOFU 証明書ピンニング</strong>（最初の接続に成功した際の証明書のフィンガープリントを記憶）を行います。</li><li>若 NAS 後に証明書を交換したことで接続に失敗した場合：このスイッチを一度オフにして再度オンにする（または WebDAV ホスト名を変更する）ことで、古いピン止めをクリアして再試行してください。</li><li><strong>接続テスト</strong> → 成功したら <strong>保存</strong></li></ol>
+<p class="note"><strong>ローカルネットワーク IPv4</strong> 家の <code>192.168.x.x</code>（またはスキャンしたアドレス）を維持し、WebDAV の外部ネットワークホストとは別に入力してください。<br /><strong>IPv6 フィールド：</strong> 設定 → ホスト接続管理で <strong>有効 IPv6</strong> をオンにした場合のみ表示（デフォルトはオフ）。外出 WebDAV はあなたが入力した外部ネットワークホスト／DDNS を基準とします。</p>
+</section>
+<section>
+<h2>5. 外出の使い方</h2>
+<ol><li>家の中の Wi‑Fi を閉じる（または家のネットワークを離れる）、モバイルデータ／外部ネットワーク Wi‑Fi に切り替える</li><li>対応する<strong>家のアルバム</strong>を開く</li><li>アプリは WebDAV 接続であるべきである；閲覧、再生（バージョン機能に応じて）および既存のバックアッププロセスが可能である</li></ol>
+<p>もし接続できない場合：</p>
+<ul><li>DDNS 携帯ブラウザで解析できますか？ポートは正しいですか？</li><li>NAS WebDAV HTTPS はまだ有効ですか？</li><li>ルーターはそのポートを開放していますか？</li><li>アカウントとパスワードはネットワークと同じですか、またその共有に権限はありますか？</li><li><strong>設定 → 診断ログのエクスポート</strong> に進み、ログ内で <code>transport=WebDAV via=webdavHost</code> を検索できます</li></ul>
+<h3>外出体験の期待（行動データ）</h3>
+<ul><li><strong>接続</strong>：アプリは優先的に <strong>IPv4</strong> を使用します（DDNS が同時に IPv6 を返す場合、ネットワークが不安定な環境では IPv6 がよく止まります）。</li><li><strong>フォルダ表紙／リスト</strong>：各階層のフォルダはすべて NAS にリストを一度取得する必要があります；表紙のコラージュはさらに下のサブフォルダを参照する可能性があり、外部ネットワークでの体感速度は内部ネットワーク SMB より遅くなることが予想されます。</li><li><strong>写真のサムネイル</strong>：まずファイルヘッダー／EXIFを読みます；失敗した場合は最大約 <strong>2 MB</strong> の先頭部分（大きな画像全体を避けるため）</li><li><strong>動画再生</strong>：本機 HTTP ブリッジ経由で、<strong>単一範囲 Range</strong> のストリーミングが主です；外部ネットワークのスループットは自宅のアップロード速度とモバイルネットワークの制限を受けるため、再生開始やシークはローカルネットワークより遅くなる場合があります。</li><li><strong>トラブルシューティング</strong>：一般ユーザーは <strong>設定 → 診断ログをエクスポート</strong>（<code>transport=WebDAV …</code> を含む）を使用してください。正式版では logcat に WebDAV の Range／TLS の詳細は表示されません。</li></ul>
+</section>
+<section>
+<h2>6. Tailscale とどう選ぶ？</h2>
+<p>| | <strong>WebDAV</strong> | <strong>Tailscale</strong> |</p>
+<p>|--|------------|---------------|</p>
+<p>| 適合 | すでに開かれた HTTPS WebDAV の <strong>NAS</strong> | <strong>Windows PC</strong> または WebDAV を開けないホスト |</p>
+<p>| アプリ設定 | リモートアクセス = WebDAV；DDNS／パブリックIP + ポートを入力 | リモートアクセス = Tailscale；<code>100.x</code>を入力 |</p>
+<p>| 追加アプリ | 通常不要 | 携帯と本体の両方にインストール Tailscale |</p>
+<p>同一ホストでは<strong>一つの</strong>リモート方式を選んでください；二つの方式を混用しないでください。</p>
+</section>
+<section>
+<h2>7. 安全の注意（必ずお読みください）</h2>
+<ul><li>外部に公開する WebDAV ポートは、ファイルサービスをインターネットにさらすことに相当します。<strong>強力なパスワード</strong>を使用し、必要に応じて独立したアカウントを作成してください。</li><li>できるだけ <strong>HTTPS</strong> を使用してください。家庭用自己署名証明書は「信頼されていない証明書を許可する」にチェックを入れてください：<strong>システムで信頼＋ホストにピン留め</strong> であり、任意の証明書を信頼するわけではありません。詳細は §4 を参照してください。</li><li>外出してアクセスする必要がない場合、リモートアクセスは <strong>無</strong> のままにし、家庭内のみ Wi‑Fi で使用してください。</li></ul>
+</section>
+<section>
+<h2>チェックリスト（コピー用）</h2>
+<p>```</p>
+<p>NAS：啟用 WebDAV HTTPS → 記下埠（常為 5006）</p>
+<p>DDNS 或公網 IP 可用</p>
+<p>路由器／防火牆已放行該埠（依環境）</p>
+<p>App：遠端存取 = WebDAV → 填主機＋埠 → 測試 → 儲存</p>
+<p>外出：關家中 Wi‑Fi → 開家中相簿確認可連</p>
+<p>```</p>
+<p>改訂：2026/08/13</p>
+</section>
+    </section>
+
+
+    <section id="ko">
+      <h2>한국어 — 외출용 WebDAV 집으로 돌아가는 앨범 연결 (사용 설명서)</h2>
+      <p class="note">한국어 전용 화면이 없으면 영어 스크린샷을 사용합니다.</p>
+<p>적용: <strong>홈 갤러리</strong> 이미 집에서 Wi‑Fi <strong>NAS</strong>(Synology/QNAP 등)에 접속할 수 있으며, 외출 시(모바일 데이터/외부 네트워크 Wi‑Fi) <strong>HTTPS WebDAV</strong>를 사용하여 같은 집 사진 앨범을 볼 수 있습니다.</p>
+<p class="note"><strong>지역 네트워크 구축의 차이점:</strong> <a href="../index.html#ko">Synology／QNAP 建置</a> 집에서 여는 방법을 가르쳐 주고 SMB 공유; <strong>이 페이지에서는 외출 시 WebDAV(공용 IP 또는 DDNS) 사용 방법을 가르쳐 줍니다.</strong><br /><strong>Windows PC?</strong> 대부분 가정용 Windows에는 기본적으로 HTTPS WebDAV이 없습니다; 외출 시에는 <a href="../tailscale/index.html#ko">Tailscale</a>를 사용하세요.</p>
+<p>약 <strong>10~20분</strong> 정도 소요됩니다（가정: DSM/QTS에 이미 로그인할 수 있고, DDNS 또는 공용 네트워크 주소를 알고 있는 경우).</p>
+<section>
+<h2>1. WebDAV을 언제 사용하나요?</h2>
+<p>| 상황 | 제안 |</p>
+<p>|------|------|</p>
+<p>| 사람이 집에 있을 때, 휴대폰이 집과 연결 Wi‑Fi | <strong>할 필요 없음</strong> 원격 WebDAV 켜기; 로컬 네트워크 SMB 접속만 하면 됨 |</p>
+<p>| 외출, <strong>NAS</strong> 열 수 있음 HTTPS WebDAV + DDNS／공용 네트워크 주소 | <strong>사용 WebDAV</strong>(이 페이지) |</p>
+<p>| 외출, <strong>Windows PC</strong>를 SMB 주 기기로 | <a href="../tailscale/index.html#ko">Tailscale</a> 사용 |</p>
+<p>| 이미 OpenVPN／WireGuard 등으로 집 내부 네트워크에 연결 | 보통은 WebDAV／Tailscale를 다시 열 필요 없음; 네트워크 IPv4를 유지하면 됨 |</p>
+<p>집에서는 Wi‑Fi 여전히 <strong>SMB</strong>로 연결됩니다; 집 지역망을 벗어날 때만, 앱이 설정한 <strong>WebDAV</strong>로 바뀝니다.</p>
+</section>
+<section>
+<h2>2. 시작하기 전에 확인하세요</h2>
+<ul><li>집 안 Wi‑Fi 아래, 앱이 이미 해당 호스트에 연결되어 집 안 앨범을 열 수 있음</li><li>NAS 이미 활성화됨 <strong>WebDAV(HTTPS)</strong> (Synology 일반 포트 <strong>5006</strong>)</li><li>사용 가능한 <strong>DDNS 호스트 이름</strong>(예: <code>你的名稱.synology.me</code>) 또는 <strong>고정/알 수 있는 공용 IP</strong></li><li>라우터/방화벽이 외부 네트워크에서 NAS의 <strong>HTTPS WebDAV 포트</strong>에 접속할 수 있도록 허용했는지 확인（일반적인 TCP <strong>5006</strong>; 자세한 내용은 사용 중인 장치 모델과 통신 환경에 따라 다름）</li><li>SMB와 <strong>같은 그룹</strong>의 NAS 계정 정보 사용(또는 해당 계정이 WebDAV와 공유할 권한이 있는지 확실한 경우)</li></ul>
+<p class="note"><strong>앱의 WebDAV 칸에 전체 URL 경로를 붙이지 마세요</strong> (예: <code>https://…/photo</code>). <strong>호스트 이름 또는 IP</strong>만 입력하고, 포트는 따로 입력하세요; 공유 및 폴더는 집 사진첩에서 결정됩니다.</p>
+</section>
+<section>
+<h2>3. NAS에서 WebDAV 활성화(요약)</h2>
+<h3>Synology（DSM）</h3>
+<ol><li><strong>콘솔 → 파일 서비스 → WebDAV</strong>(또는 고급/응용 프로그램에서 WebDAV)</li><li><strong>WebDAV</strong>을 활성화하고, <strong>HTTPS</strong>도 활성화하세요</li><li><strong>HTTPS 포트</strong>를 기록하세요(기본값은 대부분 <strong>5006</strong>)</li><li><strong>적용</strong></li></ol>
+<h3>QNAP（QTS／QuTS）</h3>
+<ol><li>콘솔 → 네트워크 및 파일 서비스 → <strong>WebDAV</strong> 관련 항목 찾기</li><li>WebDAV/HTTPS 활성화, 포트 번호를 기록</li><li>적용</li></ol>
+<p>（메뉴 이름은 버전마다 약간 다를 수 있습니다; 콘솔에서 'WebDAV'를 검색하면 됩니다.）</p>
+<h3>DDNS（권장）</h3>
+<p>공인 IP가 변경될 경우, NAS 또는 라우터에서 <strong>DDNS</strong>를 활성화하세요(예: Synology DDNS: <code>xxx.synology.me</code>), 그 후 앱에 이 호스트 이름을 입력하면 됩니다.</p>
+</section>
+<section>
+<h2>4. Home Gallery에서 원격 액세스 설정</h2>
+<ol><li>먼저 <strong>집에서 Wi‑Fi</strong> 주기기와 집 앨범이 사용 가능한지 확인하십시오</li><li><strong>더보기 → 설정 → 호스트 연결 관리</strong> → 해당 호스트 편집</li><li><strong>원격 접속</strong> 선택 <strong>WebDAV</strong></li><li><strong>WebDAV 외부 네트워크 호스트</strong>: DDNS 또는 공인 IP 입력 (예: <code>jasoncsnas.synology.me</code>)</li><li><strong>WebDAV 포트</strong>：HTTPS 포트 입력 (예: <code>5006</code>)</li><li>(대다수 가정용 NAS) <strong>신뢰할 수 없는 HTTPS 인증서 허용</strong> 선택</li><li>앱은 <strong>모든 인증서를 무조건 신뢰하지 않습니다</strong>. 먼저 <strong>시스템 신뢰</strong>를 사용하고, 실패 시에만 해당 호스트에 대해 <strong>TOFU 인증서 고정</strong>을 수행합니다(처음으로 성공적으로 연결된 인증서 지문을 기억함).</li><li>NAS 이후 인증서를 교체하여 연결 실패가 발생한 경우: 이 스위치를 껐다가 다시 켜거나 (또는 WebDAV 호스트 이름을 변경) 이전 고정 항목을 삭제한 후 다시 시도하십시오.</li><li><strong>연결 테스트</strong> → 성공하면 <strong>저장</strong></li></ol>
+<p class="note"><strong>구역망 IPv4</strong> 집에서 <code>192.168.x.x</code>(또는 스캔한 주소)를 유지하고, WebDAV 외부망 호스트와는 따로 기입하세요.<br /><strong>IPv6 필드:</strong> 설정 → 호스트 연결 관리에서 <strong>IPv6 활성화</strong>를 켠 경우에만 표시됩니다(기본값은 끔). 외부 WebDAV는 사용자가 입력한 외부 네트워크 호스트/DDNS를 기준으로 합니다.</p>
+</section>
+<section>
+<h2>5. 외출 시 사용 방법</h2>
+<ol><li>집에서 Wi‑Fi를 끄거나(또는 집 내 네트워크를 떠나), 모바일 데이터/외부 네트워크 Wi‑Fi를 사용</li><li>해당 <strong>집 사진첩</strong> 열기</li><li>앱은 WebDAV 연결을 사용해야 하며; 버전에 따라 탐색, 재생 및 기존 백업 프로세스를 수행할 수 있습니다</li></ol>
+<p>연결할 수 없는 경우:</p>
+<ul><li>DDNS 휴대폰 브라우저에서 해석할 수 있나요? 포트가 올바른가요?</li><li>NAS WebDAV HTTPS 여전히 활성화되어 있습니까?</li><li>라우터가 해당 포트를 열어주었나요?</li><li>계정과 비밀번호가 로컬 네트워크와 동일하며, 해당 공유 폴더에 권한이 있나요?</li><li><strong>설정 → 진단 기록 내보내기</strong>로 이동한 후, 로그에서 <code>transport=WebDAV via=webdavHost</code>을 검색할 수 있습니다</li></ul>
+<h3>외출 체험 기대(모바일 데이터)</h3>
+<ul><li><strong>연결</strong>: 앱은 우선 <strong>IPv4</strong>을 사용합니다 (DDNS이 동시에 IPv6로 응답할 경우, 네트워크가 약할 때 IPv6이 자주 멈춥니다).</li><li><strong>폴더 표지/목록</strong>: 각 계층의 폴더는 NAS 에 일람을 한 번 요청해야 합니다; 표지 콜라주는 하위 폴더를 더 탐색할 수도 있으며, 외부 네트워크 체감 속도는 내부 네트워크 SMB 보다 느릴 수 있으며, 이는 예상되는 사항입니다.</li><li><strong>사진 축소판</strong>: 먼저 파일 헤더/EXIF를 읽습니다; 실패할 경우 최대 약 <strong>2 MB</strong> 전치사(전체 큰 이미지를 피하기 위해)</li><li><strong>영상 재생</strong>: 본 기기 HTTP bridge를 통해, <strong>단일 구간 범위</strong> 스트리밍을 주로 사용합니다; 외부 네트워크 속도는 집의 업로드와 모바일 네트워크 제한을 받기 때문에, 재생 시작과 탐색(seek)은 로컬 네트워크보다 느릴 수 있습니다.</li><li><strong>문제 해결</strong>: 일반 사용자는 <strong>설정 → 진단 기록 내보내기</strong>(<code>transport=WebDAV …</code> 포함)를 사용하세요. 정식 버전에서는 logcat에 WebDAV Range/TLS 세부 정보가 표시되지 않습니다.</li></ul>
+</section>
+<section>
+<h2>6. Tailscale과 어떻게 선택할까?</h2>
+<p>| | <strong>WebDAV</strong> | <strong>Tailscale</strong> |</p>
+<p>|--|------------|---------------|</p>
+<p>| 적합 | 이미 열린 HTTPS WebDAV 의 <strong>NAS</strong> | <strong>Windows PC</strong> 또는 WebDAV 를 열 수 없는 기기 |</p>
+<p>| 앱 설정 | 원격 접속 = WebDAV; DDNS/공용 IP + 포트 입력 | 원격 접속 = Tailscale; <code>100.x</code> 입력 |</p>
+<p>| 추가 앱 | 일반적으로 필요 없음 | 휴대폰과 메인 장치 모두 설치 Tailscale |</p>
+<p>같은 호스트에서는 <strong>한 가지</strong> 원격 방식을 선택하면 됩니다; 두 가지 방식을 혼용하지 마세요.</p>
+</section>
+<section>
+<h2>7. 안전 알림(반드시 읽으세요)</h2>
+<ul><li>외부에 포트 WebDAV를 개방하는 것은 파일 서비스를 인터넷에 노출하는 것과 같습니다; <strong>강력한 비밀번호</strong>를 사용하고 필요시 별도의 계정을 사용하세요.</li><li>가능한 한 <strong>HTTPS</strong>을 사용하세요. 가정용 자체 서명 인증서는 '신뢰할 수 없는 인증서 허용'을 선택하세요: <strong>시스템 신뢰 + 호스트 고정</strong> 방식으로, 임의의 인증서를 신뢰하는 것이 아닙니다. 자세한 내용은 §4를 참조하세요.</li><li>외부에서 접속할 필요가 없다면, 원격 접속은 <strong>없음</strong>으로 유지하고, 집에서만 Wi‑Fi 사용하십시오.</li></ul>
+</section>
+<section>
+<h2>점검 목록(복사용)</h2>
+<p>```</p>
+<p>NAS：啟用 WebDAV HTTPS → 記下埠（常為 5006）</p>
+<p>DDNS 或公網 IP 可用</p>
+<p>路由器／防火牆已放行該埠（依環境）</p>
+<p>App：遠端存取 = WebDAV → 填主機＋埠 → 測試 → 儲存</p>
+<p>外出：關家中 Wi‑Fi → 開家中相簿確認可連</p>
+<p>```</p>
+<p>개정: 2026/08/13</p>
+</section>
     </section>
 
     <footer>

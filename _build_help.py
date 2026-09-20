@@ -9,6 +9,8 @@ SITE = Path(__file__).resolve().parent
 APP_ROOT = SITE.parent
 ZH_SRC = APP_ROOT / "docs" / "user-manual.md"
 EN_SRC = SITE / "_user_manual_en.md"
+JA_SRC = SITE / "_user_manual_ja.md"
+KO_SRC = SITE / "_user_manual_ko.md"
 OUT = SITE / "help" / "index.html"
 
 ZH_LINKS = [
@@ -29,6 +31,25 @@ EN_LINKS = [
     (r"\]\(\./setup-home-storage/tailscale\.md\)", "](setup/tailscale/index.html#en)"),
     (r"\]\(\./setup-home-storage/\)", "](setup/index.html#en)"),
 ]
+JA_LINKS = [
+    (r"\]\(\./setup-home-storage/windows-11\.md\)", "](setup/windows-11/ja.html)"),
+    (r"\]\(\./setup-home-storage/synology\.md\)", "](setup/synology/ja.html)"),
+    (r"\]\(\./setup-home-storage/qnap\.md\)", "](setup/qnap/ja.html)"),
+    (r"\]\(\./setup-home-storage/troubleshooting\.md\)", "](setup/troubleshooting/index.html#ja)"),
+    (r"\]\(\./setup-home-storage/webdav\.md\)", "](setup/webdav/index.html#ja)"),
+    (r"\]\(\./setup-home-storage/tailscale\.md\)", "](setup/tailscale/index.html#ja)"),
+    (r"\]\(\./setup-home-storage/\)", "](setup/index.html#ja)"),
+]
+KO_LINKS = [
+    (r"\]\(\./setup-home-storage/windows-11\.md\)", "](setup/windows-11/ko.html)"),
+    (r"\]\(\./setup-home-storage/synology\.md\)", "](setup/synology/ko.html)"),
+    (r"\]\(\./setup-home-storage/qnap\.md\)", "](setup/qnap/ko.html)"),
+    (r"\]\(\./setup-home-storage/troubleshooting\.md\)", "](setup/troubleshooting/index.html#ko)"),
+    (r"\]\(\./setup-home-storage/webdav\.md\)", "](setup/webdav/index.html#ko)"),
+    (r"\]\(\./setup-home-storage/tailscale\.md\)", "](setup/tailscale/index.html#ko)"),
+    (r"\]\(\./setup-home-storage/\)", "](setup/index.html#ko)"),
+]
+LINK_MAP = {"zh": ZH_LINKS, "en": EN_LINKS, "ja": JA_LINKS, "ko": KO_LINKS}
 
 DROP_PATTERNS = [
     r"詳見 \[平行目錄與SAF策略\.md\]\(\./平行目錄與SAF策略\.md\) §2\.4。\n?",
@@ -69,7 +90,12 @@ def inline(text: str) -> str:
 
 def slug(title: str) -> str:
     title = re.sub(r"^#+\s*", "", title)
-    title = re.sub(r"[^\w\u4e00-\u9fff\- ]+", "", title)
+    title = re.sub(
+        r"[^\w\u4e00-\u9fff\u3040-\u30ff\u3400-\u4dbf\uac00-\ud7af\- ]+",
+        "",
+        title,
+        flags=re.UNICODE,
+    )
     title = re.sub(r"\s+", "-", title.strip())
     return title[:56] or "section"
 
@@ -82,12 +108,13 @@ def list_match(line: str):
 
 
 def preprocess(md: str, lang: str) -> str:
-    for pat, repl in ZH_LINKS if lang == "zh" else EN_LINKS:
+    for pat, repl in LINK_MAP.get(lang, EN_LINKS):
         md = re.sub(pat, repl, md)
     for pat in DROP_PATTERNS:
         md = re.sub(pat, "", md)
     md = re.split(r"\n## 14[\.、] ", md, maxsplit=1)[0]
     md = re.split(r"\n## 14\. Revision history\n", md, maxsplit=1)[0]
+    md = re.split(r"\n## 14[\.．]\s", md, maxsplit=1)[0]
     md = re.sub(
         r"> \*\*公開站更新時程（2026/07/25）\*\*[^\n]*\n?",
         "",
@@ -336,11 +363,13 @@ TEMPLATE = """<!DOCTYPE html>
     <header>
       <h1>Home Gallery User Guide</h1>
       <p class="meta">家相簿／Home Gallery · Package <code>com.jasoncs.homegallery</code></p>
-      <p class="meta"><strong>Updated:</strong> 2026-09-14 · App <strong>1.2.0</strong> · Manual <strong>1.45</strong></p>
+      <p class="meta"><strong>Updated:</strong> 2026-09-20 · App <strong>1.2.3</strong> · Manual <strong>1.48</strong></p>
       <p class="meta"><strong>Contact:</strong> <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
       <div class="langs">
         <a href="#en">English</a>
         <a href="#zh-tw">繁體中文</a>
+        <a href="#ja">日本語</a>
+        <a href="#ko">한국어</a>
         <a href="../">Privacy policy</a>
       </div>
     </header>
@@ -355,6 +384,18 @@ TEMPLATE = """<!DOCTYPE html>
       <h2>繁體中文</h2>
       {zh_toc}
       {zh_body}
+    </section>
+
+    <section id="ja">
+      <h2>日本語</h2>
+      {ja_toc}
+      {ja_body}
+    </section>
+
+    <section id="ko">
+      <h2>한국어</h2>
+      {ko_toc}
+      {ko_body}
     </section>
 
     <p class="note">
@@ -374,6 +415,8 @@ TEMPLATE = """<!DOCTYPE html>
 def main() -> None:
     zh = convert(preprocess(ZH_SRC.read_text(encoding="utf-8"), "zh"), "zh-", "zh")
     en = convert(preprocess(EN_SRC.read_text(encoding="utf-8"), "en"), "en-", "en")
+    ja = convert(preprocess(JA_SRC.read_text(encoding="utf-8"), "ja"), "ja-", "ja")
+    ko = convert(preprocess(KO_SRC.read_text(encoding="utf-8"), "ko"), "ko-", "ko")
     page = TEMPLATE.format(
         en_toc=toc(
             en,
@@ -383,11 +426,23 @@ def main() -> None:
             zh,
             '<li><a href="setup/index.html#zh-tw">家中儲存建置</a>（Windows／NAS）</li>',
         ),
+        ja_toc=toc(
+            ja,
+            '<li><a href="setup/index.html#ja">ホームストレージ設定</a>（Windows / NAS）</li>',
+        ),
+        ko_toc=toc(
+            ko,
+            '<li><a href="setup/index.html#ko">홈 저장소 설정</a>（Windows / NAS）</li>',
+        ),
         en_body=en,
         zh_body=zh,
+        ja_body=ja,
+        ko_body=ko,
     )
     OUT.write_text(page, encoding="utf-8")
-    print(f"Wrote {OUT} ({len(page)} chars; zh={len(zh)} en={len(en)})")
+    print(
+        f"Wrote {OUT} ({len(page)} chars; zh={len(zh)} en={len(en)} ja={len(ja)} ko={len(ko)})"
+    )
 
 
 if __name__ == "__main__":

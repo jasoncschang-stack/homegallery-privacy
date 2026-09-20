@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home GalleryのためにQNAP NAS共有を有効にする — Home Gallery</title>
+  <meta name="description" content="Home GalleryのためにQNAP NAS共有を有効にする" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../../index.html">ユーザーガイド</a>
+      <span>/</span>
+      <a href="../index.html">ホームストレージ設定</a>
+      <span>/</span>
+      <span>qnap</span>
+    </nav>
+
+    <header>
+      <h1>Home GalleryのためにQNAP NAS共有を有効にする</h1>
+      <p class="meta">Home Gallery</p>
+      <p class="note">日本語専用の画面がない場合は、英語版スクリーンショットを表示しています。</p>
+      <div class="langs">
+        <a href="index.html">繁體中文</a>
+        <a href="en.html">English</a>
+        <a href="ja.html">日本語</a>
+        <a href="ko.html">한국어</a>
+        <a href="../troubleshooting/index.html#ja">トラブルシューティング</a>
+      </div>
+    </header>
+
+<p>すでにQTS/QuTSがインストールされており、ブラウザでサインインできる場合、<strong>約15〜25分</strong>です。その後、Home GalleryはNASを<strong>ホームストレージ</strong>として使用できます。</p>
+<p class="note">一般的な <strong>QTS 5.x / QuTS hero</strong> コントロールパネルのパス（多くの QuTScloud ホームユニットにも典型的）向けに作成されています。ラベルが異なる場合は、<strong>Microsoft Networking</strong>、<strong>SMB</strong>、または <strong>共有フォルダ</strong> を検索してください。</p>
+<p>＞ 電話は <strong>SMB</strong> 上のフォルダを読み取ります（QNAP はこれをしばしば <strong>Microsoft Networking / SMB</strong> とラベル付けします）。</p>
+<section>
+<h2>はじめる前に</h2>
+<ul><li>NAS の管理者 UI がブラウザで開きます（例：<code>http://NAS-IP:8080</code>、または myQNAPcloud / Qfinder 経由）</li><li>あなたは<strong>管理者</strong>アカウントを持っています</li><li>電話とNASは<strong>同じホームWi‑Fi / LAN</strong>にあります</li><li>写真の保存場所を決める: 新しい共有フォルダ（例: <code>FamilyPhotos</code>）か、既存の共有フォルダのサブフォルダ</li></ul>
+</section>
+<section>
+<h2>ステップ 1: Microsoft ネットワーキングを有効にする (SMB)</h2>
+<ol><li>QTS / QuTS にサインイン</li><li><strong>コントロールパネル</strong> を開きます</li><li><strong>ネットワークとファイルサービス</strong> を開く</li><li><strong>Win/Mac/NFS/WebDAV</strong> を開く（タブ名は少し異なる場合があります）</li><li><strong>Microsoft ネットワーキング</strong> を選択</li><li><strong>Microsoft ネットワーキング用のファイルサービスを有効にする</strong> にチェックを入れる</li><li><strong>適用</strong> をクリック</li></ol>
+<p>(スクリーンショット: Win/Mac/NFS → Microsoft ネットワーキング → 有効にする)</p>
+<h3>推奨される高度なオプション</h3>
+<p>同じページまたは詳細設定で：</p>
+<ul><li>最大SMBバージョンをデフォルトのままにする (SMB 2/3)</li><li><strong>互換性のためにSMB1を有効にしないでください</strong>（セキュリティリスク; Home Galleryには必要ありません）</li><li><strong>SMB 暗号化</strong>: 初回設定ではデフォルトのままにしてください；強制暗号化で電話が使えなくなる場合は、トラブルシューティング時に緩めてください</li><li>サーバーの説明 / ワークグループ: 家ではデフォルトで問題ありません</li></ul>
+</section>
+<section>
+<h2>ステップ2: 共有フォルダを作成または確認する</h2>
+<ol><li><strong>コントロールパネル → 権限 → 共有フォルダ</strong></li><li>適切な共有が既に存在する場合は、その<strong>名前</strong>をメモしてステップ3に進んでください</li><li>それ以外の場合は <strong>作成 → 共有フォルダー</strong> を選択し、次のように設定します:</li><li><strong>フォルダ名</strong>: 例 <code>FamilyPhotos</code>（アプリでは共有フォルダとして表示されます）</li><li>空き容量のあるボリューム/ストレージプール</li><li>「ネットワークドライブを隠す」：初回デバッグを簡単にするためにチェックを外したままにする</li><li>共有がリストに表示されていることを確認してください</li></ol>
+<p>（スクリーンショット：共有フォルダの一覧／作成ウィザード）</p>
+<p>権限が正しく、写真が存在する（または存在する予定である）場合、<code>Multimedia</code> や <code>homes</code> のような組み込み共有でも問題ありません。</p>
+</section>
+<section>
+<h2>ステップ 3: フォルダの権限</h2>
+<ol><li>リストで株式を見つける</li><li><strong>フォルダーの権限</strong> を開く（または 編集 → 権限）</li><li>電話で使用するアカウントについては、<strong>RW（読み書き）</strong> を優先してください</li><li>アップロード、移動/コピー、編集、アルバムのバックアップには書き込み権限が必要です；読み取り専用だけでは後で失敗することがよくあります</li><li>電話が書き込みを行わない場合のみ、<strong>RO（読み取り専用）</strong>を使用してください</li><li><strong>ゲスト</strong>を<strong>拒否</strong>に設定する（推奨）</li><li><strong>適用する</strong></li></ol>
+<p>（スクリーンショット：フォルダの権限）</p>
+<h3>推奨：電話のみのユーザー</h3>
+<ol><li><strong>コントロールパネル → 権限 → ユーザー</strong></li><li><strong>ユーザーを作成</strong> 例: <code>homegallery</code></li><li>パスワードを設定する</li><li>通常のユーザーグループを使用してください—<strong>管理者ではなく</strong></li><li>写真の共有に対して、ユーザー <strong>RW</strong> または <strong>RO</strong> に権限を付与する</li><li>管理者パスワードを電話に保存する代わりに、アプリでこのアカウントにサインインしてください</li></ol>
+<p class="note">ゲスト/匿名アクセスに<strong>頼らない</strong>でください。</p>
+<h3>高度な権限（通常はスキップ）</h3>
+<p>共有フォルダ → <strong>詳細な権限</strong> では、詳細なフォルダ権限や Windows ACL などのオプションがあります。</p>
+<p><strong>最初のHome Gallery接続ではそれらをスキップ</strong>; まずは共有レベルの読み書き/読み取り専用を動作させる。</p>
+</section>
+<section>
+<h2>ステップ4：写真を共有に入れる（任意だが推奨）</h2>
+<ol><li><strong>ファイルステーション</strong> を開く</li><li>共有フォルダー（またはサブフォルダー）を開きます</li><li>写真やビデオをアップロードまたは移動する</li></ol>
+<p>アプリでホームアルバムを追加するときは、この共有を選び、次に実際に写真が入っているフォルダを選んでください。</p>
+</section>
+<section>
+<h2>ステップ5：接続の詳細を記録する</h2>
+<p>| アイテム | 入手場所 |</p>
+<p>|------|------------------|</p>
+<p>| NAS 名前 | デスクトップ / コントロールパネル → システム → システムの状態; または Qfinder |</p>
+<p>| IPアドレス | ネットワーク &amp; 仮想スイッチ；ルーターDHCP；またはQfinder |</p>
+<p>| ユーザー名 / パスワード | ステップ3のアカウント |</p>
+<p>もし検出に失敗した場合は、Home Galleryに<strong>IP</strong>を手動で入力してください。</p>
+</section>
+<section>
+<h2>ステップ6：Home Galleryで接続</h2>
+<ol><li>電話は<strong>同じ</strong>家にWi‑Fi</li><li><strong>ホーム → ホームストレージに接続</strong>（または <strong>その他 → 設定 → ホスト接続 → SMBホストを追加</strong>）</li><li>スキャンからNASを選択するか、IPを入力してください</li><li>資格情報 → <strong>接続をテスト → 保存</strong></li><li>共有フォルダー → アルバムフォルダー → <strong>完了</strong> を選択</li></ol>
+<p>アプリの詳細：<a href="../user-manual.md#4-家中相簿與-smb-主機">user manual §4</a>（繁体字中国語のソース）。</p>
+</section>
+<section>
+<h2>完了チェックリスト</h2>
+<ul><li>Microsoft ネットワーキング (SMB) が有効化され、適用されました</li><li>共有は存在する；アカウントはROまたはRW；ゲストはできれば拒否</li><li>電話とNASが同じLAN上にある</li><li>アプリの接続テストが機能する；フォルダが開く</li><li>（バックアップ）アカウントは<strong>RW</strong>です</li></ul>
+<p>もし失敗した場合：<a href="../troubleshooting/index.html#ja">Troubleshooting</a>。</p>
+</section>
+<section>
+<h2>短いFAQ</h2>
+<p><strong>myQNAPcloudが必要ですか？</strong> ホームLANには不要ですSMB。LANのIP/ホスト名を使用してください。</p>
+<p><strong>ファイアウォール / セキュリティセンター？</strong> ファイアウォールがオンの場合、<strong>SMB (TCP 445)</strong> へのLANアクセスを許可します。</p>
+<p><strong>QuTS hero と QTS の違い？</strong> 全体の流れは同じ（SMB を有効にする → 共有 → 権限 → アプリ）；ストレージの用語は異なる場合があります。</p>
+<p><strong>5Gで外出中ですか？</strong> 自宅Wi‑FiではアプリはまだSMBを使用します。自宅外では、リモートアクセスを<strong>WebDAV</strong>に設定してください（DDNS / 公開IP + HTTPSポート）—<a href="../webdav/index.html#ja">webdav.md</a>を参照してください。Windows PCの場合は、<a href="../tailscale/index.html#ja">Tailscale</a>を使用してください。</p>
+</section>
+<section>
+<h2>追加するスクリーンショット</h2>
+<ol><li>Microsoft ネットワーキングを有効にする</li><li>共有フォルダの一覧 / 作成</li><li>フォルダの権限（ユーザー RW、ゲスト拒否）</li><li>ユーザーを作成（オプション）</li><li>システム / ネットワーク IP</li><li>アプリ接続 → 共有を選択</li></ol>
+<p>改訂日：2026-07-27</p>
+</section>
+
+    <footer>
+      <a href="../index.html">ホームストレージ設定</a> ·
+      <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a>
+    </footer>
+  </main>
+</body>
+</html>

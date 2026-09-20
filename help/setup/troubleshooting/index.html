@@ -13,7 +13,9 @@
     <header>
       <h1>家中儲存連線排查</h1>
       <p class="meta">已開過共用，但 App 連不上時使用</p>
-      <div class="langs"><a href="#zh-tw">繁體中文</a><a href="#en">English</a></div>
+      <div class="langs"><a href="#zh-tw">繁體中文</a><a href="#en">English</a>
+        <a href="#ja">日本語</a>
+        <a href="#ko">한국어</a></div>
     </header>
 
     <section id="zh-tw">
@@ -102,6 +104,108 @@
         <li><strong>Windows PC:</strong> follow the <a href="../tailscale/index.html#en">Tailscale guide</a>, then paste <strong>100.x</strong> in the app</li>
         <li>If you already use OpenVPN (or similar) into the LAN, keep the LAN IPv4—no WebDAV/Tailscale needed</li>
       </ol>
+    </section>
+
+
+    <section id="ja">
+      <h2>日本語 — 家庭内ストレージ接続のトラブルシューティング</h2>
+      <p class="note">日本語専用の画面がない場合は、英語版スクリーンショットを表示しています。</p>
+<p>適用：すでにコンピューター／NAS で共有を開いているが、ホームギャラリー <strong>ホストが見つからない</strong>、<strong>ログインに失敗</strong>、<strong>見えるが開けない</strong>、または<strong>バックアップできない（書き込み失敗）</strong>。</p>
+<p>Windows の構築手順：<a href="../windows-11/ja.html">windows-11.md</a></p>
+<p>Synology 構築手順：<a href="../synology/ja.html">synology.md</a></p>
+<p>QNAP 構築手順：<a href="../qnap/ja.html">qnap.md</a></p>
+<section>
+<h2>A. ホストがまったく見つかりません</h2>
+<p>順番にチェック：</p>
+<ol><li><strong>携帯電話は家にありますか Wi‑Fi？</strong></li></ol>
+<p>行動データ（5G／4G）を使用する場合、通常、家庭内の IPv4 のみのコンピュータは検出できません。家庭内の Wi‑Fi に接続してください。</p>
+<ol><li><strong>携帯電話とコンピュータは同じネットワークですか？</strong></li></ol>
+<p>訪問者 Wi‑Fi、異なる SSID、会社／学校の VPN は、デバイスを隔離する可能性があります。両方とも「普段の家庭用」の方 Wi‑Fi に接続すべきです。</p>
+<ol><li><strong>コンピューターネットワークは「私的」ですか？</strong></li></ol>
+<p>Windowsのガイドステップ1を参照してください。パブリックネットワークは通常、探索と共有をブロックします。</p>
+<ol><li><strong>コンピュータはスリープまたはシャットダウンしていますか？</strong></li></ol>
+<p>睡眠後 SMB が中断されます；起きているか電源に接続し、睡眠時間を調整してください。</p>
+<ol><li><strong>手打ちIPに切り替え</strong></li></ol>
+<p>コンピュータで <code>ipconfig</code> を実行し、<strong>IPv4</strong>（例：<code>192.168.x.x</code>）をアプリ「手動でホスト入力」に入力します。</p>
+<p>もしIPに接続できるが、名前が見つからない場合：大半は探索／ファイアウォールの問題で、接続自体は可能な場合があります。</p>
+<ol><li><strong>ファイアウォール</strong></li></ol>
+<p>「ファイルとプリンターの共有」がプライベートネットワークで許可されていることを確認してください（Windows ガイドのステップ5）。</p>
+</section>
+<section>
+<h2>B. ホストにアクセスできるが、アカウント情報が失敗する</h2>
+<ol><li>使用 <strong>Windows のログインパスワード</strong>、PIN ではなく、Microsoft アカウントのウェブパスワードでもない（もし一致しない場合）。</li><li>Microsoft アカウントで試す：<code>MicrosoftAccount\你的信箱</code>；それでも失敗する場合は、共有用に<strong>ローカルアカウント</strong>を作成する。</li><li>該当ユーザーが「詳細共有 → 権限」に追加されていることを確認する。</li><li>「パスワード保護された共有」がオンになっていることを確認し、パスワード付きのアカウントを入力してください。</li></ol>
+</section>
+<section>
+<h2>C. ログインはできるが、期待したフォルダ／写真が見えない</h2>
+<ol><li><strong>共有名</strong>（Share）が正しく選ばれているか確認し、他のドライブの共有ではないことを確認してください。</li><li>アプリでさらに下の階層に進み、実際に写真を入れているフォルダを選びます。</li><li>ファイルはまだローカルの「このデバイスのみ」のパスにあり、共有フォルダには入っていません。</li></ol>
+</section>
+<section>
+<h2>D. 閲覧は可能だが、アップロード／バックアップに失敗（読み取り専用）</h2>
+<ol><li>共有権限には <strong>変更</strong>（書き込み）を含める必要があり、読み取りだけではいけません。</li><li>NTFS の「セキュリティ」タブでも、そのユーザーがそのフォルダーに書き込みできるようにする必要がある（少数の環境では「共有権限」だけを変更しても不十分）。</li><li>ディスクが満杯でないか、またはフォルダが他のプログラムによってロックされていないか。</li></ol>
+</section>
+<section>
+<h2>E. 外出（行動データ）に接続できない</h2>
+<ol><li><strong>ほとんどの家庭用 PC／NAS はモバイルデータでは本来SMBに接続できません</strong>——まだリモート設定をしていない場合、これは予想される動作です。</li><li><strong>NAS：</strong> <a href="../webdav/index.html#ja">WebDAV 使用手冊</a> に従って HTTPS WebDAV を有効化し、App のリモートアクセスで <strong>WebDAV</strong> を選択し、DDNS／パブリック IP とポートを入力してください。</li><li><strong>Windows PC</strong>（または開けない場合 WebDAV）：<a href="../tailscale/index.html#ja">Tailscale 使用手冊</a> に従って、PC と携帯に Tailscale をインストールし、アプリに PC の <strong><code>100.x</code></strong> を入力してください。</li><li>もしすでに OpenVPN などで自宅のネットワークに接続している場合は、ネットワーク IPv4 が正しいことを確認すればよく、WebDAV／Tailscale を開く必要はありません。</li><li>初回設定 Tailscale：Tailscale から IP をコピーして App に戻った後、まず貼り付けして「Tailscale IP を保存して再試行」を押してください。戻っただけで自動的に接続されることは期待しないでください。</li><li>WebDAV 接続済みだが<strong>サムネイル／カバーの読み込みが遅い</strong>：モバイルデータ下でよく見られる現象（<a href="../webdav/index.html#ja">webdav.md</a> §5「外出体験の期待」を参照）；まずは自宅のアップロード帯域とDDNS／ポートの安定性を確認してください。</li></ol>
+<p class="note">外出する場合は WebDAV（NAS）または Tailscale（Windows）を使用してください。</p>
+</section>
+<section>
+<h2>F. 問題を報告する際は添付してください</h2>
+<p>ご協力いただく際には、以下をご提供ください：</p>
+<ul><li>アプリのバージョン、携帯電話の機種、Androidのバージョン</li><li>保存タイプ：Windows 11 / Synology / QNAP / その他</li><li>現象：スキャンできない / アカウントやパスワードが間違っている / 読み取り専用 / 外出先で接続できない</li><li>リモート方式：なし / WebDAV / Tailscale（ある場合）</li><li>（オプション）設定 → 診断ログをエクスポート</li></ul>
+<p>見：<a href="../客戶問題處理策略.md">客戶問題處理策略</a></p>
+<p>改訂：2026/08/13</p>
+</section>
+    </section>
+
+
+    <section id="ko">
+      <h2>한국어 — 가정 내 저장 연결 점검</h2>
+      <p class="note">한국어 전용 화면이 없으면 영어 스크린샷을 사용합니다.</p>
+<p>적용: 컴퓨터/NAS에서 이미 공유를 열었지만 홈 갤러리 <strong>호스트를 찾을 수 없음</strong>, <strong>로그인 실패</strong>, <strong>볼 수는 있지만 열 수 없음</strong>, 또는 <strong>백업 불가(쓰기 실패)</strong> 경우.</p>
+<p>Windows 설치 단계: <a href="../windows-11/ko.html">windows-11.md</a></p>
+<p>Synology 구축 단계: <a href="../synology/ko.html">synology.md</a></p>
+<p>QNAP 구축 단계: <a href="../qnap/ko.html">qnap.md</a></p>
+<section>
+<h2>A. 호스트를 전혀 찾을 수 없음</h2>
+<p>순서대로 점검:</p>
+<ol><li><strong>휴대폰이 집에 있나요 Wi‑Fi?</strong></li></ol>
+<p>모바일 데이터(5G/4G)를 사용할 때, 보통 집에서 IPv4만 있는 컴퓨터는 검색되지 않습니다. 집에 있는 Wi‑Fi로 연결해 주세요.</p>
+<ol><li><strong>휴대폰과 컴퓨터가 같은 네트워크에 있나요?</strong></li></ol>
+<p>방문객 Wi‑Fi, 서로 다른 SSID, 회사/학교 VPN은 모두 장치를 격리할 수 있습니다. 양쪽 모두 '평상시 가정용' 그 그룹 Wi‑Fi에 연결해야 합니다.</p>
+<ol><li><strong>컴퓨터 네트워크는 '개인'인가?</strong></li></ol>
+<p>Windows 안내 1단계를 참조하십시오. 공용 네트워크는 종종 탐색 및 공유를 차단합니다.</p>
+<ol><li><strong>컴퓨터가 절전 모드/종료 상태인가요?</strong></li></ol>
+<p>수면 후 SMB가 중단됩니다; 깨어 있거나 전원을 연결하고 수면 시간을 조절하세요.</p>
+<ol><li><strong>손으로 IP 입력으로 변경</strong></li></ol>
+<p>컴퓨터에서 <code>ipconfig</code>를 실행하고, <strong>IPv4</strong>(예: <code>192.168.x.x</code>)를 App '수동으로 호스트 입력'에 입력합니다.</p>
+<p>만약 IP로 연결은 가능하지만 이름이 검색되지 않는다면: 대부분 탐색/방화벽 문제일 수 있으며, 연결 자체는 이미 가능할 수 있습니다.</p>
+<ol><li><strong>방화벽</strong></li></ol>
+<p>개인 네트워크에서 '파일 및 프린터 공유'가 허용되어 있는지 확인하십시오(Windows 안내 5단계).</p>
+</section>
+<section>
+<h2>B. 호스트는 보이지만 계정과 비밀번호 실패</h2>
+<ol><li><strong>Windows 로그인 비밀번호</strong>를 사용하세요. PIN이 아니며, Microsoft 계정 웹 비밀번호도 아닙니다(일치하지 않는 경우).</li><li>Microsoft 계정으로 시도: <code>MicrosoftAccount\你的信箱</code>; 그래도 실패하면 <strong>로컬 계정</strong>을 만들어 공유용으로 사용.</li><li>해당 사용자가 '고급 공유 → 권한'에 추가되어 있는지 확인합니다.</li><li>'암호로 보호된 공유'가 켜져 있는지 확인하고, 입력한 계정에 암호가 있는지 확인하세요.</li></ol>
+</section>
+<section>
+<h2>C. 로그인은 할 수 있지만, 예상한 폴더/사진을 볼 수 없음</h2>
+<ol><li><strong>공유 이름</strong>(Share)을 제대로 선택했는지 확인하세요, 다른 드라이브 공유가 아닌지 확인하세요.</li><li>앱에서 한 단계 더 내려가 실제로 사진을 넣은 폴더를 선택합니다.</li><li>파일이 여전히 이 장치의 '이 장치만' 경로에 있으며, 공유 폴더에 넣지 않았는지 여부.</li></ol>
+</section>
+<section>
+<h2>D. 열람은 가능하지만 업로드/백업 실패(읽기 전용)</h2>
+<ol><li>공유 권한에는 <strong>변경</strong>(쓰기)이 포함되어야 하며, 읽기만 있어서는 안 됩니다.</li><li>NTFS '보안' 탭에서도 해당 사용자가 해당 폴더에 쓰기 권한을 허용해야 합니다(일부 환경에서는 '공유 권한'만 변경하는 것으로는 충분하지 않습니다).</li><li>디스크가 가득 찼거나, 폴더가 다른 프로그램에 의해 잠겨 있는지 확인하십시오.</li></ol>
+</section>
+<section>
+<h2>E. 외출(모바일 데이터) 연결 불가</h2>
+<ol><li><strong>대다수 가정용 PC/NAS는 이동 데이터로는 원래 SMB에 연결되지 않습니다</strong>——원격 방식이 아직 설정되지 않았다면, 이것은 예상되는 동작입니다.</li><li><strong>NAS：</strong> <a href="../webdav/index.html#ko">WebDAV 使用手冊</a>에 따라 HTTPS WebDAV를 활성화하고, 앱 원격 액세스에서 <strong>WebDAV</strong>를 선택한 후 DDNS/공용 IP와 포트를 입력하세요.</li><li><strong>Windows PC</strong>（또는 WebDAV를 열 수 없는 경우）：<a href="../tailscale/index.html#ko">Tailscale 使用手冊</a>에 따라 PC와 휴대폰에 Tailscale를 설치하고, 앱에 PC의 <strong><code>100.x</code></strong>를 입력하세요.</li><li>만약 이미 OpenVPN 등으로 집안 네트워크에 연결했다면, 네트워크 IPv4가 정확한지만 확인하면 되고, WebDAV/Tailscale를 다시 열 필요는 없다.</li><li>최초 설정 Tailscale: Tailscale에서 IP를 복사한 후 앱으로 돌아오면, 먼저 붙여넣고 'IP Tailscale 저장 후 재시도'를 눌러야 하며, 돌아오기만 하면 자동으로 연결될 것이라고 기대하지 마세요.</li><li>WebDAV 이미 연결되었으나 <strong>썸네일/커버가 매우 느림</strong>: 모바일 데이터 환경에서 흔히 나타나는 현상(참조 <a href="../webdav/index.html#ko">webdav.md</a> §5『외출 체험 기대』); 먼저 가정의 업로드 대역폭과 DDNS/포트의 안정성을 확인하십시오.</li></ol>
+<p class="note">외출 시 WebDAV(NAS) 또는 Tailscale(Windows)를 사용하세요.</p>
+</section>
+<section>
+<h2>F. 문제 보고 시 첨부 부탁드립니다</h2>
+<p>편리하게 도움을 드리려면 다음을 제공해 주세요:</p>
+<ul><li>앱 버전, 휴대폰 모델, 안드로이드 버전</li><li>저장 유형: Windows 11 / Synology / QNAP / 기타</li><li>현상: 스캔 불가 / 계정 비밀번호 오류 / 읽기 전용 / 외출 시 연결 불가</li><li>원격 방식: 없음 / WebDAV / Tailscale(있는 경우)</li><li>(선택) 설정 → 진단 기록 내보내기</li></ul>
+<p>보기: <a href="../客戶問題處理策略.md">客戶問題處理策略</a></p>
+<p>개정: 2026/08/13</p>
+</section>
     </section>
 
     <footer><a href="../index.html">建置指南首頁</a> · <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></footer>

@@ -24,6 +24,8 @@
       <div class="langs">
         <a href="#zh-tw">繁體中文</a>
         <a href="#en">English</a>
+        <a href="#ja">日本語</a>
+        <a href="#ko">한국어</a>
         <a href="../index.html">建置首頁</a>
         <a href="../../index.html">使用說明</a>
       </div>
@@ -119,6 +121,210 @@
         <li>Turn Tailscale on when you need the album; leaving the app asks Tailscale to disconnect after a short delay</li>
         <li>Back on matching home Wi‑Fi, the app may also disconnect Tailscale</li>
       </ul>
+    </section>
+
+
+    <section id="ja">
+      <h2>日本語 — 外出用 Tailscale 家に戻ったときのアルバム（取扱説明書）</h2>
+      <p class="note">日本語専用の画面がない場合は、英語版スクリーンショットを表示しています。</p>
+<p>適用：<strong>ホームギャラリー</strong> 家で Wi‑Fi を SMB ホストに接続できるが、外出時（モバイルデータ／外部ネット Wi‑Fi）には <strong>Tailscale</strong> 接続を使用する——<strong>Windows PC</strong> でよく見られる、または NAS <strong>外部に WebDAV 開放できない／したくない</strong> 場合。</p>
+<p class="note"><strong>和区ネットワーク構築の違い：</strong> <a href="../index.html#ja">Windows 11／NAS 建置</a> 家で共有を開く方法を教える；<strong>このページでは外出時に Tailscale を「安全トンネル」として使う方法を教える</strong>。<br /><strong>NAS 既に開いて HTTPS WebDAV？</strong> <a href="../webdav/index.html#ja">WebDAV 手冊</a> に変更することをお勧めします。通常 Tailscale をインストールする必要はありません。<br /><strong>App 総マニュアル：</strong> <a href="../../index.html#ja">user-manual.md</a> §4.4。</p>
+<p>約 <strong>15～30 分</strong>（PC とスマホそれぞれ 1 回ずつ含む Tailscale）。</p>
+<section>
+<h2>1. いつ Tailscale が必要ですか？</h2>
+<p>| シチュエーション | 提案 |</p>
+<p>|------|------|</p>
+<p>| 人が家にいるとき、携帯は家に接続 Wi‑Fi | <strong>不要</strong> Tailscale；ローカルネットワーク IPv4／ホスト名で十分 |</p>
+<p>| 外出、<strong>NAS</strong> 開けても良い HTTPS WebDAV | 優先的に使う <a href="../webdav/index.html#ja">WebDAV</a> |</p>
+<p>| 外出、<strong>Windows PC</strong>（またはWebDAVを開けないSMBのホスト） | <strong>必要</strong> Tailscale（またはすでに持っている家庭内ネットワークVPN、§7参照） |</p>
+<p>| すでに OpenVPN／WireGuard などで自宅のネットワークに接続済み | <strong>もう</strong> Tailscale を開く必要はなし；アプリがネットワーク内のアドレスを試す |</p>
+<p>Tailscale は携帯電話と自宅の PC／NAS の間で暗号化接続を確立し、各デバイスに <strong><code>100.x.x.x</code></strong> アドレス（CGNAT）を割り当てます。ホームギャラリー 外出時は優先的にこのアドレスで SMB に接続します。</p>
+<p class="note"><strong>IPを使用してください。MagicDNS名だけに頼らないでください。</strong> アプリの「Tailscale」欄には<code>100.x</code>を入力してください。名前解決は携帯電話では失敗しやすいです。</p>
+</section>
+<section>
+<h2>2. 開始前に確認してください</h2>
+<ul><li>家中の PC／NAS はすでにセットアップ済み SMB 共有されており、かつ <strong>家の中の Wi‑Fi で</strong> ホームギャラリー 接続でき、アルバムを閲覧できる</li><li>ホストはアプリの <strong>ホスト接続管理</strong> にすでにアカウント情報があります；<strong>ローカルネットワーク IPv4</strong>（例：<code>192.168.x.x</code>）は入力済みであることを推奨</li><li>PC／NAS と携帯の両方でインターネットに接続できる（外出時は携帯でモバイルデータを使用すればよい）</li><li>Google／Microsoft／GitHub などのアカウントでログイン可能 <a href="https://tailscale.com/">Tailscale</a>（無料の個人プランで十分な場合が多い）</li></ul>
+</section>
+<section>
+<h2>3. 家の PC（または NAS）に Tailscale をインストールしてログインする</h2>
+<p>以下は <strong>Windows</strong> を例とします；Linux NAS／その他のシステムは <a href="https://tailscale.com/download">Tailscale 下載頁</a> で対応するインストール方法を選択してください。原則は同じです：<strong>インストール → 同じアカウントでログイン → 接続済みであることを確認 → 100.x をメモ</strong>。</p>
+<h3>3.1 インストール</h3>
+<ol><li>コンピュータでブラウザを開き、<a href="https://tailscale.com/download">https://tailscale.com/download</a> にアクセスします</li><li><strong>Windows</strong> 版をダウンロードしてインストールする</li><li>インストールが完了したら Tailscale を開き、あなたのアカウントで<strong>ログイン</strong>してください（後でスマートフォンでも<strong>同じ</strong> Tailscale／尾網アカウントにログインする必要があります）</li></ol>
+<h3>3.2 接続が確認されました</h3>
+<ol><li>システムトレイ（右下隅）で Tailscale アイコンを見つける</li><li>状態は <strong>Connected</strong>／接続済みであるべきです</li><li>Tailscale ウィンドウまたはウェブ管理（<a href="https://login.tailscale.com/admin/machines">https://login.tailscale.com/admin/machines</a>）を開き、このコンピューターがデバイス一覧に表示されていることを確認します</li></ol>
+<h3>3.3 このコンピューターの Tailscale IPv4 を複製する</h3>
+<ol><li>Tailscale ウィンドウまたはデバイス一覧で、ローカルの <strong>IPv4</strong>（<code>100.64.x.x</code>～<code>100.127.x.x</code> の形式）を見つけます</li><li><strong>コピー</strong>その住所（後でスマホのアプリに貼り付ける）</li><li>このアドレスをメモ帳に記録することをお勧めします；機種変更や Tailscale 再インストール後、アドレスが変更される可能性があるため、アプリを再更新する必要があります</li></ol>
+<p class="note"><strong>PC ファイアウォール：</strong> LAN SMB に既に接続できる場合、通常 Tailscale のために別規則を作成する必要はありません。もし <code>100.x</code> のみが接続できない場合は、Windows の「ファイルとプリンターの共有」がまだ許可されているか、そしてコンピュータがスリープ状態でないかを確認してください。</p>
+<h3>3.4 NAS 補足</h3>
+<ul><li>部分 NAS は Tailscale パッケージ／Docker をインストール可能；インストールして<strong>同じアカウント</strong>にログインした後、同じようにそのデバイスの <strong><code>100.x</code></strong> をコピーします。</li><li>もし NAS を <strong>インストールしない</strong> Tailscale、家の常に電源が入っている PC にだけインストールしても構いません——前提として、写真が実際にその PC の共有上にあるか、または別に接続可能なパスがあることが必要です。</li></ul>
+</section>
+<section>
+<h2>4. 携帯電話にインストールしてログイン Tailscale</h2>
+<ol><li>Google Play で <strong>Tailscale</strong> をインストールする（パッケージ名はおおよそ <code>com.tailscale.ipn</code>）</li><li>Tailscale を開き、PC と <strong>同じ</strong> アカウントでログインする</li><li>提示に従って <strong>VPN 接続</strong> を作成する（Android システムが確認します）</li><li>状態が <strong>接続済み</strong> であることを確認</li><li>Tailscale のデバイスリストで、家の PC／NAS を見ることができるはずです</li></ol>
+<p>この時<strong>すぐに Tailscale を閉じないでください</strong>；次のステップで ホームギャラリー に <code>100.x</code> を貼り付けます。</p>
+</section>
+<section>
+<h2>5. ホームギャラリー で設定を完了する（推奨手順）</h2>
+<h3>5.1 まず家で本体とアルバムをセットアップする</h3>
+<ol><li>携帯電話を家に接続する Wi‑Fi</li><li><strong>設定 → ホスト接続管理</strong>：ホスト（アカウント情報、LAN IPv4）を追加または確認</li><li><strong>家庭アルバム</strong>を作成し、閲覧できることを確認する</li></ol>
+<p>外出時は再処理 Tailscale 欄だけで大丈夫です。</p>
+<h3>5.2 外出時：アプリの指示に従って完了（初回が最もスムーズ）</h3>
+<ol><li><strong>モバイルデータ</strong>（または自宅以外 Wi‑Fi）に切り替える</li><li>ホームギャラリー を開く → <strong>家の中</strong> → そのアルバムを選択</li><li>もしリモートアクセスが <strong>Tailscale</strong> で、まだ Tailscale の IP が保存されていない場合、画面には Tailscale が必要であることが説明され、次のものが提供されます：</li><li><strong>インストール／開く Tailscale</strong></li><li><strong>Tailscale IPv4</strong> 入力欄、<strong>貼り付け</strong>、<strong>Tailscale IP を保存して再試行</strong></li><li><strong>Tailscaleを開く</strong>（未インストールの場合は Play ストアに移動）</li><li>Tailscale で <strong>Connected</strong> になっていることを確認し、家庭用 PC の行で <strong>IPv4（100.x）をコピー</strong></li><li><strong>戻る ホームギャラリー</strong>（画面はサポートページにとどまり、<strong>すぐに</strong>自動で再接続はされません）</li><li><strong>貼り付け</strong> をクリックする（または手動で <code>100.x</code> を入力）</li><li><strong>保存 Tailscale IP をクリックして再試行</strong></li></ol>
+<p>成功後はその家のアルバムを閲覧するために外出できます。住所はこの端末の設定に保存され、以後は通常再度入力する必要はありません。</p>
+<h3>5.3 「ホスト接続」で手動入力することもできます</h3>
+<ol><li><strong>設定 → ホスト接続管理 → 編集</strong> そのホスト</li><li><strong>Tailscale</strong> 欄に <code>100.x</code> を入力してください（<strong>ローカルネットワーク IPv4</strong> 欄は自宅の <code>192.168.x.x</code> を維持し、両方を分けてください）</li><li><strong>接続テスト</strong> → <strong>保存</strong></li></ol>
+</section>
+<section>
+<h2>6. 日常使用と消費電力</h2>
+<p>| タイミング | 推奨 |</p>
+<p>|------|------|</p>
+<p>| <strong>アルバムを見に外出する必要があります</strong> | Tailscale を開く → 接続する → もう一度開く／ホームギャラリー に戻る |</p>
+<p>| <strong>アプリを見終わったら終了</strong> | アプリはバックグラウンドに入ってから数十秒後に、<strong>Tailscale の接続を切断</strong>します（ずっと電力を消費するのを防ぐため）。次回外出時に再度開けばOKです |</p>
+<p>| <strong>家に戻る Wi‑Fi</strong> | アプリが既に保存されたホストと一致する家庭内ネットワークを検出した場合、Tailscale に切断を依頼します |</p>
+<p>| <strong>在宅時</strong> | Tailscaleを開く必要なし；ローカルネットワークのアドレスの方が速く、節電できる |</p>
+<p class="note">ホームギャラリー <strong>アプリ内でバーコードをスキャンして交換することはできません</strong>；Tailscale アカウントと接続は Tailscale アプリ／公式サイトで管理されています。</p>
+</section>
+<section>
+<h2>7. すでに OpenVPN／他の家庭内ネットワーク VPN がある場合</h2>
+<p>もしも元々 OpenVPN や WireGuard などで<strong>自宅のローカルネットワークに接続している場合</strong>（スマホで <code>192.168.x.x</code> に ping が通る）：</p>
+<ul><li><strong>～する必要はない</strong> ホームギャラリー を再開 Tailscale</li><li>ホスト上の<strong>ローカルネットワーク IPv4</strong>（またはローカルネットワーク IPv6）を正しく維持してください</li><li>アプリがこの種類の VPN を検出したときは、ローカルネットワークのアドレスを試みますが、強制的に開くことはありません Tailscale</li></ul>
+<p>Tailscale 「進区ネットワークの従来型VPN」とは異なり：Tailscale デフォルトで<code>100.x</code>が設定されており、通常<code>192.168.x</code>を自動的にローカルネットワークとして扱うことは<strong>ありません</strong>；そのため、外出先でTailscaleを使用する場合は、必ずアプリに<strong>Tailscale IPv4</strong>を入力してください。</p>
+</section>
+<section>
+<h2>8. よくある質問</h2>
+<h3>Q1：Tailscale を開いた後、アプリに戻ると、ずっと接続 1/1、1/2 と表示され、その後失敗しますか？</h3>
+<p>「外出 Tailscale 協助」修正を含むバージョンに更新してください：アプリに戻った後は、IP を貼り付けられる画面にとどまる必要があります。もしまだ頻繁に再接続する場合は、まずアプリを完全に閉じてから再起動し、<code>100.x</code> を「区網 IPv4」欄に誤って入力していないか確認してください。</p>
+<h3>Q2：貼り付けた後もつながらない？</h3>
+<ul><li>PCと携帯 Tailscale は両方とも <strong>接続済み</strong> で、同じアカウントですか？</li><li>複製されたのは<strong>家のあの機械</strong>の <code>100.x</code>（携帯自身のものではない）ですか？</li><li>家の中でWi‑Fi同じSMBのアカウント情報を使ってもまだ接続できますか？</li><li>PCはスリープ状態ですか？再試行する前に、スリープ解除してください</li></ul>
+<h3>Q3：MagicDNS の名前だけを入力できますか？</h3>
+<p>唯一の接続方法としては推奨されません。Appの <strong>Tailscale</strong> 欄に <code>100.x</code> IP を保存してください。</p>
+<h3>Q4：パソコンを交換／再インストール Tailscale 後？</h3>
+<p><code>100.x</code> 変更される可能性があります。新しいデバイスに新しいIPv4をコピーし、アプリのサポート画面またはホスト接続で更新してから再度接続してください。</p>
+<h3>Q5：安全ですか？</h3>
+<p>トラフィックは Tailscale 暗号化トンネルを通ります；SMB アカウント情報は引き続きあなたの携帯電話上だけに存在します ホームギャラリー。Tailscale アカウントでのログイン情報を信頼できない人と共有しないでください。また、定期的に <a href="https://login.tailscale.com/admin/machines">管理後台</a> で不要なデバイスを削除してください。</p>
+</section>
+<section>
+<h2>9. 手順クイックチェック</h2>
+<p>```</p>
+<p>家中 Wi‑Fi：設好 SMB 主機 + 家中相簿（區網可連）</p>
+<p>        ↓</p>
+<p>PC／NAS：安裝 Tailscale → 登入 → Connected → 複製 100.x</p>
+<p>        ↓</p>
+<p>手機：安裝 Tailscale → 同一帳號 → Connected</p>
+<p>        ↓</p>
+<p>外出：開 Home Gallery → 開啟 Tailscale → 複製 PC 的 100.x</p>
+<p>        ↓</p>
+<p>返回 App → 貼上 →「儲存 Tailscale IP 並重試」</p>
+<p>        ↓</p>
+<p>之後外出：開 Tailscale → 開 App 即可（看完可關 Tailscale／離開 App）</p>
+<p>```</p>
+</section>
+<section>
+<h2>関連資料</h2>
+<ul><li><a href="../index.html#ja">家中儲存建置指南</a></li><li><a href="../webdav/index.html#ja">外出 WebDAV（NAS）</a></li><li><a href="../troubleshooting/index.html#ja">連線排查</a></li><li><a href="../../index.html#ja">使用者手冊</a>（§4 家のアルバム、§10 FAQ）</li><li>Tailscale 公式：<a href="https://tailscale.com/download">Download</a> · <a href="https://login.tailscale.com/admin/machines">Admin</a></li></ul>
+</section>
+    </section>
+
+
+    <section id="ko">
+      <h2>한국어 — 외출용 Tailscale 집으로 돌아가는 앨범 연결 (사용 설명서)</h2>
+      <p class="note">한국어 전용 화면이 없으면 영어 스크린샷을 사용합니다.</p>
+<p>적용: <strong>홈 갤러리</strong> 이미 집에서 Wi‑Fi로 SMB 서버에 연결할 수 있지만, 외출 시(모바일 데이터/외부 네트워크 Wi‑Fi) <strong>Tailscale</strong> 연결을 사용해야 함 —— 주로 <strong>Windows PC</strong>에서 흔하며, NAS <strong>외부에 WebDAV</strong> 열 수 없거나/열고 싶지 않을 때.</p>
+<p class="note"><strong>로컬 네트워크 구축의 차이점:</strong> <a href="../index.html#ko">Windows 11／NAS 建置</a> 집에서 공유하는 방법을 가르쳐줌; <strong>이 페이지에서는 외출 시 Tailscale를 '보안 터널'로 사용하는 방법을 가르쳐줌</strong>.<br /><strong>NAS 그리고 이미 열었습니까 HTTPS WebDAV？</strong> <a href="../webdav/index.html#ko">WebDAV 手冊</a>를 사용하는 것이 좋으며, 일반적으로 Tailscale를 설치할 필요가 없습니다.<br /><strong>앱 총 매뉴얼:</strong> <a href="../../index.html#ko">user-manual.md</a> §4.4.</p>
+<p>약 <strong>15~30분</strong> 정도 소요됩니다 (PC와 휴대폰 각각 한 번 설치 포함 Tailscale).</p>
+<section>
+<h2>1. Tailscale가 언제 필요합니까?</h2>
+<p>| 상황 | 제안 |</p>
+<p>|------|------|</p>
+<p>| 사람이 집에 있을 때, 휴대폰이 집과 연결 Wi‑Fi | <strong>필요하지 않음</strong> Tailscale；로컬 네트워크 IPv4／호스트 이름으로 가능 |</p>
+<p>| 외출, <strong>NAS</strong> 열 수 있음 HTTPS WebDAV | 우선 사용 <a href="../webdav/index.html#ko">WebDAV</a> |</p>
+<p>| 외출, <strong>Windows PC</strong>(또는 WebDAV를 열 수 없는 다른 SMB 호스트) | <strong>필요</strong> Tailscale(또는 이미 집에 있는 LAN VPN, §7 참조) |</p>
+<p>| 이미 OpenVPN／WireGuard 등으로 집 내부 네트워크에 연결됨 | <strong>더 이상</strong> Tailscale을 열 필요 없음; 앱이 내부 네트워크 주소를 시도할 것</p>
+<p>Tailscale 휴대폰과 집의 PC/NAS 사이에 암호화 연결을 구축하고, 각 장치에 <strong><code>100.x.x.x</code></strong> 주소(CGNAT)를 부여합니다. 홈 갤러리 외출 시 우선 이 주소를 사용하여 SMB에 연결합니다.</p>
+<p class="note"><strong>IP를 사용하고, MagicDNS 이름만 의존하지 마세요.</strong> 앱의 'Tailscale' 칸에는 <code>100.x</code>을 입력하세요; 이름 해석은 휴대폰에서 실패할 가능성이 더 높습니다.</p>
+</section>
+<section>
+<h2>2. 시작하기 전에 확인하세요</h2>
+<ul><li>집 PC／NAS 이미 설정 완료 SMB 공유, 그리고 <strong>집 Wi‑Fi에서</strong> 홈 갤러리 접속 가능, 앨범 열람 가능</li><li>호스트는 App <strong>호스트 연결 관리</strong>에 이미 계정과 비밀번호가 있음; <strong>로컬 네트워크 IPv4</strong>(예: <code>192.168.x.x</code>) 권장 이미 입력됨</li><li>PC／NAS와 휴대폰 모두 인터넷에 연결 가능（외출 시 휴대폰은 모바일 데이터를 사용하면 됨）</li><li>Google/Microsoft/GitHub 등의 계정으로 로그인 가능 <a href="https://tailscale.com/">Tailscale</a>（무료 개인 플랜이면 보통 충분）</li></ul>
+</section>
+<section>
+<h2>3. 집에서 PC(또는 NAS)에 Tailscale를 설치하고 로그인하기</h2>
+<p>아래는 <strong>Windows</strong>를 예로 든 것입니다; Linux NAS/기타 시스템은 <a href="https://tailscale.com/download">Tailscale 下載頁</a>로 가서 해당 설치 방법을 선택하세요, 원칙은 같습니다: <strong>설치 → 동일 계정으로 로그인 → 연결 여부 확인 → 100.x 기록</strong>.</p>
+<h3>3.1 설치</h3>
+<ol><li>컴퓨터에서 브라우저를 열고 <a href="https://tailscale.com/download">https://tailscale.com/download</a>로 이동합니다.</li><li><strong>Windows</strong> 버전을 다운로드하고 설치합니다</li><li>설치가 완료된 후 Tailscale를 열고, 당신의 계정으로 <strong>로그인</strong>하세요 (이후 휴대폰에서도 <strong>같은</strong> Tailscale/웨이웹 계정으로 로그인해야 합니다)</li></ol>
+<h3>3.2 연결 확인</h3>
+<ol><li>시스템 트레이(오른쪽 아래)에서 Tailscale 아이콘을 찾습니다</li><li>상태는 <strong>Connected</strong>/연결됨이어야 합니다</li><li>Tailscale 창이나 웹 페이지 관리(<a href="https://login.tailscale.com/admin/machines">https://login.tailscale.com/admin/machines</a>)를 열고, 이 컴퓨터가 장치 목록에 나타나는지 확인합니다.</li></ol>
+<h3>3.3 이 컴퓨터의 Tailscale IPv4 복제</h3>
+<ol><li>Tailscale 창이나 장치 목록에서 로컬 <strong>IPv4</strong>(<code>100.64.x.x</code>~<code>100.127.x.x</code> 형태)을 찾습니다</li><li><strong>복사</strong> 해당 주소(나중에 휴대폰 앱에 붙여넣기)</li><li>이 주소를 메모장에 적어두는 것을 권장합니다; 기기 교체나 Tailscale 재설치 후 주소가 변경될 수 있으므로 App을 다시 업데이트해야 합니다</li></ol>
+<p class="note"><strong>PC 방화벽:</strong> 만약 LAN SMB 연결이 이미 가능하다면, 일반적으로 Tailscale 용으로 별도의 규칙을 만들 필요가 없습니다. 만약 오직 <code>100.x</code> 만 연결이 안 된다면, Windows의 '파일 및 프린터 공유'가 여전히 허용되어 있는지, 그리고 컴퓨터가 절전 모드가 아닌지 확인하세요.</p>
+<h3>3.4 NAS 보충</h3>
+<ul><li>일부 NAS는 Tailscale 패키지/Docker를 설치할 수 있습니다; 설치 후 <strong>같은 계정</strong>으로 로그인하면, 동일하게 해당 장치의 <strong><code>100.x</code></strong>를 복사할 수 있습니다.</li><li>만약 NAS <strong>설치하지 않고</strong> Tailscale를 오직 항상 켜져 있는 집의 PC 한 대에만 설치해도 된다——전제는 사진이 실제로 그 PC의 공유에 있거나, 또는 다른 연결 가능한 경로가 있는 경우이다.</li></ul>
+</section>
+<section>
+<h2>4. 휴대폰에 설치하고 로그인 Tailscale</h2>
+<ol><li>Google Play에서 <strong>Tailscale</strong> 설치（패키지명은 대략 <code>com.tailscale.ipn</code>）</li><li>Tailscale를 열고, PC와 <strong>같은</strong> 계정으로 로그인하세요</li><li>안내에 따라 <strong>VPN 연결</strong>을 허용합니다(안드로이드 시스템에서 묻습니다)</li><li>상태가 <strong>Connected</strong>인지 확인</li><li>Tailscale 장치 목록에서 집에 있는 그 PC/NAS를 볼 수 있어야 합니다.</li></ol>
+<p>이때 <strong>먼저 서둘러 Tailscale를 닫지 마세요</strong>; 다음 단계에서 Home Gallery에 <code>100.x</code>를 붙여 넣으세요.</p>
+</section>
+<section>
+<h2>5. Home Gallery에서 설정 완료하기（권장 절차）</h2>
+<h3>5.1 먼저 집에서 메인 기기와 앨범을 설정하세요</h3>
+<ol><li>휴대전화가 집에 연결됨 Wi‑Fi</li><li><strong>설정 → 호스트 연결 관리</strong>: 호스트 추가 또는 확인 (계정/비밀번호, 로컬 네트워크 IPv4)</li><li><strong>집안 사진첩</strong>을 만들고 볼 수 있는지 확인하기</li></ol>
+<p>외출할 때 다시 처리 Tailscale 칸만 하면 됩니다.</p>
+<h3>5.2 외출 시: 앱 안내에 따라 완료 (처음이 가장 순조로움)</h3>
+<ol><li><strong>모바일 데이터</strong>로 전환하기 (또는 집 밖 Wi‑Fi)</li><li>홈 갤러리 열기 → <strong>집</strong> → 해당 앨범 선택</li><li>원격 접근이 <strong>Tailscale</strong>이고 아직 Tailscale IP가 저장되지 않은 경우, 화면에서 Tailscale가 필요함을 설명하고 다음을 제공합니다:</li><li><strong>설치/열기 Tailscale</strong></li><li><strong>Tailscale IPv4</strong> 입력란, <strong>붙여넣기</strong>, <strong>Tailscale IP 저장 후 다시 시도</strong></li><li><strong>Tailscale 열기</strong> 클릭 (설치되어 있지 않으면 Play 스토어로 이동)</li><li>Tailscale에서 <strong>Connected</strong>를 확인한 후, 집 PC 열에서 <strong>IPv4(100.x) 복사</strong></li><li><strong>Home Gallery으로 돌아가기</strong>（화면은 도움말 페이지에 머물며, <strong>즉시</strong> 자동으로 재연결되지 않습니다）</li><li><strong>붙여넣기</strong>를 클릭합니다(또는 <code>100.x</code>을 수동으로 입력합니다)</li><li><strong>저장 Tailscale IP 후 재시도</strong>를 클릭</li></ol>
+<p>성공한 후에는 해당 집의 사진첩을 외부에서 열람할 수 있습니다. 주소는 이 기기의 설정에 기록되며, 이후에는 보통 다시 입력할 필요가 없습니다.</p>
+<h3>5.3 "호스트 연결"에서 수동으로 입력할 수도 있습니다</h3>
+<ol><li><strong>설정 → 호스트 연결 관리 → 편집</strong> 해당 호스트</li><li><strong>Tailscale</strong> 칸에 <code>100.x</code>를 입력하세요 (<strong>로컬 네트워크 IPv4</strong> 칸은 집에 있는 <code>192.168.x.x</code>를 유지하고, 두 개를 분리하세요)</li><li><strong>연결 테스트</strong> → <strong>저장</strong></li></ol>
+</section>
+<section>
+<h2>6. 일상 사용과 전력 소모</h2>
+<p>| 시기 | 추천 |</p>
+<p>|------|------|</p>
+<p>| <strong>외출해서 사진첩 보기</strong> | Tailscale 열기 → 연결 → 다시 열기／Home Gallery로 돌아가기 |</p>
+<p>| <strong>앱 보고 나서 나가기</strong> | 앱이 백그라운드로 들어간 지 약 수십 초 후, <strong>Tailscale 연결 종료</strong>(계속 전력 소모 방지). 다음에 외출할 때 다시 열면 됩니다 |</p>
+<p>| <strong>집으로 돌아가기 Wi‑Fi</strong> | 앱이 이미 저장된 호스트와 일치하는 가정용 네트워크를 감지하면, Tailscale에게도 연결 종료를 요청합니다 |</p>
+<p>| <strong>집에 있을 때</strong> | Tailscale를 켤 필요 없음; 로컬 네트워크 주소를 이용하면 더 빠르고 전력 소모가 적음 |</p>
+<p class="note">홈 갤러리 <strong>앱 내에서</strong> 바코드를 스캔하여 교환하지 않습니다; Tailscale 계정과 연결은 모두 Tailscale 앱/공식 웹사이트에서 관리합니다.</p>
+</section>
+<section>
+<h2>7. 이미 OpenVPN/다른 가정용 LAN VPN이 있을 때</h2>
+<p>만약 당신이 원래 OpenVPN, WireGuard 등을 이용해 <strong>집 안 네트워크에 접속</strong>하고 있다면(휴대폰으로 <code>192.168.x.x</code>에 ping 가능):</p>
+<ul><li>Home Gallery을/를 위해 Tailscale을/를 다시 열 <strong>필요 없음</strong></li><li>호스트에서 <strong>LAN IPv4</strong>(또는 LAN IPv6)이 올바른지 유지해 주세요</li><li>앱이 이러한 VPN을 감지하면, 테스트용 네트워크 주소를 시도하며, Tailscale를 강제로 열도록 하지 않습니다.</li></ul>
+<p>Tailscale 기존의 '사내망 전용 VPN'과 달리: Tailscale 기본적으로 제공되는 것은 <code>100.x</code>이며, 일반적으로 <strong>자동으로</strong> <code>192.168.x</code>를 사내망으로 간주하지 않습니다; 따라서 외부에서 Tailscale를 사용할 때에는, 반드시 앱에 <strong>Tailscale IPv4</strong>를 입력해야 합니다.</p>
+</section>
+<section>
+<h2>8. 자주 묻는 질문</h2>
+<h3>Q1：Tailscale를 연 후 앱으로 돌아가면 계속 연결 1/1, 1/2가 표시되다가 실패하나요?</h3>
+<p>「외출 Tailscale 지원」이 수정된 버전으로 업데이트해 주세요: 앱을 다시 열면 IP를 붙여넣을 수 있는 화면에 머물러야 합니다. 계속해서 재접속이 반복된다면, 먼저 앱을 완전히 종료했다가 다시 열고, <code>100.x</code>을 실수로 '로컬 네트워크 IPv4' 칸에 입력하지 않았는지 확인하세요.</p>
+<h3>Q2: 붙여도 여전히 연결이 안 되나요?</h3>
+<ul><li>PC와 휴대폰 Tailscale 모두 <strong>Connected</strong> 상태이며, 같은 계정인가요?</li><li>복사한 것이 <strong>집에 있는 그</strong> <code>100.x</code>인가요 (휴대폰 자체 것이 아닌가요)?</li><li>집에서 Wi‑Fi 같은 SMB 계정으로 여전히 연결할 수 있나요?</li><li>PC가 절전 모드에 있나요? 깨운 후 다시 시도하세요</li></ul>
+<h3>Q3: MagicDNS 이름만 입력해도 되나요?</h3>
+<p>유일한 연결 방식으로 사용하지 않는 것이 좋습니다. 앱 <strong>Tailscale</strong> 칸에 <code>100.x</code> IP를 저장하십시오.</p>
+<h3>Q4: 컴퓨터를 바꾸거나 재설치 Tailscale 후?</h3>
+<p><code>100.x</code> 변경될 수 있습니다. 새 장치에 새로운 IPv4을 복사하고, 앱 도움말 화면이나 호스트 연결에서 업데이트한 후 다시 연결하세요.</p>
+<h3>Q5：안전한가요?</h3>
+<p>트래픽은 Tailscale 암호화 터널을 통해 흐릅니다; SMB 계정과 비밀번호는 여전히 당신의 휴대폰에만 홈 갤러리 존재합니다. Tailscale 로그인 정보를 신뢰하지 않는 사람과 공유하지 마시고, <a href="https://login.tailscale.com/admin/machines">管理後台</a>에서 사용하지 않는 기기를 정기적으로 제거하세요.</p>
+</section>
+<section>
+<h2>9. 단계 빠른 확인</h2>
+<p>```</p>
+<p>家中 Wi‑Fi：設好 SMB 主機 + 家中相簿（區網可連）</p>
+<p>        ↓</p>
+<p>PC／NAS：安裝 Tailscale → 登入 → Connected → 複製 100.x</p>
+<p>        ↓</p>
+<p>手機：安裝 Tailscale → 同一帳號 → Connected</p>
+<p>        ↓</p>
+<p>外出：開 Home Gallery → 開啟 Tailscale → 複製 PC 的 100.x</p>
+<p>        ↓</p>
+<p>返回 App → 貼上 →「儲存 Tailscale IP 並重試」</p>
+<p>        ↓</p>
+<p>之後外出：開 Tailscale → 開 App 即可（看完可關 Tailscale／離開 App）</p>
+<p>```</p>
+</section>
+<section>
+<h2>관련 문서</h2>
+<ul><li><a href="../index.html#ko">家中儲存建置指南</a></li><li><a href="../webdav/index.html#ko">外出 WebDAV（NAS）</a></li><li><a href="../troubleshooting/index.html#ko">連線排查</a></li><li><a href="../../index.html#ko">使用者手冊</a>（§4 가정 앨범, §10 FAQ）</li><li>Tailscale 공식: <a href="https://tailscale.com/download">Download</a> · <a href="https://login.tailscale.com/admin/machines">Admin</a></li></ul>
+</section>
     </section>
 
     <footer>

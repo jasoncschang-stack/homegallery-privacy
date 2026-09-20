@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home GalleryのためにSynology NAS共有を有効にする — Home Gallery</title>
+  <meta name="description" content="Home GalleryのためにSynology NAS共有を有効にする" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../../index.html">ユーザーガイド</a>
+      <span>/</span>
+      <a href="../index.html">ホームストレージ設定</a>
+      <span>/</span>
+      <span>synology</span>
+    </nav>
+
+    <header>
+      <h1>Home GalleryのためにSynology NAS共有を有効にする</h1>
+      <p class="meta">Home Gallery</p>
+      <p class="note">日本語専用の画面がない場合は、英語版スクリーンショットを表示しています。</p>
+      <div class="langs">
+        <a href="index.html">繁體中文</a>
+        <a href="en.html">English</a>
+        <a href="ja.html">日本語</a>
+        <a href="ko.html">한국어</a>
+        <a href="../troubleshooting/index.html#ja">トラブルシューティング</a>
+      </div>
+    </header>
+
+<p>ブラウザでサインインでき、DSMがすでにインストールされている場合、約<strong>15～25分</strong>です。その後、Home GalleryはNASを<strong>ホームストレージ</strong>として使用できます。</p>
+<p class="note"><strong>DSM 7.x</strong> 向けに作成（一般的な 7.2–7.4 のメニュー）。ラベルが異なる場合は、コントロールパネルで <strong>SMB</strong> または <strong>共有フォルダー</strong> を検索してください。<br />電話はフォルダを <strong>SMB</strong> 以上で読み取ります。</p>
+<section>
+<h2>はじめる前に</h2>
+<ul><li>DSM はブラウザで開きます（例：<code>http://NAS-IP:5000</code> または QuickConnect）</li><li>あなたは<strong>管理者</strong>（または同等の）アカウントを持っています</li><li>電話とNASは<strong>同じホームWi‑Fi / LAN</strong>にあります</li><li>写真の保存場所を決める: 新しい共有フォルダ（例: <code>photos</code>）か、既存の共有フォルダのサブフォルダ</li></ul>
+</section>
+<section>
+<h2>ステップ 1: SMB を有効にする</h2>
+<ol><li>DSMにサインインしてください</li><li><strong>コントロールパネル</strong> を開きます</li><li><strong>ファイルサービス</strong>を開く</li><li><strong>SMB</strong> セクション/タブを開く</li><li><strong>SMBサービスを有効にする</strong> にチェックを入れます（場合によっては SMB/CIFS）</li><li><strong>適用</strong> をクリック</li></ol>
+<p>(スクリーンショット: ファイルサービス → SMBを有効にする)</p>
+<h3>推奨される高度なオプション</h3>
+<p>SMB <strong>高度な設定</strong> の下で:</p>
+<ul><li>最小/最大SMBプロトコルはデフォルトのままにする（SMB2以上）</li><li><strong>互換性のためにSMB1を有効にしないでください</strong>（セキュリティリスク; Home Galleryには必要ありません）</li><li>基本的な接続が動作するまで、暗号化のみの実験はスキップする</li></ul>
+</section>
+<section>
+<h2>ステップ2: 共有フォルダを作成または確認する</h2>
+<ol><li><strong>コントロールパネル → 共有フォルダー</strong></li><li>適切な共有が既に存在する場合は、その<strong>名前</strong>をメモしてステップ3に進んでください</li><li>それ以外の場合は <strong>作成 → 共有フォルダーを作成</strong> を選択し、次を設定します:</li><li><strong>名前</strong>: 例 <code>FamilyPhotos</code>（アプリでは共有フォルダとして表示されます）</li><li>任意の説明; 最初の設定では他のオプションはデフォルトのままにしてください</li><li>共有がリストに表示されていることを確認してください</li></ol>
+<p>（スクリーンショット：共有フォルダーのリスト）</p>
+<p>権限が正しく、写真が存在する（あるいはこれから存在する）場合は、<code>photo</code>のような組み込み共有も問題ありません。</p>
+</section>
+<section>
+<h2>ステップ3：ユーザー権限</h2>
+<ol><li>共有を選択 → <strong>編集</strong></li><li><strong>権限</strong> を開く</li><li>電話で使用するアカウントについては、<strong>読み取り/書き込み</strong>を優先してください</li><li>アップロード、移動/コピー、編集、アルバムのバックアップには書き込み権限が必要です；読み取り専用では後でしばしば失敗します</li><li>電話が書き込みを一切行わない場合のみ、<strong>読み取り専用</strong>を使用してください</li><li><strong>適用する</strong></li></ol>
+<p>（スクリーンショット：共有権限）</p>
+<h3>推奨：電話のみのユーザー</h3>
+<ol><li><strong>コントロールパネル → ユーザーとグループ</strong></li><li><strong>ユーザーを作成</strong> 例: <code>homegallery</code></li><li>パスワードを設定する</li><li>管理者は不要—写真共有は読み取り/書き込みのみ</li><li>管理者パスワードを電話に保存する代わりに、このアカウントをアプリで使用してください</li></ol>
+<p class="note">ゲスト/匿名アクセスに<strong>頼らない</strong>でください。</p>
+</section>
+<section>
+<h2>ステップ4：写真を共有に入れる（任意だが推奨）</h2>
+<ol><li><strong>ファイルステーション</strong> を開きます</li><li>共有フォルダー（またはサブフォルダー）を開きます</li><li>写真やビデオをアップロードまたは移動する</li></ol>
+<p>アプリでホームアルバムを追加するときは、この共有を選び、次に実際に写真が入っているフォルダを選んでください。</p>
+</section>
+<section>
+<h2>ステップ5：接続の詳細を記録する</h2>
+<p>| アイテム | 入手場所 |</p>
+<p>|------|------------------|</p>
+<p>| NAS 名前 | DSM デスクトップ / インフォセンター |</p>
+<p>| IPアドレス | コントロールパネル → 情報センター、またはルーターのDHCPリスト |</p>
+<p>| ユーザー名 / パスワード | ステップ3のアカウント |</p>
+<p>もし検出に失敗した場合は、Home Galleryに<strong>IP</strong>を手動で入力してください。</p>
+</section>
+<section>
+<h2>ステップ6：Home Galleryで接続</h2>
+<ol><li>電話は<strong>同じ</strong>家にWi‑Fi</li><li><strong>ホーム → ホームストレージに接続</strong>（または <strong>その他 → 設定 → ホスト接続 → SMBホストを追加</strong>）</li><li>スキャンからNASを選択するか、IPを入力してください</li><li>資格情報 → <strong>接続をテスト → 保存</strong></li><li>共有フォルダーを選択 → アルバムフォルダー → <strong>完了</strong></li></ol>
+<p>アプリの詳細：<a href="../user-manual.md#4-家中相簿與-smb-主機">user manual §4</a>（繁体字中国語のソース）。</p>
+</section>
+<section>
+<h2>完了チェックリスト</h2>
+<ul><li>SMB サービスが有効化され、適用されました</li><li>共有が存在する；アカウントには読み取りまたは読み取り/書き込みの権限がある</li><li>電話とNASが同じLAN上にある</li><li>アプリの接続テストが機能する；フォルダが開く</li><li>（バックアップ）アカウントは<strong>読み書き</strong>可能です</li></ul>
+<p>失敗した場合：<a href="../troubleshooting/index.html#ja">Troubleshooting</a>。</p>
+</section>
+<section>
+<h2>短いFAQ</h2>
+<p><strong>QuickConnectが必要ですか？</strong> ホームLANには不要SMBです。LANのIPまたはホスト名を使用してください。QuickConnectは主にリモートDSM管理用です。</p>
+<p><strong>ファイアウォール？</strong> DSM のファイアウォールがオンの場合、<strong>SMB（TCP 445）</strong>へのLANアクセスを許可します。</p>
+<p><strong>5Gで自宅外にいるとき？</strong> 自宅Wi‑FiではアプリはまだSMBを使用します。自宅外では、リモートアクセスを<strong>WebDAV</strong>（DDNS / 公開IP + HTTPSポート）に設定してください—<a href="../webdav/index.html#ja">webdav.md</a>を参照。Windows PCの場合は、<a href="../tailscale/index.html#ja">Tailscale</a>を使用してください。</p>
+</section>
+<section>
+<h2>追加するスクリーンショット</h2>
+<ol><li>SMBを有効にする</li><li>共有フォルダ一覧／作成ウィザード</li><li>権限 読み取り/書き込み</li><li>ユーザーを作成（オプション）</li><li>情報センター IP</li><li>アプリ接続 → 共有を選択</li></ol>
+<p>改訂日：2026-08-12</p>
+</section>
+
+    <footer>
+      <a href="../index.html">ホームストレージ設定</a> ·
+      <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a>
+    </footer>
+  </main>
+</body>
+</html>

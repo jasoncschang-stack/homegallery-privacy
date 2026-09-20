@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Windows 11でフォルダーを共有する ホームギャラリー — Home Gallery</title>
+  <meta name="description" content="Windows 11でフォルダーを共有する ホームギャラリー" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../../index.html">ユーザーガイド</a>
+      <span>/</span>
+      <a href="../index.html">ホームストレージ設定</a>
+      <span>/</span>
+      <span>windows-11</span>
+    </nav>
+
+    <header>
+      <h1>Windows 11でフォルダーを共有する ホームギャラリー</h1>
+      <p class="meta">Home Gallery</p>
+      <p class="note">日本語専用の画面がない場合は、英語版スクリーンショットを表示しています。</p>
+      <div class="langs">
+        <a href="index.html">繁體中文</a>
+        <a href="en.html">English</a>
+        <a href="ja.html">日本語</a>
+        <a href="ko.html">한국어</a>
+        <a href="../troubleshooting/index.html#ja">トラブルシューティング</a>
+      </div>
+    </header>
+
+<p>約<strong>10～20分</strong>。これが終わった後、Home Galleryであなたの携帯電話はこのPCを<strong>ホームストレージ</strong>として使うことができます。</p>
+<p class="note">技術名: これは <strong>SMB</strong>（Windows の「ファイル共有 / ネットワーク」機能と同じ）を使用します。プロトコルを学ぶ必要はありません—手順に従ってください。</p>
+<p class="note"><strong>画像:</strong> 日本語専用の画面がない場合は、英語版スクリーンショットを表示しています。</p>
+<section>
+<h2>はじめる前に</h2>
+<ul><li>PCは<strong>Windows 11</strong>を実行しており、自宅のネットワークに接続されています</li><li>携帯とPCが<strong>同じホームWi‑Fi</strong>にある（モバイルデータ／ゲストWi‑Fiではない）</li><li>Windowsの<strong>ユーザー名とパスワード</strong>を知っている</li><li>PIN/Windows Helloだけでサインインする場合は、<strong>設定 → アカウント → サインインオプション</strong>でパスワードを設定してください（電話にはパスワードが必要です）</li><li>まず専用の写真フォルダーを作成する、例：<code>D:\FamilyPhotos</code>（システム全体のドライブは共有しない）</li></ul>
+</section>
+<section>
+<h2>ステップ1: ネットワークをプライベートに設定する</h2>
+<p>パブリックネットワークでは、Windowsはしばしばファイル共有をブロックします。</p>
+<ol><li><strong>設定 → ネットワークとインターネット</strong> を開きます</li><li><strong>Wi‑Fi</strong>（またはイーサネット）を開く → あなたの接続</li><li><strong>ネットワーク プロファイルの種類</strong>で、<strong>プライベート</strong>を選択します</li></ol>
+<figure><img src="../images/windows-11-en/01-network-private.png" alt="Network profile set to Private" width="1280" height="720" loading="lazy" /><figcaption>Network profile set to Private</figcaption></figure>
+</section>
+<section>
+<h2>ステップ2: ファイルとプリンターの共有をオンにする</h2>
+<ol><li><strong>設定 → ネットワークとインターネット → 詳細ネットワーク設定</strong></li><li><strong>詳細な共有設定</strong>を開く</li><li><strong>プライベート</strong>の下で:</li><li><strong>ネットワーク探索</strong>: オン</li><li><strong>ファイルとプリンターの共有</strong>: 有効</li><li><strong>すべてのネットワーク</strong>の下で:</li><li><strong>パスワードで保護された共有</strong>: 有効（推奨）</li><li>ゲストアクセスに依存しないでください</li></ol>
+<figure><img src="../images/windows-11-en/02-advanced-sharing.png" alt="Advanced sharing settings" width="1280" height="720" loading="lazy" /><figcaption>Advanced sharing settings</figcaption></figure>
+</section>
+<section>
+<h2>ステップ3：フォルダーを共有する</h2>
+<ol><li>ファイルエクスプローラーで、例として <code>D:\FamilyPhotos</code> を作成します</li><li>写真や動画をそこに置く（または後で移動する）</li><li>フォルダーを右クリック → <strong>Proパティーズ → 共有</strong></li><li><strong>詳細な共有…</strong> をクリックします</li><li><strong>このフォルダを共有</strong> を確認する</li><li><strong>共有名</strong> を保持するか設定する（例: <code>FamilyPhotos</code>）— これは ホームギャラリー が共有フォルダとして表示する名前です</li><li><strong>権限</strong> をクリックします</li></ol>
+<figure><img src="../images/windows-11-en/03-share-folder.png" alt="Advanced Sharing checked" width="1280" height="720" loading="lazy" /><figcaption>Advanced Sharing checked</figcaption></figure>
+</section>
+<section>
+<h2>ステップ4: 誰が読める / 書けるか</h2>
+<p>権限で：</p>
+<ol><li><strong>Everyone</strong> が存在する場合は削除する（推奨）</li><li><strong>あなたのWindowsユーザー名を追加…</strong> → <strong>名前の確認 → OK</strong></li><li>ユーザーに <strong>読み取り</strong> および <strong>変更</strong>（読み書き）の権限を付与する</li><li>ホームギャラリー はアップロード、移動/コピー、編集の保存、アルバムのバックアップのために書き込みアクセス権が必要です。<strong>読み取り</strong>だけだと後で失敗することがよくあります</li><li>この共有に電話が書き込むことが絶対にないと確信している場合のみ、<strong>読み取り</strong>だけを使用してください</li><li><strong>適用 → OK</strong>、ダイアログを閉じる</li></ol>
+<figure><img src="../images/windows-11-en/04-share-permissions.png" alt="Share permissions" width="1280" height="720" loading="lazy" /><figcaption>Share permissions</figcaption></figure>
+<p class="note"><strong>安全性:</strong> <code>C:\</code>全体やユーザープロフィール全体を書き込み可能として共有しないでください。写真フォルダのみ共有してください。</p>
+</section>
+<section>
+<h2>ステップ5：ファイアウォール</h2>
+<p>通常、ファイルとプリンターの共有を有効にすると問題ありません。アプリがPCをまったく見つけない場合:</p>
+<ol><li><strong>設定 → プライバシーとセキュリティ → Windows セキュリティ → ファイアウォールとネットワーク保護</strong></li><li><strong>ファイアウォールでアプリを許可する</strong></li><li><strong>プライベート</strong> ネットワークで <strong>ファイルおよびプリンターの共有</strong> が許可されていることを確認してください（SMB 関連; リストされている場合は詳細ルールで <strong>SMB-In</strong> を確認してください）</li></ol>
+<figure><img src="../images/windows-11-en/05-firewall.png" alt="Firewall allow list" width="1280" height="720" loading="lazy" /><figcaption>Firewall allow list</figcaption></figure>
+</section>
+<section>
+<h2>ステップ6: 名前と資格を記録する</h2>
+<ol><li>以下のいずれかを使用して<strong>デバイス名</strong>（コンピュータ名）を見つけます:</li><li><strong>設定</strong>で、<strong>端末情報</strong>または<strong>デバイス名</strong>を検索 → <strong>端末情報</strong></li><li>または <strong>設定 → システム</strong> に移動し、下までスクロール → <strong>バージョン情報</strong></li><li>または <code>Win + R</code> → <code>sysdm.cpl</code> → <strong>コンピューター名</strong> タブ</li><li>ユーザー名:</li><li>ローカルアカウント: 作成したアカウント名</li><li>Microsoft アカウント: 時々 <code>MicrosoftAccount\you@email.com</code>；それがうまくいかない場合は、共有専用の<strong>ローカルアカウント</strong>を作成してください</li><li>パスワード：Windowsサインインのパスワード（PINではありません）</li></ol>
+<figure><img src="../images/windows-11-en/06-device-name.png" alt="Device name" width="1280" height="720" loading="lazy" /><figcaption>Device name</figcaption></figure>
+<p>オプション: <code>ipconfig</code> を実行し、発見に失敗した場合にアプリで手動入力するための <strong>IPv4 アドレス</strong> (例: <code>192.168.1.20</code>) を記録します。</p>
+</section>
+<section>
+<h2>ステップ7：Home Galleryで接続</h2>
+<ol><li>電話は<strong>同じ</strong>家にWi‑Fi</li><li>ホームギャラリー → <strong>ホーム</strong> → <strong>ホームストレージに接続</strong> （または <strong>その他 → 設定 → ホスト接続 → SMBホストを追加</strong>）</li><li>スキャンからPCを選ぶ（またはIPを入力する）</li></ol>
+<figure><img src="../images/app-en/01-discover-host.png" alt="Host discovered" width="1080" height="1920" loading="lazy" /><figcaption>Host discovered</figcaption></figure>
+<ol><li>ユーザー名/パスワードを入力 → <strong>接続をテスト → 保存</strong></li></ol>
+<figure><img src="../images/app-en/02-sign-in.png" alt="Sign in and test connection" width="1080" height="1920" loading="lazy" /><figcaption>Sign in and test connection</figcaption></figure>
+<ol><li>共有フォルダを選択 → アルバムフォルダを選択 → <strong>完了</strong></li></ol>
+<figure><img src="../images/app-en/03-pick-share.png" alt="Pick shared folder" width="1080" height="1920" loading="lazy" /><figcaption>Pick shared folder</figcaption></figure>
+<p>アプリの詳細: <a href="../user-manual.md#4-家中相簿與-smb-主機">user manual §4</a>（繁体字中国語；リリース後、英語のストアリスティングはヘルプサイトを指します）。</p>
+</section>
+<section>
+<h2>完了チェックリスト</h2>
+<ul><li>ネットワーク プロファイルは<strong>プライベート</strong>です</li><li>プライベート用のネットワークで、ネットワーク探索 + ファイルとプリンターの共有が<strong>オン</strong>になっています</li><li>フォルダーは共有されています；あなたのアカウントには <strong>読み取り + 変更</strong>（読み書き）の権限があります</li><li>電話とPCを同じWi‑Fiにする</li><li>アプリの接続テストが成功し、フォルダが開く</li></ul>
+<p>何かが失敗した場合：<a href="../troubleshooting/index.html#ja">Troubleshooting</a>。</p>
+</section>
+<section>
+<h2>短いFAQ</h2>
+<p><strong>ノートパソコンは大丈夫？</strong> はい、でもスリープ状態になると電話が切断されます。常時オンのPCかNASの方が良いです。</p>
+<p><strong>SMB 1.0 を有効にしますか？</strong> <strong>いいえ。</strong> ホームギャラリー と最新の Windows はより新しい SMB を使用します。</p>
+<p><strong>自宅以外でモバイルデータを使いますか？</strong> <strong>使わないでください。</strong> ホームアルバムは同じ家のためのものですWi‑Fi。モバイル回線では、ほとんどのWindows共有にアクセスできません—これは正常です。自宅のWi‑Fiに戻ったら再び使用してください。</p>
+<p><strong>OneDriveと同じですか？</strong> いいえ。これはホームネットワーク上で<strong>あなたの</strong>ディスクのフォルダーを読み取ります。私たちはクラウドギャラリーをホストしていません。</p>
+<p>改訂：2026-07-27（スクリーンショット添付）</p>
+</section>
+
+    <footer>
+      <a href="../index.html">ホームストレージ設定</a> ·
+      <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a>
+    </footer>
+  </main>
+</body>
+</html>
