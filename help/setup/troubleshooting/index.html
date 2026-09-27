@@ -22,7 +22,7 @@
       <h2>繁體中文</h2>
       <p>建置指南：<a href="../windows-11/index.html">Windows 11</a> · <a href="../synology/index.html">Synology</a> · <a href="../qnap/index.html">QNAP</a></p>
 
-      <h3>A. 完全找不到主機</h3>
+      <h3 id="discovery">A. 完全找不到主機</h3>
       <ol>
         <li>手機是否在<strong>家中 Wi‑Fi</strong>？（行動數據通常掃不到僅 IPv4 的家用電腦）</li>
         <li>是否同一網路？（訪客 Wi‑Fi／VPN 可能隔離裝置）</li>
@@ -32,7 +32,7 @@
         <li>防火牆：私人網路上允許「檔案和印表機共用」</li>
       </ol>
 
-      <h3>B. 看得到主機，但帳密失敗</h3>
+      <h3 id="auth">B. 看得到主機，但帳密失敗</h3>
       <ol>
         <li>使用 Windows／NAS <strong>登入密碼</strong>，不是 PIN</li>
         <li>Microsoft 帳戶可試 <code>MicrosoftAccount\信箱</code>；或改用本機／NAS 專用帳</li>
@@ -46,7 +46,7 @@
         <li>檔案是否已放進該共用</li>
       </ol>
 
-      <h3>D. 能瀏覽，但上傳／備份失敗（只讀）</h3>
+      <h3 id="readonly">D. 能瀏覽，但上傳／備份失敗（只讀）</h3>
       <ol>
         <li>共用權限需含<strong>變更／讀寫</strong></li>
         <li>Windows 亦檢查 NTFS「安全性」是否允許寫入</li>
@@ -104,6 +104,60 @@
         <li><strong>Windows PC:</strong> follow the <a href="../tailscale/index.html#en">Tailscale guide</a>, then paste <strong>100.x</strong> in the app</li>
         <li>If you already use OpenVPN (or similar) into the LAN, keep the LAN IPv4—no WebDAV/Tailscale needed</li>
       </ol>
+    </section>
+
+
+<section>
+<h2>B. ホストにアクセスできるが、アカウント情報が失敗する</h2>
+<ol><li>使用 <strong>Windows のログインパスワード</strong>、PIN ではなく、Microsoft アカウントのウェブパスワードでもない（もし一致しない場合）。</li><li>Microsoft アカウントで試す：<code>MicrosoftAccount\你的信箱</code>；それでも失敗する場合は、共有用に<strong>ローカルアカウント</strong>を作成する。</li><li>該当ユーザーが「詳細共有 → 権限」に追加されていることを確認する。</li><li>「パスワード保護された共有」がオンになっていることを確認し、パスワード付きのアカウントを入力してください。</li></ol>
+</section>
+<section>
+<h2>C. ログインはできるが、期待したフォルダ／写真が見えない</h2>
+<ol><li><strong>共有名</strong>（Share）が正しく選ばれているか確認し、他のドライブの共有ではないことを確認してください。</li><li>アプリでさらに下の階層に進み、実際に写真を入れているフォルダを選びます。</li><li>ファイルはまだローカルの「このデバイスのみ」のパスにあり、共有フォルダには入っていません。</li></ol>
+</section>
+<section>
+<h2>D. 閲覧は可能だが、アップロード／バックアップに失敗（読み取り専用）</h2>
+<ol><li>共有権限には <strong>変更</strong>（書き込み）を含める必要があり、読み取りだけではいけません。</li><li>NTFS の「セキュリティ」タブでも、そのユーザーがそのフォルダーに書き込みできるようにする必要がある（少数の環境では「共有権限」だけを変更しても不十分）。</li><li>ディスクが満杯でないか、またはフォルダが他のプログラムによってロックされていないか。</li></ol>
+</section>
+<section>
+<h2>E. 外出（行動データ）に接続できない</h2>
+<ol><li><strong>ほとんどの家庭用 PC／NAS はモバイルデータでは本来SMBに接続できません</strong>——まだリモート設定をしていない場合、これは予想される動作です。</li><li><strong>NAS：</strong> <a href="../webdav/index.html#ja">WebDAV 使用手冊</a> に従って HTTPS WebDAV を有効化し、App のリモートアクセスで <strong>WebDAV</strong> を選択し、DDNS／パブリック IP とポートを入力してください。</li><li><strong>Windows PC</strong>（または開けない場合 WebDAV）：<a href="../tailscale/index.html#ja">Tailscale 使用手冊</a> に従って、PC と携帯に Tailscale をインストールし、アプリに PC の <strong><code>100.x</code></strong> を入力してください。</li><li>もしすでに OpenVPN などで自宅のネットワークに接続している場合は、ネットワーク IPv4 が正しいことを確認すればよく、WebDAV／Tailscale を開く必要はありません。</li><li>初回設定 Tailscale：Tailscale から IP をコピーして App に戻った後、まず貼り付けして「Tailscale IP を保存して再試行」を押してください。戻っただけで自動的に接続されることは期待しないでください。</li><li>WebDAV 接続済みだが<strong>サムネイル／カバーの読み込みが遅い</strong>：モバイルデータ下でよく見られる現象（<a href="../webdav/index.html#ja">webdav.md</a> §5「外出体験の期待」を参照）；まずは自宅のアップロード帯域とDDNS／ポートの安定性を確認してください。</li></ol>
+<p class="note">外出する場合は WebDAV（NAS）または Tailscale（Windows）を使用してください。</p>
+</section>
+<section>
+<h2>F. 問題を報告する際は添付してください</h2>
+<p>ご協力いただく際には、以下をご提供ください：</p>
+<ul><li>アプリのバージョン、携帯電話の機種、Androidのバージョン</li><li>保存タイプ：Windows 11 / Synology / QNAP / その他</li><li>現象：スキャンできない / アカウントやパスワードが間違っている / 読み取り専用 / 外出先で接続できない</li><li>リモート方式：なし / WebDAV / Tailscale（ある場合）</li><li>（オプション）設定 → 診断ログをエクスポート</li></ul>
+<p>見：<a href="../客戶問題處理策略.md">客戶問題處理策略</a></p>
+<p>改訂：2026/08/13</p>
+</section>
+    </section>
+
+
+<section>
+<h2>B. 호스트는 보이지만 계정과 비밀번호 실패</h2>
+<ol><li><strong>Windows 로그인 비밀번호</strong>를 사용하세요. PIN이 아니며, Microsoft 계정 웹 비밀번호도 아닙니다(일치하지 않는 경우).</li><li>Microsoft 계정으로 시도: <code>MicrosoftAccount\你的信箱</code>; 그래도 실패하면 <strong>로컬 계정</strong>을 만들어 공유용으로 사용.</li><li>해당 사용자가 '고급 공유 → 권한'에 추가되어 있는지 확인합니다.</li><li>'암호로 보호된 공유'가 켜져 있는지 확인하고, 입력한 계정에 암호가 있는지 확인하세요.</li></ol>
+</section>
+<section>
+<h2>C. 로그인은 할 수 있지만, 예상한 폴더/사진을 볼 수 없음</h2>
+<ol><li><strong>공유 이름</strong>(Share)을 제대로 선택했는지 확인하세요, 다른 드라이브 공유가 아닌지 확인하세요.</li><li>앱에서 한 단계 더 내려가 실제로 사진을 넣은 폴더를 선택합니다.</li><li>파일이 여전히 이 장치의 '이 장치만' 경로에 있으며, 공유 폴더에 넣지 않았는지 여부.</li></ol>
+</section>
+<section>
+<h2>D. 열람은 가능하지만 업로드/백업 실패(읽기 전용)</h2>
+<ol><li>공유 권한에는 <strong>변경</strong>(쓰기)이 포함되어야 하며, 읽기만 있어서는 안 됩니다.</li><li>NTFS '보안' 탭에서도 해당 사용자가 해당 폴더에 쓰기 권한을 허용해야 합니다(일부 환경에서는 '공유 권한'만 변경하는 것으로는 충분하지 않습니다).</li><li>디스크가 가득 찼거나, 폴더가 다른 프로그램에 의해 잠겨 있는지 확인하십시오.</li></ol>
+</section>
+<section>
+<h2>E. 외출(모바일 데이터) 연결 불가</h2>
+<ol><li><strong>대다수 가정용 PC/NAS는 이동 데이터로는 원래 SMB에 연결되지 않습니다</strong>——원격 방식이 아직 설정되지 않았다면, 이것은 예상되는 동작입니다.</li><li><strong>NAS：</strong> <a href="../webdav/index.html#ko">WebDAV 使用手冊</a>에 따라 HTTPS WebDAV를 활성화하고, 앱 원격 액세스에서 <strong>WebDAV</strong>를 선택한 후 DDNS/공용 IP와 포트를 입력하세요.</li><li><strong>Windows PC</strong>（또는 WebDAV를 열 수 없는 경우）：<a href="../tailscale/index.html#ko">Tailscale 使用手冊</a>에 따라 PC와 휴대폰에 Tailscale를 설치하고, 앱에 PC의 <strong><code>100.x</code></strong>를 입력하세요.</li><li>만약 이미 OpenVPN 등으로 집안 네트워크에 연결했다면, 네트워크 IPv4가 정확한지만 확인하면 되고, WebDAV/Tailscale를 다시 열 필요는 없다.</li><li>최초 설정 Tailscale: Tailscale에서 IP를 복사한 후 앱으로 돌아오면, 먼저 붙여넣고 'IP Tailscale 저장 후 재시도'를 눌러야 하며, 돌아오기만 하면 자동으로 연결될 것이라고 기대하지 마세요.</li><li>WebDAV 이미 연결되었으나 <strong>썸네일/커버가 매우 느림</strong>: 모바일 데이터 환경에서 흔히 나타나는 현상(참조 <a href="../webdav/index.html#ko">webdav.md</a> §5『외출 체험 기대』); 먼저 가정의 업로드 대역폭과 DDNS/포트의 안정성을 확인하십시오.</li></ol>
+<p class="note">외출 시 WebDAV(NAS) 또는 Tailscale(Windows)를 사용하세요.</p>
+</section>
+<section>
+<h2>F. 문제 보고 시 첨부 부탁드립니다</h2>
+<p>편리하게 도움을 드리려면 다음을 제공해 주세요:</p>
+<ul><li>앱 버전, 휴대폰 모델, 안드로이드 버전</li><li>저장 유형: Windows 11 / Synology / QNAP / 기타</li><li>현상: 스캔 불가 / 계정 비밀번호 오류 / 읽기 전용 / 외출 시 연결 불가</li><li>원격 방식: 없음 / WebDAV / Tailscale(있는 경우)</li><li>(선택) 설정 → 진단 기록 내보내기</li></ul>
+<p>보기: <a href="../客戶問題處理策略.md">客戶問題處理策略</a></p>
+<p>개정: 2026/08/13</p>
+</section>
     </section>
 
 

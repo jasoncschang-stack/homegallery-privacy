@@ -2,9 +2,9 @@
 
 | Item | Value |
 |------|------|
-| Manual version | 1.48 |
-| App version | 1.2.3 |
-| Written | 2026/09/20 |
+| Manual version | 1.49 |
+| App version | 1.2.4 |
+| Written | 2026/09/27 |
 
 ---
 
@@ -879,7 +879,7 @@ This is an **Android 11+ system limit**. The app cannot get a tree grant for the
 
 Under **More → About** (or **More → Settings → About**) you can see:
 
-- Version (currently **1.2.3**; trust **About** in the app)
+- Version (currently **1.2.4**; trust **About** in the app)
 - Build date
 - **User guide** (this online manual: https://jasoncschang-stack.github.io/homegallery-privacy/help/)
 - Report a problem
@@ -887,4 +887,4 @@ Under **More → About** (or **More → Settings → About**) you can see:
 
 Settings → **Support** opens the same guide.
 
-This public guide matches App **1.2.3** and manual **1.48**.
+This public guide matches App **1.2.4** and manual **1.49**.

@@ -94,7 +94,7 @@ App entry points (after deploy): **About → User guide**, **Settings → Suppor
 
 Setup pages under `help/setup/` add `ja.html` / `ko.html` (and `#ja` / `#ko` sections) via `_build_setup_locales.py`; screenshots reuse the English folders (`windows-11-en/`, `app-en/`).
 
-**Current public guide:** App **1.2.3** · manual **1.48** (2026-09-20), including backup-zone browse, JA/KO, and WebDAV system-trust + TOFU pinning. Deploy Pages after merging this revision.
+**Current public guide:** App **1.2.4** · manual **1.49** (2026-09-27), including local SVG dedupe and store-narrative refresh; JA/KO and WebDAV trust from 1.2.3. Deploy Pages after merging this revision.
 
 Do **not** push `/help/` while a store-review build is pending if the in-repo manual already describes features that build does not ship. After a production release, regenerate and push so Pages matches the store APK.
 
