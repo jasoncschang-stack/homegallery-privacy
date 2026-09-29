@@ -363,7 +363,7 @@ TEMPLATE = """<!DOCTYPE html>
     <header>
       <h1>Home Gallery User Guide</h1>
       <p class="meta">家相簿／Home Gallery · Package <code>com.jasoncs.homegallery</code></p>
-      <p class="meta"><strong>Updated:</strong> 2026-09-27 · App <strong>1.2.4</strong> · Manual <strong>1.49</strong></p>
+      <p class="meta"><strong>Updated:</strong> 2026-09-29 · App <strong>1.2.5</strong> · Manual <strong>1.50</strong></p>
       <p class="meta"><strong>Contact:</strong> <a href="mailto:jasoncs311@gmail.com">jasoncs311@gmail.com</a></p>
       <div class="langs">
         <a href="#en">English</a>
