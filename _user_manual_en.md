@@ -1,9 +1,9 @@
-# Home Gallery User Manual
+﻿# Home Gallery User Manual
 
 | Item | Value |
 |------|------|
-| Manual version | 1.49 |
-| App version | 1.2.4 |
+| Manual version | 1.50 |
+| App version | 1.2.5 |
 | Written | 2026/09/27 |
 
 ---
@@ -352,7 +352,8 @@ Being on the list means the app **opens the file as video**. It does **not** gua
 | Often Media3 | Local and home `.mp4`, `.mkv`, `.webm`, and similar; a short codec probe may run before play |
 | Often libVLC | `.mov`, `.qt`, `.avi`, `.wmv`, `.flv`, `.mpg`, `.vob`, `.rm` / `.rmvb`, `.swf`, `.ts`, `.m2ts`, or codecs that are hard to hardware-decode |
 | If neither works | Open with another system app |
-| Local swipe | From the local gallery / timeline, swipe left / right to the previous / next video in the list (Media3 path) |
+| Local swipe | From the local gallery / timeline, swipe left / right to the previous / next video in the list |
+| Home swipe | From a home folder / timeline, swipe left / right across videos in the current list (playlist browse starts from the beginning; no resume dialog) |
 | End of clip | **Replay** appears on the control bar |
 | Network buffer | Home streams may buffer on first play; some formats or a subtitle file in the same folder may use a more stable stream path |
 | Subtitles / resume / bookmarks / PiP | Same-folder `.srt` / `.vtt` can be chosen on the player. Resume / bookmarks are under **Bookmarks**. **Picture-in-picture still mainly uses local Media3** |
@@ -879,7 +880,7 @@ This is an **Android 11+ system limit**. The app cannot get a tree grant for the
 
 Under **More → About** (or **More → Settings → About**) you can see:
 
-- Version (currently **1.2.4**; trust **About** in the app)
+- Version (currently **1.2.5**; trust **About** in the app)
 - Build date
 - **User guide** (this online manual: https://jasoncschang-stack.github.io/homegallery-privacy/help/)
 - Report a problem
@@ -887,4 +888,4 @@ Under **More → About** (or **More → Settings → About**) you can see:
 
 Settings → **Support** opens the same guide.
 
-This public guide matches App **1.2.4** and manual **1.49**.
+This public guide matches App **1.2.5** and manual **1.50**.
