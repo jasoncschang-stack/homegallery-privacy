@@ -10,7 +10,7 @@
 
 ## 1. Introduction
 
-**Home Gallery** (家相簿) is an Android photo and video manager for **on-device** media and **home storage** (NAS / PC over SMB). **You choose the space—no extra cloud capacity to buy.** Use the disks you already have; photos stay in storage you control.
+**Home Gallery** is an Android photo and video manager for **on-device** media and **home storage** (NAS / PC over SMB). **You choose the space—no extra cloud capacity to buy.** Use the disks you already have; photos stay in storage you control.
 
 - Browse and manage photos and videos in the **local gallery**
 - Connect **home albums** to shared folders on a NAS / PC (each card is one host + one share + one folder)
