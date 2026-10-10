@@ -3,8 +3,8 @@
 | Item | Value |
 |------|------|
 | Manual version | 1.50 |
-| App version | 1.2.5 |
-| Written | 2026/09/27 |
+| App version | 1.2.6 |
+| Written | 2026/10/10 |
 
 ---
 
